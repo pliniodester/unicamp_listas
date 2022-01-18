@@ -1,0 +1,390 @@
+
+\begin{questions}
+
+% 10.1  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{3}
+\question{
+Encontre o resíduo de $f$ em $z = 0$ para os seguintes casos:
+    \begin{multicols}{2}
+    \begin{enumerate}[label=(\alph*)]
+      \item $\displaystyle f(z) = \frac{1}{z+z^2}$;
+      \item $\displaystyle f(z) = z\cos\left(\frac{1}{z}\right)$;
+      \item $\displaystyle f(z) = \frac{z - \sin z}{z}$;
+      \item $\displaystyle f(z) = \frac{\sinh z}{z^4(1 - z^2)}$.
+   \end{enumerate}
+\end{multicols}
+}
+%
+\begin{solution}
+\begin{enumerate}[label=(\alph*)]
+    \item Como o polo é simples, então $\displaystyle \Res_{z=0} \frac{1}{z^2+z} = \left.\frac{1}{2z+1}\right|_{z=0} \!= 1$.
+
+    \item Sabemos que $\displaystyle f(z) = z - \frac{1/z}{2!} + \cdots$. Logo,
+    $\displaystyle \Res_{z=0} z\cos\left(\frac{1}{z}\right) = \frac{1}{2}$.
+    
+    \item Como $\displaystyle f(z) = \frac{z - z + z^3/3! - \cdots}{z} = \frac{z^2}{6} + \cdots$. Portanto, $\displaystyle \Res_{z=0} \frac{z - \sin z}{z} = 0$.
+    
+    \item Como 
+    \begin{align*}
+        f(z) &= \frac{z + z^3/3! + \cdots}{z^4(1 - z^2)}
+            = \left( \frac{1}{z^3} + \frac{1}{3! z} + \cdots \right) \left(1 + z^2 + \cdots \right)
+            = \frac{1}{z^3} + \left(1+\frac{1}{3!}\right)\frac{1}{z}+\cdots.
+    \end{align*}
+    Então, $\displaystyle \Res_{z=0} \frac{\sinh z}{z^4(1 - z^2)} = \frac{7}{6}$.
+\end{enumerate}
+\end{solution}
+
+% 10.2 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{2}
+\question{
+Em cada um dos itens abaixo, escreva a parte principal da função em seu ponto singular isolado e classifique esta singularidade.
+\begin{multicols}{2}
+    \begin{enumerate}[label=(\alph*)]
+      \item $\displaystyle f(z) = z \exp\left(\frac{1}{z}\right)$;
+      %\item $\displaystyle f(z) = \frac{z^2}{z+1}$;
+      \item $\displaystyle f(z) = \frac{\sin z}{z}$;
+      \item $\displaystyle f(z) = \frac{\cos z}{z}$;
+      \item $\displaystyle f(z) = \frac{1}{(2-z)^3}$.
+   \end{enumerate}
+\end{multicols}
+}
+%
+\begin{solution}
+\begin{enumerate}[label=(\alph*)]
+    \item $\displaystyle f(z) = z \exp\left(\frac{1}{z}\right) = \sum_{n=0}^\infty \frac{z^{-n+1}}{n!} = z + 1 + \sum_{n=1}^\infty \frac{1}{(n+1)!\,z^n}$. Dessa forma, o ponto $z=0$ é uma singularidade essencial.
+    %\item $\displaystyle f(z) = \frac{z^2}{z+1}$;
+    \item $\displaystyle f(z) = \frac{\sin z}{z} = 1 + \frac{z^2}{3!} + \cdots$. Portanto, $z=0$ é uma singularidade removível.
+    \item $\displaystyle f(z) = \frac{\cos z}{z} = \frac{1}{z} + \frac{z}{2} + \cdots$. Portanto, $z=0$ é um polo simples.
+    \item $\displaystyle f(z) = \frac{1}{(2-z)^3}$. O ponto $z=2$ é um polo de ordem 3.
+\end{enumerate}
+\end{solution}
+
+% 10.3 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{8}
+\question{
+Mostre que qualquer ponto singular de cada uma das funções abaixo é um polo. Determine a sua ordem e o resíduo correspondente.
+    \begin{multicols}{3}
+    \begin{enumerate}[label=(\alph*)]
+      \item $\displaystyle f(z) = \frac{1 - \cosh z}{z^3}$;
+      %\item $\displaystyle f(z) = \frac{z^2}{z+1}$;
+      \item $\displaystyle f(z) = \frac{1 - e^{2z}}{z^4}$;
+      \item $\displaystyle f(z) = \frac{e^{2z}}{(z-1)^2}$;
+      \item $\displaystyle f(z) = \frac{z^2 + 2}{z-1}$;
+      \item $\displaystyle f(z) = \left(\frac{z}{2z + 1}\right)^3$;
+      \item $\displaystyle f(z) = \frac{e^{z}}{z^2 + \pi^2}$.
+   \end{enumerate}
+\end{multicols}   
+}
+%
+\begin{solution}
+    \begin{enumerate}[label=(\alph*)]
+      \item $\displaystyle f(z) = \frac{-z^2/2! - z^4/4! - \cdots}{z^3} = - \frac{1}{2z} - \frac{z}{24} - \cdots$. Logo, $\Res_{z=0} f(z) = -1/2$.
+      
+      %\item $\displaystyle f(z) = \frac{z^2}{z+1}$;
+      \item $\displaystyle f(z) = -\frac{2z + 4z^2/2! + 8z^3/3! + \cdots}{z^4} = -\frac{2}{z^3} - \frac{2}{z^2} - \frac{4}{3z} + \cdots$. Logo, $\Res_{z=0} f(z) = -4/3$.
+      
+      \item Como $\phi(z) = e^{2z}$ é analítica, temos que $\displaystyle \Res_{z=1} f(z) = \phi'(1) = 2 e^2$.
+      
+      \item $\displaystyle \Res_{z=1} \frac{z^2 + 2}{z-1} = \left.(z^2+2)\right|_{z+1} = 3$.
+      
+      \item $\displaystyle f(z) = \frac{(z/2)^3}{(z + 1/2)^3}$. Como $\phi(z) = z^3/8$ é analítica e o ponto $z=-1/2$ é polo triplo.\\
+      Então, $\displaystyle \Res_{z=-1/2} f(z) = \frac{\phi''(-1/2)}{2!} = \frac{6(-1/2)}{16} = -\frac{3}{16}$.
+      
+      \item $\displaystyle \Res_{z=i\pi} \frac{e^{z}}{z^2 + \pi^2} = \left. \frac{e^{z}}{2z} \right|_{z=i\pi} = \frac{-1}{2i\pi} = \frac{i}{2\pi}$,\\
+      $\displaystyle \Res_{z=-i\pi} \frac{e^{z}}{z^2 + \pi^2} = \left. \frac{e^{z}}{2z} \right|_{z=-i\pi} = \frac{-1}{-2i\pi} = \frac{-i}{2\pi}$.
+   \end{enumerate}
+\end{solution}
+
+% 10.4 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{6}
+\question{
+Suponha que uma função $f$ seja analítica em $z_0$ e defina
+\[
+    g(z) = \frac{f(z)}{z-z_0}.
+\]
+Mostre que
+\begin{enumerate}[label=(\alph*)]
+  \item se $f(z_0) \neq 0$, então $z_0$ é um polo simples de $g$, com resíduo $f(z_0)$;
+  \item se $f(z_0) = 0$, então $z_0$ é uma singularidade removível de $g$.
+\end{enumerate}
+}
+%
+\begin{solution}
+    Se $f$ é analítica em $z_0$, então existe $R>0$ tal que
+    \[f(z) = \sum_{n=0}^\infty \frac{f^{(n)}(z_0)}{n!}\,(z-z_0)^n, \quad |z-z_0| < R.\]
+    Dessa forma,
+\begin{enumerate}[label=(\alph*)]
+    \item se $f(z_0) \neq 0$, então
+    \begin{align*}
+        g(z) = \frac{f(z_0)}{z-z_0} + \underbrace{f'(z_0) + \frac{f''(z_0)}{2}(z-z_0) + \cdots}_{\text{função analítica em }z_0}, \quad |z-z_0| < R,
+    \end{align*}
+    e, portanto, $z_0$ é um polo simples e $\Res_{z=z_0} g(z) = f(z_0)$.
+    
+    \item se $f(z_0) = 0$, então
+    \begin{align*}
+        g(z) = f'(z_0) + \frac{f''(z_0)}{2}(z-z_0) + \cdots, \quad |z-z_0| < R,
+    \end{align*}
+    pode ser extendida analiticamente em $z_0$ por $g(z_0) = f'(z_0)$ e, portanto, $z_0$ é uma singularidade removível de $g$.
+\end{enumerate}
+\end{solution}
+
+
+% 10.5  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{8}
+\question{
+Use o Teorema dos Resíduos para calcular as seguintes integrais, sendo C o círculo positivamente orientado $|z| = 3$.
+\begin{multicols}{4}
+    \begin{enumerate}[label=(\alph*)]
+      \item $\displaystyle \oint_C \frac{e^{-z}}{z^2} \d z$;
+      \item $\displaystyle \oint_C \frac{e^{-z}}{(z-1)^2} \d z$;
+      \item $\displaystyle \oint_C z^2 \exp\left(\frac{1}{z}\right) \d z$;
+      \item $\displaystyle \oint_C \frac{z+1}{z^2 - 2z} \d z$.
+   \end{enumerate}
+\end{multicols}
+}
+%
+\begin{solution}
+    \begin{enumerate}[label=(\alph*)]
+      \item $\displaystyle \oint_C \frac{e^{-z}}{z^2} \d z = 2\pi i \Res_{z=0} \frac{e^{-z}}{z^2} = -2 \pi i$;
+      \item $\displaystyle \oint_C \frac{e^{-z}}{(z-1)^2} \d z = 2\pi i \Res_{z=1} \frac{e^{-z}}{(z-1)^2} = -\frac{2\pi}{e} i$;
+      \item $\displaystyle \oint_C z^2 \exp\left(\frac{1}{z}\right) \d z = 2\pi i \Res_{z=0} \left(z^2 + z + \frac{1}{2!} + \frac{1}{3! z} + \cdots \right) = \frac{\pi}{3} i$;
+      \item $\displaystyle \oint_C \frac{z+1}{z^2 - 2z} \d z = 2\pi i\left( \Res_{z=0} \frac{z+1}{z^2 - 2z} + \Res_{z=2}\frac{z+1}{z^2 - 2z} \right) = 2\pi i\left( \left.\frac{z+1}{2z - 2}\right|_{0} + \left.\frac{z+1}{2z - 2}\right|_{2} \right) = 2\pi i$.
+   \end{enumerate}
+\end{solution}
+
+% 10.6 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{7}
+\question{
+Calcule o valor da integral
+\[
+\oint_C \frac{3z^3 + 2}{(z-1)(z^2 + 9)} \d z,
+\]
+tomado no sentido anti-horário em torno dos círculos (a) $|z-2| = 2$ e (b) $|z| = 4$.
+}
+%
+\begin{solution}
+    Os polos são $1$, $3i$ e $-3i$ e todos são simples.
+    \begin{enumerate}[label=(\alph*)]
+        \item O interior do círculo centrado em 2 e raio 2 contém apenas o polo em $1$. Dessa forma, pelo Teorema dos Resíduos temos que
+        \begin{align*}
+            \oint_C \frac{3z^3 + 2}{(z-1)(z^2 + 9)} \d z
+                = 2\pi i\Res_{z=1} \frac{3z^3 + 2}{(z-1)(z^2 + 9)}
+                = 2\pi i\left.\frac{3z^3 + 2}{z^2 + 9} \right|_{z=1}
+                = \pi i.
+        \end{align*}
+        \item O interior do círculo centrado na origem e raio 4 contém todos os polos. Dessa forma, pelo Teorema dos Resíduos temos que
+        \begin{align*}
+            \oint_C \frac{3z^3 + 2}{(z-1)(z^2 + 9)} \d z
+                &= 2\pi i \left(\Res_{z=1} f(z) + \Res_{z=3i} f(z) + \Res_{z=-3i} f(z) \right) \\
+                &= 2\pi i \left(\left.\frac{3z^3 + 2}{z^2 + 9} \right|_{1} + \left.\frac{3z^3 + 2}{(z-1)(z+3i)} \right|_{3i} + \left.\frac{3z^3 + 2}{(z-1)(z-3i)} \right|_{-3i} \right)\\
+                &= 6 \pi i.
+        \end{align*}
+    \end{enumerate}
+\end{solution}
+
+% 10.7 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{7}
+\question{
+Calcule o valor da integral
+\[
+\oint_C \frac{1}{z^3(z+4)} \d z,
+\]
+tomado no sentido anti-horário em torno dos círculos (a) $|z| = 2$ e (b) $|z+2| = 3$.
+}
+\begin{solution}
+    Temos um polo de ordem 3 na origem e um polo simples em $-4$.
+    \begin{enumerate}[label=(\alph*)]
+        \item O interior do círculo centrado na origem e raio $2$ contém apenas o polo em $0$. Dessa forma, pelo Teorema dos Resíduos temos que
+        \begin{align*}
+            \oint_C \frac{1}{z^3(z+4)} \d z
+                = 2\pi i \Res_{z=0} \left( \frac{1}{z^3} - \frac{1}{16z^2} + \frac{1}{64z} + \cdots \right)
+                = \frac{\pi i}{32}.
+        \end{align*}
+        \item O interior do círculo centrado em $-2$ e raio $3$ contém todos os polos. Dessa forma, usando o princípio da deformação de caminho podemos pegar um círculo suficientemente grande e pelo Lema de Jordan segue que
+        \begin{align*}
+            \oint_C \frac{1}{z^3(z+4)} \d z = 0.
+        \end{align*}
+    \end{enumerate}
+\end{solution}
+
+% 10.8 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{7}
+\question{
+Calcule o valor da integral
+\[
+    \oint_C \frac{\cosh \pi z}{z(z^2 + 1)} \d z,
+\]
+sendo $C$ o círculo $|z| = 2$ orientado positivamente.
+}
+\begin{solution}
+    Temos polos simples em $0$,$i$ e $-i$. O interior do círculo centrado na origem e raio $2$ contém todos os polos. Usando o Teorema do Resíduo, temos que
+    \begin{align*}
+        \oint_C \frac{\cosh \pi z}{z(z^2 + 1)} \d z
+            &= 2\pi i \left(\Res_{z=0} \frac{\cosh \pi z}{z(z^2 + 1)} + \Res_{z=i} \frac{\cosh \pi z}{z(z^2 + 1)} + \Res_{z=-i} \frac{\cosh \pi z}{z(z^2 + 1)} \right) \\
+            &= 2\pi i \left(\left.\frac{\cosh \pi z}{z^2 + 1}\right|_{z=0} + \left.\frac{\cosh \pi z}{z(z + i)}\right|_{z=i} + \left.\frac{\cosh \pi z}{z(z - i)}\right|_{z=-i} \right) \\
+            &= 4 \pi i.
+    \end{align*}
+\end{solution}
+
+% 10.9 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{13}
+\question{
+Mostre que o ponto $z = 0$ é um polo simples de $f(z) = \csc z = \frac{1}{\sin z}$ e que $\Res_{z = 0} f(z) = 1$.
+}
+%
+\begin{solution}
+    Sabemos que
+    \begin{align*}
+        f(z) = \frac{1}{z+z^3/3!+\cdots} = \frac{1}{z(1+z^2/6+\cdots)}, \quad |z|>0.
+    \end{align*}
+    Logo,\vspace{-5mm}
+    \begin{align*}
+        \Res_{z = 0} f(z) = \left.\frac{1}{1+z^2/6+\cdots}\right|_{z=0} = 1.
+    \end{align*}
+\end{solution}
+
+% 10.10 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{7}
+\question{
+Seja $C$ o círculo positivamente orientado $|z| = 2$. Calcule o valor das integrais
+\begin{multicols}{2}
+    \begin{enumerate}[label=(\alph*)]
+      \item $\displaystyle \oint_C \tan z \d z$;
+      \item $\displaystyle \oint_C \frac{1}{\sinh 2z} \d z$.
+   \end{enumerate}
+\end{multicols}
+}
+%
+\begin{solution}
+\begin{enumerate}[label=(\alph*)]
+    \item Os polos de $\tan$ estão em $(1+2k)\pi/2$, $k\in\Z$, e são simples.
+    Portanto, o interior de $C$ contém apenas os polos em $\pm\pi/2$. Logo, pelo Teorema dos Resíduos, temos que
+    \begin{align*}
+        \oint_C \tan z\,\d z 
+            &= 2\pi i \left(\Res_{z=\pi/2}\tan z + \Res_{z=-\pi/2} \tan z\right) \\
+            &= 2\pi i \left(\left.\frac{\sin z}{(\cos z)'}\right|_{z=\pi/2} + \left.\frac{\sin z}{(\cos z)'}\right|_{z=-\pi/2} \right)\\
+            &= -4\pi i.
+    \end{align*}
+    
+    \item Os polos de $\sinh(2z)$ estão em $k \pi i/2$, $k\in\Z$, e são simples.
+    Portanto, o interior de $C$ contém apenas os polos em $\pm i \pi/2$. Logo, pelo Teorema dos Resíduos, temos que
+    \begin{align*}
+        \oint_C \frac{1}{\sinh 2z}\,\d z 
+            &= 2\pi i \left(\Res_{z=\pi/2}\frac{1}{\sinh 2z} + \Res_{z=-\pi/2} \frac{1}{\sinh 2z}\right) \\
+            &= 2\pi i \left( \left.\frac{1}{(\sinh 2z)'}\right|_{z=i\pi/2} + \left.\frac{1}{(\sinh 2z)'}\right|_{z=-i\pi/2} \right)\\
+            &= -2\pi i.
+    \end{align*}
+\end{enumerate}
+\end{solution}
+
+% 10.11 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{15}
+\question{
+Mostre que 
+\[
+    \oint_C \frac{1}{(z^2-1)^2 + 3} \d z = \frac{\pi}{2\sqrt{2}},
+\]
+sendo $C$ o contorno positivamente orientado do retângulo com fronteiras dadas por $x = \pm 2$, $y = 0$ e $y = 2$.
+}
+%
+\begin{solution}
+    O contorno $C$ engloba apenas os polos simples $(\pm\sqrt{3}+i)/\sqrt{2}$. Assim, pelo Teorema dos Resíduos, temos que
+    \begin{align*}
+        \oint_C \frac{1}{(z^2-1)^2 + 3} \d z 
+            &= 2\pi i \left( \Res_{z=(\sqrt{3}+i)/\sqrt{2}} \frac{1}{(z^2-1)^2 + 3} + \Res_{z=(-\sqrt{3}+i)/\sqrt{2}} \frac{1}{(z^2-1)^2 + 3} \right)\\
+            &= 2\pi i \left( \left. \frac{1}{4z(z^2-1)} \right|_{(\sqrt{3}+i)/\sqrt{2}} + \left. \frac{1}{4z(z^2-1)} \right|_{(-\sqrt{3}+i)/\sqrt{2}} \right) \\
+            &= \frac{\pi}{2\sqrt{2}}.
+    \end{align*}
+\end{solution}
+
+% 10.12 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{17}
+\question{
+Seja $-1<a<1$. Use o método dos resíduos para mostrar que
+\begin{multicols}{2}
+    \begin{enumerate}[label=(\alph*)]
+      \item $\displaystyle \int_{-\infty}^{+\infty} \frac{1}{x^4 + 1} \d x = \frac{\pi}{\sqrt{2}}$;
+      \item $\displaystyle \int_0^{\infty} \frac{1}{x^4 + x^2 + 1} \d x = \frac{\pi}{2\sqrt{3}}$;
+      \item $\displaystyle \int_{-\infty}^{+\infty} \frac{1}{(x^2 + 1)(x^4 + 1)} \d x = \frac{\pi}{2}$;
+      \item $\displaystyle \int_{-\infty}^{+\infty} \frac{1}{(x^2 + 1)^3} \d x = \frac{3\pi}{8}$;
+      \item $\displaystyle \int_{-\infty}^{+\infty} \frac{e^x}{e^{2x} + 1} \d x = \frac{\pi}{2}$;
+      \item $\displaystyle \int_{-\infty}^{+\infty} \frac{1}{3e^{x} + e^{-x}} \d x = \frac{\pi}{2\sqrt{3}}$;
+      \item $\displaystyle \int_{0}^{2\pi} \frac{1}{5 + 4\sin\theta} \d \theta = \frac{2\pi}{{3}}$;
+      \item $\displaystyle \int_{-\pi}^{\pi} \frac{1}{1 + \sin^2\theta} \d \theta = \sqrt{2}\pi$;
+      \item $\displaystyle \int_{0}^{2\pi} \frac{1}{1 + a\cos\theta} \d \theta = \frac{2\pi}{\sqrt{1-a^2}}$;
+      \item $\displaystyle \int_{0}^{\pi} \frac{\cos 2\theta}{1 - 2a \cos\theta + a^2} \d \theta = \frac{a^2\pi}{1 - a^2}$.
+   \end{enumerate}
+\end{multicols}
+}
+%
+\begin{solution}
+\begin{enumerate}[label=(\alph*)]
+      \item Para esse item vamos integrar sobre a curva fechada e positivamente orientada $C_R = [-R,R] \cup \Gamma_R$, $R>0$. Onde, $\Gamma_R = \{z\in\C \mid z = R e^{i\theta}, \theta\in(0,\pi)\}$.
+      Dessa forma,
+      \begin{align*}
+        \int_{C_R} \frac{\d z}{z^4 + 1} = \int_{[-R,R]} \frac{\d z}{z^4 + 1} + \int_{\Gamma_R} \frac{\d z}{z^4 + 1}.
+      \end{align*}
+      Pelo Lema de Jordan $\displaystyle \lim_{R\to\infty} \int_{\Gamma_R} \frac{\d z}{z^4 + 1} = 0$. Como a integral a ser calculada é absolutamente convergente, então $\displaystyle \lim_{R\to\infty} \int_{[-R,R]} \frac{\d z}{z^4 + 1} = \rm{VP} \int_{-\infty}^{+\infty} \frac{\d x}{x^4 + 1} = \int_{-\infty}^{+\infty} \frac{\d x}{x^4 + 1}$.\\
+      Portanto, pelo Teorema dos Resíduos e sabendo que o interior de $C_R$ contém os polos em $e^{i \pi/4}$ e $ e^{i 3\pi/4}$, temos que
+      \begin{align*}
+          \int_{-\infty}^{+\infty} \frac{\d x}{x^4 + 1} &= \lim_{R\to\infty}\int_{C_R} \frac{\d z}{z^4 + 1}\\
+            &= 2\pi i \left( \Res_{z = e^{i \pi/4}}  \frac{1}{z^4 + 1} + \Res_{z = e^{i 3\pi/4}}  \frac{1}{z^4 + 1} \right) \\
+                &= 2\pi i \left( \left. \frac{1}{4z^3} \right|_{z=e^{i \pi/4}} + \left. \frac{1}{4z^3} \right|_{z=e^{i 3\pi/4}} \right) \\
+                &= 2\pi i \left( \frac{-1-i}{4\sqrt{2}} + \frac{1-i}{4\sqrt{2}} \right) = \frac{\pi}{\sqrt{2}}.
+      \end{align*}
+
+      \item $\displaystyle \int_0^{\infty} \frac{1}{x^4 + x^2 + 1} \d x = \frac{\pi}{2\sqrt{3}}$;
+      
+      \item $\displaystyle \int_{-\infty}^{+\infty} \frac{1}{(x^2 + 1)(x^4 + 1)} \d x = \frac{\pi}{2}$;
+      
+      \item $\displaystyle \int_{-\infty}^{+\infty} \frac{1}{(x^2 + 1)^3} \d x = \frac{3\pi}{8}$;
+      
+      \item Para esse item vamos integrar sobre a curva fechada e positivamente orientada $C_L = \Gamma_1 \cup \Gamma_2 \cup \Gamma_3 \cup \Gamma_4$, $L>0$. Onde, $\Gamma_1 = [-L,L]$, $\Gamma_2 = \{z\in\C \mid z = L + iy, y\in(0,\pi)\}$, $\Gamma_3 = \{z\in\C \mid z = -x + i\pi, x\in(-L,L)\}$ e $\Gamma_4 = \{z\in\C \mid z = -L - iy, y\in(-\pi,0)\}$.
+      Dessa forma, temos que
+      \begin{align*}
+        \int_{C_L} \frac{e^z}{e^{2z} + 1} \d z = \int_{\Gamma_1} \frac{e^z}{e^{2z} + 1} \d z + \int_{\Gamma_2} \frac{e^z}{e^{2z} + 1} \d z + \int_{\Gamma_3} \frac{e^z}{e^{2z} + 1} \d z + \int_{\Gamma_4} \frac{e^z}{e^{2z} + 1} \d z.
+      \end{align*}
+      Na aula vimos que $\displaystyle \lim_{L\to\infty} \int_{\Gamma_2} \frac{e^z}{e^{2z} + 1} \d z = \lim_{L\to\infty} \int_{\Gamma_4} \frac{e^z}{e^{2z} + 1} \d z = 0$.
+    Ademais, como a integral real é absolutamente convergente, temos também que
+    \begin{align*}
+    \lim_{L\to\infty} \int_{\Gamma_1} \frac{e^z}{e^{2z} + 1} \d z = \mathrm{VP}\int_{-\infty}^{+\infty} \frac{e^x}{e^{2x} + 1} \d x = \int_{-\infty}^{+\infty} \frac{e^x}{e^{2x} + 1} \d x.
+    \end{align*}
+    Portanto, 
+    \begin{align*}
+        \int_{C_L} \frac{e^z}{e^{2z} + 1} \d z 
+            &= \int_{\Gamma_1} \frac{e^z}{e^{2z} + 1} \d z + \int_{\Gamma_3} \frac{e^z}{e^{2z} + 1} \d z\\
+            &= \int_{-L}^L \frac{e^x}{e^{2x} + 1} \d x + \int_{-L}^L \frac{e^{-x+i\pi}}{e^{2(-x+i\pi)} + 1} \d x\\
+            &= 2\int_{-L}^L \frac{e^x}{e^{2x} + 1} \d x.
+    \end{align*}
+      Assim, pelo Teorema dos Resíduos e sabendo que o interior de $C_L$ contém o polo em $i\pi/2$ para todo $L>0$, temos que
+      \begin{align*}
+          \int_{-\infty}^{+\infty} \frac{e^x}{e^{2x} + 1} &= \frac{1}{2} \lim_{L\to\infty} \int_{C_L} \frac{e^z}{e^{2z} + 1} \d z \\
+                &= \pi i \left( \Res_{z = i\pi/2} \frac{e^z}{e^{2z} + 1} \right) \\
+                &= \pi i \left( \left. \frac{e^z}{2e^{2z}} \right|_{z=i\pi/2} \right) \\
+                &= \frac{\pi}{2}.
+      \end{align*}
+
+      \item $\displaystyle \int_{-\infty}^{+\infty} \frac{1}{3e^{x} + e^{-x}} \d x = \frac{\pi}{2\sqrt{3}}$;
+      
+      \item $\displaystyle \int_{0}^{2\pi} \frac{1}{5 + 4\sin\theta} \d \theta = \frac{2\pi}{{3}}$;
+      
+      \item Para esse item, vamos fazer a substituição de variável $z=e^{i\theta}$, $\theta\in(-\pi,\pi)$ e, assim, $\d z = i e^{i\theta} \d \theta$, ou seja, $\d\theta = \d z/(iz)$. Assim,
+      \begin{align*}
+        \int_{-\pi}^{\pi} \frac{1}{1 + \sin^2\theta} \d \theta
+            = \oint_C \frac{1}{1 + \left(\frac{z+z^{-1}}{2i}\right)^2} \frac{\d z}{iz} = \oint_C \frac{4 i z}{1 - 6 z^2 + z^4} \d z,
+      \end{align*}
+      onde $C$ é o círculo unitário centrado na origem e, portanto, seu interior contém os polos em $\pm(\sqrt{2}-1)$. Podemos aplicar o Teorema dos Resíduos para calcular a integral.
+      \begin{align*}
+          \int_{-\pi}^{\pi} \frac{1}{1 + \sin^2\theta} \d \theta
+            &= 2\pi i\left( \Res_{z=\sqrt{2}-1} \frac{4 i z}{1 - 6 z^2 + z^4} + \Res_{z=-\sqrt{2}+1} \frac{4 i z}{1 - 6 z^2 + z^4} \right) \\
+            &= 2\pi i \left( -i\frac{\sqrt{2}-1}{2(2-\sqrt{2})} + -i\frac{\sqrt{2}-1}{2(2-\sqrt{2})} \right)\times\frac{2+\sqrt{2}}{2+\sqrt{2}}\\
+            &= \sqrt{2}\pi.
+      \end{align*}
+      
+      \item $\displaystyle \int_{0}^{2\pi} \frac{1}{1 + a\cos\theta} \d \theta = \frac{2\pi}{\sqrt{1-a^2}}$;
+      
+      \item $\displaystyle \int_{0}^{\pi} \frac{\cos 2\theta}{1 - 2a \cos\theta + a^2} \d \theta = \frac{a^2\pi}{1 - a^2}$.
+\end{enumerate}
+\end{solution}
+
+\end{questions}

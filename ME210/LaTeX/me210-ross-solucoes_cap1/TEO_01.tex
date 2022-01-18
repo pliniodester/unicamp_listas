@@ -1,0 +1,60 @@
+\begin{questions}
+
+\setcounter{question}{2}
+\question{
+De quantas maneiras podem $r$ objetos ser
+selecionados de um conjunto de $n$ objetos
+se a ordem de seleção for considerada relevante?
+}
+\begin{solution}
+Seja $r \leq n$, note que o primeiro objeto a ser escolhido pode ser qualquer um dos $n$ objetos, em seguida temos $n-1$ objetos disponíveis para escolha, e assim sucessivamente até selecionarmos $r$ objetos, ou seja, temos
+\[ n\,(n-1) \cdots (n-(r-1)) = \dfrac{n!}{(n-r)!} \]
+maneiras para selecionar os objetos.\\
+Outra forma de resolver, é multiplicar o número de grupos de $r$ objetos pelo número de formas de arranjá-los, \textit{i.e.}, $\binom{n}{r}\,r!$.
+\end{solution}
+
+% % % % % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{7}
+\question{Demonstre que
+\[\binom{n+m}{r} = \binom{n}{0}\binom{m}{r} + \binom{n}{1}
+\binom{m}{r-1}+\cdots+\binom{n}{r}\binom{m}{0}.\]
+\textit{Dica}: Considere um grupo de $n$ homens e
+$m$ mulheres. Quantos grupos de tamanho
+$r$ são possíveis?
+}
+\begin{solution}
+Vamos supor que $n$ e $m$ são maiores ou iguais à $r$. Fica como exercício para o aluno mostrar para os demais casos. Lembre-se da convenção $\binom{n}{k}=0$, quando $k<0$ ou $k>n$.
+\begin{proof}
+Imagine que tenhamos um grupo de $n+m$ indivíduos. Sabemos que é possível selecionar $\binom{n+m}{r}$ grupos diferentes de tamanho $r$. Por outro lado, se pensarmos que temos $n$ homens e $m$ mulheres, esses grupos podem conter $0$ homens e $r$ mulheres, ou $1$ homem e $r-1$ mulheres, e assim sucessivamente até $r$ homens e $0$ mulheres. Cada uma dessas configurações tem $\binom{n}{k}\binom{m}{r-k}$ possibilidades de escolha, onde $0\leq k\leq r$ é o número de homens no grupo. Logo, podemos encontrar o número total de escolhas de grupos de tamanho $r$ ao somarmos para todo $k$ inteiro entre $0$ e $r$, o que completa a demonstração.
+\end{proof}
+\end{solution}
+
+% % % % % % % % % % % % % % % % % % % % % % % % %
+\question{Use o Exercício Teórico 1.8 para demonstrar que
+\[\binom{2n}{n} = \sum_{k=0}^{n} \binom{n}{k}^2.\]
+}
+\begin{solution}
+\begin{proof}
+Fazendo $r=m=n$ no 1.8, temos que
+\begin{align*}
+\binom{2n}{n}
+	&= \sum_{k=0}^{n} \binom{n}{k}\binom{n}{n-k}\\
+	&= \sum_{k=0}^{n} \binom{n}{k}^2.
+\end{align*}
+\end{proof}
+\end{solution}
+
+% % % % % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{12}
+\question{Mostre que, para $n > 0$,
+\[\sum_{i=0}^n (-1)^i \binom{n}{i} = 0.\]
+\textit{Dica}: Use o teorema binomial.
+}
+\begin{solution}
+\begin{proof}
+	Pelo teorema binomial,
+    \[0 = (1-1)^n = \sum_{i=0}^n \binom{n}{i} (-1)^i\,1^{n-i} = \sum_{i=0}^n (-1)^i \binom{n}{i}.\]
+\end{proof}
+\end{solution}
+
+\end{questions}

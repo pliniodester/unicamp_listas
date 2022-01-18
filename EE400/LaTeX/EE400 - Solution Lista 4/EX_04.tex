@@ -1,0 +1,266 @@
+
+\begin{questions}
+
+% 4.1  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{1}
+\question{
+Seja $\vec F$ um campo de força dado por $\vec F(x,y) = (x - y)\hat \i + x y \hat \j$. Calcule o trabalho exercido por $\vec F$ ao longo da curva $C$, que é um arco do círculo $x^2 + y^2 = 4$ percorrido em sentido anti-horário de $(2,0)$ para $(0,-2)$.
+}
+\begin{solution}
+    Primeiramente, vamos parametrizar a curva tal que ela seja percorrida por
+    \[
+        \vec r(t) = (2\cos t,2\sin t), \quad t\in[0,3\pi/2].
+    \]
+    Assim, o trabalho exercido por $\vec F$ é dado por
+    \begin{align*}
+    \int_C \vec F(\vec r) \cdot \d \vec r
+        &= \int_0^{3\pi/2} \vec F(\vec r(t)) \cdot \dot{\vec r}(t)\,\d t \\
+        &= \int_0^{3\pi/2} (2\cos t-2\sin t,4\cos t\sin t)\cdot(-2\sin t,2 \cos t)\,\d t \\
+        &= \int_0^{3\pi/2} 2 (-2\sin t\cos t + 2 \sin^2 t + 4 \cos^2 t \sin t)\,\d t \\
+        &= \int_0^{3\pi/2} 2 (-\sin (2 t) + 1 - \cos (2 t) + 4 \cos^2 t \sin t)\,\d t\\
+        &= \left.\left(\cos (2 t) + 2t - \sin (2 t) - \tfrac{8}{3} \cos^3 t\right)\right|_0^{3\pi/2}\\
+        &= \frac{2}{3} + 3\pi.
+    \end{align*}
+\end{solution}
+
+% 4.2 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{2}
+\question{
+Seja $\vec F$ um campo de força dado por $\vec F(x,y) = \frac{x}{\sqrt{x^2 + y^2}}\hat \i + \frac{y}{\sqrt{x^2 + y^2}} \hat \j$. Calcule o trabalho exercido por $\vec F$ ao longo da curva $C$, que é um arco da parábola $y = 1 + x^2$ percorrido de $(0,0)$ para $(1,2)$.
+}
+
+\begin{solution}
+    Em coordenadas cilíndricas é fácil ver que $\nabla \times \vec F = 0$, pois $\vec F = \hat e_r$. Assim, $\vec F$ é um campo conservativo e podemos mostrar que o campo potencial $f(r) = r$ satisfaz $\nabla f = \vec F$.
+    
+    Portanto, o trabalho exercido depende apenas dos pontos inicial $(0,0)$ e final $(1,2)$ e ainda
+    \[
+        \int_C \vec F \cdot \d \vec r = f\left(\sqrt{1^2+2^2}\right)-f(0) = \sqrt{5}.
+    \]
+\end{solution}
+
+% 4.3 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{6}
+\question{
+Determine se cada um dos campos a seguir é conservativo. Em caso afirmativo, encontre uma função $f$ tal que $\vec F = \nabla f$.
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+  \item $\vec F(x,y) = (6x + 5y) \hat \i + (5x + 4y) \hat \j$;
+  \item $\vec F(x,y) = x\euler^y \hat \i + y\euler^x \hat \j$;
+  \item $\vec F(x,y) = \euler^y \hat \i + x\euler^y \hat \j$;
+  \item $\vec F(x,y) = (1 + 2xy + \ln x) \hat \i + x^2 \hat \j$;
+\end{enumerate}
+\end{multicols}
+}
+
+\begin{solution}
+    Seja $\vec F = (P,Q)$. O campo $\vec F$ é conservativo \textit{sse} $\dfrac{\partial Q}{\partial x} = \dfrac{\partial P}{\partial y}$.
+    
+\begin{enumerate}[label=(\alph*)]
+  \item Como $\frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y}$, então podemos encontrar $f$ tal que $\nabla f = \vec F$. No caso, uma solução possível é $f(x,y) = 3x^2+5xy+2y^2$.
+  
+  \item Como $\frac{\partial Q}{\partial x} \neq \frac{\partial P}{\partial y}$, então não existe $f$ tal que $\nabla f = \vec F$.
+  
+  \item Como $\frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y}$, então podemos encontrar $f$ tal que $\nabla f = \vec F$. No caso, uma solução possível é $f(x,y) = x\euler^y$.
+  
+  \item Como $\frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y}$, então podemos encontrar $f$ tal que $\nabla f = \vec F$. No caso, uma solução possível é $f(x,y) = x^2y+x\ln x$.;
+\end{enumerate}
+\end{solution}
+
+% 4.4 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{8}
+\question{
+Calcule as seguintes integrais de linha ao longo de uma curva positivamente orientada:
+\begin{enumerate}[label=(\alph*)]
+  \item $\int_C e^y \d x + 2x e^y \d y$, sendo $C$ o quadrado com lados $x = 0$, $x = 1$, $y = 0$ e $y = 1$;
+  \item $\int_C (y + e^{\sqrt{x}}) \d x + (2x + \cos y^2) \d y$, sendo $C$ a região delimitada pelas parábolas $y = x^2$ e $x = y^2$;
+  \item $\int_C \sin y \d x + x\cos y \d y$, sendo $C$ a elipse $x^2 + xy + y^2 = 1$;
+  \item $\int_C (x^3 - y^3) \d x + (x^3 + y^3) \d y$, sendo $C$ a curva que delimita a região entre os círculos $x^2 + y^2 = 1$ e $x^2 + y^2 = 9$.
+\end{enumerate}
+}
+
+\begin{solution}
+Seja $\vec F = (P,Q)$ um campo vetorial, então satisfeitas as hipóteses do Teorema de Green temos que
+\[
+    \oint_C \vec F \cdot \d \vec r
+        = \oint_C P\,\d x + Q\,\d y
+        = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) \d A.
+\]
+Vamos aplicar isso nos itens do exercício.
+\begin{enumerate}[label=(\alph*)]
+  \item 
+  \[
+    \oint_C \euler^y \d x + 2x \euler^y \d y
+        = \int_0^1\int_0^1 (2\euler^y-\euler^y)\, \d x\,\d y
+        = \euler-1.
+  \]
+  
+  \item
+  \[
+    \oint_C (y + e^{\sqrt{x}}) \d x + (2x + \cos y^2) \d y
+        = \int_0^1 \int_{y^2}^{\sqrt{y}} (2 - 1)\, \d x\, \d y
+        = \frac{1}{3}.
+  \]
+  
+  \item 
+  \[
+  \oint_C \sin y \d x + x\cos y \d y
+    = \iint_D \left( \cos y - \cos y \right) \d A
+    = 0.
+  \]
+  
+  \item 
+  \[
+    \oint_C (x^3 - y^3) \d x + (x^3 + y^3) \d y
+        = \iint_D (3x^2+3y^2) \d A
+        = \int_1^3 \int_0^{2\pi} 3 r^2 r\d \theta \d r
+        = 120\,\pi.
+  \]
+\end{enumerate}
+\end{solution}
+
+% 4.5 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{5}
+\question{
+Calcule $\int_C \vec F \cdot \d \vec r$ para o campo vetorial $\vec F(x,y,z) = (2xz + y^2) \hat \i + 2xy \hat \j + (x^2 + 3z^2) \hat k$ e a curva $C$ dada por $\vec r(t) = (t^2,t+1,2t-1)$, com $t \in [0,1]$.
+}
+
+\begin{solution}
+    Note que o campo $\vec F$ é conservativo, pois $\nabla\times\vec F = 0$.
+    %
+    Portanto, podemos achar uma função potencial $f$ tal que $\nabla f = \vec F$.
+    %
+    De fato, $f(x,y,z) = x^2z+xy^2+z^3$ satisfaz essa condição para todo $x,y,z\in\R$.
+    %
+    Logo,
+    \[
+        \int_C \vec F \cdot \vec r = f(\vec r(1)) - f(\vec r(0)) = 7.
+    \]
+\end{solution}
+
+
+% 4.6  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{7}
+\question{
+Calcule $\int_C \vec F \cdot \d \vec r$ para o campo vetorial $\vec F(x,y,z) = -z \hat \i + 3x \hat \j + 2y \hat k$ e o caminho $C$ definido pelas arestas do triângulo de vértices $(1,0,0)$, $(0,1,0)$ e $(0,0,1)$, percorridos nesta ordem.
+}
+
+\begin{solution}
+    Vamos aplicar o Teorema de Stokes escolhendo a superfície $x+y+z=1$ limitada pelos planos coordenados.
+    \[
+        \oint_C \vec F \cdot \d \vec r
+            = \iint_S (\nabla \times \vec F) \cdot \hat n\,\d S.
+    \]
+    Como $z = 1-x-y$, então
+    \begin{align*}
+        \d S &= \sqrt{1+\left(\frac{\partial z}{\partial x}\right)^2+\left(\frac{\partial z}{\partial y}\right)^2}\d A = \sqrt{3}\,\d A, \\
+        \nabla \times \vec F &= (2,-1,3), \\
+        \hat n &= (1,1,1)/\sqrt{3}.
+    \end{align*}
+    Portanto,
+    \[\oint_C \vec F \cdot \d \vec r = \iint_D (2,-1,3) \cdot \frac{1}{\sqrt{3}}(1,1,1) \sqrt{3}\,\d A = 2,\]
+    onde $D$ é um triângulo de área 1/2.
+\end{solution}
+
+% 4.7 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{5}
+\question{
+Calcule $\oint_C \vec F \cdot \d \vec r$ para o campo vetorial $\vec F(x,y,z) = -2z \hat \i + x \hat \j - x \hat k$, sendo $C$ a elipse definida pela interseção entre $x^2 + y^2 = 1$ e $z = y -1$.
+}
+
+\begin{solution}
+    Vamos aplicar o Teorema de Stokes escolhendo a superfície $z = y-1$ limitada pelo cilindro. Assim, como no exercício anterior
+    \[
+        \oint_C \vec F \cdot \d \vec r
+            = \iint_S (\nabla \times \vec F) \cdot \hat n\,\d S
+            = \iint_D (0,-1,1) \frac{1}{\sqrt{2}} (0,-1,1) \sqrt{2} \,\d A
+            = 2 \pi,
+    \]
+    onde $D$ é uma circunferência de área $\pi$.
+\end{solution}
+
+% 4.9 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{8}
+\question{
+Considere o campo vetorial $\vec F = e^{-\rho}\cos\theta \hat e_\rho +\sin\theta \hat e_\phi + \cos\phi \hat e_\theta$, expresso em coordenadas esféricas. Calcule a integral de linha $\int_C \vec F \cdot \d \vec r$ ao longo da curva $C$ situada sobre a esfera de raio $10$ centrada na origem, descrita pelas equações paramétricas $\rho(t) = 10$, $\phi(t) = t$, $\theta(t) = 2t$, $t \in [\pi/4,\pi/2]$.
+}
+
+\begin{solution}
+Sabemos que
+\begin{align*}
+    \frac{\d \vec r}{\d t} &= \frac{\partial \vec r}{\partial \rho} \frac{\d \rho }{\d t} + \frac{\partial \vec r}{\partial \theta} \frac{\d \theta}{\d t} + \frac{\partial \vec r}{\partial \phi} \frac{\d \phi}{\d t} \\
+        &= 0 \, \hat e_\rho + 2 \rho(t) \sin \phi(t) \, \hat e_\theta + \rho(t) \, \hat e_\phi \\
+        &= 20\sin t \,\hat e_\theta + 10 \,\hat e_\phi.
+\end{align*}
+Assim,
+\begin{align*}
+    \int_C \vec F \cdot \d \vec r
+        &= \int_{\pi/4}^{\pi/2} \vec F(\vec r(t)) \cdot \dot{\vec r}(t) \,\d t\\
+        &= \int_{\pi/4}^{\pi/2} (20 \sin t \cos t + 10 \sin 2t)\,\d t \\
+        &= 20 \int_{\pi/4}^{\pi/2} \sin 2t\,\d t\\
+        &= 10.
+\end{align*}
+\end{solution}
+
+% 4.10 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{8}
+\question{
+Calcule o fluxo do campo vetorial $\vec F = x \hat \i + y \hat \j + z \hat k$ através do cilindro $x^2 + y^2 = 1$, $0 \leq z \leq b$.
+}
+
+\begin{solution}
+Vamos usar o Teorema de Gauss,
+\begin{align*}
+    \iint_S \vec F \cdot \hat n \, \d S = \iiint_E \nabla\cdot\vec F \,\d V
+        = 3 \iiint_E \d V
+        = 3 \pi b,
+\end{align*}
+    onde $E$ é um cilindro de volume $\pi b$.
+\end{solution}
+
+% 4.11 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{8}
+\question{
+Calcule o fluxo do campo vetorial $\vec F = \hat k$ que passa pelo hemisfério superior de $x^2 + y^2 + z^2 = a^2$. Substitua o hemisfério por um disco de raio $a$ no seu equador ($z = 0$). O fluxo é o mesmo? Justifique.
+}
+
+\begin{solution}
+    Podemos usar o Teorema de Stokes para justificar. Como existe um campo vetorial tal que seu rotacional seja igual à $\vec F$ (por exemplo o campo $x\, \hat \j$), então podemos escolher qualquer superfície com a mesma fronteira para fazer o cálculo do fluxo.
+    
+    Nesse caso, o mais simples é sobre o disco de raio $a$, no qual é fácil ver que o fluxo é $\pi a^2$.
+\end{solution}
+
+% 4.12 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{8}
+\question{
+Calcule o fluxo do campo vetorial $\vec F = y^2 \hat \i + z^2 (\hat j + \hat k)$ através da superfíce fechada que delimita o volume definido por $x^2 + y^2 \leq 4$, $x \geq 0$, $y \geq 0$, $|z|\leq 1$.
+}
+
+\begin{solution}
+    Vamos usar o Teorema de Gauss,
+    \begin{align*}
+        \iint_S \vec F \cdot \hat n \, \d S 
+            &= \iiint_E \nabla\cdot\vec F \,\d V \\
+            &= \iiint_E (2y+2z)\,\d V \\
+            &= \int_{-1}^1 \int_0^2 \int_0^{\frac{\pi}{2}} (2r\sin\theta+2z) r\, \d\theta \d r \d z \\
+            &= \frac{32}{3}.
+    \end{align*}
+\end{solution}
+
+% 4.13 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{8}
+\question{
+Seja $\vec F$ o campo vetorial dado por $\vec F(r,\theta,z) = 2r^2 \hat e_r + rz \hat e_z$ e $S$ a superfície fechada definida pelo cone $r = u$, $\theta = v$, $z = u$, com $u \in [0,1]$ e $v \in [0,2\pi]$, e pelo disco de raio unitário contido no plano $z = 1$ e centrado no eixo $z$. Calcule $\Phi = \iint_S \vec F \cdot \d \vec S$.
+}
+
+\begin{solution}
+    Vamos usar o Teorema de Gauss e o divergente em coordenadas cilíndricas,
+    \begin{align*}
+        \iint_S \vec F \cdot \hat n \, \d S 
+            &= \iiint_E \nabla\cdot\vec F \,\d V \\
+            &= \iiint_E \left( \frac{1}{r} \frac{\partial}{\partial r}\left(r\,2r^2\right) + \frac{\partial}{\partial z}\left( rz \right) \right)\,\d V \\
+            &= \int_{0}^1 \int_0^z \int_0^{2\pi} 7r\, r\,\d\theta \d r \d z \\
+            &= \frac{7 \pi}{6}.
+    \end{align*}
+\end{solution}
+
+\end{questions}

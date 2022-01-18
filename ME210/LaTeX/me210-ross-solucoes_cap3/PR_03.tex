@@ -1,0 +1,585 @@
+
+\begin{questions}
+
+% 3.4  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{3}
+\question{Qual é a probabilidade de que pelo menos
+um de um par de dados honestos caia no 6,
+dado que a soma dos dados seja $i$, $i
+= 2,3,\dots,12$?
+}
+\begin{solution}
+	Sejam os eventos $A$ de sair pelo menos um 6 e $B_i$ da soma dos dados ser igual à $i$, temos que
+    \[P(A\mid B_i) = \dfrac{P(A\,B_i)}{P(B_i)}.\]
+    A probabilidade $P(B_i)$ já foi calculada no Problema 2.24. A intersecção de ambos eventos é simples de ser contada. De fato, se $2 \le i \le 6$, então $A\,B_i = \emptyset$, pois não pode ter saído nenhum 6 para a soma ser menor ou igual à 6. Se $7 \le i \le 11$, temos 2 elementos possíveis do espaço amostral: $\{(6,i-6),(i-6,6)\}$. Enfim, se $i = 12$ temos apenas um elemento possível: $\{(6,6)\}$. Com isso é fácil mostrar que
+    \[P(A\mid B_i) = \begin{cases}
+		 0, & 2\leq i\leq 6\\[3mm]
+         \dfrac{2}{13-i}, & 7\leq i\leq 11\\[3mm]
+         1, & i = 12.
+	\end{cases}\]
+\end{solution}
+
+% 3.5  % % % % % % % % % % % % % % % % % % % % %
+\question{Uma urna contém 6 bolas brancas e 9 bolas pretas.
+Se 4 bolas devem ser selecionadas aleatoriamente sem
+devolução, qual é a probabilidade de que as 2 primeiras
+bolas selecionadas sejam brancas e as 2 últimas sejam pretas?
+}
+\begin{solution}
+	Seja $A$ o evento duas primeiras bolas brancas e $B$ o evento duas últimas bolas pretas. Então,
+    \[P(A\,B) = P(B\mid A)\,P(A)
+    	= \dfrac{9\cdot 8}{13\cdot 12}\,\dfrac{6\cdot 5}{15\cdot 14}
+        = \dfrac{6}{91} \approx \text{0,0659}.\]
+\end{solution}
+
+% 3.9  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{8}
+\question{Considere 3 urnas. A urna $A$ contém 2 bolas brancas e 4 bolas vermelhas, a urna $B$ contém 8 bolas brancas e 4 bolas vermelhas, e a urna $C$ contém 1 bola branca e 4 bolas vermelhas. Se 1 bola é selecionada
+de cada urna, qual é a probabilidade de que a bola escolhida da urna $A$ seja branca dado que exatamente 2 bolas brancas tenham sido selecionadas?
+}
+\begin{solution}
+	Seja $E$ o evento selecionar exatamente 2 bolas brancas e $F$ o evento selecionar uma bola branca da urna $A$, então o evento $E\,F$ é selecionar uma bola branca da urna $A$ e exatamente uma bola branca de outra urna. Assim,
+    \[P(F\mid E) = \dfrac{P(E\,F)}{P(E)}
+    	= \dfrac{\frac{2}{6}\frac{8}{12}\frac{4}{5}
+        	+ \frac{2}{6}\frac{4}{12}\frac{1}{5}}
+            {\frac{2}{6}\frac{8}{12}\frac{4}{5}
+        	+ \frac{2}{6}\frac{4}{12}\frac{1}{5}
+            + \frac{4}{6}\frac{8}{12}\frac{1}{5}}
+		= \dfrac{9}{13} \approx \text{0,6923}.\]
+\end{solution}
+
+% 3.10 % % % % % % % % % % % % % % % % % % % % %
+\question{\textit{O enunciado em português está confuso, então usarei o enunciado em inglês:}\\
+Three cards are randomly selected, without
+replacement, from an ordinary deck of 52 playing
+cards. Compute the conditional probability that
+the first card selected is a spade given that the second and third cards are spades.
+}
+\begin{solution}
+	Seja $E$ o evento a primeira carta selecionada é do naipe de espadas e seja $F$ o evento a segunda e terceira cartas selecionadas são de espada. Então, $E\,F$ representa o evento das três cartas serem de espada. Para calcular $P(E)$ separamos em dois casos, o caso que tiramos uma carta de espadas na primeira e o caso onde não tiramos uma carta de espadas na primeira. Enfim, temos
+    \[P(E\mid F) = \dfrac{P(E\,F)}{P(E)}
+    	= \dfrac{\frac{13\cdot 12\cdot 11}{52\cdot 51\cdot 50}}
+        	{\frac{13\cdot 12\cdot 11}{52\cdot 51\cdot 50}
+        	+\frac{39\cdot 13\cdot 12}{52\cdot 51\cdot 50}}
+		= \dfrac{11}{50} = \text{0,22}.\]
+\end{solution}
+
+% 3.12 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{11}
+\question{Uma recém-formada planeja realizar as
+primeiras três provas em atuária no próximo verão.
+Ela fará a primeira prova em dezembro,
+depois a segunda prova em janeiro
+e, se ela passar em ambas, fará a terceira
+prova em fevereiro. Se ela for reprovada
+em alguma prova, então não poderá fazer
+nenhuma das outras. A probabilidade de
+ela passar na primeira prova é de 0,9. Se ela
+passar na primeira prova, então a probabilidade
+condicional de ela passar na segunda prova é de 0,8.
+Finalmente, se ela passar tanto na primeira quanto
+na segunda prova, então a probabilidade condicional de
+ela passar na terceira prova é de 0,7.
+\begin{parts}
+	\part Qual é a probabilidade de ela passar
+em todas as três provas?
+	\part Dado que ela não tenha passado em
+todas as três provas, qual é a probabilidade condicional de ela ter sido
+reprovada na segunda prova?
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part Sejam os eventos $A$, $B$ e $C$ passar na primeira, segunda e terceira prova, respectivamente. Então, usando a fórmula de Bayes, temos
+    \begin{align*}
+    	P(A\,B\,C) &= P(A\,B\,C\mid A\,B) P(A\,B\mid A) P(A)\\
+        	&= P(C\mid B) P(B\mid A) P(A)\\
+            &= \text{0,9}\cdot \text{0,8}\cdot \text{0,7} = \text{0,504}.
+    \end{align*}
+    Note que $P(C\mid B^c) = P(B\mid A^c) = 0$.
+	\part Note que $A\,B^c \subset B^c \subset A^c\cup B^c\cup C^c = (A\,B\,C)^c$. Assim,
+    \begin{align*}
+		P(A\,B^c\mid (A\,B\,C)^c)
+        	&= \dfrac{P(A\,B^c\,(A\,B\,C)^c)}{P((A\,B\,C)^c)}\\
+        	&= \dfrac{P(B^c\mid A) P(A)}{1 - P(A\,B\,C)}\\
+            &= \dfrac{(1-\text{0,8})\cdot \text{0,9}}{1-\text{0,504}}\\
+            &\approx \text{0,363}.
+	\end{align*}
+\end{parts}
+\end{solution}
+
+% 3.15 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{14}
+\question{Uma gravidez ectópica é duas vezes mais
+provável em mulheres fumantes do que
+em mulheres não fumantes. Se 32\% das
+mulheres na idade reprodutiva são fumantes, 
+que percentual de mulheres com
+gravidez ectópica são fumantes?
+}
+\begin{solution}
+	O enunciado da pergunta é equivalente a calcular a probabilidade de uma mulher gravida ser fumante dado que ela tem gravidez ectópica. Seja o evento $A$ a mulher ser fumante e $B$ ela ter gravidez ectópica. Sabemos que ${P(B\mid A) = 2 P(B\mid A^c)}$. Estamos interessados em
+    \begin{align*}
+    	P(A\mid B) 
+        	&= \dfrac{P(A\,B)}{P(B)}\\
+        	&= \dfrac{P(B\mid A)P(A)}{P(B\mid A)P(A) + P(B\mid A^c)P(A^c)}\\
+            &= \dfrac{P(A)}{P(A) + \frac{P(B\mid A^c)}{P(B\mid A)}P(A^c)}\\
+            &= \dfrac{\text{0,32}}{\text{0,32} + \frac{1}{2}(1-\text{0,32})}\\
+            &\approx \text{0,4848}.
+    \end{align*}
+\end{solution}
+
+% 3.16 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{14}
+\question{Noventa e oito por cento de todas as crianças sobrevivem ao parto. Entretanto, 15\% de todos os nascimentos envolvem cesarianas (C), e quando uma cesariana é feita os bebês sobrevivem 96\% dos casos. Se
+uma gestante aleatoriamente selecionada não fez uma cesariana, qual é a probabilidade de que seu bebê sobreviva?
+}
+\begin{solution}
+	Seja $S$ o evento da criança sobreviver e $C$ o evento da grávida fazer cesariana. Estamos interessados na probabilidade
+    \begin{align*}
+    	P(S\mid C^c) 
+        &= \dfrac{P(S\,C^c)}{P(C^c)} = \dfrac{P(S)-P(S\,C)}{1-P(C)}
+    		= \dfrac{P(S)-P(S\mid C)P(C)}{1-P(C)}\\
+        &= \dfrac{\text{0,98}-\text{0,96}\cdot\text{0,15}}{1-\text{0,15}}
+        	\approx \text{0,9835}.
+    \end{align*}
+\end{solution}
+
+% 3.17 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{14}
+\question{Em certa comunidade, 36\% das famílias
+têm um cão e 22\% das famílias que possuem um cão também possuem um gato.
+Além disso, 30\% das famílias têm um gato. Qual é
+\begin{parts}
+	\part a probabilidade de que uma família
+aleatoriamente selecionada tenha
+tanto um cão quanto um gato?
+    \part a probabilidade condicional de que
+uma família aleatoriamente selecionada tenha
+um cão dado que ela também tenha um gato?
+\end{parts}
+}
+\begin{solution}
+Sejam os eventos $C$, $G$ a família ter um cão e um gato, respectivamente.
+\begin{parts}
+	\part $P(C\,G) = P(G\mid C)P(C)
+    	= \text{0,22}\cdot\text{0,36} = \text{0,0792}.$
+    \part $P(C\mid G) = \dfrac{P(C\, G)}{P(G)}
+    	= \dfrac{\text{0,0792}}{\text{0,3}} = \text{0,264}.$
+\end{parts}
+\end{solution}
+
+% 3.19 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{18}
+\question{Um total de 48\% das mulheres e 37\% dos
+homens que fizeram um curso para largar
+o cigarro seguiu sem fumar por pelo menos um ano após o final do curso. Essas
+pessoas frequentaram uma festa de comemoração no final do ano. Se 62\% da
+turma original era de homens
+\begin{parts}
+	\part que percentual daqueles que foram à
+festa era de mulheres?
+    \part que percentual da turma original foi à
+festa?
+\end{parts}
+}
+\begin{solution}
+Sejam os eventos $A$, $H$ uma pessoa escolhida ao acaso da turma original parar de fumar e ser homem, respectivamente.
+\begin{parts}
+	\part ~\vspace{-9mm}
+    \begin{align*}
+    	P(H^c\mid A)
+    	&= \dfrac{P(A\mid H^c)P(H^c)}{P(A\mid H^c)P(H^c)+P(A\mid H)P(H)}\\
+    	&= \dfrac{\text{0,48}\,(1-\text{0,62})}
+        	{\text{0,48}\,(1-\text{0,62})+\text{0,37}\cdot\text{0,62}}\\
+        &\approx \text{0,443}.
+    \end{align*}
+    \part $P(A) = P(A\mid H^c)P(H^c)+P(A\mid H)P(H) = \text{0,412}$.
+\end{parts}
+\end{solution}
+
+% 3.22 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{21}
+\question{Um dado vermelho, um azul e um amarelo (todos com seis lados) são rolados. Estamos interessados na probabilidade de
+que o número que sair no dado azul seja
+menor do que aquele que sair no dado
+amarelo, e que este seja menor do que
+aquele que sair no dado vermelho. Isto
+é, com $B$, $Y$ e $R$ representando, respectivamente, os números que aparecem nos
+dados azul, amarelo e vermelho, estamos
+interessados em $P(B < Y < R)$.
+\begin{parts}
+	\part Qual é a probabilidade de que um mesmo número não saia em dois dados?
+    \part Dado que um mesmo número não saia em dois dos dados, qual é a probabilidade condicional de que $B < Y < R$?
+	\part O que é $P(B < Y < R)?$
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part Seja o evento $D$ não sair dados com o mesmo número,
+    	então ${P(D) = \dfrac{5}{6}\,\dfrac{4}{6} = \dfrac{5}{9}}$.
+    \part Por simetria, qualquer ordenação de dados é equiprovável.\\
+    	Logo, ${P(B < Y < R\mid D) = \dfrac{1}{3!} = \dfrac{1}{6}}$.
+    \part Como $(B<Y<R)\subset D$, então\\
+    	$P(B < Y < R) = P(B < Y < R\mid D)P(D) = \dfrac{5}{54}$.
+\end{parts}
+\end{solution}
+
+% 3.25 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{24}
+\question{O seguinte método foi proposto para se
+estimar o número de pessoas com idade
+acima de 50 anos que moram em uma
+cidade com população conhecida de
+100.000: ``A medida que você caminhar
+pela rua, mantenha uma contagem contínua
+do percentual de pessoas que você
+encontrar com idade acima de 50 anos.
+Faça isso por alguns dias; então multiplique
+o percentual obtido por 100.000 para
+obter a estimativa desejada.'' Comente esse método.\\
+\textit{Dica}: Seja $p$ a proporção de pessoas na
+cidade que tem idade acima de 50 anos.
+Além disso, suponha que $\alpha_1$, represente a
+proporção de tempo que uma pessoa com
+idade abaixo de 50 anos passa nas ruas, e
+que $\alpha_2$, seja o valor correspondente para
+aqueles com idade acima de 50 anos. Que
+tipo de grandeza estima o método sugerido?
+Quando é que a estimativa é aproximadamente igual a $p$?
+}
+\begin{solution}
+	O método sugerido estima a porcentagem de pessoas acima de 50 anos que caminham pelas ruas, o que pode ser diferente da porcentagem de pessoas acima de 50 anos na população. Seja o evento $C$ uma pessoa selecionada ao acaso estar caminhando nas ruas e o evento $D$ uma pessoa selecionada ao acaso ter mais de 50 anos, então o que estimamos é
+    \[P(D\mid C) = \dfrac{P(C\mid D)P(D)}{P(C\mid D)P(D)+P(C\mid D^c)P(D^c)}
+    	= \dfrac{\alpha_2\,p}{\alpha_2\,p + \alpha_1\,(1-p)}.\]
+	Podemos verificar que a estimativa é razoável quando $\alpha_1\approx \alpha_2$.
+\end{solution}
+
+% 3.31 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{30}
+\question{Dona Aquina acabou de fazer uma biópsia para verificar a existência de um tumor cancerígeno. Evitando estragar um
+evento de família no final de semana, ela
+não quer ouvir nenhuma má notícia nos
+próximos dias. Mas se ela disser ao médico para telefonar-lhe somente se as notícias forem boas, então, se o médico não ligar, Dona Aquina pode concluir que as
+notícias não são boas. Assim, sendo uma estudante de probabilidade, Dona Aquina instrui o médico a jogar uma moeda, se der cara, o doutor deverá telefonar-lhe
+se as novidades forem boas e não telefonar-lhe se elas forem más. Se a moeda der
+coroa, o médico não deverá telefonar-lhe.
+Dessa maneira, mesmo se o médico não telefonar-lhe, as notícias não serão necessariamente más. Seja $\alpha$ a probabilidade de que o tumor seja cancerígeno e $\beta$ a probabilidade condicional de que o tumor seja cancerígeno dado que o médico
+não faça o telefonema.
+\begin{parts}
+	\part Qual probabilidade é maior, $\alpha$ ou $\beta$?
+    \part Determine $\beta$ em termos de $\alpha$ e demonstre a sua resposta da letra (a).
+\end{parts}
+}
+\begin{solution}
+Seja o evento $C$ do tumor ser cancerígeno e $T$ do médico telefonar, então
+\begin{parts}
+	\part Devemos ter $\beta \ge \alpha$, pois ter câncer é condição suficiente para o médico não ligar.
+    \part Mais rigorosamente, temos que
+    \begin{align*}
+    	\beta &= P(C\mid T^c)
+    			= \dfrac{P(T^c\mid C)P(C)}{P(T^c\mid C)P(C)+P(T^c\mid C^c)P(C^c)}\\
+        	&= \dfrac{1\cdot \alpha}{1\cdot \alpha + \frac{1}{2}(1-\alpha)}
+        		= \dfrac{2\alpha}{1+\alpha}\\
+            &\ge \dfrac{2\alpha}{2} = \alpha.
+    \end{align*}
+\end{parts}
+\end{solution}
+
+% 3.32 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{30}
+\question{Uma família tem $j$ crianças com
+probabilidade $p_j$, onde $p_1 = \text{0,1},
+p_2 = \text{0,25}, p_3 =\text{0,35}, p_4 = \text{0,3}$.
+Uma criança desta família é
+escolhida aleatoriamente. Dado que ela é
+a primogênita, determine a probabilidade
+condicional de que a família tenha:
+\begin{parts}
+	\part apenas 1 criança;
+    \part 4 crianças.
+\end{parts}
+Repita as letras (a) e (b) quando a criança
+selecionada aleatoriamente for a caçula.
+}
+\begin{solution}
+Seja o evento $A_j$ de uma família escolhida ao acaso ter $j$ crianças e $B$ o evento de sortear a criança mais velha em uma família.
+\begin{parts}
+	\part A probabilidade que estamos interessados é dada por
+    \begin{align*}
+    	P(A_1\mid B)
+    		= \dfrac{P(B\mid A_1)P(A_1)}{\sum_{j=1}^4 P(B\mid A_j)P(A_j)}
+            = \dfrac{1\cdot p_1}{\sum_{j=1}^4 \frac{1}{j}\cdot p_j} = \text{0,24}.
+    \end{align*}
+    Note que para o caso da criança mais nova o problema é exatamente o mesmo.
+    \part Analogamente, temos
+        \begin{align*}
+    	P(A_4\mid B)
+    		= \dfrac{P(B\mid A_4)P(A_4)}{\sum_{j=1}^4 P(B\mid A_j)P(A_j)}
+            = \dfrac{\frac{1}{4}\cdot p_4}{\sum_{j=1}^4 \frac{1}{j}\cdot p_j}
+            = \text{0,18}.
+    \end{align*}
+\end{parts}
+\end{solution}
+
+% 3.38 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{37}
+\question{A urna $A$ tem 5 bolas brancas e 7 bolas
+pretas. A urna $B$ em 3 bolas brancas e 12
+bolas pretas. Jogamos uma moeda honesta; se der cara, retiramos uma bola da
+urna $A$. Se der coroa, retiramos uma bola
+da urna $B$. Suponha que uma bola branca
+seja selecionada. Qual é a probabilidade
+de que tenha dado coroa na moeda?
+}
+\begin{solution}
+	Sejam os eventos $E$ retirar uma bola branca e $F$ selecionar a urna $B$. A probabilidade que estamos interessados é
+    \[P(F\mid E) = \dfrac{P(E\mid F)P(F)}{P(E\mid F)P(F)+P(E\mid F^c)P(F^c)}
+    	= \dfrac{\frac{3}{15}\frac{1}{2}}
+        	{\frac{3}{15}\frac{1}{2}+\frac{5}{12}\frac{1}{2}}
+		= \dfrac{12}{37} \approx \text{0,324}.\]
+\end{solution}
+
+% 3.45 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{44}
+\question{Suponha que tenhamos 10 moedas tais
+que, se a $i$-ésima moeda for jogada, a probabilidade de ela dar cara é igual a $i/10, i = 1, 2, \dots,10$. Quando uma das moedas é selecionada aleatoriamente e jogada, ela dá
+cara. Qual é a probabilidade condicional
+de que tenha sido a quinta moeda?
+}
+\begin{solution}
+	Sejam os eventos $A_i$ selecionar a $i$-ésima moeda e $B$ sair cara. Estamos interessados na probabilidade
+    \[P(A_5\mid B) = \dfrac{P(B\mid A_5)P(A_5)}{\sum_{i=1}^{10}P(B\mid A_i)P(A_i)}
+    	= \dfrac{\frac{5}{10}\frac{1}{10}}{\sum_{i=1}^{10}\frac{i}{10}\frac{1}{10}}
+        = \dfrac{5}{\frac{10\cdot11}{2}} = \frac{1}{11}.\]
+\end{solution}
+
+% 3.46 % % % % % % % % % % % % % % % % % % % % %
+\question{Em um ano qualquer, um homem usará
+o seu seguro de carro com probabilidade $p_m$, e uma mulher terá probabilidade
+$p_f$ de usar o seu seguro de carro, onde $p_f \neq p_m$. A fração de segurados homens é
+igual a $\alpha$, $0 < \alpha < 1$. Um segurado é escolhido aleatoriamente. Se $A_i$ representar o evento em que este segurado fará
+uso de seu seguro em um ano, mostre que $P(A_2\mid A_1) > P(A_1)$. Dê uma explicação intuitiva do porquê da desigualdade anterior ser verdade.
+}
+\begin{solution}
+	A explicação intuitiva é que uma vez que o segurado tenha usado o seguro no ano anterior, é mais provável que o mesmo faça parte de um grupo de pessoas que use mais frequentemente o seguro.
+    \begin{proof}
+    	Seja $H$ o evento referente à um segurado selecionado ao acaso ser homem. Queremos provar que $P(A_2\mid A_1) > P(A_1)$. Usando o teorema de Bayes, \textit{i.e}, $P(A) = P(A\mid H)P(H)+P(A\mid H^c)P(H^c)$ temos que
+        \begin{align*}
+        	P(A_2\mid A_1) > P(A_1) 
+            	&\Leftrightarrow P(A_1\,A_2) > P(A_1)^2 \\
+                &\Leftrightarrow p_m^2\,\alpha+p_f^2\,(1-\alpha) > 
+                	(p_m\,\alpha+p_f\,(1-\alpha))^2\\
+				&\Leftrightarrow \alpha\,(1-\alpha)\,(p_m-p_f)^2 > 0,
+        \end{align*}
+        o que é sempre verdade, uma vez que $0<\alpha<1$ e $p_m\neq p_f$.
+    \end{proof}
+\end{solution}
+
+% 3.50 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{49}
+\question{Suponha que uma companhia de seguros
+classifique as pessoas em uma de três
+classes: risco baixo,risco médio e risco elevado.
+Os registros da companhia indicam
+que as probabilidades de que pessoas com
+riscos baixo, médio e elevado estejam envolvidas
+em acidentes ao longo do período
+de um ano são de 0,05, 0,15 e 0,30. Se 20\%
+da população são classificados como de
+risco baixo, 50\% de risco médio e 30\% de
+risco elevado, que proporção de pessoas
+sofre acidentes ao longo de um ano? Se o
+segurado $A$ não sofreu acidentes em 1997,
+qual é a probabilidade de que ele ou ela
+seja uma pessoa de risco baixo ou médio?
+}
+\begin{solution}
+	Sejam $L$, $M$, $H$ os eventos correspondentes a uma pessoa selecionada ao acaso pertencer ao grupo de baixo, médio e alto risco, respectivamente; seja $E$ o evento de uma pessoa selecionada ao acaso sofrer acidentes ao longo do ano. Temos que
+    \begin{align*}
+    	P(E) &= P(E\mid L)P(L)+P(E\mid M)P(M)+P(E\mid H)P(H)\\
+    		&= \text{0,2}\cdot\text{0,05}+\text{0,5}\cdot\text{0,15}+
+            	\text{0,3}\cdot\text{0,3} = \text{0,175}.
+    \end{align*}
+    Logo, 17,5\% das pessoas sofrem acidentes ao longo do ano.\\
+    Em seguida, estamos interessados na probabilidade
+    	\begin{align*}
+    		P(L\cup M\mid E^c) &= P(L\mid E^c)+P(M\mid E^c)\\
+            	&= \dfrac{P(E^c\mid L)P(L)+P(E^c\mid M)P(M)}{P(E^c)}\\
+                &= \dfrac{(1-\text{0,05})\,\text{0,2}+(1-\text{0,15})\,\text{0,5}}
+                	{1-\text{0,175}} \approx \text{0,745}.
+    	\end{align*}
+    Logo, uma pessoa que não sofreu acidentes em um determinado ano tem probabilidade 74,5\% de pertencer aos grupos de baixo ou médio risco.
+\end{solution}
+
+% 3.63 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{62}
+\question{$A$ e $B$ estão envolvidos em um duelo. As
+regras do duelo rezam que eles devem sacar suas armas e atirar um no outro simultaneamente. Se um ou ambos são atingidos, o duelo é encerrado; se ambos os tiros
+erram os alvos, então repete-se o processo.
+Suponha que os resultados dos tiros sejam
+independentes e que cada tiro de $A$ atinja
+$B$ com probabilidade $p_A$ e que cada tiro de
+$B$ atinja $A$ com probabilidade $p_B$. Qual é
+\begin{parts}
+	\part a probabilidade de que $A$ não seja
+atingido?
+	\part a probabilidade de que ambos os duelistas sejam atingidos?
+    \part a probabilidade de que o duelo termine após a $n$-ésima rodada de tiros?
+    \part a probabilidade condicional de que o
+duelo termine após a $n$-ésima rodada
+de tiros dado que $A$ não tenha sido
+atingido.
+	\part a probabilidade condicional de que o
+duelo termine após a $n$-ésima rodada
+de tiros dado que ambos os duelistas
+tenham sido atingidos?
+\end{parts}
+}
+\begin{solution} Seja $E_n$ o evento correspondente à ambos duelistas estarem vivos na $n$-ésima rodada e sejam $A_n$ e $B_n$ os eventos de na $n$-ésima rodada o participante $A$ e $B$ morrer, respectivamente.
+	\begin{parts}
+		\part Primeiramente, vamos calcular a probabilidade de $B$ morrer e $A$ sobreviver na $n$-ésima rodada, dado que sobreviveram até a $(n-1)$-ésima rodada:
+        	\[P(A_{n}^c\,B_{n}\mid E_{n-1}) = p_A(1-p_B).\]
+            A probabilidade de sobreviverem até a $n$-ésima rodada é simplesmente
+            \[P(E_n) = (1-p_A)^n(1-p_B)^n.\]
+            Enfim, a probabilidade que estamos interessados é
+            \begin{align*}
+            	P\left( \bigcup_{n=1}^\infty A_n^c\,B_n \right)
+            		&= \sum_{n=1}^\infty P(A_n^c\,B_n)\\
+                	&= \sum_{n=1}^\infty P(A_n^c\,B_n\mid E_{n-1}) P(E_{n-1})\\
+                	&= \sum_{n=1}^\infty p_A(1-p_A)^{n-1}(1-p_B)^n\\
+                    &= p_A(1-p_B) \sum_{n=0}^\infty [(1-p_A)(1-p_B)]^n\\
+                    &= \dfrac{p_A(1-p_B)}{1-(1-p_A)(1-p_B)},
+            \end{align*}
+        onde usamos o fato de que os eventos $(A_n^c\,B_n)_n$ são mutuamente exclusivos e usamos a fórmula da soma de progressão geométrica.
+        \part Analogamente, temos
+            \begin{align*}
+            	P\left( \bigcup_{n=1}^\infty A_n\,B_n \right)
+            		&= \sum_{n=1}^\infty P(A_n\,B_n)\\
+                	&= \sum_{n=1}^\infty P(A_n\,B_n\mid E_{n-1}) P(E_{n-1})\\
+                	&= \sum_{n=1}^\infty p_A\,p_B\,(1-p_A)^{n-1}(1-p_B)^{n-1}\\
+                    &= p_A\,p_B \sum_{n=0}^\infty [(1-p_A)(1-p_B)]^n\\
+                    &= \dfrac{p_A\,p_B}{1-(1-p_A)(1-p_B)},
+            \end{align*}
+        \part Isso é equivalente à eles sobreviverem até a $n$-ésima rodada, ou seja,
+        	\[P(E_n) = (1-p_A)^n(1-p_B)^n.\]
+        \part Note que a probabilidade de $A$ não ser atingido dado que o duelo termine após a $n$-ésima rodada não muda, pois nesse caso o duelo a partir da rodada $n+1$ é idêntico à um duelo descondicionado que acabou de começar. Logo, esses eventos são independentes. Da mesma forma, a probabilidade de que o duelo termine após a $n$-ésima rodada dado que $A$ não tenha sido atingido é simplesmente $P(E_n)$.
+	\part Análogo ao item anterior.
+	\end{parts}
+\end{solution}
+
+% 3.70 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{69}
+\question{Há uma chance de 50-50 de que a rainha
+seja portadora do gene da hemofilia. Se
+ela é portadora, então cada um dos príncipes tem uma chance de 50-50 de ter
+hemofilia. Se a rainha tiver tido três príncipes sadios, qual é a probabilidade de
+ela ser portadora? Se houver um quarto
+príncipe, qual é a probabilidade de que
+ele venha a desenvolver a hemofilia?
+}
+\begin{solution}
+	Sejam os eventos $H$ a rainha ser portadora do gene da hemofilia e $E$ ela ter tido 3 príncipes sadios, então
+    \[P(H\mid E) = \dfrac{P(E\mid H) P(H)}{P(E\mid H)P(H)+P(E\mid H^c)P(H^c)}
+    	= \dfrac{(\frac{1}{2})^3\cdot\frac{1}{2}}
+        	{(\frac{1}{2})^3\cdot\frac{1}{2}+1\cdot\frac{1}{2}}
+		= \dfrac{1}{9}.\]
+	Assim, a probabilidade de ela ter um quarto príncipe com hemofilia é $\frac{1}{2}\cdot\frac{1}{9} = \frac{1}{18}$.
+\end{solution}
+
+% 3.75 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{74}
+\question{Em certa aldeia, é tradicional que o filho
+mais velho e sua esposa cuidem dos pais
+dele em sua velhice. Nos últimos anos, no
+entanto, as mulheres desta aldeia, não
+querendo assumir responsabilidades, têm
+preferido não se casar com os filhos mais
+velhos de uma família.
+\begin{parts}
+	\part Se cada família da aldeia tem duas
+crianças, qual é a proporção de filhos
+mais velhos?
+    \part Se cada família da aldeia tem três
+crianças, qual é a proporção de filhos
+mais velhos?
+\end{parts}
+Suponha que cada criança tenha a mesma
+probabilidade de ser menino ou menina.
+}
+\begin{solution}
+\begin{parts}
+	\part Sejam os eventos $H$ e $V$ uma criança selecionada ao acaso ser menino e ser o mais velho, respectivamente. Como toda família tem duas crianças, esses eventos são equivalentes à selecionar uma família ao acaso e então selecionar uma criança da família ao acaso. Definimos o evento $E$ como o da família selecionada ao acaso ter pelo menos um menino. Assim, como $H\,V \subset H\subset E$, então
+    \[P(H\,V) = P(H\,V\mid E) P(E) 
+    	= \dfrac{1}{2}\left(1-\dfrac{1}{2^2}\right) = \dfrac{3}{8}.\]
+    A probabilidade que nos interessa é
+    \[P(H\,V\mid H) = \dfrac{P(H\,V)}{P(H)} = \dfrac{\frac{3}{8}}{\frac{1}{2}}
+    	= \dfrac{3}{4}.\]
+    \part Analogamente ao item anterior,
+    	\[P(H\,V) = \dfrac{1}{3}\left(1-\dfrac{1}{2^3}\right) = \dfrac{7}{24}.\]
+    Logo,
+    	\[P(H\,V\mid H) = \dfrac{\frac{7}{24}}{\frac{1}{2}} = \dfrac{7}{12}.\]
+\end{parts}
+\end{solution}
+
+% 3.78 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{77}
+\question{\textit{O enunciado dessa questão está errado na versão brasileira. Em inglês é:}\\
+$A$ and $B$ play a series of games. Each game is independently won by $A$ with probability $p$ and by $B$ with probability $1-p$. They stop when the total
+number of wins of one of the players is two greater
+than that of the other player. The player with the
+greater number of total wins is declared the winner
+of the series.
+\begin{parts}
+	\part Find the probability that a total of 4 games are played.
+    \part Find the probability that $A$ is the winner of the series.
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part As sequências de vitórias que terminam com quatro jogos são $ABBB$, $BABB$, $BAAA$ e $ABAA$. Logo, a probabilidade desse evento acontecer é dada por
+    \[{2p(1-p)^3+2p^3(1-p)}.\]
+	\part Seja $p_i$ a probabilidade do jogador $A$ ser o ganhador dado que a diferença entre os pontos de $A$ e $B$ é igual à $i$. Podemos escrever o seguinte sistema de equações:
+    \begin{align*}
+    	p_2 &= 1,\\
+        p_1 &= p\,p_2 + (1-p)\,p_0,\\
+        p_0 &= p\,p_1 + (1-p)\,p_{-1},\\
+        p_{-1} &= p\,p_0 + (1-p)\,p_{-2},\\
+        p_{-2} &= 0.
+    \end{align*}
+    Resolvendo para $p_0$, obtemos que $p_0 = \dfrac{p^2}{1-2p(1-p)}$.
+\end{parts}
+\end{solution}
+
+% 3.79 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{69}
+\question{Em jogadas sucessivas de um par de dados
+honestos, qual é a probabilidade de que
+saiam 2 setes antes de 6 números pares?
+}
+\begin{solution}
+	A probabilidade da soma de dois dados ser sete é $\frac{6}{6^2}=\frac{1}{6}$. Por outro lado, a probabilidade da soma de dois dados ser par é $\frac{1}{4}+\frac{1}{4} = \frac{1}{2}$ (par e par ou ímpar e ímpar). Podemos ignorar todos os resultados que estejam fora desses casos. Assim, seja $p$ a probabilidade de sair um número par, dado que saiu sete ou número par, então \[p = \dfrac{\frac{1}{2}}{\frac{1}{6}+\frac{1}{2}} = \dfrac{3}{4}.\]
+    Note que, dessa forma, esse problema é equivalente ao Exemplo 4j: O problema dos pontos, com $n=6$ e $m=2$. Assim, a probabilidade de sair 2 setes antes de sair 6 números pares é o complemento de sair 6 números pares antes de 2 setes, ou seja,
+    \[1-\sum_{k=6}^{7} \binom{7}{k} \textstyle(\frac{3}{4})^k(\frac{1}{4})^{7-k}
+    	\approx \text{0,555}.\]
+\end{solution}
+
+% 3.81 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{80}
+\question{Uma investidora tem participação em
+uma ação cujo valor atual é igual a 25.
+Ela decidiu que deve vender sua ação se
+ela chegar a 10 ou 40. Se cada mudança
+de preço de 1unidade para cima ou
+para baixo ocorrer com probabilidades
+de 0,55 e 0,45, respectivamente, e se as
+variações sucessivas são independentes,
+qual é a probabilidade de que a investidora tenha lucro?
+}
+\begin{solution}
+	Esse problema é equivalente ao Exemplo 4l: O Problema da ruína do jogador, com $N=40-10=30$ e $i=25-10=15$, $p=\text{0,55}$. Logo, a probabilidade que a empresa tenha lucro é dado por
+    \[\dfrac{1-(\text{0,45}/\text{0,55})^{15}}{1-(\text{0,45}/\text{0,55})^{30}}
+    	\approx \text{0,953}.\]
+\end{solution}
+
+\end{questions}

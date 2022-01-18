@@ -1,0 +1,520 @@
+
+\begin{questions}
+
+% 2.1   % % % % % % % % % % % % % % % % % % % % %
+\question{ Uma caixa contém 3 bolas de gude: 1 vermelha, 1 verde e uma azul. Considere um experimento que consiste em retirar uma bola de gude da caixa, colocar outra em seu lugar e então retirar uma segunda bola da caixa. Descreva o espaço amostral. Repita considerando que a segunda bola seja retirada sem que a primeira seja substituída
+}
+\begin{solution}
+	Para o primeiro experimento o espaço amostral é
+    \[\Omega_1 = \{ (1,1),(1,2),(1,3),(2,1),(2,2),(2,3),(3,1),(3,2),(3,3) \},\]
+    onde 1, 2 e 3 representam as cores vermelha, verde e azul, respectivamente. Para o segundo experimento, o espaço amostral é
+    \[\Omega_2 = \{ (1,2),(1,3),(2,1),(2,3),(3,1),(3,2) \}.\]
+\end{solution}
+
+% 2.2   % % % % % % % % % % % % % % % % % % % % %
+\question{ Em um experimento, um dado é rolado
+continuamente até que um 6 apareça,
+momento em que o experimento é interrompido. Qual é o espaço amostral do experimento? Chame de $E_n$ o evento em
+que o dado é rolado $n$ vezes para que o
+experimento seja finalizado. Que pontos
+do espaço amostral estão contidos em $E_n$? O que é $\left( \bigcup_{n=1}^\infty E_n \right)^c$?
+}
+\begin{solution}
+	O espaço amostral do experimento é
+    \[\Omega = \{ (i_1,i_2,\cdots,i_{n-1},6) \mid i_k\in\{1,2,\cdots,5\}, k\in\{1,2,\cdots,n-1\}, n\in\mathbb{N} \}.\]
+    Seja $n\in\mathbb{N}$, o conjunto 
+    \[\{ (i_1,i_2,\cdots,i_{n-1},6) \mid i_k\in\{1,2,\cdots,5\}, k\in\{1,2,\cdots,n-1\}\} = E_n.\]
+    Assim, $E_n$ representa não tirar 6 nas $n-1$ primeiras rolagens e tirar 6 na $n$-ésima rolagem. O evento $\left( \bigcup_{n=1}^\infty E_n \right)^c$ representa nunca rolar um 6.
+\end{solution}
+
+% 2.3   % % % % % % % % % % % % % % % % % % % % %
+\question{Dois dados são lançados. Seja $E$ o evento em que a soma dos dados é ímpar, $F$ o evento em que o número 1 sai em pelo
+menos um dos dados, e $G$ o evento em que a soma dos dados é igual a 5. Descreva os eventos $E\,F$, $E\cup F$, $F\,G$, $E\,F^c$ e $E\,F\,G$.
+}
+\begin{solution}
+\begin{align*}
+	E\,F 		&= \{(1,2),(1,4),(1,6),(2,1),(4,1),(6,1)\},\\
+    E\cup F 	&= \{(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),
+    				(2,1),(2,3),(2,5),(3,1),(3,2),\\
+    			&\quad\quad	(3,4),(3,6),(4,1),(4,3),(4,5),
+                	(5,1),(5,2),(5,4),(5,6),(6,1),(6,3),(6,5)\},\\
+	F\,G		&= \{(1,4),(4,1)\},\\
+    E\,F^c		&= \{(2,3),(2,5),(3,2),(3,4),(3,6),(4,3),(4,5),(5,2),
+    				(5,4),(5,6),(6,3),(6,5)\},\\
+	E\,F\,G		&= F\,G.
+\end{align*}
+\end{solution}
+
+% 2.8   % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{7}
+\question{Suponha que $A$ e $B$ sejam eventos mutuamente exclusivos para os quais $P(A) = \text{0,3}$ e $P(B) = \text{0,5}$. Qual é a probabilidade de que:
+\begin{parts}
+	\part $A$ ou $B$ ocorra?
+	\part $A$ ocorra, mas $B$ não ocorra?
+	\part $A$ e $B$ ocorram?
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part Como são eventos mutuamente exclusivos, $P(A\cup B) = P(A) + P(B) = \text{0,8}$.
+	\part $P(A\backslash B) = P(A) = \text{0,3}$.
+	\part $P(A\,B) = P(\emptyset) = 0$.
+\end{parts}
+\end{solution}
+
+% 2.15  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{14}
+\question{Se é assumido que todas as $\binom{52}{5}$ mãos de pôquer são igualmente prováveis, qual é a probabilidade de alguém sair com
+\begin{parts}
+	\part um \textit{flush} (uma mão é chamada de \textit{flush} se todas as 5 cartas são do mesmo naipe)?
+	\part um par (que ocorre quando as cartas
+são do tipo a, a, b, c, d, onde a, b, c e d
+são cartas distintas)?
+	\part dois pares (que ocorre quando as cartas
+são do tipo a, a, b, b, c,onde a, b e c são cartas distintas)?
+	\part trinca (que ocorre quando as cartas
+são do tipo a, a, a, b, c, onde a, b e c
+são cartas distintas)?
+	\part quadra (que ocorre quando as cartas
+são do tipo a, a, a, a, b, onde a e b são
+cartas distintas)?
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part Temos 4 naipes para escolher e para cada naipe 13 cartas. Logo, a probabilidade de um \textit{flush} é dada por
+	\[\dfrac{4\binom{13}{5}}{\binom{52}{5}} = \dfrac{33}{16660} \approx \text{0,002}.\]
+	\part Temos 13 opções de pares, para cada opção de par temos $\binom{4}{2}$ maneiras de escolher os naipes. Restam 3 cartas para escolhermos entre as 12 que sobraram e para cada carta 4 naipes. Logo, a probabilidade de um par é
+	\[\dfrac{\left(13\binom{4}{2}\right)\left(4^3\binom{12}{3}\right)}
+    	{\binom{52}{5}} = \dfrac{352}{833} \approx \text{0,423}.\]
+	\part Temos 13 cartas para escolher as duas opções de pares. Para cada opção de par temos $\binom{4}{2}$ maneiras de escolher os naipes. Sobra apenas uma opção de carta e seu naipe para escolher entre as 11 que restaram. Logo, a probabilidade de dois pares é
+	\[\dfrac{\binom{13}{2}\binom{4}{2}^2 \, 11\cdot 4  }
+    	{\binom{52}{5}} = \dfrac{198}{4165} \approx \text{0,048}.\]
+	\part Temos 13 opções de trinca e $\binom{4}{3}$ maneiras de escolher os naipes. Restam 2 cartas para escolhermos entre as 12 que sobraram e para cada carta 4 naipes. Logo, a probabilidade da trinca é
+	\[\dfrac{\left(13\binom{4}{3}\right)\left(4^2\binom{12}{2}\right)}
+    	{\binom{52}{5}} = \dfrac{88}{4165} \approx \text{0,021}.\]
+	\part Temos 13 opções de quadra e apenas uma maneira de escolher os naipes. Resta apenas 1 opção de carta para escolher entre as 12 que sobraram e seu naipe. Logo, a probabilidade da quadra é
+	\[\dfrac{13 \cdot 12 \cdot 4}
+    	{\binom{52}{5}} = \dfrac{1}{4165} \approx \text{0,00024}.\]
+\end{parts}
+\end{solution}
+
+% 2.16  % % % % % % % % % % % % % % % % % % % % %
+\question{Pôquer com dados é jogado com o lançamento
+simultâneo de 5 dados. Mostre que:
+\begin{parts}
+	\part $P$[nenhum dado de mesmo valor] = 0,0926.
+	\part $P$[um par] = 0,4630.
+	\part $P$[dois pares] = 0,2315.
+	\part $P$[trinca] = 0,1543.
+	\part $P$[uma trinca e um par] = 0,0386.
+	\part $P$[quatro dados iguais]= 0,0193.
+	\part $P$[cinco dados iguais] = 0,0008.
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part Nenhum dado de mesmo valor só tem uma configuração possível e $6\cdot 5\cdot 4\cdot 3\cdot 2$ escolhas para os valores dos dados. Logo, $P\text{[nenhum dado de mesmo valor]} = 	\dfrac{6\cdot 5\cdot 4\cdot 3\cdot 2}{6^5} \approx \text{0,0926}$.
+	\part O número de configurações de um par de dados de mesmo valor entre 5 dados é $\binom{5}{2}$ e as escolhas de valores para os dados são $6\cdot 5\cdot 4\cdot 3$. Dessa forma, $P\text{[um par]} = \displaystyle\binom{5}{2}\dfrac{6\cdot 5\cdot 4\cdot 3}{6^5} \approx \text{0,4630}$.
+	\part O número de configurações de dois pares de dados de mesmo valor entre 5 dados é $\frac{1}{2!}\binom{5}{2,2,1}$, onde a divisão por 2! vem do fato que não adianta trocar de lugar os grupos de pares, e as escolhas de valores para os dados são $6\cdot 5\cdot 4$. Dessa forma, $P\text{[dois pares]} = \displaystyle\dfrac{1}{2!}\binom{5}{2,2,1}\dfrac{6\cdot 5\cdot 4}{6^5} \approx \text{0,2315}$.
+	\part O número de configurações de 3 dados de mesmo valor entre 5 dados é $\binom{5}{3}$ e as escolhas de valores para os dados são $6\cdot 5\cdot 4$. Dessa forma, $P\text{[trinca]} = \displaystyle\binom{5}{3}\dfrac{6\cdot 5\cdot 4}{6^5} \approx \text{0,1543}$.
+	\part O número de configurações de 3 dados de mesmo valor e 2 dados de mesmo valor é $\binom{5}{2}$ e as escolhas de valores para os dados são $6\cdot 5$. Dessa forma, $P\text{[uma trinca e um par]} = \displaystyle\binom{5}{3}\dfrac{6\cdot 5}{6^5} \approx \text{0,0386}$.
+	\part O número de configurações de 4 dados de mesmo valor entre 5 dados é $\binom{5}{4}$ e as escolhas de valores para os dados são $6\cdot 5$. Dessa forma, $P\text{[quatro dados iguais]} = \displaystyle\binom{5}{4}\dfrac{6\cdot 5}{6^5} \approx \text{0,0193}$.
+	\part Cinco dados de mesmo valor só tem uma configuração possível e 6 escolhas para o valor dos dados. Assim, $P\text{[cinco dados iguais]} = \dfrac{6}{6^5} \approx \text{0,0008}$.
+\end{parts}
+\end{solution}
+
+% 2.18  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{17}
+\question{Duas cartas são selecionadas
+aleatoriamente de um baralho comum. Qual é a
+probabilidade de que elas formem um
+vinte e um? Isto é, qual é a probabilidade
+de que uma das cartas seja um ás e a outra
+seja ou um dez, um valete, uma dama ou um rei?
+}
+\begin{solution}
+Temos $\binom{52}{2}$ resultados possíveis, dos quais apenas nos interessa tirar um dos 4 ás do baralho e uma das $4\cdot4$ figuras ou dez. Logo, a probabilidade que buscamos é dada por $\dfrac{4\cdot(4\cdot4)}{\binom{52}{2}} \approx \text{0,0483}$.
+\end{solution}
+
+% 2.19  % % % % % % % % % % % % % % % % % % % % %
+\question{Dois dados simétricos têm dois de seus lados
+pintados de vermelho, dois de preto, um de amarelo e o
+outro de branco. Quando esse par de dados é rolado,
+qual é a probabilidade de que ambos os dados saiam
+com uma face de mesma cor para cima?
+}
+\begin{solution}
+Basta somar as probabilidade de cada evento desejado, ou seja, $\left(\frac{1}{3}\right)^2+\left(\frac{1}{3}\right)^2+\left(\frac{1}{6}\right)^2+\left(\frac{1}{6}\right)^2 = \frac{5}{18} \approx \text{0,2778}$.
+\end{solution}
+
+% 2.21  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{20}
+\question{Uma pequena organização comunitária é
+formada por 20 famílias, das quais 4 têm
+uma criança, 8 têm duas crianças, 5 têm
+três crianças, 2 têm quatro crianças e 1
+tem 5 crianças.
+\begin{parts}
+	\part Se uma dessas famílias é escolhida
+aleatoriamente, qual é a probabilidade de que ela tenha $i$ crianças, $i = 1,2,3,4,5$?
+	\part Se uma das crianças é escolhida aleatoriamente, qual é a probabilidade de
+que a criança venha de uma família
+com $i$ crianças, $i= 1,2,3,4,5$?
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part 	$P_1 = \frac{4}{20} = \frac{1}{5}$,\\[1mm]
+    		$P_2 = \frac{8}{20} = \frac{2}{5}$,\\[1mm]
+            $P_3 = \frac{5}{20} = \frac{1}{4}$,\\[1mm]
+            $P_4 = \frac{2}{20} = \frac{1}{10}$,\\[1mm]
+    		$P_5 = \frac{1}{20}$.
+	\part O total de crianças é $4\cdot 1 + 8\cdot 2 + 5\cdot 3 + 2\cdot 4 + 1\cdot 5 = 48$. Logo,\\
+    		$P_1 = \frac{4\cdot 1}{48} = \frac{1}{12}$,\\[1mm]
+    		$P_2 = \frac{8\cdot 2}{48} = \frac{1}{3}$,\\[1mm]
+            $P_3 = \frac{5\cdot 3}{48} = \frac{5}{16}$,\\[1mm]
+            $P_4 = \frac{2\cdot 4}{48} = \frac{1}{6}$,\\[1mm]
+    		$P_5 = \frac{1\cdot 5}{48} = \frac{5}{48}$.
+\end{parts}
+\end{solution}
+
+% 2.23  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{22}
+\question{Rola-se um par de dados honestos. Qual
+é a probabilidade de o segundo dado sair
+com um valor maior do que o primeiro?
+}
+\begin{solution}
+Temos $6^2$ resultados possíveis, dos quais nos interessam os seguintes resultados: se sair 6 no segundo dado, temos 5 possibilidades para o primeiro, se sair 5 no segundo dado, temos 4 possibilidades para o primeiro, e assim sucessivamente, ou seja, temos $5+4+3+2+1 = 15$ resultados desejados. Logo, a probabilidade do segundo dado ser maior que o primeiro é $\frac{15}{36} = \frac{5}{12} \approx \text{0,41667}$.
+\end{solution}
+
+% 2.24  % % % % % % % % % % % % % % % % % % % % %
+\question{Se dois dados são rolados, qual é a probabilidade de que a soma das faces para
+cima seja igual a $i$? Determine essa probabilidade para $i = 2,3,..., 11,12$.
+}
+\begin{solution}
+O total de resultados ordenados possíveis é $1/6^2$. Para resolver esse problema, basta contar quantos resultados ordenados possíveis levam à soma igual à $i$. Por exemplo, $i=7$ pode ser obtido através dos resultados $(1,6),(5,2),(4,3),(3,4),(2,5)$ e $(1,6)$. Logo, a probabilidade da soma ser $7$ é $6/6^2 = 1/6$. Enfim, podemos verificar que a fórmula geral é dada por 
+	\[P_i = \begin{cases}
+		 \dfrac{i-1}{6^2}, \quad 2\leq i\leq 7\\[3mm]
+         \dfrac{13-i}{6^2}, \quad 7\leq i\leq 12
+	\end{cases}\]
+\end{solution}
+
+% 2.27  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{26}
+\question{Uma urna contém 3 bolas vermelhas e 7
+bolas pretas. Os jogadores $A$ e $B$ retiram
+bolas da urna alternadamente até que
+uma bola vermelha seja selecionada. 
+Determine a probabilidade de $A$ selecionar
+uma bola vermelha. ($A$ tira a primeira
+bola, depois $B$,e assim por diante. Não há
+devolução das bolas retiradas.)
+}
+\begin{solution}
+A probabilidade de $A$ selecionar uma bola vermelha é dada por
+\begin{align*}
+P(V) + P(2P,V) + P(4P,V) + P(6P,V)
+	&= \dfrac{3}{10} + \dfrac{7}{10}\dfrac{6}{9}\dfrac{3}{8} + \dfrac{7}{10}\dfrac{6}{9}
+    	\dfrac{5}{8}\dfrac{4}{7}\dfrac{3}{6} + \dfrac{7}{10}\dfrac{6}{9}\dfrac{5}{8}
+        \dfrac{4}{7}\dfrac{3}{6}\dfrac{2}{5}\dfrac{3}{4}\\
+    &= \dfrac{7}{12} \approx \text{0,5833},
+\end{align*}
+onde $nP,V$ significa tirar $n$ bolas pretas antes de tirar uma vermelha.
+\end{solution}
+
+% 2.28  % % % % % % % % % % % % % % % % % % % % %
+\question{Uma urna contém 5 bolas vermelhas, 6
+bolas azuis e 8 bolas verdes. Se um conjunto de 3 bolas
+é selecionado aleatoriamente, qual é a probabilidade de que cada
+uma das bolas seja (a) da mesma cor? (b)
+de cores diferentes? Repita esse problema
+considerando que, sempre que uma bola
+seja selecionada, sua cor seja anotada e
+ela seja recolocada na urna antes da próxima seleção.
+Esse experimento é conhecido como
+\textit{amostragem com devolução}.
+}
+\begin{solution}
+\begin{parts}
+	\part Sem reposição: $\dfrac{5}{19}\dfrac{4}{18}\dfrac{3}{17}+\dfrac{6}{19}\dfrac{5}{18}\dfrac{4}{17}+\dfrac{8}{19}\dfrac{7}{18}\dfrac{6}{17} = \dfrac{86}{969} \approx \text{0,08875}$.\\[1mm]
+	Com reposição: $\left(\dfrac{5}{19}\right)^3+\left(\dfrac{6}{19}\right)^3+\left(\dfrac{8}{19}\right)^3 = \dfrac{853}{6859} \approx \text{0,12436}$.
+	\part Sem reposição: $3!\,\dfrac{5\cdot 6\cdot 8}{19\cdot 18\cdot 17} = \dfrac{80}{323} \approx \text{0,24768}$.\\[1mm]
+	Com reposição: $3!\,\dfrac{5}{19}\dfrac{6}{19}\dfrac{8}{19} = \dfrac{1440}{6859} \approx \text{0,20994}$.
+\end{parts}
+\end{solution}
+
+% 2.29  % % % % % % % % % % % % % % % % % % % % %
+\question{Uma urna contém $n$ bolas brancas e $m$
+bolas pretas, onde $n$ e $m$ são números positivos.
+\begin{parts}
+	\part Se duas bolas são retiradas da urna
+aleatoriamente, qual é a probabilidade de que elas sejam da mesma cor?
+	\part Se uma bola é retirada da urna aleatoriamente e então recolocada antes
+que a segunda bola seja retirada, qual
+é a probabilidade de que as bolas sacadas sejam da mesma cor?
+	\part Mostre que a probabilidade calculada
+na letra (b) é sempre maior do que
+aquela calculada na letra (a)?
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part Podemos tirar duas bolas brancas ou duas pretas e a probabilidade disso acontecer é dada por $\dfrac{n\,(n-1)+m\,(m-1)}{(n+m)(n+m-1)}$.
+	\part Analogamente, $\dfrac{n^2+m^2}{(n+m)^2}$
+	\part Manipulando a expressão $\frac{n^2+m^2}{(n+m)^2} \geq \frac{n\,(n-1)+m\,(m-1)}{(n+m)(n+m-1)}$ chega-se em \[\left(\frac{n}{m}+\frac{m}{n}\right)\left(n+m-1\right) \geq \left(\frac{n}{m}+\frac{m}{n}\right)\left(n+m\right) - (n+m)\left(\frac{1}{m}+\frac{1}{n}\right),\]
+da qual é fácil chegar em $2 \geq 0$, o que mostra a validade da primeira inequação.
+\end{parts}
+\end{solution}
+
+% 2.30  % % % % % % % % % % % % % % % % % % % % %
+\question{Os clubes de xadrez de duas escolas são
+formados por 8 e 9 jogadores, respectivamente. 
+Quatro membros de cada um dos
+clubes são selecionados aleatoriamente
+para participar de uma competição entre
+as duas escolas. Os jogadores escolhidos
+de um time então formam pares com
+aqueles do outro time, e cada um dos pares
+jogam uma partida de xadrez entre
+si. Suponha que Rebeca e sua irmã
+Elisa pertençam aos clubes de xadrez, mas
+joguem por escolas diferentes. Qual é a
+probabilidade de que
+\begin{parts}
+	\part Rebeca e Elisa joguem uma partida?
+	\part Rebeca e Elisa sejam escolhidas para
+representar as suas escolas mas não
+joguem uma contra a outra?
+	\part Rebeca ou Elisa sejam escolhidas
+para representar suas escolas?
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part A probabilidade de Rebeca ser selecionada é $4/8$, enquanto que a probabilidade de Elisa ser selecionada é $4/9$. Se ambos eventos aconteceram, então a probabilidade de uma jogar contra a outra é $1/4$. Logo, a probabilidade de uma jogar contra a outra é $\frac{4}{8}\frac{4}{9}\frac{1}{4} = \frac{1}{18} \approx \text{0,056}$.
+	\part $\frac{4}{8}\frac{4}{9}\left(1-\frac{1}{4}\right) = \frac{1}{6} \approx \text{0,167}$.
+	\part $\frac{4}{8}\left(1-\frac{4}{9}\right)+\frac{4}{9}\left(1-\frac{4}{8}\right) = \frac{1}{2}$.
+\end{parts}
+\end{solution}
+
+% 2.32  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{31}
+\question{Um grupo de indivíduos contendo $m$
+meninos e $g$ garotas é alinhado de forma
+aleatória; isto é, supõe-se que cada uma
+das $(m + g)!$ permutações seja igualmente provável. Qual é a probabilidade de
+que a pessoa na $i$-ésima posição, $1 \leq i \leq
+m + g$, seja uma garota?
+}
+\begin{solution}
+Fixa-se uma garota na $i$-ésima posição, para a qual temos $g$ opções possíveis. Restam $(m+g-1)!$ formas de escolher as outras posições, do total de $(m+g)!$ permutações possíveis. Logo, a probabilidade desejada é dada por $\frac{g(m+g-1)!}{(m+g)!} = \frac{g}{m+g}$.
+\end{solution}
+
+% 2.33  % % % % % % % % % % % % % % % % % % % % %
+\question{Em uma floresta vivem 20 renas, das quais
+5 são capturadas, marcadas e então soltas.
+Certo tempo depois, 4 das renas são capturadas.
+Qual é a probabilidade de que
+2 dessas 4 renas tenham sido marcadas?
+Que suposições você está fazendo?
+}
+\begin{solution}
+Supomos que a probabilidade de capturar uma rena seja independente e igual para todas as renas. Existem $\binom{20}{4}$ grupos de 4 renas possíveis de serem capturadas, porém queremos duas renas marcadas, ou seja, $\binom{5}{2}$ possibilidades e 2 renas não marcadas, ou seja, $\binom{15}{2}$ possibilidades. No total, temos $\binom{5}{2}\binom{15}{2}$ formas de escolher 2 renas marcadas e 2 não marcadas. Enfim, a probabilidade disso acontecer é dada por
+	\[\dfrac{\binom{5}{2}\binom{15}{2}}{\binom{20}{4}} = \dfrac{70}{323} \approx \text{0,2167}\]
+\end{solution}
+
+% 2.35  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{34}
+\question{Sete bolas são retiradas aleatoriamente
+de uma urna que contém 12 bolas vermelhas,
+16 bolas azuis e 18 bolas verdes.
+Determine a probabilidade de que
+\begin{parts}
+	\part 3 bolas vermelhas, 2 bolas azuis e 2 bolas verdes sejam sacadas;
+	\part pelo menos duas bolas vermelhas sejam sacadas;
+	\part todas as bolas sacadas sejam de mesma cor;
+	\part exatamente 3 bolas vermelhas ou exatamente 3 bolas azuis sejam sacadas.
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+\part Temos $\binom{12}{3}$ formas de escolher as bolas vermelhas, $\binom{16}{2}$ formas de escolher as bolas azuis e $\binom{18}{2}$ as verdes. Logo, a probabilidade é dada por
+	\[\dfrac{\binom{12}{3}\binom{16}{2}\binom{18}{2}}{\binom{46}{7}}
+    	= \dfrac{3060}{40549} \approx \text{0,0755}.\]
+        
+	\part O evento complementar seria não tirar nenhuma bola vermelha ou tirar uma bola vermelha. Logo, a probabilidade desejada é
+	\[1 - \dfrac{\binom{34}{7}+\binom{12}{1}\binom{34}{6}}{\binom{46}{7}}
+    	= \dfrac{363707}{608235} \approx \text{0,598}.\]
+        
+	\part Calculemos a probabilidade de tirar todas vermelhas ou
+	todas azuis ou todas verdes, ou seja,
+	\[\dfrac{\binom{12}{7}+\binom{16}{7}+\binom{18}{7}}{\binom{46}{7}}
+    	= \dfrac{5507}{6690585} \approx \text{0,0008}.\]
+
+	\part Note que os eventos exatamente 'tirar 3 bolas vermelhas' e 'tirar exatamente 3 bolas azuis' não são disjuntos. Logo, é necessário descontar a probabilidade da intersecção desses eventos, isto é, tirar exatamente 3 bolas azuis e 3 bolas vermelhas. Dessa forma, a probabilidade desejada é dada por
+	\[\dfrac{\binom{12}{3}\binom{34}{4}+\binom{16}{3}\binom{30}{4}
+    	-\binom{12}{3}\binom{16}{3}\binom{18}{1}}{\binom{46}{7}}
+    	= \dfrac{583298}{1338117} \approx \text{0,4359}.\]
+\end{parts}
+\end{solution}
+
+% 2.36  % % % % % % % % % % % % % % % % % % % % %
+\question{Duas cartas são escolhidas aleatoriamente de um baralho de 52 cartas. Qual é a
+probabilidade de
+\begin{parts}
+\part ambas serem ases?
+\part ambas terem o mesmo valor?
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+\part $\dfrac{1\cdot\binom{4}{2}}{\binom{52}{2}} = \dfrac{1}{221}$.
+\part $\dfrac{13\cdot\binom{4}{2}}{\binom{52}{2}} = \dfrac{1}{17}$.
+\end{parts}
+\end{solution}
+
+% 2.37  % % % % % % % % % % % % % % % % % % % % %
+\question{Um instrutor propõe para a classe um
+conjunto de 10 problemas com a informação de que o exame final será formado
+por uma seleção aleatória de 5 deles. Se
+um estudante tiver descoberto como resolver 7 dos problemas, qual é a probabilidade de que ele ou ela venha a-responder corretamente:
+\begin{parts}
+\part todos os 5 problemas?
+\part pelo menos 4 dos problemas?
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+\part $\dfrac{\binom{7}{5}}{\binom{10}{5}} = \dfrac{1}{12}$.
+\part $\dfrac{\binom{7}{5} + 3\cdot\binom{7}{4}}{\binom{10}{5}} = \dfrac{1}{2}$.
+\end{parts}
+\end{solution}
+
+% 2.38  % % % % % % % % % % % % % % % % % % % % %
+\question{Existem $n$ meias em uma gaveta, 3 das
+quais são vermelhas. Qual é o valor de $n$
+se a probabilidade de que duas meias vermelhas
+sejam retiradas aleatoriamente da
+gaveta é igual a $1/2$?
+}
+\begin{solution}
+Existem $\binom{3}{2}$ conjuntos de duas meias vermelhas dos $\binom{n}{2}$ conjuntos possíveis. Logo,
+	\[\frac{\binom{3}{2}}{\binom{n}{2}} = \frac{1}{2} \Rightarrow (n+3)(n-4)=0.\]
+Assim, $n=-3$ ou $n=4$. Como não podemos ter um número negativo de meias, então a resposta é $n=4$ meias no total.
+\end{solution}
+
+% 2.41  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{40}
+\question{Se um dado é rolado 4 vezes, qual é a
+probabilidade de que o 6 saia pelo menos
+uma vez?
+}
+\begin{solution}
+A probabilidade do 6 não sair nenhuma vez é dada por $(5/6)^4$. O complemento desse evento é a probabilidade do 6 sair pelo menos uma vez, ou seja, $1-(5/6)^4 \approx \text{0,518}$.
+\end{solution}
+
+% 2.43  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{42}
+\question{
+\begin{parts}
+	\part Se $N$ pessoas, incluindo $A$ e $B$, são dispostas aleatoriamente em linha, qual
+é a probabilidade de que $A$ e $B$ estejam uma ao lado da outra?
+	\part E se as pessoas tivessem sido dispostas aleatoriamente em círculo?
+\end{parts}
+}
+\begin{solution}
+Seja $N\geq 3$.
+\begin{parts}
+	\part As configurações nas quais $A$ e $B$ estão uma ao lado da outra são $2\cdot(N-1)!$ do total de configurações possíveis $N!$. Logo, a probabilidade desejada é $2/N$.
+	\part Numa mesa circular não tem início, então as configurações possíveis se reduzem à $(N-1)!$.  Fixando a posição do $A$, temos que as configurações desejadas são o $B$ sentar-se à esquerda ou à direita de $A$, e para o restante das pessoas, temos $(N-2)!$ configurações possíveis. Portanto, a probabilidade desejada é \[\frac{2\cdot(N-2)!}{(N-1)!} = \frac{2}{N-1},\]
+que é maior do que $2/N$.
+\end{parts}
+\end{solution}
+
+% 2.44  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{43}
+\question{Cinco pessoas, designadas como $A, B, C,
+D, E$, são arranjadas em uma sequência linear. Supondo
+que cada uma das ordenações possíveis seja igualmente provável,
+qual é a probabilidade de que:
+\begin{parts}
+	\part exista exatamente uma pessoa entre $A$ e $B$?
+	\part existam exatamente duas pessoas entre $A$ e $B$?
+	\part existam três pessoas entre $A$ e $B$?
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part Temos duas opções em relação à $A$ ou $B$ vir primeiro; temos 3 opções em relação à pessoa que está no meio; temos $3!$ arranjos possíveis entre o grupo e o restante das pessoas. O total de arranjos possíveis é $5!$. Portanto, a probabilidade desejada é $(2\cdot 3\cdot 3!)/5!=3/10$.
+	\part Aplicando raciocínio análogo ao item anterior temos $(2\cdot(3\cdot2)\cdot2!)/5! = 1/5$.
+	\part Analogamente, temos $(2\cdot(3\cdot2\cdot1)\cdot1!)/5! = 1/10$.
+\end{parts}
+\end{solution}
+
+% 2.45  % % % % % % % % % % % % % % % % % % % % %
+\question{Uma mulher tem $n$ chaves,das quais uma
+abre a sua porta
+\begin{parts}
+	\part Se ela tentar usar as chaves aleatoriamente,
+descartando aquelas que não funcionam, qual é a probabilidade de
+ela abrir a porta em sua $k$-ésima tentativa?
+	\part E se ela não descartar as chaves já utilizadas?
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part Para abrir a porta exatamente na $k$-ésima tentativa, ela deve falhar $k-1$ vezes e obter sucesso na $k$-ésima vez. A probabilidade desse evento é
+    	\[\dfrac{N-1}{N}\,\dfrac{N-2}{N-1}\cdots\dfrac{N-(k-1)}{N-(k-2)}\,\dfrac{1}{N-(k-1)}
+        	= \dfrac{1}{N}.\]
+	\part Quando não se descarta chaves utilizadas, a probabilidade se torna
+		\[\left(\dfrac{N-1}{N}\right)^{k-1}\dfrac{1}{N}.\]
+\end{parts}        
+\end{solution}
+
+% 2.48  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{47}
+\question{Dadas 20 pessoas, qual é a probabilidade
+de que, entre os 12 meses do ano, existam
+4 meses contendo exatamente 2 aniversários
+e 4 contendo exatamente 3 aniversários?
+}
+\begin{solution}
+Supomos que a probabilidade de uma pessoa fazer em um determinado mês seja igual à qualquer outro mês e independente das demais pessoas. Os meses são divididos em 3 grupos de 4 meses, os com nenhum aniversariante, com 2 aniversariantes e 3 aniversariantes. Assim, temos $\binom{12}{4,4,4}$ possibilidades de meses. Em relação à distribuição dos aniversariantes, contamos quantas possibilidades existem quando dividimos os mesmos em 4 grupos de 2 e 4 grupos de 3, ou seja, $\binom{20}{2,2,2,2,3,3,3,3}$ possibilidades. O total de possibilidades de aniversário é dada por $12^{20}$. Portanto, a probabilidade desejada é dada por
+	\[\dfrac{1}{12^{20}}\binom{12}{4,4,4}\binom{20}{2,2,2,2,3,3,3,3} \approx\text{0,00106}.\]
+\end{solution}
+
+% 2.49  % % % % % % % % % % % % % % % % % % % % %
+\question{Um grupo de 6 homens e 6 mulheres é
+dividido aleatoriamente em 2 grupos de 6
+pessoas cada. Qual é a probabilidade de
+que ambos os grupos possuam o mesmo
+número de homens?
+}
+\begin{solution}
+A única forma de terem o mesmo número de homens nos dois grupos é se tiverem 3 homens em cada grupo. O número de possibilidade de fazer isso é escolher os 3 homens e escolher as 3 mulheres para o primeiro grupo, ou seja, $\binom{6}{3}^2$ possibilidades. O total de divisões possíveis de 12 pessoas em 2 grupos é $\binom{12}{6}$. Logo, a probabilidade que buscamos é
+	\[\dfrac{\binom{6}{3}^2}{\binom{12}{6}}
+    	= \dfrac{100}{231} \approx \text{0,433}\]
+\end{solution}
+
+% 2.52  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{51}
+\question{Um armário contém 10 pares de sapatos.
+Se 8 sapatos são selecionados aleatoriamente, qual é a probabilidade de
+\begin{parts}
+	\part nenhum par completo ser formado?
+	\part ser formado exatamente 1 par completo?
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part Para nenhum par completo, escolhemos 8 dos 10 pares disponíveis, ou seja, $\binom{10}{8}$ e para cada par escolhido temos 2 possibilidades de sapato. O total de combinações possíveis de serem escolhidas é $\binom{20}{8}$. Logo, supondo probabilidades iguais para escolha de cada sapato, temos que a probabilidade de não tirar nenhum par completo é
+    \[\dfrac{2^8\binom{10}{8}}{\binom{20}{8}} \approx \text{0,091}.\]
+    
+	\part Para formar exatamente um par completo, escolhemos um dos 10 pares para ser o par completo e 6 dos 9 pares restantes para ser os incompletos, lembrando que para cada par incompleto temos 2 possibilidades. Assim, temos que a probabilidade de exatamente um par completo é
+    \[\dfrac{10\cdot 2^6\binom{9}{6}}{\binom{20}{8}} \approx \text{0,427}.\]
+\end{parts}        
+\end{solution}
+
+\end{questions}

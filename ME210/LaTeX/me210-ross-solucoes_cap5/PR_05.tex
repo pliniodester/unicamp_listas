@@ -1,0 +1,623 @@
+
+\begin{questions}
+
+% 5.1  % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{0}
+\question{Seja $X$ uma variável aleatória com função densidade de probabilidade
+\begin{equation*}
+	f(x) = 
+    \begin{cases}
+		c\,(1-x^2) 	&-1<x<1 \\
+        0			&\text{caso contrário}
+	\end{cases}
+\end{equation*}
+\begin{parts}
+	\part Qual é o valor de $c$?
+	\part Qual é a função distribuição cumulativa de $X$?
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part Sabemos que $\int_{-\infty}^\infty f(x)\,\diff x = 1$, logo
+    \begin{align*}
+    		&\int_{-1}^1 c\,(1-x^2)\,\diff x = 1\\
+        \Rightarrow\, & c\,\left.\left( x-\frac{x^3}{3} \right)\right\rvert_{-1}^1
+        	= 1\\
+        \Rightarrow\, & c = \tfrac{3}{4}.
+    \end{align*}
+    
+	\part Por definição, $F(x) = \int_{-\infty}^x f(x)\,\diff x$. Assim, se $x\in[-1,1]$, então
+    \begin{align*}
+    	F(x) &= \int_{-1}^x \tfrac{3}{4}(1-{x'}^2)\,\diff x'\\
+        	&= \frac{3}{4}\left.\left( x'-\frac{x'^3}{3} \right)\right\rvert_{-1}^x\\
+            &= \frac{2 + 3x - x^3}{4}.
+    \end{align*}
+    Logo,
+    \begin{align*}
+    	F(x) = 
+        \begin{cases}
+        	0,						& x \le -1;\\
+            \frac{2 + 3x - x^3}{4},	& -1 < x \le 1;\\
+            1,						& x > 1.
+        \end{cases}
+    \end{align*}
+\end{parts}
+\end{solution}
+
+% 5.2  % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{0}
+\question{Um sistema formado por uma peça original mais uma sobressalente pode funcionar por uma quantidade de tempo aleatória $X$. Se a densidade de $X$ é dada, em
+unidades de meses, por
+\begin{equation*}
+	f(x) = 
+    \begin{cases}
+		C\,x\euler^{-x/2} 	&x>0 \\
+        0			&x\le 0
+	\end{cases}
+\end{equation*}
+qual é a probabilidade de que o sistema
+funcione por pelo menos 5 meses?
+}
+\begin{solution}
+	Note que $X$ segue uma distribuição Gamma de parâmetros $\alpha = 2$ e $\lambda = 1/2$. Sabemos que $C = \lambda^\alpha/\Gamma(\alpha) = (1/2)^2/1! = 1/4$.\\    
+    A probabilidade que o sistema funcione por pelo menos 5 meses é dada por
+    \begin{align*}
+    	\int_5^\infty \tfrac{1}{4}\,x\euler^{-x/2}\,\diff x
+        = \left.\left(-\tfrac{1}{2}(x+2)\,\euler^{-x/2}\right)\right\rvert_5^\infty
+        = \tfrac{7}{2}\,\euler^{-5/2}
+        \approx \text{0,287}.
+    \end{align*}
+\end{solution}
+
+% 5.3  % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{0}
+\question{Considere a função
+\begin{equation*}
+	f(x) = 
+    \begin{cases}
+		C\,(2x-x^3) &0<x<\tfrac{5}{2} \\
+        0			&\text{caso contrário}
+	\end{cases}
+\end{equation*}
+Poderia $f$ ser uma função densidade de
+probabilidade? Caso positivo, determine
+$C$.Repita considerando que a função $f(x)$
+seja dada por
+\begin{equation*}
+	f(x) = 
+    \begin{cases}
+		C\,(2x-x^2) &0<x<\tfrac{5}{2} \\
+        0			&\text{caso contrário}
+	\end{cases}
+\end{equation*}
+}
+\begin{solution}
+	Em ambos casos $f$ não pode ser uma função densidade de probabilidade, pois a integral de $f$ em qualquer intervalo deve ser não-negativa, uma vez que representa uma probabilidade. Note que os pontos que estão em uma vizinhança de $x=1$ tem sinal oposto aqueles que estão em uma vizinhança de $x=5/2$. Logo, independente do sinal escolhido para $C$, em algum dos dois casos a integral será negativa e, portanto, $f$ não pode ser uma função densidade de probabilidade.
+\end{solution}
+
+% 5.5  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{4}
+\question{Um posto de gasolina é abastecido com
+gasolina uma vez por semana. Se o volume semanal de vendas em milhares de litros é uma variável aleatória com função
+densidade de probabilidade
+\begin{equation*}
+	f(x) = 
+    \begin{cases}
+		5\,(1-x)^4 &0<x<1 \\
+        0			&\text{caso contrário}
+	\end{cases}
+\end{equation*}
+qual deve ser a capacidade do tanque
+para que a probabilidade do fornecimento não ser suficiente em uma dada semana seja de 0,01?
+}
+\begin{solution}
+	Queremos descobrir $x_0$ para o qual as vendas serem superiores à $x_0$ tenha probabilidade 0,01, ou seja,
+    \begin{align*}
+    	\int_{x_0}^1 5\,(1-x)^4\,\diff x = \text{0,01}
+        ~\Rightarrow~ (1-x_0)^5 = \text{0,01}
+        ~\Rightarrow~ x_0 = \text{0,602}.
+    \end{align*}
+    Logo, a capacidade do tanque deve ser de 602 litros.
+\end{solution}
+
+% 5.7  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{6}
+\question{A função densidade de $X$ é dada por
+\begin{equation*}
+	f(x) = 
+    \begin{cases}
+		a+bx^2 &0\le x\le 1 \\
+        0			&\text{caso contrário}
+	\end{cases}
+\end{equation*}
+Se $E[X]=3/5$,determine $a$ e $b$.
+}
+\begin{solution}
+\begin{align*}
+	\int_0^1(a+bx^2)\,\diff x = 1 ~\Rightarrow~ a+b/3 = 1.
+\end{align*}
+\begin{align*}
+	E[X] = \int_0^1x(a+bx^2)\,\diff x
+    ~\Rightarrow~ a/2+b/4 = 3/5.
+\end{align*}
+Resolvendo essas duas equações para $a$ e $b$ obtemos $a=3/5$ e $b=6/5$.
+\end{solution}
+
+% 5.10 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{9}
+\question{Trens em direção ao destino $A$ chegam
+na estação em intervalos de 15 minutos a
+partir das 7:00 da manhã, enquanto trens
+em direção ao destino $B$ chegam à estação em intervalos de 15 minutos começando as 7:05 da manhã.
+\begin{parts}
+	\part Se certo passageiro chega à estação em um horário uniformemente distribuído entre 7:00 e 8:00 da manhã e
+pega o primeiro trem que chega, em
+que proporção de tempo ele vai para
+o destino $A$?
+	\part E se o passageiro chegar em um horário uniformemente distribuído entre 7:10 e 8:10 da manhã?
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part Note que a pessoa pegará o trem $A$ se ela chegar nos intervalos de tempo {7:05-7:15}, {7:20-7:30}, {7:35-7:45} ou {7:50-8:00}. O que totaliza 40 minutos. Como o horário que a pessoa chega é distribuído uniformemente em 60 minutos, então a proporção de vezes que ela pega o trem $A$ é $\frac{40}{60} = \frac{2}{3}$.
+    
+	\part Nesse novo cenário, os intervalos são {7:10-7:15}, {7:20-7:30}, {7:35-7:45}, {7:50-8:00} ou {8:05-8:10}. O que totaliza 40 minutos também. Logo, a proporção de vezes que ela pega o trem $A$ continua sendo $\frac{2}{3}$.
+\end{parts}
+\end{solution}
+
+% 5.11 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{9}
+\question{Um ponto é escolhido aleatoriamente em
+um segmento de reta de comprimento $L$.
+Interprete este enunciado e determine a
+probabilidade de que a relação entre o
+segmento mais curto e o mais longo seja
+menor que $1/4$.
+}
+\begin{solution}
+	Seja $\ell$ o tamanho do comprimento mais curto. Queremos saber quando $\ell/(L-\ell) \le 1/4$, ou seja, quando $\ell \le \frac{L}{5}$. Seja $X$ uma variável aleatória uniformemente distribuída em $(0,L)$, então nosso problema é equivalente à
+    \begin{align*}
+    	P(X\in(0,\tfrac{L}{5})\cup(\tfrac{4L}{5},L))
+        	= \frac{(L/5-0)+(L-4L/5)}{L}
+            = \frac{2}{5}.
+    \end{align*}
+\end{solution}
+
+% 5.13 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{12}
+\question{Você chega na parada de ônibus as 10:00,
+sabendo que o ônibus chegará em algum
+horário uniformemente distribuído entre
+10:OO e 10:30.
+\begin{parts}
+	\part Qual é a probabilidade de que você tenha que esperar mais de 10 minutos?
+    
+    \part Se, as 10:15, o ônibus ainda não tiver
+chegado, qual é a probabilidade de
+que você tenha que esperar pelo menos mais 10 minutos?
+\end{parts}
+}
+\begin{solution}
+Seja $X$ uma variável aleatória uniformemente distribuída em $(0,30)$
+\begin{parts}
+	\part \[P(X>10) = \frac{30-10}{30} = \frac{2}{3}.\]
+    
+    \part \[P(X>25\mid X>15) = \frac{P(X>25,X>15)}{P(X>15)}
+    	= \frac{P(X>25)}{P(X>15)} = \frac{5/30}{15/30} = \frac{1}{3}.\]
+\end{parts} 
+\end{solution}
+
+% 5.14 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{12}
+\question{Seja $X$ uma variável aleatória uniforme
+no intervalo $(0,1)$. Calcule $E[X^n]$ usando
+a Proposição~2.1 e depois verifique o resultado usando a definição de esperança.
+}
+\begin{solution}
+	Usando a Proposição~2.1, temos
+    \begin{align*}
+    	E[X^n] = \int_{-\infty}^{\infty} x^n\,f_X(x)\,\diff x
+        	= \int_0^1 x^n\,\diff x = \frac{1}{n+1}.
+    \end{align*}
+    Usando a definição, primeiro é necessário encontrar a distribuição de $Y=X^n$.
+    \begin{align*}
+    	F_Y(x) = P(Y\le x) = P(X^n\le x) = P(X\le x^{1/n}) = F_X(x^{1/n}).
+    \end{align*}
+    Derivando ambos lados da equação, encontramos a densidade,
+    \begin{align*}
+    	f_Y(x) = \frac{x^{(1-n)/n}}{n} f_X(x^{1/n})
+        	= \frac{x^{(1-n)/n}}{n}\quad 0<x<1.
+    \end{align*}
+    Logo,
+    \begin{align*}
+    	E[X^n] = E[Y] = \int_{-\infty}^{\infty} x\,f_Y(x)\,\diff x
+        	= \int_0^1 x\frac{x^{(1-n)/n}}{n}\,\diff x
+        	= \int_0^1 \frac{x^{1/n}}{n}\,\diff x = \frac{1}{n+1}.
+    \end{align*}
+\end{solution}
+
+% 5.15 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{12}
+\question{Se $X$ é uma variável aleatória normal com
+parâmetros $\mu = 10$ e $\sigma^2 = 36$, calcule
+\begin{parts}
+	\part $P(X>5)$;
+    \part $P(4<X<16)$;
+	\part $P(X<8)$;
+    \part $P(X<20)$;
+    \part $P(X>16)$.
+\end{parts}
+}
+\begin{solution}
+Primeiramente, devemos colocar $X$ em função de uma variável aleatória normal padrão para podermos usar a Tabela~5.1. \\
+Assim, $X = \mu+\sigma Z = 10 + 6Z$, onde $Z \sim \mathcal{N}(0,1)$.
+\begin{parts}
+	\part $P(X>5) = P(10+6Z > 5) = P(Z > -5/6) = 1-\Phi(-5/6)\\
+    	{}\quad\quad\quad = \Phi(5/6) \approx \text{0,7967}$.
+            
+    \part $P(4<X<16) = P(X<16)-P(X<4) = P(Z<1)-P(Z<-1)\\
+    	{}\quad\quad\quad = \Phi(1)-\Phi(-1)
+        	= 2\Phi(1)-1 \approx \text{0,6826}$.
+    
+	\part $P(X<8) = P(Z<-1/3) = \Phi(-1/3)	= 1-\Phi(1/3) \approx\text{0,3707}$.
+
+    \part $P(X<20) = P(Z<5/3) = \Phi(5/3) \approx \text{0,9515}$.
+    
+    \part $P(X>16) = P(Z>1) = 1-P(Z<1) = 1-\Phi(1) \approx\text{0,1587}$.
+
+\end{parts}
+\end{solution}
+
+% 5.16 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{12}
+\question{O volume anual de chuvas (em mm) em
+certa região é normalmente distribuído
+com $\mu = 40$ e $\sigma = 4$. Qual é a probabilidade
+de que, a contar deste ano, sejam necessários
+mais de 10 anos antes que o volume
+de chuva em um ano supere 50 mm? Que
+hipóteses você está adotando?
+}
+\begin{solution}
+Seja $p$ a probabilidade que o volume de chuva não supere 50 mm em um ano e $Z$ uma variável aleatória normal padrão. Então,
+\begin{align*}
+	p = P(Z < \tfrac{50-40}{4}) = P(Z<5/2) = \Phi(5/2)
+    	\approx \text{0,9938}.
+\end{align*}
+Se o volume de chuva de cada ano forem independentes, então a probabilidade que demore mais de 10 anos para superar os 50 mm em um ano é dado por $p^{10}\approx \text{0,9397}$.
+\end{solution}
+
+% 5.17 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{12}
+\question{Um homem praticando tiro ao alvo 
+recebe 10 pontos se o tiro estiver a 1 cm do
+alvo, 5 pontos se estiver entre 1 e 3 cm do
+alvo, e 3 pontos se estiver entre 3 e 5 cm
+do alvo. Determine o número esperado
+de pontos que ele receberá se a distância
+do ponto de tiro até o alvo for uniformemente distribuída entre 0 e 10.
+}
+\begin{solution}
+	Seja $g$ a função que associa a distância ao alvo à pontuação recebida e $X$ a distância ao alvo, então queremos saber
+    \begin{align*}
+    	E[g(X)]
+        	&= \int_0^{10} g(x) f_X(x)\,\diff x \\
+        	&= \int_{0}^1 10\tfrac{1}{10} \,\diff x
+            	+\int_{1}^3 5\tfrac{1}{10} \,\diff x
+                +\int_{3}^5 3\tfrac{1}{10} \,\diff x \\
+            &= (1-0) 1 + (3-1) \tfrac{1}{2} + (5-3) \tfrac{3}{10}\\
+            &= \frac{13}{5} = \text{2,6}.
+    \end{align*}
+\end{solution}
+
+% 5.18 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{12}
+\question{Suponha que $X$ seja uma variável aleatória
+normal com média 0,5. Se $P(X > 9) = \text{0,2}$,
+qual é o valor de $\Var(X)$, aproximadamente?
+}
+\begin{solution}
+	Seja $Z$ uma variável aleatória normal padrão, então
+    \[\text{0,2} = P(X>9) = P(Z>\text{8,5}/\sigma) = 1-\Phi(\text{8,5}/\sigma),\]
+    Logo, $\Phi(\text{8,5}/\sigma) = \text{0,8}$. Da Tabela~5.1, obtemos que $\text{8,5}/\sigma \approx \text{0,84}$ e, portanto, $\sigma \approx \text{10,12}$ e $\Var(X) = \sigma^2 \approx \text{102,4}$.
+\end{solution}
+
+% 5.19 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{12}
+\question{Seja $X$ uma variável aleatória normal com
+média 12 e variância 4. Determine o valor
+de $c$ tal que $P(X > c) = 0,1$.
+}
+\begin{solution}
+	Seja $Z$ uma variável aleatória normal padrão, então
+    \[\text{0,1} = P(X>c) = P(Z>(c-12)/2) = 1-\Phi((c-12)/2),\]
+    Logo, $\Phi((c-12)/2) = \text{0,9}$. Da Tabela~5.1, obtemos que $(c-12)/2 \approx \text{1,28}$ e, portanto, $c \approx \text{14,56}$.
+\end{solution}
+
+% 5.20 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{12}
+\question{Se 65\% da população de uma grande
+comunidade são a favor de um aumento
+proposto para as taxas escolares, obtenha
+uma aproximação para a probabilidade
+de que uma amostra aleatória de 100 pessoas contenha
+\begin{parts}
+	\part pelo menos 50 pessoas a favor da proposta;
+    \part entre 60 e 70 pessoas (inclusive) a favor;
+    \part menos de 75 pessoas a favor.
+\end{parts}
+}
+\begin{solution}
+A variável aleatória $N$ que representa o número de pessoas à favor é uma binomial de parâmetros $p=\text{0,65}$ e $n=100$. Porém, como $n$ é grande, podemos aproximar por uma normal $X$ de média $\mu = np = 65$ e $\sigma^2 = np(1-p) = \text{22,75}$ (Teorema limite de DeMoivre e Laplace). Seja $Z$ uma normal padrão.
+\begin{parts}
+	\part Usando \textit{correção de continuidade}, temos que
+    \begin{align*}
+    	P(N \ge 50) 
+        	&\approx P(X\ge \text{49,5})
+        		= 1-P(Z < \tfrac{\text{49,5}-65}{\sqrt{\text{22,75}}})\\
+        	&= 1-\Phi(-\text{3,25}) = \Phi(\text{3,25}) \approx \text{0,9994}.
+    \end{align*}
+    
+    \part Usando \textit{correção de continuidade}, temos que
+    \begin{align*}
+    	P(60\le N \le 70) 
+        	&\approx P(\text{59,5}\le X\le \text{70,5})\\
+        	&= P(Z < \tfrac{\text{70,5}-65}{\sqrt{\text{22,75}}})
+            	- P(Z < \tfrac{\text{59,5}-65}{\sqrt{\text{22,75}}})\\
+        	&= \Phi(\text{1,15})-\Phi(-\text{1,15}) = 2\Phi(\text{1,15})-1\\
+            &\approx \text{0,7498}.
+    \end{align*}
+    
+    \part Usando \textit{correção de continuidade}, temos que
+    \begin{align*}
+    	P(N < 75) 
+        	\approx P(X < \text{74,5})
+        	= P(Z < \tfrac{\text{74,5}-65}{\sqrt{\text{22,75}}})
+        	= \Phi(\text{1,99}) \approx \text{0,9767}.
+    \end{align*}
+\end{parts}
+\end{solution}
+
+% 5.23 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{22}
+\question{Realizam-se mil jogadas independentes
+de um dado honesto. Calcule a probabilidade
+aproximada de que o número 6
+apareça entre 150 e 200 vezes, inclusive.
+Se o número 6 aparecer exatamente 200
+vezes, determine a probabilidade de que
+o número 5 apareça menos de 150 vezes.
+}
+\begin{solution}
+	Seja $N$ uma variável aleatória com distribuição binomial $n$ e $p$. Quando $n$ é grande, podemos aproximar por uma variável aleatória $X$ distribuída como normal de parâmetros $\mu=np$ e $\sigma^2=np(1-p)$. Seja $Z$ a normal padrão.\\
+    Para o número 6 aparecer entre 150 e 200 vezes em mil jogadas, temos que $n=1000$, $p=1/6$ e queremos saber
+    \begin{align*}
+    	P(150\le N\le 200)
+        	&\approx P(\text{149,5} \le X \le \text{200,5})
+            	= P(\tfrac{\text{200,5}-\text{166,7}}{\text{11,785}} \le Z 
+            	\le \tfrac{\text{149,5}-\text{166,7}}{\text{11,785}})\\
+            &= \Phi(\text{2,87}) - \Phi(-\text{1,5})
+            	= \Phi(\text{2,87})+\Phi(\text{1,5})-1 \approx \text{0,9311}.
+    \end{align*}
+    Por outro lado, se sabemos que já saíram exatamente 200 dados marcando 6, sobram 800 dados para saírem números 5, agora com 1/5 de chance. Fazendo exatamente o mesmo procedimento feito acima, mas com $n=800$ e $p=1/5$, chegamos em $P(N<150)\approx P(X<\text{149,5})\approx \text{0,1762}$.
+\end{solution}
+
+% 5.28 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{27}
+\question{Em 10.000 jogadas independentes de uma
+moeda, observou-se que deu cara 5800
+vezes. É razoável supor que essa moeda
+não seja honesta? Explique.
+}
+\begin{solution}
+	Seja $N$ uma variável aleatória com distribuição binomial $n$ e $p$. Quando $n$ é grande, podemos aproximar por uma variável aleatória $X$ distribuída como normal de parâmetros $\mu=np$ e $\sigma^2=np(1-p)$. Seja $Z$ a normal padrão.\\
+    Se a moeda for honesta, então $n=10\,000$, $p=1/2$. Nesse caso, não é necessário correção de continuidade, pois $n$ é realmente grande. É interessante saber a seguinte probabilidade
+    \begin{align*}
+    	P(N\ge 5\,800)
+        	&\approx P( X \ge \text{5800} )
+            	= P(Z \ge \tfrac{5800-5000}{\sqrt{2500}})\\
+            &= 1-\Phi(16) \approx 0.
+    \end{align*}
+    Dessa forma, como a chance de pelo menos $5\,800$ caras em $10\,000$ lançamentos é praticamente nula, então é bem razoável supor que a moeda não seja honesta.
+\end{solution}
+
+% 5.31 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{30}
+\question{
+\begin{parts}
+	\part Uma estação de bombeiros deve ser
+instalada ao longo de uma estrada
+com comprimento $A$, $A < \infty$. Se incêndios
+ocorrem em pontos uniformemente distribuídos
+no intervalo $(0,A)$, qual deveria ser a localização da
+estação de forma a minimizar-se a distância
+esperada para o incêndio? Isto
+é, escolha $a$ de forma que $E[|X-a|]$ seja 
+minimizado quando $X$ for uniformemente
+distribuído ao longo de $(0,A)$.
+    \part Agora suponha que a estrada tenha
+comprimento infinito -- indo do ponto
+0 até $\infty$. Se a distância de um incêndio até o ponto 0 é exponencialmente distribuída com taxa $\lambda$, onde deveria
+estar localizada a estação? Isto é, queremos
+minimizar $E[|X - a|]$, onde $X$ é
+agora exponencial com taxa $\lambda$.
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part Comecemos calculando a esperança em função de $a\in[0,A]$,
+    \begin{align*}
+    	E[|X-a|] 
+        	&= \int_{-\infty}^\infty |x-a| f_X(x)\,\mathrm{d}x \\
+        	&= \int_0^A |x-a| \frac{1}{A}\,\mathrm{d}x \\
+            &= \int_0^a \frac{(a-x)}{A}\mathrm{d}x + \int_a^A \frac{(x-a)}{A}\mathrm{d}x\\
+			&= \frac{a^2}{A} - a + \frac{A}{2}.
+    \end{align*}
+    Para encontrar o ponto de mínimo, derivamos a expressão acima em relação à $a$ e igualamos à zero, encontrando $a=A/2$. É um ponto de mínimo global, pois a segunda derivada é positiva em toda região de interesse (função é convexa).
+    
+    \part Analogamente,
+    \begin{align*}
+    	E[|X-a|] 
+        	&= \int_{-\infty}^\infty |x-a| f_X(x)\,\mathrm{d}x \\
+        	&= \int_0^\infty |x-a| \lambda\euler^{-\lambda x}\,\mathrm{d}x \\
+            &= \int_0^a (a-x)\lambda\euler^{-\lambda x}\mathrm{d}x 
+            	+ \int_a^\infty (x-a)\lambda\euler^{-\lambda x}\mathrm{d}x\\
+			&= a + \frac{2\,\euler^{-\lambda a}-1}{\lambda}.
+    \end{align*}
+\end{parts}
+	Novamente, derivamos em relação à $a$ e igualamos à zero,
+    \begin{align*}
+    	1 - 2\euler^{-\lambda a} = 0 \Rightarrow a = \frac{\ln(2)}{\lambda}.
+    \end{align*}
+    É um ponto de mínimo global, pois a segunda derivada da função é positiva em toda região de interesse (é convexa).
+\end{solution}
+
+% 5.32  % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{36}
+\question{O tempo (em horas) necessário para a
+manutenção de uma máquina é uma variável aleatória
+exponencialmente distribuída com $\lambda = 1/2$. Qual é
+\begin{parts}
+	\part a probabilidade de que um reparo
+dure mais que 2 horas?
+    \part a probabilidade condicional de que o
+tempo de reparo dure pelo menos 10
+horas, dado que a sua duração seja superior a 9 horas?
+\end{parts}
+}
+\begin{solution}
+Seja $X$ o tempo para manutenção da máquina, então $f_X(x) = \frac{1}{2} \euler^{-x/2}$.
+\begin{parts}
+	\part 
+    \begin{align*}
+    	P(X>2) 
+        	= \int_{2}^\infty \frac{1}{2}\euler^{-x/2}\,\mathrm{d}x
+        	= \euler^{-1} \approx \text{0,368}.
+    \end{align*}
+    
+    \part 
+    \begin{align*}
+    	P(X>10\mid X>9) = \frac{P(X>10)}{P(X>9)} = \frac{\euler^{-10/2}}{\euler^{-9/2}}
+        	= \euler^{-1/2} \approx \text{0,607}.
+    \end{align*}
+    A exponencial não tem memória, o problema é equivalente à $P(X>1)$.
+\end{parts}
+\end{solution}
+
+
+% 5.37  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{36}
+\question{Se a variável aleatória $X$ é uniformemente distribuída ao longo do intervalo $(-1,1)$, determine:
+\begin{parts}
+	\part $P(|X| > 1/2)$;
+    
+    \part a função densidade da variável aleatória $|X|$.
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part
+    \begin{align*}
+    	P(|X| > 1/2) = P(X > 1/2) + P(X < -1/2) = 1/4+1/4 = 1/8.
+    \end{align*}
+    
+    \part A função distribuição acumulada de $|X|$ é dada por
+    \begin{align*}
+    	F_{|X|}(x) = P(|X| \le x) = P(-x \le X \le x)
+        	= F_X(x) - F_X(-x),
+    \end{align*}
+    quando $x > 0$. Por outro lado, $F_{|X|}(x) = 0$, se $x<0$.\\
+    Derivando dos dois lados de cada equação, obtemos a densidade de $|X|$,
+    \begin{align*}
+    	f_{|X|}(x) = f_X(x) + f_X(-x) = 1, \quad &0<x<1,
+    \end{align*}
+    e $f_{|X|}(x) = 0$, caso contrário.
+\end{parts}
+\end{solution}
+
+% 5.38  % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{36}
+\question{Se a variável aleatória $Y$ é uniformemente distribuída ao longo do intervalo $(0,5)$, qual é a probabilidade de que as raízes da
+equação $4x^2 + 4xY + Y + 2 = 0$ sejam ambas reais?
+}
+\begin{solution}
+	Para uma equação do segundo grau do tipo $ax^2+bx+c=0$ ter raízes reais é necessário e suficiente que $b^2-4ac\ge 0$. Logo, queremos saber
+    \begin{align*}
+    	P((4Y)^2-4\cdot4\,(Y+2) \ge 0)
+        	&= P(Y^2-Y-2\ge 0) \\
+        	&= P( (Y-2)(Y+1) \ge 0 )\\
+            &= P(Y\le -1) + P(Y \ge 2)\\
+            &= 0 + \frac{5-2}{5} = \frac{3}{5}.
+    \end{align*}
+\end{solution}
+
+% 5.39  % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{36}
+\question{Se $X$ é uma variável aleatória exponencial
+com parâmetro $\lambda = 1$, calcule a função
+densidade de probabilidade da variável
+aleatória $Y$ definida como $Y = \log X$.
+}
+\begin{solution}
+	Comecemos pela função distribuição acumulada
+    \begin{align*}
+    	F_Y(x) = P(Y \le x) = P(\log X \le x) = P(X \le \euler^x) = F_X(\euler^x).
+    \end{align*}
+    Derivando ambos lados da equação em relação à $x$, obtemos que
+    \begin{align*}
+    	f_Y(x) = \euler^x\,f_x(\euler^x)
+        	= \lambda \exp(x-\lambda\euler^x) = \exp(x-\euler^x).
+    \end{align*}
+\end{solution}
+
+% 5.40  % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{36}
+\question{Se $X$ é uniformemente distribuída ao longo do intervalo $(0, 1)$, determine a função densidade de $Y = \euler^X$.
+}
+\begin{solution}
+	Comecemos pela função distribuição acumulada ($x>0$)
+    \begin{align*}
+    	F_Y(x) = P(Y \le x) = P(\euler^X \le x) = P(X \le \log(x)) = F_X(\log(x)).
+    \end{align*}
+    Derivando ambos lados da equação em relação à $x$, obtemos que
+    \begin{align*}
+    	f_Y(x) = \frac{f_x(\log(x))}{x} = 
+        \begin{cases}
+        	\frac{1}{x},	&\quad 1<x<\euler;\\
+            0,				&\quad \text{caso contrário}.
+        \end{cases}
+    \end{align*}
+\end{solution}
+
+% 5.41  % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{36}
+\question{Determine a distribuição de $R = A \sin\theta$,
+onde $A$ é uma constante fixa, e $\theta$ é
+uma variável aleatória uniformemente
+distribuída em $(-\pi/2, \pi/2)$. A variável
+aleatória $R$ surge da teoria da balística.
+Se um projétil é disparado de sua origem
+com um ângulo $\alpha$ em relação à superfície
+da terra com uma velocidade $v$, então o
+ponto $R$ no qual ele retorna à terra pode
+ser escrito como $R = (v^2/g)\sin 2\alpha$, onde
+$g$ é a aceleração da gravidade,que é igual
+a 9,8 m/s$^2$.
+}
+\begin{solution}
+	Comecemos pela função distribuição acumulada
+    \begin{align*}
+    	F_R(r) = P(R \le r) = P(A\sin\theta \le r) = P(\theta \le \arcsin(r/A) )
+        	= F_\theta(\arcsin(r/A)).
+    \end{align*}
+    Derivando ambos lados da equação em relação à $r$, obtemos que
+    \begin{align*}
+    	f_R(r) = \frac{f_\theta(\arcsin(r/A))}{\sqrt{A^2-r^2}} = 
+        \begin{cases}
+        	\frac{1}{\pi\sqrt{A^2-r^2}},	&\quad -A<r<A;\\
+            0,								&\quad \text{caso contrário}.
+        \end{cases}
+    \end{align*}
+\end{solution}
+
+\end{questions}

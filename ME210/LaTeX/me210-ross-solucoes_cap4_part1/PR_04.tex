@@ -1,0 +1,439 @@
+
+\begin{questions}
+
+% 4.4  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{3}
+\question{Cinco homens e 5 mulheres são classificados de acordo com suas notas em uma prova. Suponha que não existam notas
+iguais e que todas as $10!$ classificações possíveis sejam igualmente prováveis. Faça $X$ representar a melhor classificação
+obtida por uma mulher (por exemplo, $X=1$ se a pessoa mais bem classificada for uma mulher). Determine $P\{X = i\},i = 1,2,3,\dots,8,9,10$.
+}
+\begin{solution}
+	Se $i > 6$, então $P\{X = i\} = 0$, pois temos 5 homens participando. Se $i < 6$, então teremos 4 mulheres ocupando qualquer posição entre as posições abaixo a $i$-ésima, isto é, 4 mulheres entre $10-i$ posições. Logo,
+	\[P\{X = i\} = \dfrac{\binom{10-i}{4}}{\binom{10}{5}}, \quad
+    	i\in\{1,2\dots,6\}.\]
+\end{solution}
+
+% 4.5  % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{3}
+\question{Suponha que $X$ represente a diferença
+entre o número de caras e coroas obtido
+quando uma moeda é jogada $n$ vezes.
+Quais são os possíveis valores de $X$?
+}
+\begin{solution}
+	Se $n$ for ímpar, $X \in \{-n,-n+2,\dots,-1,1,\dots,n-2,n\}$.
+    Se $n$ for par, $X \in \{-n,-n+2,\dots,-2,0,2,\dots,n-2,n\}$.
+\end{solution}
+
+% 4.13 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{12}
+\question{Um vendedor agendou duas visitas para
+vender enciclopédias. Sua primeira visita resultará em venda com probabilidade 0,3, e sua segunda visita resultará em
+venda com probabilidade de 0,6, sendo
+ambas as probabilidades de venda independentes. Qualquer venda realizada tem
+a mesma probabilidade de ser do modelo
+luxo,que custa R\$ 1000,00, ou do modelo
+padrão, que custa R\$ 500,00. Determine
+a função de probabilidade de $X$, o valor
+total das vendas em reais.
+}
+\begin{solution}
+	Para encontrar a probabilidade de $X$ ser igual a uma certa quantia, basta listar todas as formas de ganhar essa quantia e em seguida somar essas probabilidades.
+	\begin{align*}
+        p_X(0) &= (\text{0,7})(\text{0,4}) =\text{0,28},\\
+    	p_X(500) &= (\text{0,7})(\text{0,6}\cdot\text{0,5})
+            +(\text{0,3}\cdot\text{0,5})(\text{0,4})
+        	=\text{0,27},\\
+    	p_X(1000) &=(\text{0,3}\cdot\text{0,5})(\text{0,6}\cdot\text{0,5})
+        	+(\text{0,7})(\text{0,6}\cdot\text{0,5})
+            +(\text{0,3}\cdot\text{0,5})(\text{0,4})
+        	=\text{0,315},\\
+    	p_X(1500) &=2(\text{0,3}\cdot\text{0,5})(\text{0,6}\cdot\text{0,5})
+        	=\text{0,09},\\
+		p_X(2000) &=(\text{0,3}\cdot\text{0,5})(\text{0,6}\cdot\text{0,5})
+        	=\text{0,045}.\\
+	\end{align*}
+    \vspace{-10mm}
+\end{solution}
+
+% 4.17 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{16}
+\question{Suponha que a função distribuição de $X$
+seja dada por $F(b)$ (vide livro).
+\begin{parts}
+	\part Determine $P\{X= i\},i = 1,2,3$.
+    \part Determine $P\{\frac{1}{2} < X <\frac{3}{2}\}$.
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part Sabemos que \[P\{X= i\} = F(i) - \lim_{b\to i^-}F(b).\]
+    Logo,
+    \begin{align*}
+    	P\{X=1\} &= \frac{1}{2} - \lim_{b\to 1^-}\frac{b}{4} = \frac{1}{4},\\
+        P\{X=2\} &= \frac{11}{12} - \lim_{b\to 2^-}
+        	\left(\frac{1}{2}+\frac{b-1}{4} \right) = \frac{1}{6},\\
+        P\{X=3\} &= 1 - \frac{11}{12} = \frac{1}{12}.\\
+    \end{align*}
+
+    \part
+    \begin{align*}
+    	P\{\tfrac{1}{2} < X <\tfrac{3}{2}\}
+        	&= P\{X <\tfrac{3}{2}\}-P\{X \le\tfrac{1}{2}\}\\
+        	&= \lim_{b\to \frac{3}{2}^-}F(b) - F(\tfrac{1}{2})\\
+            &= \frac{1}{2} + \frac{\frac{3}{2}-1}{4} - \frac{\frac{1}{2}}{4}\\
+            &= \frac{1}{2}.
+    \end{align*}
+\end{parts}
+\end{solution}
+
+% 4.21 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{20}
+\question{Quatro ônibus levando 148 estudantes da
+mesma escola chegam a um estádio de futebol. Os ônibus levam, respectivamente,
+40, 33, 25 e 50 estudantes. Um dos estudantes é selecionado aleatoriamente. Suponha
+que $X$ represente o número de estudantes
+que estavam no ônibus que levava o estudante selecionado. Um dos 4 motoristas
+dos ônibus também é selecionado aleatoriamente. Seja $Y$ o número de estudantes
+no ônibus do motorista selecionado
+\begin{parts}
+	\part Qual valor esperado você pensa ser
+maior, $E[X]$ ou $E[Y]$?
+    \part Calcule $E[X]$ e $E[Y]$.
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part $E[X]$ é maior que $E[Y]$, pois a probabilidade que o estudante selecionado venha de um ônibus com mais estudantes é maior, enquanto que para os motoristas é equiprovável.
+
+    \part
+    \begin{align*}
+    	E[Y] &= \frac{1}{4}\cdot40+\frac{1}{4}\cdot33
+    			+\frac{1}{4}\cdot25+\frac{1}{4}\cdot50 = 37,\\
+		E[X] &= \frac{40}{148}\cdot40+\frac{33}{148}\cdot33
+    			+\frac{25}{148}\cdot25+\frac{50}{148}\cdot50 \approx 39.
+    \end{align*}
+\end{parts}
+\end{solution}
+
+% 4.22 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{20}
+\question{Suponha que dois times joguem uma série
+de partidas que termina quando um deles
+tiver ganhado $i$ partidas. Suponha que cada
+partida jogada seja, independentemente,
+vencida pelo time $A$ com probabilidade $p$.
+Determine o número esperado de partidas
+jogadas quando (a) $i = 2$ e (b) $i = 3$.
+Também, mostre em ambos os casos que este
+número é maximizado quando $p = \frac{1}{2}$.
+}
+\begin{solution}
+Seja $N$ a variável aleatória que representa o número de jogos. Quando $N=n$ e $A$ venceu a partida, então temos $n-1$ jogos nos quais $A$ venceu $i-1$ vezes e $A$ vence o último jogo, ou então se o outro time vencer a partida, então temos $i-1$ vitórias desse time nos $n-1$ jogos e ele vence o $n$-ésimo jogo. Logo, se $n\in\{i,i+1,\dots,2i-1\}$,
+\begin{align*}
+	P\{N=n\}
+    	&= \binom{n-1}{i-1}p^{i-1}(1-p)^{n-i}\cdot p
+    		+ \binom{n-1}{i-1}p^{n-i}(1-p)^{i-1}\cdot (1-p)\\
+        &= \binom{n-1}{i-1} \left(p^i(1-p)^{n-i}+p^{n-i}(1-p)^{i} \right).
+\end{align*}
+
+\begin{parts}
+	\part Se $i=2$,
+    \begin{align*}
+    	E[N]
+        	&= \sum_{n=2}^3 n \binom{n-1}{1} 
+        		\left(p(1-p)^{n-1}+p^{n-1}(1-p) \right)\\
+        	&= 2\,(1+p-p^2).
+    \end{align*}
+
+    \part Se $i=3$,
+    \begin{align*}
+    	E[N]
+        	&= \sum_{n=3}^5 n \binom{n-1}{2}
+            	\left(p^2(1-p)^{n-2}+p^{n-2}(1-p)^{2}\right)\\
+        	&= 3\, (1 + p + p^2 - 4 p^3 + 2 p^4).
+    \end{align*}
+\end{parts}
+    \hrulefill \\
+    Em ambos casos, $\frac{\mathrm{d}}{\mathrm{d}p}E[N]$ é maior que 0 se $p\in(0,\frac{1}{2})$ e é menor que 0 se $p\in(\frac{1}{2},1)$. Logo, $p=\frac{1}{2}$ é o ponto de máximo global.
+\end{solution}
+
+% 4.22 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{20}
+\question{Você tem R\$1000,00, e certa mercadoria
+é vendida atualmente por R\$2,00 o quilo.
+Suponha que uma semana depois a mercadoria passe a ser vendida por R\$1,00
+ou R\$4,00 o quilo, com essas duas possibilidades sendo igualmente prováveis.
+\begin{parts}
+	\part Se o seu objetivo é maximizar a quantidade esperada de dinheiro que você possuirá no final da semana, que estratégia você deve empregar?
+    \part Se o seu objetivo é maximizar a quantidade esperada de mercadoria que
+você possuirá no final da semana, que
+estratégia você deve empregar?
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part Suponha que compremos $b \in (0,500)$ quilos da mercadoria. Seja a variável aleatória $X$ o dinheiro que teremos ao final da semana se vendermos toda mercadoria comprada. Então,
+    \begin{align*}
+    	E[X] &= (1000-2b) + b\frac{1}{2} + 4b\frac{1}{2}\\
+        	&= 1000+\frac{b}{2}.
+    \end{align*}
+    Logo, devemos comprar o máximo possível da mercadoria, isto é, para maximizar o valor esperado do dinheiro ao final da semana devemos comprar $b = 500$ quilos da mercadoria.
+
+    \part Seja a variável aleatória $Y$ os quilos de mercadoria que teremos ao final da semana se comprarmos toda mercadoria com o dinheiro que sobrar. Então,
+    \begin{align*}
+    	E[Y] &= b + \frac{1000-2b}{1}\frac{1}{2} + \frac{1000-2b}{4}\frac{1}{2}\\
+        	&= 625-\frac{b}{4}.
+    \end{align*}
+    Logo, devemos comprar o mínimo possível da mercadoria no início da semana, isto é, para maximizar a quantidade de mercadoria ao final da semana devemos comprar $b = 0$ quilos da mercadoria.    
+\end{parts}
+\end{solution}
+
+% 4.27 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{26}
+\question{Uma companhia de seguros vende uma
+apólice dizendo que uma quantidade
+$A$ de dinheiro deve ser paga se algum
+evento $E$ ocorrer em um ano. Se a companhia
+estima que $E$ tem probabilidade $p$
+de ocorrer em um ano, que preço deve o
+cliente pagar pela apólice se o lucro 
+esperado pela companhia é de 10\% de $A$?
+}
+\begin{solution}
+	Seja $X$ a variável aleatória que representa o lucro da empresa para uma dada apólice e $D$ o preço da apólice, então
+    \begin{align*}
+    	E[X] = (D-A)\cdot p + D\cdot(1-p).
+    \end{align*}
+    Como queremos $E[X] = \frac{A}{10}$, então isolando $D$ obtemos que $D = \frac{A}{10}+A\,p$.
+\end{solution}
+
+% 4.28 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{26}
+\question{Uma amostra de 3 itens é selecionada
+aleatoriamente de uma caixa contendo 20
+itens, dos quais 4 são defeituosos.
+Determine o número esperado de itens
+defeituosos na amostra.
+}
+\begin{solution}
+	Seja $X_i$ a variável aleatória que vale 1 se o $i$-ésimo item retirado for defeituoso e vale 0 caso contrário. Queremos saber o valor de
+    \begin{align*}
+    	E[X_1+X_2+X_3] &= E[X_1]+E[X_2]+E[X_3]\\
+        	&= 3\,E[X_1] = 3\frac{4}{20} = \frac{3}{5}.
+    \end{align*}
+\end{solution}
+
+% 4.29 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{26}
+\question{Existem duas causas possíveis para a quebra de certa máquina. Verificar a primeira
+possibilidade custa $C_1$ reais, e, se aquela tiver sido de fato a causa da quebra, o problema pode ser reparado ao custo de $R_1$
+reais. Similarmente, existem os custos $C_2$
+e $R_2$ associados a segunda possibilidade.
+suponha que $p$ e $1-p$ representem, respectivamente,
+as probabilidades de que a
+quebra seja causada pela primeira e pela
+segunda possibilidades. Em quais condições
+de $p$, $C_i$ e $R_i$, $i = 1,2$, devemos verificar inicialmente a primeira causa possível de defeito e depois a segunda, em vez de
+inverter a ordem de verificação, de forma
+a minimizarmos o custo envolvido na manutenção da máquina?\\
+\textit{Nota}: Se a primeira verificação for negativa, devemos ainda assim verificar a segunda possibilidade.
+}
+\begin{solution}
+	Sejam as variáveis aleatórias $X$ e $Y$ os custo de manutenção da máquina não invertendo e invertendo a ordem das verificações, respectivamente. Então,
+    \begin{align*}
+    	E[X] &= (C_1+R_1)\,p + (C_1+C_2+R_2)\,(1-p),\\
+        E[Y] &= (C_2+R_2)\,(1-p) + (C_1+C_2+R_1)\,p.
+    \end{align*}
+    Vale a pena não inverter quando $E[Y]>E[X]$, ou seja,
+    \begin{align*}
+    	E[Y]-E[X] > 0 &\Leftrightarrow C_2\,p - C_1\,(1-p) > 0\\
+        	&\Leftrightarrow \frac{C_1}{C_2} < \frac{p}{1-p}.
+    \end{align*}
+\end{solution}
+
+% 4.32 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{31}
+\question{Cem pessoas terão seu sangue examinado para determinar se possuem ou não
+determinada doença. Entretanto, em vez
+de testar cada indivíduo separadamente,
+decidiu-se primeiro colocar as pessoas em
+grupos de 10. As amostras de sangue das
+10 pessoas de cada grupo serão analisadas
+em conjunto. Se o teste der negativo, apenas um teste será suficiente para as 10 pessoas. Por outro lado, se o teste der positivo, cada uma das demais pessoas também
+será examinada e, no total, 11 testes serão
+feitos no grupo em questão. Suponha que
+a probabilidade de se ter a doença seja de
+0,1 para qualquer pessoa, de forma independente, e calcule o número esperado de
+testes necessários para cada grupo (observe que supomos que o teste conjunto
+dará positivo se pelo menos uma pessoa
+no conjunto tiver a doença).
+}
+\begin{solution}
+	Seja $p=\text{0,1}$ de uma pessoa ter a doença e $X_i$ a variável aleatória que representa o número de testes feitos no $i$-ésimo grupo. Então, o número esperado de testes em cada grupo é dado por
+    \begin{align*}
+    	 E[X_i]
+            &= 1\,(1-p)^{10}+11\,(1-(1-p)^{10})\\
+            &\approx \text{7,513} < 10. 
+    \end{align*}
+    De fato, essa estratégia vale a pena quando $p < 1-10^{-\frac{1}{10}} \approx \text{0,2}$. Por outro lado, para $p=\text{0,1}$ valeria mais a pena dividir as pessoas em grupos de 4, ao invés de 10. Dessa forma, $E[X_i]\approx\text{2,376}$ e $\frac{\text{2,376}}{4} < \frac{\text{7,513}}{10}$.
+\end{solution}
+
+% 4.40 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{39}
+\question{Em um teste de múltipla escolha com 3
+respostas possíveis para cada uma das 5
+questões, qual é a probabilidade de que
+um estudante acerte 4 questões ou mais
+apenas chutando?
+}
+\begin{solution}
+	Seja $X$ a variável aleatória correspondente ao número de acertos. Sabemos que $X$ segue uma distribuição binomial de parâmetros $p=\tfrac{1}{3}$ e $n=5$. Queremos saber
+    \begin{align*}
+    	P\{X\ge4\} &= P\{X=4\}+P\{X=5\} \\
+        	&= \binom{5}{4}(\tfrac{1}{3})^4(\tfrac{2}{3})
+            	+ \binom{5}{5}(\tfrac{1}{3})^5 \\
+			&\approx \text{0,045}. 
+    \end{align*}
+\end{solution}
+
+% 4.43 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{42}
+\question{Um canal de comunicações transmite
+os algarismos 0 e 1. Entretanto, devido
+a interferência estática, um algarismo
+transmitido tem probabilidade 0,2 de ser
+incorretamente recebido. Suponha que
+queiramos transmitir uma mensagem
+importante formada por um único algarismo
+binário. Para reduzir as chances de erro,
+transmitimos 00000 em vez de 0 e 11111
+em vez de 1. Se o receptor da mensagem
+usa um decodificador de ``maioria'' qual é
+a probabilidade de que a mensagem não
+esteja correta quando decodificada?
+}
+\begin{solution}
+	Seja $X$ a variável aleatória correspondente ao número de algarismos transmitidos errados. Note que $X$ segue uma distribuição binomial de parâmetros $p=\text{0,2}$ e $n=5$. A mensagem é decodificada incorretamente quando $X\ge 3$. Assim,
+    \begin{align*}
+    	P\{X\ge 3\} &= P\{X=3\}+P\{X=4\}+P\{X=5\} \\
+        	&= \binom{5}{3}(\tfrac{1}{5})^3(\tfrac{4}{5})^2
+            	+ \binom{5}{4}(\tfrac{1}{5})^4(\tfrac{4}{5})
+                + \binom{5}{5}(\tfrac{1}{5})^5\\
+			&\approx \text{0,058}. 
+    \end{align*}
+\end{solution}
+
+% 4.45 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{44}
+\question{Um estudante se prepara para fazer uma
+importante prova oral e está preocupado
+com a possibilidade de estar em um dia
+``bom'' ou em um dia ``ruim''. Ele pensa
+que se estiver em um dia bom, então cada
+um de seus examinadores irá aprová-lo,
+independentemente uns dos outros, com
+probabilidade 0,8. Por outro lado, se
+estiver em um dia ruim, essa probabilidade
+cairá para 0,4. Suponha que o estudante
+seja aprovado caso a maioria dos examinadores
+o aprove. Se o estudante pensa
+que tem duas vezes mais chance de estar
+em um dia ruim do que em um dia bom,
+é melhor que ele faça a prova com 3 ou 5
+examinadores?
+}
+\begin{solution}
+	Seja $B$ o evento do estudante estar em um dia bom. Sabemos que $P(B^c) = 2\,P(B)$, mas como $P(B)+P(B^c) = 1$, então $P(B)=\frac{1}{3}$ e $P(B^c)=\frac{2}{3}$. Seja $X_i$ a variável aleatória correspondente ao número de professores que aprovaram ele, onde $i$ é o número de professores que o avaliam. As probabilidades do estudante ser aprovado com $i=3$ ou $i=5$ são
+    \begin{align*}
+    	P\{X_3\ge 2\} 
+        	&= P\{X_3\ge 2\mid B\}P(B)+P\{X_3\ge 2\mid B^c\}P(B^c)\\
+        	&= \left(\binom{3}{2}(\text{0,8})^2(\text{0,2})
+            	+ \binom{3}{3}(\text{0,8})^3\right)\cdot\frac{1}{3}
+                + \left(\binom{3}{2}(\text{0,4})^2(\text{0,6})
+            	+ \binom{3}{3}(\text{0,4})^3\right)\cdot\frac{2}{3}\\
+			&\approx \text{0,533}.\\[3mm]
+		P\{X_5\ge 3\} 
+         	&= P\{X_5\ge 3\mid B\}P(B)+P\{X_5\ge 3\mid B^c\}P(B^c)\\
+        	&= \left(\binom{5}{3}(\text{0,8})^3(\text{0,2})^2
+            	+ \binom{5}{4}(\text{0,8})^4(\text{0,2})
+                + \binom{5}{5}(\text{0,8})^5\right)\cdot\frac{1}{3}\\
+			&\quad + \left(\binom{5}{3}(\text{0,4})^3(\text{0,6})^2
+            	+ \binom{5}{4}(\text{0,4})^4(\text{0,6})
+                + \binom{5}{5}(\text{0,4})^5\right)\cdot\frac{2}{3}\\
+			&\approx \text{0,526}.
+    \end{align*}
+\end{solution}
+
+% 4.48 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{47}
+\question{Sabe-se que os disquetes produzidos por
+certa companhia têm probabilidade de defeito
+igual a 0,01, independentemente uns
+do outros. A companhia vende os disquetes
+em embalagens com 10 e oferece uma
+garantia de devolução se mais que 1 disquete
+em uma embalagem com 10 disquetes apresentar defeito.
+Se alguém compra 3 embalagens, qual é a probabilidade de que
+ele ou ela devolva exatamente 1 delas?
+}
+\begin{solution}
+	Seja $X$ a variável aleatória correspondente ao número de disquetes defeituosos em uma embalagem, então $X$ segue uma distribuição binomial de parâmetros $p=\text{0,01}$ e $n=10$. A empresa troca a embalagem se $X>1$. Assim, a probabilidade da empresa trocar uma dada embalagem é
+    \begin{align*}
+    	P\{X > 1\} &= 1 - P\{X\le 1\} \\
+        	&= 1 - \binom{10}{0}(\text{0,99})^{10}
+            	- \binom{10}{1}(\text{0,01})(\text{0,99})^9 \\
+			&\approx \text{0,0043}.
+    \end{align*}
+    Dessa forma, a probabilidade que exatamente uma embalagem seja trocada é
+    \begin{align*}
+		\binom{3}{1}(P\{X > 1\})(1-P\{X > 1\})^2 \approx \text{0,0127}.
+    \end{align*}
+\end{solution}
+
+% 4.49 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{42}
+\question{A moeda 1 dá cara com probabilidade
+0,4; a moeda 2 tem probabilidade 0,7 de
+dar cara. Uma dessas moedas é escolhida
+aleatoriamente e jogada 10 vezes.
+\begin{parts}
+	\part Qual é a probabilidade de que a
+moeda dê cara em exatamente 7 das
+10 jogadas?
+	\part Dado que a primeira dessas 10 jogadas dê cara, qual é a probabilidade
+condicional de que exatamente 7 das
+10 jogadas deem cara?
+\end{parts}
+}
+\begin{solution}
+	Seja $A$ o evento de selecionar a moeda 1. Seja $X_i$ a variável aleatória correspondente ao número de caras quando jogamos 10 vezes a moeda $i$, $i\in\{0,1\}$. Note que $X_i$ segue uma distribuição binomial de parâmetros $p=p_i$ ($p_1=\text{0,4}$ e $p_2=\text{0,7}$) e $n=10$. Definimos também a v.a. $X$, que representa o número de caras de uma das duas moedas selecionadas ao acaso.
+\begin{parts}
+	\part A probabilidade da moeda dar cara em 7 das 10 jogadas é dado por
+    \begin{align*}
+    	P\{X=7\}
+        	&= P\{X=7\mid A\}P(A)+P\{X=7\mid A^c\}P(A^c) \\
+            &= P\{X_1=7\}P(A)+P\{X_2=7\}P(A^c) \\
+        	&= \binom{10}{7}(\text{0,4})^7(\text{0,6})^3\cdot\frac{1}{2}
+            	+\binom{10}{7}(\text{0,7})^7(\text{0,3})^3\cdot\frac{1}{2}\\
+			&\approx \text{0,155}.
+    \end{align*}
+    
+    \part Seja o evento $C$ a primeira jogada dar cara, então estamos interessados na probabilidade
+    \begin{align*}
+    	P\{X=7\mid C\}
+        	&= \frac{P(\{X=7\} \cap C)}{P(C)} \\
+            &= \frac{P(\{X=7\} \cap C\mid A) P(A)
+                + P(\{X=7\} \cap C\mid A^c) P(A^c)}
+                {P(C\mid A)P(A)+P(C\mid A^c)P(A^c)} \\
+			&= \frac{ \binom{9}{6}(\text{0,4})^6(\text{0,6})^3
+            	\cdot(\text{0,4})\cdot\frac{1}{2}
+            	+\binom{9}{6}(\text{0,7})^6(\text{0,3})^3
+                \cdot(\text{0,7})\cdot\frac{1}{2}}
+                {(\text{0,4})\cdot\frac{1}{2}+(\text{0,7})\cdot\frac{1}{2}} \\
+			&\approx \text{0,197}.
+    \end{align*}
+\end{parts}
+\end{solution}
+
+\end{questions}

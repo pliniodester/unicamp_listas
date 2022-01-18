@@ -1,0 +1,127 @@
+\begin{questions}
+% 2.1   % % % % % % % % % % % % % % % % % % % % %
+\question{
+Prove que $E\,F \subset E \subset E \cup F$.
+}
+\begin{solution}
+\begin{proof}
+	~\\
+	Seja $\omega \in E\,F$. Por definição de intersecção, $\omega \in E$ e $\omega \in F$. Em particular, $\omega \in E$. Logo, $E\,F \subset E$.\\
+    Seja $\omega' \in E$. Então, $\omega' \in E$ ou $\omega' \in F$. Por definição de união, $\omega' \in E \cup F$. Logo, $E \subset E \cup F$.
+\end{proof}
+\end{solution}
+
+% 2.2   % % % % % % % % % % % % % % % % % % % % %
+\question{
+Prove que se $E \subset F$, então $F^c \subset E^c$.
+}
+\begin{solution}
+\begin{proof}
+    \begin{align*}
+    	E \subset F 
+        	&\Leftrightarrow \forall \omega \in \Omega, 
+            	(\omega \in E \Rightarrow \omega \in F)\\
+			&\Leftrightarrow \forall \omega \in \Omega, 
+            	(\omega \notin F \Rightarrow \omega \notin E)\\
+			&\Leftrightarrow F^c \subset E^c.
+    \end{align*}
+\end{proof}
+\end{solution}
+
+% 2.3   % % % % % % % % % % % % % % % % % % % % %
+\question{
+Prove que $F = F\,E\cup F\,E^c$ e $E\cup F = E\cup E^c\,F$.
+}
+\begin{solution}
+\begin{proof}
+Primeiramente, vamos mostrar que $F \subset F\,E\cup F\,E^c$. Seja $\omega \in F$. Se $\omega \in E$, então $\omega \in F\,E$, por outro lado, se $\omega \notin E$, então $\omega \in F\,E^c$. Logo, $\omega \in F\,E$ ou $\omega \in F\,E^c$. Por definição de união. $\omega \in F\,E\cup F\,E^c$.\\
+Por outro lado, do exercício 2.1, temos que $F\,E\cup F\,E^c \subset F \cup F = F$. Logo,  como temos inclusão nos dois sentidos $F = F\,E\cup F\,E^c$.\\
+
+Agora, mostremos que $E\cup F \subset E\cup E^c\,F$. Seja $\omega \in E\cup F$. Se $\omega \notin E$, então $\omega \in F$, isto é, $\omega \in F\,E^c$. Logo, $\omega \in E$ ou $\omega \in F\,E^c$. Por definição de união, $\omega \in E\cup E^c\,F$.\\
+Por outro lado, do exercício 2.1, $E\cup E^c\,F \subset E\cup F$. Assim, como temos inclusão nos dois sentidos, $E\cup F = E\cup E^c\,F$.
+\end{proof}
+\end{solution}
+
+% 2.6   % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{5}
+\question{Sejam três eventos $E$, $F$ e $G$. Determine
+expressões para esses eventos de forma que, de $E$, $F$ e $G$,
+\begin{parts}
+	\part apenas $E$ ocorra;
+    \part $E$ e $G$ ocorram, mas não $F$;
+    \part pelo menos um dos eventos ocorra;
+    \part pelo menos dois dos eventos ocorram;
+    \part todos os três eventos ocorram;
+    \part nenhum dos eventos ocorra;
+    \part no máximo um dos eventos ocorra;
+    \part no máximo dois dos eventos ocorram;
+    \part no máximo três dos eventos ocorram.
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part $E \, F^c \, G^c$;
+    \part $E \, F^c \, G$;
+    \part $(E^c\,F^c\,G^c)^c = E \cup F \cup G$;
+    \part $E\,F\,G \cup E\,F\,G^c \cup E\,F^c\,G \cup E^c\,F\,G$;
+    \part $E\,F\,G$;
+    \part $E^c\,F^c\,G^c = (E\cup F\cup G)^c$;
+    \part $E^c\,F^c\,G^c \cup E\,F^c\,G^c \cup E^c\,F\,G^c \cup E^c\,F^c\,G$;
+    \part $(E\,F\,G)^c = E^c\cup F^c\cup G^c$;
+    \part $\Omega$.
+\end{parts}
+\end{solution}
+
+% 2.7   % % % % % % % % % % % % % % % % % % % % %
+\question{Determine a expressão mais simples para
+os seguintes eventos:
+\begin{parts}
+	\part $(E\cup F)(E\cup F^c)$;
+    \part $(E\cup F)(E^c\cup F)(E\cup F^c)$;
+    \part $(E\cup F)(F\cup G)$;
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part Pela lei distributiva,
+    	$(E\cup F)(E\cup F^c) = E\cup F\,F^c = E$.
+    \part Do item (a), temos que
+    	$(E\cup F)(E^c\cup F)(E\cup F^c) = E\,(E^c\cup F) = E\,F$.
+    \part Pela lei distributiva,
+    $(E\cup F)(F\cup G) = F\cup E\,G$.
+\end{parts}
+\end{solution}
+
+% 2.10  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{9}
+\question{Demonstre que $P(E\cup F\cup G) = P(E)+P(F)+P(G)-P(E^c\,F\,G)-P(E\,F^c\,G)-P(E\,F\,G^c)-2\,P(EFG)$.
+}
+\begin{solution}
+\begin{proof}
+	Aplicando a Proposição~4.3 sucessivas vezes, obtemos que
+    \begin{align*}
+    	P( E\cup F\cup G) 
+        &= P( (E\cup F)\cup G) \\
+        &= P(E\cup F) + P(G) - P((E\cup F)\,G) \\
+        &= P(E) + P(F) + P(G) - P(E\,F) - P(E\,G\cup F\,G) \\
+        &= P(E) + P(F) + P(G) - P(E\,F) - P(E\,G) - P(F\,G) + P(E\,F\,G),
+    \end{align*}
+    que é um caso particular da Proposição~4.4. \\
+    Sabemos que $P(E\,F) = P(E\,F\,G) + P(E\,F\,G^c)$, pois $E\,F\,G$ e $E\,F\,G^c$ são eventos disjuntos, cuja união resulta em $E\,F$. Podemos fazer o mesmo para $P(E\,G)$ e $P(F\,G)$. Substituindo essas probabilidades na expressão acima completa a demonstração.
+\end{proof}
+\end{solution}
+
+% 2.11  % % % % % % % % % % % % % % % % % % % % %
+\question{Se $P(E) = \text{0,9}$ e $P(F) = \text{0,8}$, mostre que
+$P(E\,F) \geq \text{0,7}$. De forma geral,demonstre a
+desigualdade de Bonferroni, isto é, $P(E\,F) \geq P(E)+P(F)-1$.
+}
+\begin{solution}
+\begin{proof}
+	Da Proposição 4.3 e do Axioma 1, sabemos que 
+	\[P(E)+P(F)-P(E\,F) = P(E\cup F) \leq 1.\]
+    Logo, $P(E\,F) \geq P(E)+P(F)-1$.
+\end{proof}
+\end{solution}
+
+\end{questions}

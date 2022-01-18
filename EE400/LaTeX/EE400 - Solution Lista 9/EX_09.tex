@@ -1,0 +1,373 @@
+
+\begin{questions}
+
+% 9.4  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{3}
+\question{
+Mostre que as séries $\sum_{n = 1}^\infty \frac{1}{ni}$ e $\sum_{n = 1}^\infty \frac{1}{n+i}$ divergem.
+}
+%
+\begin{solution}
+Para o primeiro somatório
+    \[
+        \left| \sum_{n=1}^\infty \frac{1}{ni} \right| =  \frac{1}{|i|} \left| \sum_{n=1}^\infty \frac{1}{n} \right| = \left| \sum_{n=1}^\infty \frac{1}{n} \right|,
+    \]
+    que diverge, pois sabemos que a soma harmônica $\sum_n 1/n$ diverge.
+    
+    Para o segundo somatório, vamos usar o fato que se a parte real da soma diverge, então a soma diverge. Assim,
+    \[
+        \Re\left\{\sum_{n = 1}^\infty \frac{1}{n+i}\right\} = \sum_{n = 1}^\infty \frac{n}{n^2+1} \ge \sum_{n = 1}^\infty \frac{n}{n^2+n} = \sum_{n = 2}^\infty \frac{1}{n},
+    \]
+    que diverge. Como a parte real do somatório é maior do que algo que diverge, então o somatório original diverge.
+\end{solution}
+
+% 9.5 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{2}
+\question{
+Determine o raio de convergência e a soma das seguintes séries:
+    \begin{multicols}{3}
+    \begin{enumerate}[label=(\alph*)]
+      \item $\displaystyle \sum_{n = 0}^\infty z^n$;
+      \item $\displaystyle \sum_{n = 0}^\infty n z^n$;
+      \item $\displaystyle \sum_{n = 0}^\infty n^2 z^n$.
+   \end{enumerate}
+    \end{multicols}
+}
+%
+\begin{solution}
+    Sabemos que o raio de convergência $R$ de uma série de potências $\sum_n a_n z^n$ é dado pelo seguinte limite, se ele existir,
+    \[R = \lim_{n\to\infty} \frac{a_{n}}{a_{n+1}}.\]
+    Ademais, sabemos que se $|z|<1$ podemos derivar a soma geométrica em relação à $z$,
+    \[\sum_{n=0}^\infty z^n = \frac{1}{1-z} 
+        ~\Rightarrow~ \sum_{n=0}^\infty n\,z^{n-1} = \frac{1}{(1-z)^2} 
+        ~\Rightarrow~ \sum_{n=0}^\infty n(n-1)\,z^{n-2} = \frac{2}{(1-z)^3}.\]
+    Assim,
+    \begin{enumerate}[label=(\alph*)]
+      \item $\displaystyle R = \lim_{n\to\infty} \frac{1}{1} = 1$,\\ $\displaystyle \sum_{n = 0}^\infty z^n = \frac{1}{1-z}, \quad |z|<1$;
+      \item $\displaystyle R = \lim_{n\to\infty} \frac{n}{n+1} = 1$,\\ $\displaystyle \sum_{n = 0}^\infty n z^n = z \sum_{n = 0}^\infty n z^{n-1} = \frac{z}{(1-z)^2}, \quad |z|<1$;
+      \item $\displaystyle R = \lim_{n\to\infty} \frac{n^2}{(n+1)^2} = 1$,\\ $\displaystyle \sum_{n = 0}^\infty n^2 z^n = z^2\sum_{n = 0}^\infty n(n-1) z^{n-2} + z \sum_{n = 0}^\infty n z^{n-1}  =  \frac{2z^2}{(1-z)^3} + \frac{z}{(1-z)^2} = \frac{z(1+z)}{(1-z)^3}, ~ |z|<1$.
+   \end{enumerate}
+\end{solution}
+
+% 9.6 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{8}
+\question{
+Calcule a soma $S$ da série
+\[
+S = \sum_{n = 0}^\infty \left(\frac{1 + i}{3}\right)^n.
+\]
+}
+%
+\begin{solution}
+    Note que $|(1+i)/3| = \sqrt{2}/3 < 1$. Portanto, podemos usar a fórmula da soma da progressão geométrica
+    \[
+        \sum_{n = 0}^\infty \left(\frac{1 + i}{3}\right)^n = \frac{1}{1 - \frac{1 + i}{3}} = \frac{3}{2-i} = \frac{3}{5}(2+i).
+    \]
+\end{solution}
+
+% 9.7 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{6}
+\question{
+Considere $z = re^{i\theta}$, com $r \in (0,1)$. Use a soma da série $\sum z^n$ provada no item anterior para mostrar que
+\[
+\sum_{n = 0}^\infty r^n \cos(n\theta) = \frac{1 - r\cos\theta}{1 - 2r\cos\theta + r^2} \quad \text{e} \quad \sum_{n = 0}^\infty r^n \sin(n\theta) = \frac{r\sin\theta}{1 - 2r\cos\theta + r^2}.
+\]
+}
+%
+\begin{solution}
+    Como $|re^{i\theta}| = |r| < 1$, então
+    \begin{align*}
+        \sum_{n=0}^\infty r^n e^{i n\theta} = \frac{1}{1-re^{i\theta}} = \frac{1-r e^{-i\theta}}{1 - r(e^{i\theta}+e^{-i\theta}) + r^2}.
+    \end{align*}
+    Usando a fórmula de Euler $e^{i\theta} = \cos\theta + i\sin\theta$, temos que
+    \begin{align*}
+        \sum_{n=0}^\infty r^n(\cos(n\theta) + i\sin(n\theta))
+            = \frac{1-r\cos\theta + i \sin\theta}{1 - 2r\cos\theta + r^2}.
+    \end{align*}
+    Comparando as partes reais e imaginárias da identidade acima termina a prova.
+\end{solution}
+
+
+% 9.9  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{8}
+\question{
+Obtenha a representação em série de Maclaurin para as funções $\cosh$ e $\sinh$. Use este resultado para mostrar que
+\[
+z\cosh(z^2) = \sum_{n = 0}^\infty \frac{z^{4n+1}}{(2n)!} \quad \forall z \in \C.
+\]
+}
+%
+\begin{solution}
+    \begin{align*}
+        \cosh(z) 
+            &= \frac{e^z+e^{-z}}{2} = \frac{1}{2} \sum_{n=0}^\infty \frac{1+(-1)^n}{n!}\,z^n = \sum_{n=0}^\infty \frac{z^{2n}}{(2n)!},\quad z\in\C,\\
+        \sinh(z) 
+            &= \frac{e^z-e^{-z}}{2} = \frac{1}{2} \sum_{n=0}^\infty \frac{1-(-1)^n}{n!}\,z^n = \sum_{n=0}^\infty \frac{z^{2n+1}}{(2n+1)!},\quad z\in\C.
+    \end{align*}
+    Logo,
+    \begin{align*}
+        z\cosh z^2 = z \sum_{n=0}^\infty\frac{(z^2)^{2n}}{(2n)!}
+            = \sum_{n=0}^\infty\frac{z^{4n+1}}{(2n)!}, \quad z\in\C.
+    \end{align*}
+\end{solution}
+
+% 9.10 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{7}
+\question{
+Mostre que a série de Taylor da exponencial centrada em $z = 1$ é dada por
+\[
+e^z = e \sum_{n = 0}^\infty \frac{(z-1)^n}{n!}, \quad \forall z \in \C.
+\]
+}
+%
+\begin{solution}
+Sabemos da expansão de Maclaurin da exponencial que
+    \begin{align*}
+        e^{z-1} = \sum_{n=0}^\infty \frac{(z-1)^n}{n!}, \quad z\in\C.
+    \end{align*}
+    Multiplicando por $e$ em ambos lados da equação, temos
+    \begin{align*}
+        e^z = e \sum_{n=0}^\infty \frac{(z-1)^n}{n!}, \quad z\in\C.
+    \end{align*}
+\end{solution}
+
+% 9.11 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{7}
+\question{
+Encontre uma representação em série de Maclaurin para a função $f$ dada por
+\[
+f(z) = \frac{z}{z^4 + 9}
+\]
+}
+\begin{solution}
+    \begin{align*}
+        f(z) = \frac{z}{z^4+9} = \frac{z}{9}\, \frac{1}{1-(-z^4/3^2)}
+            = \frac{z}{9} \sum_{n=0}^{\infty} \frac{(-1)^n z^{4n}}{3^{2n}}
+            = \sum_{n=0}^{\infty} (-1)^n \frac{z^{4n+1}}{3^{2(n+1)}},
+            \quad |z| < \sqrt{3}.
+    \end{align*}
+    Para encontrar a região de convergência, basta lembrar que antes de expandir usando a série geométrica, devemos lembrar que $|-z^4/3^2|<1$.
+\end{solution}
+
+% 9.12 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{7}
+\question{
+Demonstre a representação em série de Taylor
+\[
+\frac{1}{1 - z} = \sum_{n = 0}^\infty \frac{(z - i)^n}{(1 - i)^{n+1}}, \quad \forall z \; : \; |z - i| < \sqrt{2}.
+\]
+}
+\begin{solution}
+    Seja $\omega = z-i$,
+    \begin{align*}
+        \frac{1}{1 - z} = \frac{1}{1-i-\omega}
+            = \frac{1}{1-i}\,\frac{1}{1 - \frac{\omega}{1-i}}
+            = \sum_{n=0}^\infty \frac{\omega^n}{(1-i)^{n+1}}, \quad \left|\frac{\omega}{1-i}\right| < 1 \Leftrightarrow |\omega| < \sqrt{2}.
+    \end{align*}
+    Dessa forma,
+    \begin{align*}
+        \frac{1}{1-z} = \sum_{n=0}^\infty \frac{(z-i)^n}{(1-i)^{n+1}}, \quad |z-i| < \sqrt{2}.
+    \end{align*}
+\end{solution}
+
+% 9.14 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{13}
+\question{
+Expanda a função $f$ dada por
+\[
+f(z) = \frac{1}{(2z - 1)(z - 2)^2}
+\]
+em série de Laurent em torno dos pontos $z = 1/2$ e $z = 2$.
+}
+%
+\begin{solution}
+    Seja $\omega = z-1/2$,
+    \begin{align*}
+        \frac{1}{(2z - 1)(z - 2)^2} &= \frac{2}{\omega(3-2\omega)^2}
+                = \frac{2}{9\omega} \frac{1}{(1-\frac{2}{3}\omega)^2} \\
+            &= \frac{2}{9\omega} \sum_{n=1}^\infty n \left(\frac{2}{3}\omega\right)^{n-1}
+                = \sum_{n=1}^\infty n \frac{2^{n}}{3^{n+1}}\omega^{n-2}, \quad |\tfrac{2}{3}\omega| < 1 \\
+            &= \sum_{n=1}^\infty n \frac{2^{n+1}}{3^{n+2}}(z-1/2)^{n-2},
+                \quad |z-1/2| < 3/2.
+    \end{align*}
+    
+    Seja $\omega = z-2$,
+    \begin{align*}
+        \frac{1}{(2z - 1)(z - 2)^2} &= \frac{1}{\omega^2(3+2\omega)}
+                = \frac{1}{3\omega^2}\,\frac{1}{1-(-\tfrac{2}{3}\omega)} \\
+            &= \frac{1}{3\omega^2} \sum_{n=0}^\infty \left(\frac{2}{3}\omega\right)^{n}
+                = \sum_{n=0}^\infty \frac{2^{n}}{3^{n+1}}\omega^{n-2}, \quad |\tfrac{2}{3}\omega| < 1 \\
+            &= \sum_{n=0}^\infty \frac{2^{n}}{3^{n+1}}(z-2)^{n-2},
+                \quad |z-2| < 3/2.
+    \end{align*}
+\end{solution}
+
+% 9.15 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{7}
+\question{
+Expanda a função $f$ dada por
+\[
+f(z) = \frac{1}{4z - z^2}
+\]
+em série de Laurent centrada na origem. Indique a região de convergência da série.
+}
+%
+\begin{solution}
+    \begin{align*}
+        f(z) = \frac{1}{4z - z^2} = \frac{1}{4z}\,\frac{1}{1 - z/4}
+            = \frac{1}{4z} \sum_{n=0}^\infty \left(\frac{z}{4}\right)^n
+            = \sum_{n=0}^\infty \frac{z^{n-1}}{4^{n+1}}, \quad |z| < 4.
+    \end{align*}
+    Alternativamente,
+    \begin{align*}
+        f(z) = \frac{1}{4z - z^2} = \frac{-1}{z^2}\,\frac{1}{1 - 4/z}
+            = \frac{-1}{z^2} \sum_{n=0}^\infty \left(\frac{4}{z}\right)^n
+            = \sum_{n=0}^\infty \frac{-4^n}{z^{n+2}}, \quad |z| > 4.
+    \end{align*}
+\end{solution}
+
+% 9.16 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{15}
+\question{
+Encontre uma expansão da função real $f$ dada por
+\[
+f(x) = \frac{\cosh x}{\sinh x} - \frac{1}{x}
+\]
+para $x$ pequeno.
+}
+%
+\begin{solution}
+    \begin{align*}
+        f(x) + \frac{1}{x} &= \frac{1+x^2/2!+\cdots}{x+x^3/3!+\cdots}\\
+            &= \frac{1}{x}\,\frac{1+x^2/2+\cdots}{1+x^2/6+\cdots}\\
+            &= \frac{1}{x} \left( (1+x^2/2 + \cdots) (1 - x^2/6 + \cdots) \right)\\
+            &= \frac{1}{x} (1 + x^2/3 + \cdots).
+    \end{align*}
+    Portanto, para $x\approx 0$ temos que
+    \[f(x) \approx \frac{x}{3}.\]
+
+    A expansão completa é difícil de provar e é igual a
+    \[
+        f(x) = \sum_{n=1}^\infty \frac{2^{2n} B_{2n}}{(2n)!}\,z^{2n-1},
+    \]
+    onde $B_n$ é o $n$-ésimo número de Bernoulli.
+\end{solution}
+
+% 9.18 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{17}
+\question{
+Encontre uma representação em série de Laurent, centrada em $z_0 = 0$, para a função $f$ dada por
+\[
+f(z) = z^2 \sin\left(\frac{1}{z^2}\right).
+\]
+Indique a região de convergência da série.
+}
+%
+\begin{solution}
+    Usando que
+    \[\sin(z) = \sum_{n=0}^{\infty}\frac{(-1)^n z^{2n+1}}{(2n+1)!}, \quad z\in\C\]
+    temos que
+    \[z^2\sin(1/z^2) = z^2 \sum_{n=0}^{\infty}\frac{(-1)^n (1/z^2)^{2n+1}}{(2n+1)!}
+        = \sum_{n=0}^{\infty} \frac{(-1)^n}{z^{4n} (2n+1)!}, \quad |z|>0.\]
+\end{solution}
+
+% 9.19 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{17}
+\question{
+Encontre uma expansão em série de potências para a função $f$ dada por
+\[
+f(z) = \frac{e^z}{(z+1)^2}
+\]
+em torno do ponto singular $z_0 = -1$. Indique a região de convergência da série.
+}
+%
+\begin{solution}
+Usando a expansão da função exponencial, temos que
+    \[e^{z+1} = \sum_{n=0}^{\infty} \frac{(z+1)^n}{n!}, \quad z\in\C.\]
+Portanto,
+    \[f(z) = \frac{e^{z+1}}{e(z+1)^2} = \frac{1}{e} \sum_{n=0}^{\infty} \frac{(z+1)^{n-2}}{n!}, \quad |z+1| > 0.\]
+\end{solution}
+
+% 9.20 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{17}
+\question{
+Determine uma representação em série de potências para a função $f$ dada por
+\[
+f(z) = \frac{1}{1+z}
+\]
+em potências negativas de $z$ e que seja válida quando $1 < |z| < \infty$.
+}
+%
+\begin{solution}
+    \begin{align*}
+        f(z) &= \frac{1}{z}\,\frac{1}{1+1/z}
+                = \frac{1}{z} \sum_{n=0}^\infty \frac{(-1)^n}{z^n}, \quad |1/z|<1,\\
+            &= \sum_{n=0}^\infty \frac{(-1)^n}{z^{n+1}}, \quad |z|>1.
+    \end{align*}
+\end{solution}
+
+% 9.21 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{17}
+\question{
+Expanda a função $f$ dada por
+\[
+f(z) = \frac{1}{z^2(1 - z)}
+\]
+em duas séries de potências de $z$ e especifique as respectivas regiões de convergência.
+}
+%
+\begin{solution}
+Uma possível expansão é
+    \begin{align*}
+        f(z) = \frac{1}{z^2}\,\frac{1}{1 - z} = \frac{1}{z^2} \sum_{n=0}^{\infty} z^n = \sum_{n=0}^{\infty} z^{n-2}, \quad 0<|z|<1.
+    \end{align*}
+A outra é
+    \begin{align*}
+        f(z) = \frac{-1}{z^3}\,\frac{1}{1 - 1/z} = \frac{-1}{z^3} \sum_{n=0}^{\infty} \frac{1}{z^n} = \sum_{n=0}^{\infty} \frac{-1}{z^{n+3}}, \quad |z|>1.
+    \end{align*}
+\end{solution}
+
+% 9.23 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{22}
+\question{
+Mostre que, se $0 < |z-1| < 2$, então
+\[
+    \frac{z}{(z-1)(z-3)} = -3\sum_{n = 0}^\infty \frac{(z-1)^n}{2^{n+2}} - \frac{1}{2} \frac{1}{z-1}.
+\]
+}
+%
+\begin{solution}
+    Seja $\omega = z-1$, então
+    \begin{align*}
+        \frac{z}{(z-1)(z-3)} &= \frac{1+\omega}{\omega (\omega-2)}
+            = \left(1 + \frac{1}{\omega}\right) \frac{-1/2}{1-\omega/2}
+            = \frac{-1}{2} \left(1 + \frac{1}{\omega}\right) \sum_{n=0}^\infty \left(\frac{\omega}{2}\right)^n, \quad 0<|\omega|<2,\\
+        &= \frac{-1}{2} \left(\sum_{n=0}^\infty \left(\frac{\omega}{2}\right)^n + \sum_{n=0}^\infty \frac{\omega^{n-1}}{2^n} \right) = \frac{-1}{2} \left(\frac{1}{\omega} + \sum_{n=0}^\infty \left(\frac{1}{2^n} + \frac{1}{2^{n-1}} \right)\omega^n \right) \\
+        &= \frac{-1}{2\omega} - \frac{1}{2} \sum_{n=0}^\infty 3 \frac{\omega^n}{2^{n+1}} = \frac{-1}{2(z-1)} - 3 \sum_{n=0}^\infty \frac{(z-1)^n}{2^{n+2}}, \quad 0<|z-1|<2.
+    \end{align*}
+\end{solution}
+
+% 9.24 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{22}
+\question{
+Mostre que a expansão
+\[
+\frac{e^z}{z(z^2+1)} = \frac{1}{z} + 1 - \frac{1}{2}z - \frac{5}{6}z^2 + \cdots
+\]
+é válida para todo $z$ tal que $0 < |z| < 1$.
+}
+%
+\begin{solution}
+    Sabemos que
+    \begin{align*}
+        \frac{1}{1+z^2} &= \sum_{n=0}^\infty (-1)^n z^{2n}, \quad |z| < 1,\\
+        e^z &= \sum_{n=0}^\infty \frac{z^n}{n!}, \quad z\in\C.
+    \end{align*}
+    Logo,
+    \begin{align*}
+        \frac{e^z}{z(z^2+1)} &= \frac{1}{z} \left(1 - z^2 + z^4 - \cdots\right)     \left(1 + z + z^2/2 + z^3/6 + \cdots\right) \\
+        &= \frac{1}{z} + 1 - \frac{z}{2} - \frac{5}{6} z^2 + \cdots, \quad 0<|z|<1.
+    \end{align*}
+\end{solution}
+
+\end{questions}

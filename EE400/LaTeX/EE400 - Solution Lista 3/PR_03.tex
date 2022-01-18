@@ -1,0 +1,142 @@
+
+\begin{questions}
+
+% 3.1  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{2}
+\question{
+Considere o circuito dado abaixo, em que $E$ é a tensão constante fornecida por uma fonte, $v_o$ é a tensão de saída do amplificador e $R_x$ e $R_y$ são resistências de projeto.
+
+    \begin{figure}[h!]
+    \centering
+        \begin{circuitikz}[american voltages]
+            \draw
+            (0, 0) node[op amp, yscale=-1] (opamp) {}
+            (opamp.+) to [short] (-3,0.5)
+            (-3,0.5) to [R, l_=$R_x$] (-6,0.5)
+            (-3,0.5) to [R, l_=$\SI{1}{\ohm}$] (-3,-4)
+            (-6,0.5) to [V, l_=$E$] (-6,-4)
+            (opamp.out) to [R,l=$R_y$] (1.25,-2)
+            (1.25,-2) -| (opamp.-)
+            (1.25,-2) to [R,l=\SI{1}{\ohm}] (1.25,-4)
+            (-6,-4) to [short,-o] (2.25,-4)
+            (opamp.out) to [short,-o] (2.25,0)
+            (2.5,-4) to [open, v<=$v_o$] (2.5,0);
+        \end{circuitikz}
+    \caption{Amplificador não-inversor}
+    \end{figure}
+
+    Determine o ganho de tensão $G(R_x,R_y) \defeq v_0/E$ e linearize esta função em torno de $R_x = R_y = 1\Omega$. Analise a influência de cada resistência neste ganho em torno deste ponto de operação.
+}
+\begin{solution}
+    A tensão $v_+$ do amplificador é dada por
+    $
+        v_+ = \frac{1}{1+R_x} E.
+    $
+    
+    A tensão $v_0$ é dada por
+    $
+        v_0 = \frac{1+R_y}{1} v_-.
+    $
+    
+    Num amplificador operacional ideal $v_+=v_-$. Logo,
+    \[
+        G(R_x,R_y) = \frac{v_0}{E} = \frac{1+R_y}{1+R_x}.
+    \]
+    
+    Linearizando $G$ em torno do ponto $(1,1)$, temos
+    \begin{align*}
+        G(R_x,R_y) &\approx G(1,1) + \frac{\partial G}{\partial x}(1,1)\,(R_x-1) + \frac{\partial G}{\partial y}(1,1)\,(R_y-1) \\
+            &= 1 - \frac{1}{2}(R_x-1) + \frac{1}{2}(R_y-1) \\
+            &= 1 +\frac{R_y-R_x}{2}.
+    \end{align*}
+\end{solution}
+
+% 3.5  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{4}
+\question{
+Um aquário de volume $V$ dado é construído a partir de uma base de pedra e de faces laterais de vidro. Se o metro quadrado de pedra custar cinco vezes o custo do metro quadrado de vidro, encontre as dimensões do aquário que minimizam o custo total de materiais necessários.
+}
+\begin{solution}
+    Sejam as dimensões do aquário $x$ de comprimento, $y$ de largura e $z$ de altura, sabemos que $z = V/(xy)$. Queremos minimizar o custo para produzir o aquário, que é dado por
+    \[
+        f(x,y) = 5xy+2xz+2yz = 5xy+2V/y+2V/x,
+    \]
+    O ponto estacionário é tal que $\nabla f(x,y) = (0,0)$, ou seja, queremos $x$ e $y$ tais que \[(5y-2V/x^2,5x-2V/y^2) = (0,0).\] 
+    Portanto, como $x>0$, $y>0$,
+    \[
+        \begin{cases}
+            x^2 y = 2V/5, \\
+            x y^2 = 2V/5.
+        \end{cases}
+    \]
+    Subtraindo uma equação da outra concluímos que $x=y$. Logo,
+    \[
+        x = y = \left( \frac{2}{5} V \right)^{1/3}, \quad z = \left( \frac{25}{4} V \right)^{1/3}.
+    \]
+\end{solution}
+
+% 3.7  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{6}
+\question{
+{\bf (Integral Gaussiana)} Um resultado fundamental na área de estatística e probabilidade é dado pela igualdade
+  \[
+  \frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty \euler^{-x^2/2} \d x = 1.
+  \]
+  Neste exercício, provaremos esta igualdade.
+    \begin{enumerate}[label=(\alph*)]
+    \item Considere a integral imprópria
+    \[
+        I = \iint_{\R^2} \euler^{-x^2 - y^2} \d A.
+    \]
+    Use que $\R^2$ pode ser visto como um disco com raio infinito para mostrar que $I = \pi$.
+    \item Redefina a região da integral agora para o quadrado $R = [-a,a]\times[-a,a]$, com $a \to \infty$ e mostre que
+    \[
+        I = \iint_{\R^2} \euler^{-x^2 - y^2} \d A = \int_{-\infty}^\infty e^{-x^2} \d x  \int_{-\infty}^\infty \euler^{-y^2} \d y = \pi.
+    \]
+    \item Use o item anterior para provar a igualdade no início do exercício.
+  \end{enumerate}
+}
+\begin{solution}
+    \begin{enumerate}[label=(\alph*)]
+    \item Em coordenadas polares temos
+    \[
+        I = \int_0^{\infty} \int_0^{2\pi} \euler^{-r^2} r\, \d \theta \, \d r
+            = 2\pi \left. \frac{-\euler^{-r^2}}{2} \right|_0^\infty
+            = \pi.
+    \]
+    \item ~
+    \begin{align*}
+        I
+            &= \iint_{\R^2} \euler^{-x^2 - y^2} \d A \\
+            &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} \euler^{-x^2}\euler^{- y^2} \d x \d y \\
+            &= \int_{-\infty}^\infty \euler^{-x^2} \d x  \int_{-\infty}^\infty \euler^{-y^2} \d y \\
+            &= \left( \int_{-\infty}^\infty \euler^{-x^2} \d x \right)^2 \\
+            &= \pi.
+    \end{align*}
+    \item Do item anterior, temos que
+    \[
+        \int_{-\infty}^\infty \euler^{-x^2} \d x = \sqrt{\pi}.
+    \]
+    Fazendo a mudança de variável $x = u/\sqrt{2}$ mostramos o resultado desejado.
+  \end{enumerate}
+\end{solution}
+
+% 3.9  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{8}
+\question{
+{\bf (Área de uma Superfície)} Se uma superfície suave $S$ for definida por $z = f(x,y)$, sendo $(x,y) \in D$, a sua área é dada por
+    \[
+    A(S) = \iint_D \sqrt{ 1 + \left( \frac{\partial z}{\partial x} \right)^2 + \left( \frac{\partial z}{\partial y} \right)^2 } \d A.
+    \]
+    Calcule a área do parabolóide $z = x^2 + y^2$ delimitado pelo plano $z = 9$.
+}
+\begin{solution}
+    \begin{align*}
+        A(S) &= \iint_D \sqrt{1+(2x)^2+(2y)^2}\,\d A \\
+            &= \int_{0}^{3} \int_{0}^{2\pi} \sqrt{1+4r^2} \,r \,\d \theta \,\d r\\
+            &= \frac{\pi}{6} \left( 37\sqrt{37} - 1 \right).
+    \end{align*}
+    
+\end{solution}
+
+\end{questions}

@@ -1,0 +1,136 @@
+
+\begin{questions}
+
+% 4.2  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{1}
+\question{
+{\bf (Cuidados com o Teorema de Green)} Considere as duas integrais de linha clássicas:
+  \[
+  W = \oint_C \vec F \cdot \d\vec r \quad \text{e} \quad \Phi = \oint_C \vec F \cdot \hat N \d s,
+  \]
+  que calculam, respectivamente, trabalho e fluxo definidos por um campo vetorial $\vec F$ e uma curva fechada $C$. Suponha, neste exercício, que $C$ seja um círculo de raio $a > 0$ orientado positivamente.
+  \begin{enumerate}[label=(\alph*)]
+    \item Considere o campo vetorial dado por
+    \[
+    \vec F(x,y) = \frac{1}{x^2 + y^2}\big(-y \hat \i + x \hat \j\big).
+    \]
+    Este campo é conservativo? Calcule a integral de linha usando o Teorema de Green e a definição. Comente os resultados.
+    \item Considere o campo vetorial dado por
+    \[
+    \vec F(x,y) = \frac{1}{x^2 + y^2}\big(x \hat \i + y \hat \j\big).
+    \]
+    Este campo é sem fontes? Calcule a integral de linha usando o Teorema de Green e a definição. Comente os resultados.
+  \end{enumerate}
+}
+\begin{solution}
+  \begin{enumerate}[label=(\alph*)]
+    \item Este campo é conservativo onde $\vec F$ é definida, pois $\nabla \times \vec F = 0$. Dessa forma, se usarmos o Teorema de Green encontramos que o trabalho é nulo. Porém, ao fazermos a integral pela definição com a parametrização $\vec r(t) = (a\cos\theta,a\sin\theta)$, $\theta\in[0,2\pi]$. Temos que
+    \begin{align*}
+        W &= \oint_C \vec F \cdot \d\vec r
+            = \int_0^{2\pi} \vec F(\vec r(t))\cdot \dot{\vec r}(t)\,\d t \\
+            &= \int_0^{2\pi} \frac{1}{a^2}(-a\sin\theta, a\cos\theta)\cdot (-a\sin\theta,a\cos\theta)\,\d \theta \\
+            &= 2\pi.
+    \end{align*}
+    O resultado foi diferente, pois neste caso uma das hipóteses do Teorema de Green não é satisfeita, que é a das derivadas parciais de primeira ordem serem contínuas em uma região aberta que contenha a região de integração. No ponto (0,0) o limite não existe.
+    
+    \item Este campo é sem fontes onde $\vec F$ é definida, pois $\nabla \cdot \vec F = 0$. Dessa forma, se usarmos o Teorema de Green (fluxo) encontramos que o fluxo é nulo.
+    Porém, ao fazermos a integral pela definição
+    \begin{align*}
+        \Phi &= \oint_C \vec F \cdot \hat N\,\d s \\
+            &= \int_0^{2\pi} \frac{1}{a^2}(a\cos\theta, a\sin\theta)\cdot(\cos\theta,\sin\theta)\, a\, \d \theta \\
+            &= 2\pi.
+    \end{align*}
+    O resultado foi diferente, pois neste caso uma das hipóteses do Teorema de Green (fluxo) não é satisfeita, que é a das derivadas parciais de primeira ordem serem contínuas em uma região aberta que contenha a região de integração. No ponto (0,0) o limite não existe.
+  \end{enumerate}
+\end{solution}
+
+% 4.5  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{4}
+\question{
+Considere uma carga $Q_0$ distribuída em um volume esférico de raio $\rho_0$ centrado na origem. Esta distribuição de carga produz um campo elétrico $\vec E$ dado por
+    \[
+    \vec E(\rho,\theta,\phi) = \left\{ \begin{array}{rcl}
+    \frac{Q_0}{4\pi \epsilon_0 \rho^2} \hat e_\rho & \text{se} & \rho \geq \rho_0, \vspace{0.2cm}\\
+    \frac{Q_0\rho^2}{4\pi \epsilon_0 \rho_0^4} \hat e_\rho & \text{se} & \rho < \rho_0.
+    \end{array} \right.
+    \]
+    Calcule o divergente $\nabla \cdot \vec E$ para os casos $0 < \rho < \rho_0$ e $\rho \geq \rho_0$ e determine a densidade de carga em cada caso.
+}
+\begin{solution}
+    Vamos usar o divergente em coordenadas esféricas, ou seja,
+    \[\nabla\cdot \vec E = \frac{1}{\rho^2} \frac{\partial}{\partial \rho} (\rho^2 E_\rho). \]
+    Dessa forma, obtemos que a densidade de carga é dada por
+    \[
+        \epsilon_0 (\nabla\cdot \vec E) =
+            \begin{cases}
+                0, &\text{se } \rho \ge \rho_0, \\
+                \frac{Q_0\rho}{\pi \rho_0^4}, &\text{se } \rho < \rho_0.
+            \end{cases}
+    \]
+\end{solution}
+
+% % 3.7  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{6}
+% \question{
+% {\bf (Integral Gaussiana)} Um resultado fundamental na área de estatística e probabilidade é dado pela igualdade
+%   \[
+%   \frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty \euler^{-x^2/2} \d x = 1.
+%   \]
+%   Neste exercício, provaremos esta igualdade.
+%     \begin{enumerate}[label=(\alph*)]
+%     \item Considere a integral imprópria
+%     \[
+%         I = \iint_{\R^2} \euler^{-x^2 - y^2} \d A.
+%     \]
+%     Use que $\R^2$ pode ser visto como um disco com raio infinito para mostrar que $I = \pi$.
+%     \item Redefina a região da integral agora para o quadrado $R = [-a,a]\times[-a,a]$, com $a \to \infty$ e mostre que
+%     \[
+%         I = \iint_{\R^2} \euler^{-x^2 - y^2} \d A = \int_{-\infty}^\infty e^{-x^2} \d x  \int_{-\infty}^\infty \euler^{-y^2} \d y = \pi.
+%     \]
+%     \item Use o item anterior para provar a igualdade no início do exercício.
+%   \end{enumerate}
+% }
+% \begin{solution}
+%     \begin{enumerate}[label=(\alph*)]
+%     \item Em coordenadas polares temos
+%     \[
+%         I = \int_0^{\infty} \int_0^{2\pi} \euler^{-r^2} r\, \d \theta \, \d r
+%             = 2\pi \left. \frac{-\euler^{-r^2}}{2} \right|_0^\infty
+%             = \pi.
+%     \]
+%     \item ~
+%     \begin{align*}
+%         I
+%             &= \iint_{\R^2} \euler^{-x^2 - y^2} \d A \\
+%             &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} \euler^{-x^2}\euler^{- y^2} \d x \d y \\
+%             &= \int_{-\infty}^\infty \euler^{-x^2} \d x  \int_{-\infty}^\infty \euler^{-y^2} \d y \\
+%             &= \left( \int_{-\infty}^\infty \euler^{-x^2} \d x \right)^2 \\
+%             &= \pi.
+%     \end{align*}
+%     \item Do item anterior, temos que
+%     \[
+%         \int_{-\infty}^\infty \euler^{-x^2} \d x = \sqrt{\pi}.
+%     \]
+%     Fazendo a mudança de variável $x = u/\sqrt{2}$ mostramos o resultado desejado.
+%   \end{enumerate}
+% \end{solution}
+
+% % 3.9  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{8}
+% \question{
+% {\bf (Área de uma Superfície)} Se uma superfície suave $S$ for definida por $z = f(x,y)$, sendo $(x,y) \in D$, a sua área é dada por
+%     \[
+%     A(S) = \iint_D \sqrt{ 1 + \left( \frac{\partial z}{\partial x} \right)^2 + \left( \frac{\partial z}{\partial y} \right)^2 } \d A.
+%     \]
+%     Calcule a área do parabolóide $z = x^2 + y^2$ delimitado pelo plano $z = 9$.
+% }
+% \begin{solution}
+%     \begin{align*}
+%         A(S) &= \iint_D \sqrt{1+(2x)^2+(2y)^2}\,\d A \\
+%             &= \int_{0}^{3} \int_{0}^{2\pi} \sqrt{1+4r^2} \,r \,\d \theta \,\d r\\
+%             &= \frac{\pi}{6} \left( 37\sqrt{37} - 1 \right).
+%     \end{align*}
+    
+% \end{solution}
+
+\end{questions}

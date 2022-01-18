@@ -1,0 +1,166 @@
+
+\begin{questions}
+
+% 1.1  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{0}
+\question{\textbf{Alocação de Produção.}  Uma fábrica tem duas linhas de produção disponíveis para produzir um dado tipo de produto. A primeira produz um lote do produto em tempo $t_1$ a um custo $c_1$; analogamente, a segunda produz um lote em tempo $t_2$ a um custo $c_2$. A administração da empresa deseja determinar a maneira mais barata de produzir $b$ lotes do produto em, no máximo, $T$ unidades de tempo. Suponha ainda que as quantidades de lotes alocadas para cada máquina são inteiras. Proponha um modelo matemático para este problema de otimização.
+}
+\begin{solution}
+	Sejam as variáveis de decisão $x_i$ iguais ao número de lotes alocados para produção na $i$-ésima linha, $i\in\{1,2\}$. Como queremos reduzir os custos de produção, a função objetivo é dada por \[f_0(x) = c_1\,x_1+c_2\,x_2,\quad x\in\R^2\]
+    e o conjunto factível é
+    \[\X = \{ x\in\Z_+ \mid t_1\,x_1+t_2\,x_2\le T,~ x_1+x_2\ge b \},\]
+    onde a primeira inequação corresponde ao tempo de produção (supondo que as linhas não possam trabalhar em paralelo), a segunda ao número de lotes produzidos e $\Z_+$ é o conjunto dos números inteiros não-negativos.
+    Assim, o problema de otimização pode ser enunciado como
+    \(\displaystyle\min_{x\in\X} f_0(x)\).
+\end{solution}
+
+% 1.2 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{20}
+\question{\textbf{Alocação de Produção - II.} Retorne ao problema anterior e assuma que $t_1=10$, $t_2=20$, $c_1=500$ ,$c_2=100$, $b=3$ e $T=40$. Determine se as seguintes soluções são factíveis e/ou ótimas:
+\begin{itemize}
+\item $x_1 = 0, x_2 = 3$;
+\item $x_1 = 2, x_2 = 1$;
+\item $x_1 = 3, x_2 = 0$.
+\end{itemize}
+}
+\begin{solution}
+	O conjunto factível é dado por
+    \[\X = \{ x\in\Z_+ \mid 10\,x_1+20\,x_2\le 40,~ x_1+x_2\ge 3 \},\]
+\begin{itemize}
+\item $x_1 = 0, x_2 = 3$;\\
+	Podemos verificar que $x\notin\X$, devido a primeira inequação não ser satisfeita. Logo, não é uma solução factível, o que implica que não é uma solução ótima.
+\item $x_1 = 2, x_2 = 1$;\\
+	Podemos verificar que $x\in\X$, o que implica que é uma solução factível. Testando todas as soluções no conjunto $\{0,1,2,3\}^2$, podemos verificar que essa solução é a ótima, pois é a que minimiza $f_0(x)$ e está no conjunto factível.
+\item $x_1 = 3, x_2 = 0$;\\
+	Podemos verificar que $x\in\X$, o que implica que é uma solução factível.  Mas, não é ótima, pois a função objetivo avaliada nesse ponto é maior que a do item anterior.
+\end{itemize}
+\end{solution}
+
+% 1.3  % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{0}
+\question{\textbf{Alocação de Investimentos.} Carlos está planejando a sua aposentadoria. Para tanto, ele resolve aplicar as suas economias, que totalizam $750\,000$ reais, em fundos de longo e médio prazos. As informações sobre os seis fundos de aplicação que ele achou mais atraentes no mercado estão tabeladas abaixo (vide apostila). \\
+Para ter mais segurança nos seus investimentos, Carlos consultou um analista financeiro, que lhe fez as seguintes recomendações:
+\begin{itemize}
+\item não investir mais de 25\% do dinheiro em um único fundo;
+\item pelo menos metade do dinheiro deve ser investida em fundos de longo prazo, \emph{i.e.}, fundos com mais de 10 anos de carência;
+\item no máximo 30\% das economias deve ser aplicado nos fundos com avaliação inferior a A.
+\end{itemize}
+Sabendo-se que Carlos quer maximizar o seu rendimento anual, proponha um modelo matemático para este problema de otimização.
+}
+\begin{solution}
+	Seja a variável de decisão $x_i$ igual à porcentagem de valor alocado no $i$-ésimo fundo, $i\in\cal{I}=\{1,2,\dots,6\}$ e seja $r_i$ o rendimento do $i$-ésimo fundo. Como queremos maximizar o rendimento, a função objetivo é dada por \[f_0(x) = \sum_{i\in\cal{I}} r_i\,x_i,\quad x\in\R^6\]
+    e o conjunto factível é
+    \begin{align*}
+    	\X = \{ x\in\R_+^6 \mid ~& \textstyle\sum_{i\in\cal{I}} x_i = 1,\\
+        		& x_1+x_6 \ge 1/2,\\
+            	& x_3 \le 3/10,\\
+                & x_i \le 1/4 \quad \forall i\in\cal{I}
+            	\},
+    \end{align*}
+    onde $\R_+$ é o conjunto dos números reais não-negativos.
+    Assim, o problema de otimização pode ser enunciado como
+    \(\displaystyle\max_{x\in\X} f_0(x)\).
+\end{solution}
+
+% 1.4 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{3}
+\question{\textbf{Projeto de um Aquário.} Um aquário de volume $V$ dado deve ser construído a partir de uma base de pedra e de faces laterais de vidro. Se o metro quadrado de pedra custar cinco vezes o custo do metro quadrado de vidro, deseja-se encontrar as dimensões do aquário que minimizam o custo total de materiais necessários para a sua construção. Proponha um modelo matemático para este problema.
+}
+\begin{solution}
+	Sejam as variáveis de decisão $x_1$, $x_2$ as dimensões da base e $x_3$ a altura do aquário. Então, a área da base é dada por $x_1\,x_2$, a área das laterais é dada por $2(x_1+x_2)\,x_3$ e o volume é $x_1\,x_2\,x_3$. Dessa forma a função objetivo é dada por
+    \[f_0(x) = 5\,x_1\,x_2 + 2(x_1+x_2)\,x_3,\quad x\in\R^3\]
+    e o conjunto factível é dado por
+    \[\X = \{x\in\R_+^3 \mid x_1\,x_2\,x_3 = V\},\]
+    onde $\R_+$ é o conjunto dos números reais não-negativos.
+    Dessa forma, o problema de otimização é
+    \(\displaystyle\min_{x\in\X} f_0(x).\)
+\end{solution}
+
+% 1.5 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{74}
+\question{\textbf{Projeto de Embalagens.} Uma marca de leite condensado deseja determinar a lata cilíndrica que comporta um volume $V$ dado com a menor área total possível. Tendo a altura $h$ da lata e o raio $r$ da sua base como variáveis de decisão, proponha um modelo matemático para este problema. Elimine a restrição de igualdade e obtenha um problema equivalente em apenas uma variável.
+}
+\begin{solution}
+	Sabemos que $\pi\,r^2\,h = V$. Uma possibilidade é fazer a seguinte mudança de variável: $r = x$, $x\in\R_+^*$, onde $\R_+^*$ é o conjunto dos números reais positivos. Dessa forma, podemos colocar a altura em função da nova variável, \emph{i.e.}, $h = V/(\pi\,x^2)$. A área total da embalagem é dada por $2\,\pi\,r\,h+2\,\pi\,r^2\,h = 2\,V/x + 2\,\pi\,x^2$. Logo, temos o seguinte problema de otimização
+    \[\min_{x\in\R_+^*} (2\,V/x + 2\,\pi\,x^2).\]
+\end{solution}
+
+% 1.6 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{74}
+\question{\textbf{Alocação de Enfermeiros.} Um hospital deseja obter um planejamento semanal para os turnos noturnos de enfermeiros. Cada enfermeiro deve trabalhar 5 noites seguidas e cada dia $i = 1, \dots, 7$ da semana tem uma demanda de $d_i$ enfermeiros. O objetivo principal do hospital é contratar o menor número possível de enfermeiros. Proponha um modelo para este problema.
+}
+\begin{solution}
+	Sejam as variáveis de decisão $x_i$ o número de enfermeiros que começam a trabalhar no $i$-ésimo dia, $i\in\cal{I} = \{1,2,\dots,7\}$, então a função objetivo é
+    \[f_0(x) = \sum_{i\in\cal{I}} x_i,\]
+    e a região factível é dada por
+    \[ \X = \left\lbrace x\in\Z_+ \mid \sum_{i=k}^{k+4} x_{\{i\}_8} \ge d_k\quad \forall k\in\cal{I} \right\rbrace, \]
+    onde o operador $\{\cdot\}_n := (\cdot \mod n)+1$. Note que somamos de forma cíclica os enfermeiros que trabalham em um determinado dia da semana e essa soma tem que ser maior que a demanda.
+    Assim, o problema de otimização é \(\displaystyle\min_{x\in\X} f_0(x).\)
+\end{solution}
+
+% 1.7 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{74}
+\question{\textbf{Problema da Dieta.} Um veterinário recomendou a uma loja de animais que cada hamster deve receber, no mínimo, 70 unidades de proteína, 100 unidades de carboidrato e 20 unidades de gordura, diariamente. A loja dispõe de seis tipos de grãos, cereais e frutas para compor a ração dos hamsters, como indicado na tabela abaixo (vide apostila). Dado que o objetivo da loja é minimizar o custo da ração, proponha um modelo de otimização para este problema.
+}
+\begin{solution}
+	Temos 6 tipos de ração, a $i$-ésima ração contém uma quantidade $P_i$ de proteínas, $C_i$ de carboidratos, $G_i$ de gorduras e custo $c_i$ por unidade de massa, $i \in \cal{I} = \{1,2,\dots,6\}$. A mistura final deve conter $P$ de proteínas, $C$ de carboidratos e $G$ de gorduras por unidade de massa. Seja $x_i$ a variável de decisão correspondente à porcentagem da $i$-ésima ração na mistura final, $i\in\cal{I}$. Dessa forma, a função objetivo é dada por
+    \[f_0(x) = \sum_{i\in\cal{I}} c_i\,x_i, \quad x\in\R^6.\]
+O conjunto factível
+\begin{align*}
+	\X = \Big\{ x\in[0,1]^6 \mid & \sum_{i\in\cal{I}} x_i \le 1,~
+    		\sum_{i\in\cal{I}} P_i\,x_i \ge P,\\
+        & \sum_{i\in\cal{I}} C_i\,x_i \ge C,~
+        	\sum_{i\in\cal{I}} G_i\,x_i \ge G
+    \Big\}
+\end{align*}
+Portanto, o problema é simplesmente \(\displaystyle\min_{x\in\X} f_0(x).\)
+\end{solution}
+
+% 1.8 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{74}
+\question{\textbf{Planejamento de Produção.} Uma montadora produz dois tipos de veículos em três fábricas diferentes. A fábrica A produz, diariamente, 40 carros do Tipo I e 35 carros do Tipo II. A fábrica B apenas produz carros do Tipo I, montando 65 veículos diariamente. A fábrica C produz somente carros do Tipo II, fabricando 50 carros por dia. Os custos operacionais diários das fábricas A, B e C são de 210, 190 e 182 mil reais, respectivamente.
+A empresa deseja produzir, durante o mês de outubro (incluindo domingos e feriados), 1500 carros do Tipo I e 1100 carros do Tipo II para realizar uma feira. Tendo como objetivo a minimização do custo de produção, proponha um modelo matemático para este problema. Suponha que os contratos de trabalho exigem que, uma vez que uma fábrica seja aberta, os trabalhadores devem ser pagos pelo dia inteiro.
+}
+\begin{solution}
+	Temos 3 fábricas, a $i$-ésima fábrica produz $a_i$ carros do tipo I por dia, $b_i$ carros do tipo II por dia e $c_i$ é o custo diário de operação, $i \in \cal{I} = \{1,2,3\}$. A produção no final do mês deve totalizar $a$ carros do tipo I e $b$ carros do tipo II. Seja $x_i$ a variável de decisão correspondente ao número de dias que a $i$-ésima fábrica opera, $i\in\cal{I}$. Dessa forma, a função objetivo é dada por
+    \[f_0(x) = \sum_{i\in\cal{I}} c_i\,x_i, \quad x\in\R^3.\]
+O conjunto factível
+\begin{align*}
+	\X = \Big\{ x\in\Z_+^3 \mid ~
+    	& x_i \le 30 \quad \forall i\in\cal{I},\\
+    	& \sum_{i\in\cal{I}} a_i\,x_i \ge a,\\
+        & \sum_{i\in\cal{I}} b_i\,x_i \ge b
+    \Big\}
+\end{align*}
+Logo, o problema a ser resolvido é \(\displaystyle\min_{x\in\X} f_0(x).\)
+\end{solution}
+
+% 1.9	 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{74}
+\question{\textbf{Troco com Número Mínimo de Moedas.} Considere um conjunto de moedas nos valores de 1, 5, 10, 25 e 50 centavos. Formule o problema de programação linear (inteira) cuja solução ótima fornece o numero mínimo de moedas necessário para fornecer exatamente $q$ centavos de troco.
+}
+\begin{solution}
+	Seja $x_i$ a variável de decisão correspondente ao número de moedas do $i$-ésimo valor, $i\in\cal{I}=\{1,2\dots,5\}$. Dessa forma, a função objetivo é dada por
+    \[f_0(x) = \sum_{i\in\cal{I}} x_i, \quad x\in\R^5.\]
+O conjunto factível
+\begin{align*}
+	\X = \{ x\in\Z_+^5 \mid x_1+5\,x_2+10\,x_3+25\,x_4+50\,x_5 = q\}.
+\end{align*}
+Portanto, o problema de otimização é \(\displaystyle\min_{x\in\X} f_0(x).\)
+\end{solution}
+
+% 1.10	 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{74}
+\question{\textbf{Troco com Número Mínimo de Moedas: Solução Gulosa.} O problema de troco com número mínimo de moedas pode ser abordado com um algoritmo guloso: o operador deve repetidamente escolher a moeda mais alta menor que ou igual ao valor restante, até que o troco é totalizado. Esta estratégia sempre fornece a solução ótima para o conjunto de moedas acima? E se a moeda de 5 centavos deixar de fazer parte do conjunto?
+}
+\begin{solution}
+Sejam $n$ o número de valores diferentes de moedas, $a_i$ o $i$-ésimo valor disponível de moeda, tal que $a_1 > a_2 > \dots > a_n$ e $m_i = \left\lceil a_{i-1}/a_i \right\rceil$, então o seguinte teorema garante otimalidade do algoritmo guloso (\url{http://www.cse.yorku.ca/~andy/courses/3101/lecture-notes/CoinChange.pdf}).
+\begin{theorem}
+	O algoritmo guloso é ótimo se $G(m_i a_i - a_{i-1}) \le m_i-1 \quad \forall i\in\{2,3,\dots,n\}$.
+\end{theorem}
+    Onde $G(q)$ é o algoritmo guloso aplicado ao problema de devolver $q$ centavos. Podemos verificar que as condições do Teorema~1 se satisfazem e, portanto, o algoritmo guloso é ótimo para o caso em que temos todas as moedas disponíveis. \\
+    
+    Porém, quando a moeda de 5 centavos deixa de fazer parte do conjunto, a estratégia gulosa não é ótima. Um contra-exemplo é quando $q = 55$. A estratégia gulosa fornece como solução 1 moeda de 50 centavos e 5 moedas de 1 centavo, enquanto que a solução ótima é 1 moeda de 25 centavos e 3 moedas de 10 centavos.
+\end{solution}
+
+\end{questions}

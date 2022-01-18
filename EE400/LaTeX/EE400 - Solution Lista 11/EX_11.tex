@@ -1,0 +1,56 @@
+
+\begin{questions}
+
+% 11.4 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{3}
+\question{
+Determine a imagem do retângulo $a \leq \Re\,z \leq b$ e $c \leq \Im\,z \leq d$ sob a transformação $f(z) = e^z$.
+}
+%
+\begin{solution}
+    Vamos supor que $c,d\in(-\pi,\pi]$.
+    Seja $z = x+iy$, $x,y\in\R$. Temos que a transformação é dada por $w = e^x e^{iy}$, onde a componente $x$ está relacionada ao módulo ($|w|=e^x$) e a componente $y$ ao ângulo ($\Arg(w) = y$) no plano complexo. Dessa forma, o retângulo se transforma em um setor de anel, ou seja, na região $$\{w\in\C \mid e^a \le |w| \le e^b,~ c \le \Arg(w) \le d \}.$$
+\end{solution}
+
+% 11.6 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{5}
+\question{
+Determine os pontos fixos da aplicação dada por $f(z) = \displaystyle \frac{2z - 5}{z + 4}$.
+}
+%
+\begin{solution}
+    As soluções da equação $f(z)=z$ são $-1\pm2i$.
+\end{solution}
+
+% 11.8 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{7}
+\question{
+Construa uma aplicação conforme que leve o semiplano $\Re\, z \leq 0$ no disco $|z| \leq 1$.
+}
+%
+\begin{solution}
+    Usando o método ensinado em aula para construir aplicações bilineares, podemos escolher $z_0 = -1$ e $z_0' = 1$. Dessa forma, a aplicação desejada é dada por
+    \[
+        w = \frac{z-z_0}{z-z_0'} = \frac{z+1}{z-1}.
+    \]
+\end{solution}
+
+
+% 11.9  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{8}
+\question{
+Construa uma bijeção analítica entre o semi-plano $x + y \geq 0$ e o disco $|z - i| \leq 1$.
+}
+%
+\begin{solution}
+    Usando o método ensinado em aula para construir aplicações bilineares, podemos escolher $z_0 = 1+i$ e $z_0' = -1-i$. Dessa forma, a aplicação que leva no círculo unitário centrado na origem é dada por
+    \[
+        w' = \frac{z-z_0}{z-z_0'} = \frac{z-(1+i)}{z+(1+i)}.
+    \]
+    Como queremos um círculo unitário centrado em $i$, basta fazer $w=w'+i$, ou seja,
+    \[
+        w = \frac{z-(1+i))}{z+(1+i)}+i = \frac{(1+i)z-2}{z+(1+i)}.
+    \]
+\end{solution}
+
+\end{questions}

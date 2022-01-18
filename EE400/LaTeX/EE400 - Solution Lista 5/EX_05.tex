@@ -1,0 +1,331 @@
+
+\begin{questions}
+
+% 5.1  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{1}
+\question{
+Reduza os seguintes números complexos à forma $x + iy$.
+\begin{multicols}{3}
+\begin{enumerate}[label=(\alph*)]
+  \item $z_1 = (2-3i)(1+5i)$;
+  \item $z_2 = (1+2i)(2 + i)$;
+  \item $z_3 = (4 - 3i)(5 - i)(1 + i)$;
+  \item $z_4 = (3+2i)^2$;
+  \item $z_5 = (1 + i)^3$;
+  \item $\displaystyle  z_6 = \frac{1+2i}{3-i}$;
+  \item $\displaystyle  z_7 = \frac{1 + i}{(1 - i)^2}$.
+\end{enumerate}
+\end{multicols}
+}
+\begin{solution}
+    \begin{multicols}{2}
+    \begin{enumerate}[label=(\alph*)]
+      \item $z_1 = 17+7i$;
+      \item $z_2 = 5i$;
+      \item $z_3 = 36-2i$;
+      \item $z_4 = 5+12i$;
+      \item $z_5 = -2+2i$;
+      \item $z_6 = \dfrac{(1+2i)(3+i)}{(3-i)(3+i)} = \dfrac{1}{10}(1+7i)$;
+      \item $z_7 = \dfrac{(1+i)^3}{(1+1)^2} = \dfrac{1}{2}(-1+i)$.
+    \end{enumerate}
+    \end{multicols}
+\end{solution}
+
+% 5.2 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{2}
+\question{
+Determine o valor de $i^n$ para $n$ inteiro. Use este resultado para reduzir os seguintes números à forma algébrica $z = x + iy$.
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+  \item $\displaystyle  z_1 = \frac{(1 + i)^{80} - (1 + i)^{82}}{i^{96}}$;
+  \item $z_2 = (1+i)^{12} - (1-i)^{12}$;
+  \item $\displaystyle  z_3 = \frac{i^3 - i^2 + i^{17} - i^{35}}{i^{16} - i^{13} + i^{30}}$;
+  \item $\displaystyle z_4 = \frac{i^{11} + 2i^{13}}{i^{18} - i^{37}}$.
+\end{enumerate}
+\end{multicols}
+}
+\begin{solution}
+Como $i^4 = 1$, então $i^n = i^{4q+r} = i^r$, onde $q$ é o quociente e $r$ é o resto da divisão de $n$ por 4. Dessa forma,
+\begin{enumerate}[label=(\alph*)]
+  \item $ z_1 = (1 + i)^{2\cdot 40} (1 - (1 + i)^{2}) = (2i)^{40} (1-2i) = 2^{40}(1-2i)$;
+  \item $z_2 = (1+i)^{12} - (1-i)^{12} = (2i)^6 - (-2i)^6 = 0$;
+  \item $\displaystyle  z_3 = \frac{-i + 1 + i + i}{1 - i -1} = -1+i$;
+  \item $\displaystyle z_4 = \frac{-i + 2i}{-1 - i} = \frac{-i}{1 + i}\frac{1-i}{1-i} = \frac{1}{2}(-1-i)$.
+\end{enumerate}
+\end{solution}
+
+% 5.3 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{6}
+\question{
+Determine números complexos $z_1$ e $z_2$ tais que $z_1 + i z_2 = i$ e $i z_1 + z_2 = 2i - 1$.
+}
+
+\begin{solution}
+Multiplicando a segunda equação por $i$ e somando ambas equacões, temos que
+    \[
+        2iz_2 = -2 ~\Rightarrow \boxed{z_2 = i}.
+    \]
+Em seguida, usando a primeira equação temos que $\boxed{z_1 = 1+i}$.
+\end{solution}
+
+% 5.4 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{8}
+\question{
+Quais as condições sobre os números complexos $z_1$ e $z_2$ para que $z_1 z_2 \in \R$? Quais as condições sobre $z_1$ e $z_2$, com $z_2 \neq 0$, para que $z_1/z_2$ seja real?
+}
+
+\begin{solution}
+    Seja $z_1 = x_1 + i y_1$ e $z_2 = x_2 + i y_2$.
+    %
+    Sabemos que 
+    \[
+        z_1 z_2 \in \R 
+            ~\Leftrightarrow~ \Im[z_1 z_2] = 0
+            ~\Leftrightarrow~ x_1y_2+x_2y_1 = 0,
+    \]
+    %
+    \[
+        z_1/z_2 \in \R 
+            ~\Leftrightarrow~ z_1 \bar{z}_2/|z_2|^2 \in \R
+            ~\Leftrightarrow~ z_1 \bar{z}_2 \in \R
+            ~\Leftrightarrow~ -x_1y_2+x_2y_1 = 0.
+    \]
+\end{solution}
+
+% 5.5 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{5}
+\question{
+Quais são as condições sobre $a,b \in \R$ para que o número $(a + bi)^4$ seja estritamente negativo?
+}
+
+\begin{solution}
+    Se $(a + bi)^4<0$, então é fácil ver que $a\neq 0$ e $b\neq 0$.
+    %
+    Expandindo
+    \[
+        (a+bi)^4 = \left[(a^2-b^2) + 2abi \right]^2
+            = \left[ (a^2-b^2)^2-4a^2b^2 \right] + \left[4(a^2-b^2)ab\right]i.
+    \]
+    Note que a parte imaginária se anula somente se $a=\pm b$. Quando isso ocorre \[(a + bi)^4 = -4a^2b^2 < 0.\]
+\end{solution}
+
+
+% 5.6  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{7}
+\question{
+Sejam $u,v \in \C$ dois números tais que $u^2 - v^2 = 6$ e $\bar u + \bar v = 1-i$. Calcule $u - v$.
+}
+
+\begin{solution}
+Sabemos que $(u+v)(u-v) = u^2-v^2 = 6$ e que $u+v = \overline{\bar u + \bar v} = 1+i$. Assim,
+\begin{align*}
+    u-v &= \frac{6}{1+i} = 3(1-i).
+\end{align*}
+\end{solution}
+
+% 5.7 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{5}
+\question{
+Variando o número inteiro $n$, quais são os possíveis valores para o quociente $\left(\frac{1+i}{1-i}\right)^n$?
+}
+
+\begin{solution}
+    \[\left(\frac{1+i}{1-i}\right)^n = \left(\frac{(1+i)^2}{(1-i)(1+i)}\right)^n = i^n \in \{\pm 1,\pm i\}, \quad \text{vide Exercício 5.2.} \]
+\end{solution}
+
+% 5.8 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{8}
+\question{
+Seja $z = x+iy \neq 0$. Determine a condição para que $z + z^{-1}$ seja real.
+}
+
+\begin{solution}
+    Sabemos que
+    \begin{align*}
+        z+z^{-1} = \frac{|z|^2 z + \bar{z}}{|z|^2} \in \R
+        ~\Leftrightarrow~ |z|^2 z + \bar{z} \in \R
+        ~\Leftrightarrow~ \Im[|z|^2 z + \bar{z}] = 0
+        ~\Leftrightarrow~ y\,(|z|^2-1) = 0.
+    \end{align*}
+    Dessa forma, $z + z^{-1} \in \R$ se, e somente se, $y=0$ ou $|z|=1$.
+\end{solution}
+
+% 5.9 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{8}
+\question{
+{\bf (IME)} Sejam $z = a + bi$ e $w = 47 + ci$ numéros complexos tais que $z^3 + w = 0$. Determine os valores de $a$, $b$ e $c$ sabendo que estes números são inteiros positivos.
+}
+\begin{solution}
+    Expandindo $(a+bi)^3$ encontramos que
+    \[z^3 = -a(3b^2-a^2) - b(b^2-3a^2)i.\]
+    Como $w=-z^3$, comparando as partes reais obtemos que $47 = a(3b^2-a^2)$.
+    %
+    Note que $47$ é primo, ou seja, \{$a=47$ e $3b^2-a^2=1$\} ou \{$a=1$ e $3b^2-a^2=47$\}. Excluímos a primeira solução, pois $1+a^2$ não é divisível por 3.
+    %
+    Usando a segunda solução temos que $a=1$ e $b=4$.
+    %
+    Enfim, comparando as partes imaginárias chega-se em $c = b(b^2-3a^2) = 52$.
+\end{solution}
+
+% 5.10 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{8}
+\question{
+Se $z_1$ e $z_2$ forem dois números complexos tais que $z_1 + z_2$ e $z_1 z_2$ forem ambos reais, o que podemos afirmar sobre $z_1$ e $z_2$?
+}
+
+\begin{solution}
+    Como $z_1+z_2\in\R$, então $\Im\,z_1 = -\Im\,z_2$. Dessa forma, sejam $x_1,x_2,y\in\R$, então $z_1,z_2$ podem ser escritos como $z_1 = x_1+yi$ e $z_2=x_2-yi$. Como $z_1 z_2\in\R$ também, então
+    \[
+        \Im[z_1 z_2] = 0
+        ~\Leftrightarrow~ x_1 y-x_2 y = 0
+        ~\Leftrightarrow~ y\,(x_1 - x_2) = 0.
+    \]
+    Portanto, $y=0$ ou $x_1=x_2$, isto é, $z_1,z_2\in\R$ ou $z_1 = \overline{z_2}$.
+\end{solution}
+
+% 5.11 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{8}
+\question{
+Determine $x \in \R$ para que o número $\displaystyle z = \frac{2 - ix}{1 + i2x}$ seja imaginário puro.
+}
+
+\begin{solution}
+    \[
+        \Re\left[\frac{2 - ix}{1 + i2x}\right] = 0
+        ~\Leftrightarrow~ \Re\left[\frac{(2 - ix)(1-i2x)}{1 + 4x^2}\right] = 0
+        ~\Leftrightarrow~ 2(1-x^2) = 0.
+    \]
+    Assim, $x\in\{1,-1\}$ para que $z$ seja imaginário puro.
+\end{solution}
+
+% 5.14 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{13}
+\question{
+Determine o menor valor de $n \in \mathbb{N}$ para o qual $(\sqrt{3} + i)^n$ é:
+\begin{multicols}{3}
+\begin{enumerate}[label=(\alph*)]
+  \item real e positivo;
+  \item real e negativo;
+  \item imaginário puro.
+\end{enumerate}
+\end{multicols}
+}
+\begin{solution}
+Vamos escrever a base em forma polar, ou seja, $\sqrt{3}+i = 2\,\euler^{i \pi/6}$.
+
+Logo, $(\sqrt{3}+i)^n = 2^n\,\euler^{i n \pi/6}$ e assim, $\arg (\sqrt{3}+i)^n = n \pi/6$.
+\begin{enumerate}[label=(\alph*)]
+  \item Um número complexo é real e positivo se o argumento for da forma $2k\pi$, $k\in\Z$, ou seja, se $n = 12k$, $k\in\N$.
+  \item Um número complexo é real e negativo se o argumento for da forma $\pi + 2k\pi$, $k\in\Z$, ou seja, se $n = 6+12k$, $k\in\N$.
+  \item Um número complexo é imaginário puro se o argumento for da forma $\pi/2 + k\pi$, $k\in\Z$, ou seja, se $n = 3+6k$, $k\in\N$.
+\end{enumerate}
+\end{solution}
+
+% 5.15 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{13}
+\question{
+Para os itens a seguir, considere o número complexo $z = \sigma + i \omega$.
+\begin{enumerate}[label=(\alph*)]
+  \item Para $\sigma = 1$, determine $\omega > 0$ para que $\arg\left(z^{-3}\right) = -\pi$.
+  \item Para $\omega = 1$, determine $\sigma < 0$ para que $\left|z^{-3}\right| = 1/8$.
+\end{enumerate}
+}
+\begin{solution}
+Vamos usar a forma polar de $z = r \euler^{i\theta}$. Assim,
+\begin{enumerate}[label=(\alph*)]
+  \item 
+  $\arg\left(z^{-3}\right) = \arg\left(r^{-3} \euler^{-3i\theta}\right) = -3\theta$. Logo, $\theta = \pi/3$.
+  
+  Para $\sigma = 1, \omega>0$, temos que $\omega = \sqrt{3}$, de forma que $\tan{\theta} = \omega/\sigma$.
+  
+  \item $\left|z^{-3}\right| = \left|r^{-3} \euler^{-3i\theta}\right| = r^{-3}$. Logo, $r = 2$.
+  
+  Para $\omega = 1,\sigma < 0$, temos que $\sigma = -\sqrt{3}$ para que $r = \sqrt{\sigma^2+\omega^2}$.
+\end{enumerate}
+\end{solution}
+
+% 5.16 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{13}
+\question{
+{\bf (IME - modificada)} Considere o número complexo $\displaystyle z = \frac{a}{ib(1 + ib)^2}$, com $a,b$ reais positivos. Sabendo que o módulo e o argumento de $z$ valem, respectivamente, $1$ e $-\pi$, determine $a$.
+}
+\begin{solution}
+Sabemos que
+\[\arg z = \arg a - \arg ib - \arg (1+ib)^3 = 0 - \frac{\pi}{2} - 3\arctan b.\]
+Como $\arg z = -\pi$, então $b = \tan \pi/6 = \sqrt{3}/3$.
+
+Ademais,
+\[|z| = \frac{|a|}{|ib|\,|1 + ib|^2} = \frac{a}{b(1+b^2)^{3/2}}.\]
+Como $|z|=1$, então \[a = b(1+b^2)^{3/2} = \frac{4^{3/2}}{\sqrt{3}\,3^{3/2}} = \frac{2^3}{3^2} = \frac{8}{9}.\]
+\end{solution}
+
+% 5.21 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{20}
+\question{
+Um hexágono regular, inscrito em uma circunferência de centro na origem, tem como um de seus vértices o ponto $(0,2)$. Determine os outros cinco vértices do hexágono.
+}
+\begin{solution}
+    No plano complexo as coordenadas dos vértices do hexágono regular são justamente as soluções da equação $z^6 = (2i)^6$. Igualando os módulos e os argumentos tiramos que $|z| = 2$ e $6 \arg z = 6 \frac{\pi}{2} + 2k\pi$, $k\in\Z$, ou seja, $\arg z = \pi/2 + k \pi/3 $, $k\in\Z$. Portanto, \vspace{-10mm}
+    \begin{multicols}{2}
+        \begin{align*}
+            z_0 &= 2 \euler^{i \pi/2} = (0,2), \\
+            z_1 &= 2 \euler^{i (\pi/2+\pi/3)} = (-\sqrt{3},1), \\
+            z_2 &= 2 \euler^{i (\pi/2+2\pi/3)} = (-\sqrt{3},-1),
+        \end{align*}
+        
+        \begin{align*}
+            z_3 &= 2 \euler^{i (\pi/2+3\pi/3)} = (0,-2), \\
+            z_4 &= 2 \euler^{i (\pi/2+4\pi/3)} = (\sqrt{3},-1), \\
+            z_5 &= 2 \euler^{i (\pi/2+5\pi/3)} = (\sqrt{3},1).
+        \end{align*}
+    \end{multicols}
+    
+\end{solution}
+
+% 5.22 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{20}
+\question{
+{\bf (IME - modificada)} Seja $z$ um número complexo tal que $\frac{2z}{\bar z i}$ tenha argumento $\frac{3\pi}{2}$ e $\log_3(2z + 2\bar z + 1) = 2$. Determine o número complexo $z$.
+}
+\begin{solution}
+    Sabemos que $3\pi/2 = \arg(2z/\bar z i) = \arg(z)-\arg(\bar z) - \pi/2$, ou seja, $\arg(z) = \arg(\bar z)$. Portanto, $z$ é real. Assim, $z=7/4$ para que $\log_3(4z+1)=2$.
+\end{solution}
+
+% 5.23 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{20}
+\question{
+Resolva as seguintes equações, para $z \in \C$:
+
+\begin{multicols}{3}
+\begin{enumerate}[label=(\alph*)]
+  \item $\displaystyle \frac{z}{1-i} + \frac{z-1}{1+i} = \frac{5}{2} + i \frac{5}{2}$;
+  \item $\bar z = -2zi$;
+  \item $z\bar z + (z - \bar z) = 13 + i6$;
+  \item $z^3 = \bar z$;
+  \item $z^2 = i$;
+  \item $z^2 + |z| = 0$;
+  \item $z^6 + 8 = 0$;
+  \item $z^4 + i = 0$;
+  \item $z^3 - 27 = 0$;
+  \item $z^8 - 17z^4 + 16 = 0$;
+  \item $z^4 - 2z^2 + 2 = 0$.
+\end{enumerate}
+\end{multicols}
+}
+\begin{solution}
+\begin{enumerate}[label=(\alph*)]
+  \item A equação é satisfeita para $z = 3 + 2i$;
+  \item A equação é satisfeita para $z = 0$;
+  \item A equação é satisfeita para $z = 2 + 3i$;
+  \item A equação é satisfeita para todo $z\in\{0,\pm 1,\pm i\}$;
+  \item A equação é satisfeita para todo $z\in\{\pm(1+i)/\sqrt{2}\}$;
+  \item A equação é satisfeita para todo $z\in\{0,\pm i\}$;
+  \item A equação é satisfeita para todo $z \in \{ \pm i \sqrt{2}, (\sqrt{3}\pm i)/\sqrt{2}, (-\sqrt{3}\pm i)/\sqrt{2} \} $;
+  \item A equação é satisfeita para $z = \euler^{i(\pi/8+k\pi/2)}, k\in\{0,1,2,3\}$;
+  \item A equação é satisfeita para todo $z\in\{ 3, (-3 \pm 3\sqrt{3} i)/2 \}$;
+  \item A equação é satisfeita para todo $z\in\{ \pm 1, \pm 2, \pm i, \pm 2i \}$;
+  \item A equação é satisfeita para $z = \sqrt[4]{2}\, \euler^{i(\pi/8 + k\pi/2)}, k\in\{0,1,2,3\}$.
+\end{enumerate}
+\end{solution}
+
+\end{questions}

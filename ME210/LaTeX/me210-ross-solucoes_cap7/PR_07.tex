@@ -1,0 +1,120 @@
+
+\begin{questions}
+
+% 7.7  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{6}
+\question{Suponha que $A$ e $B$ escolham aleatória
+e independentemente 3 objetos em um
+conjunto de 10. Determine o número esperado de objetos:
+\begin{parts}
+	\part escolhidos simultaneamente por $A$ e $B$;
+    \part não escolhidos nem por $A$, nem por $B$;
+    \part escolhidos por exatamente um de $A$ e $B$.
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part Seja $X_i$ a v.a. que vale 1 se o $i$-ésimo objeto foi escolhido por ambos e 0 caso contrário. O valor esperado do número de objetos escolhidos por ambos é
+    \begin{align*}
+    E\left[\sum_{i=1}^{10} X_i\right] = \sum_{i=1}^{10} E[X_i]
+    	= 10\,E[X_1] = 10 \left(\frac{3}{10}\right)^2 = \frac{9}{10}.
+    \end{align*}
+    
+    \part  Seja $Y_i$ a v.a. que vale 1 se o $i$-ésimo objeto não foi escolhido por ninguém e 0 caso contrário. O valor esperado do número de objetos não escolhidos é
+    \begin{align*}
+    E\left[\sum_{i=1}^{10} Y_i\right] = \sum_{i=1}^{10} E[Y_i]
+    	= 10\,E[Y_1] = 10 \left(\frac{7}{10}\right)^2 = \frac{49}{10}.
+    \end{align*}
+    
+    \part  Seja $Z_i$ a v.a. que vale 1 se o $i$-ésimo objeto foi escolhido por apenas uma pessoa e 0 caso contrário. O valor esperado do número de objetos escolhidos por apenas uma pessoa é
+    \begin{align*}
+    E\left[\sum_{i=1}^{10} Z_i\right] = \sum_{i=1}^{10} E[Z_i]
+    	= 10\,E[Z_1] = 10 \left(\frac{7}{10}\frac{3}{10}+\frac{3}{10}\frac{7}{10}\right)
+        = \frac{42}{10}.
+    \end{align*}
+\end{parts}
+\emph{Observação:} Note que cada objeto sempre se encaixa em uma única categoria, isto é, $X_i+Y_i+Z_i=1$ e, portanto, a soma das esperanças pedidas deve dar o número total de objetos: 10. Verifique!
+\end{solution}
+
+% 7.21 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{20}
+\question{Para um grupo de 100 pessoas, compute
+\begin{parts}
+	\part o número esperado de dias do ano
+que são aniversários de pelo menos 3 pessoas;
+    \part o número esperado de datas de aniversário distintas.
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part Seja $X_i$ a v.a. que vale 1 se o $i$-ésimo dia do ano é aniversário de 3 ou mais pessoas e vale 0 caso contrário; e $p=1/365$. O valor esperado que estamos interessados é dado por
+    \begin{align*}
+    	E\left[\sum_{i=1}^{365} X_i\right] &= \sum_{i=1}^{365} E[X_i] \\
+        	&= 365\,E[X_1] \\
+        	&= 365\left(1-\sum_{k=0}^{2}\binom{100}{k}p^k(1-p)^{100-k}\right)\\
+            &\approx \text{0,9955}.
+    \end{align*}
+    \textit{Observação:} Na versão americana do livro são \textbf{exatamente} 3 pessoas, ao invés de ``pelo menos 3 pessoas''. O que leva à resposta 0,9301.
+    \part Isso é equivalente à calcular o número esperado de dias que possuem pelo menos uma data de aniversário. Então, seja $Y_i$ a v.a. que vale 1 se o $i$-ésimo dia do ano é aniversário de 1 ou mais pessoas e vale 0 caso contrário; e $p=1/365$. O valor esperado que estamos interessados é dado por
+        \begin{align*}
+    	E\left[\sum_{i=1}^{365} Y_i\right] &= \sum_{i=1}^{365} E[Y_i] \\
+        	&= 365\,E[Y_1] \\
+        	&= 365\left(1-(\tfrac{364}{365})^{100}\right)\\
+            &\approx \text{87,58}.
+    \end{align*}
+\end{parts}
+\end{solution}
+
+% 7.22 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{20}
+\question{Quantas vezes você espera rolar um dado
+honesto até que todos os 6 lados tenham
+aparecido pelo menos uma vez?
+}
+\begin{solution}
+	Seja $N_k$ a variável aleatória que representa o número de dados rolados até que apareça um número diferente dos $k$ números que já supostamente apareceram. Note que $N_k$ segue uma distribuição geométrica de parâmetro $p=(6-k)/6$. Então, o número esperado de dados rolados até que apareçam todos os números é dado por
+    \begin{align*}
+    	E\left[\sum_{k=0}^5 N_k \right] = \sum_{k=0}^5 E[N_k]
+        	= \sum_{k=0}^5 \frac{6}{6-k} = \text{14,7}.
+    \end{align*}
+\end{solution}
+
+% 7.75 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{74}
+\question{A função geratriz de momentos de $X$ é
+dada por $M_X(t) = \exp[2\euler^t-2]$, e a de $Y$
+por $M_Y(t) = (\frac{3}{4}\euler^t+\frac{1}{4})^{10}$. Se $X$ e $Y$ são independentes, determine
+\begin{parts}
+	\part $P(X+Y=2)$;
+    \part $P(XY=0)$;
+    \part $E[XY]$.
+\end{parts}
+}
+\begin{solution} Da Tabela 7.1, temos que $Y$ é uma v.a. que segue uma distribuição binomial de parâmetros $n=10$ e $p = 3/4$; e $X$ segue uma distribuição de Poisson de parâmetro $\lambda = 2$.
+\begin{parts}
+	\part 
+    \begin{align*}
+    	P(X+Y=2) 
+        	&= P(X=0,Y=2)+P(X=1,Y=1)+P(X=2,Y=0) \\
+        	&= P(X=0)P(Y=2)\!+\!P(X=1)P(Y=1)\!+\!P(X=2)P(Y=0) \\
+            &= \sum_{k=0}^2 P(X=k)P(Y=2-k) \\
+            &= \sum_{k=0}^2 \frac{2^k}{k!}\euler^{-2}\binom{10}{2-k}
+            	(\tfrac{3}{4})^{2-k}(\tfrac{1}{4})^{10-(2-k)} \\
+			&\approx \text{0,0042}.
+    \end{align*}
+    
+    \part
+    \begin{align*}
+    	P(XY=0) 
+        	&= P(\{X=0\}\cup\{Y=0\})\\
+        	&= P(X=0)+P(Y=0)-P(X=0,Y=0)\\
+            &= \euler^{-2}+(\tfrac{1}{4})^{10}-\euler^{-2}(\tfrac{1}{4})^{10} \\
+			&\approx \text{0,1353}.
+    \end{align*}
+    
+    \part Como $X$ e $Y$ são independentes, $E[XY] = E[X]E[Y] = 2\cdot(10\cdot3/4) = 15$.
+    
+\end{parts}
+\end{solution}
+
+\end{questions}

@@ -1,0 +1,129 @@
+
+\begin{questions}
+
+% 7.8  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{7}
+\question{
+{\bf (Fórmulas de Adição e Identidades Trigonométricas)} Use a definição das funções $\sin$ e $\cos$ para números complexos para mostrar que valem as fórmulas
+ \[
+ \sin(z_1 + z_2) = \sin(z_1)\cos(z_2) + \sin(z_2)\cos(z_1) \quad \text{e} \quad \cos(z_1 + z_2) = \cos(z_1)\cos(z_2) - \sin(z_1)\sin(z_2)
+ \]   
+ para quaisquer dois números complexos $z_1$ e $z_2$. A partir destas identidades, conclua que as fórmulas de arco duplo
+ \[
+ \sin(2z) = 2\sin z \cos z \quad \text{e} \quad \cos(2z) = \cos^2 z - \sin^2 z
+ \]  
+ são verificadas para todo $z \in \C$. Use as fórmulas de adição, também, para mostrar que
+ \[
+ \sin(z + 2\pi) = \sin(z) \quad \text{e} \quad \cos(z + 2\pi) = \cos(z)
+ \]
+ também valem para todo $z \in \C$. Isto é, as funções trigonométricas complexas continuam periódicas. Finalmente, use a fórmula de adição do cosseno (ou a definição) para mostrar que
+ \[
+ \sin^2 z + \cos^2 z = 1
+ \]
+ permanece válida para todo $z \in \C$.
+ \begin{solution}
+ Para a primeira identidade temos que
+    \begin{align*}
+        \sin(z_1)\cos(z_2) + \sin(z_2)\cos(z_1)
+        &= \frac{1}{4i}\left( (e^{i z_1}-e^{-i z_1})(e^{i z_2}+e^{-i z_2}) +
+            (e^{i z_2}-e^{-i z_2})(e^{i z_1}+e^{-i z_1})  \right)\\
+        &= \frac{1}{4i} \left( e^{i (z_1+z_2)} + e^{i (z_1-z_2)} - e^{i (-z_1+z_2)} - e^{i (-z_1-z_2)} \right. \\ 
+            &\quad \left. + e^{i (z_1+z_2)} + e^{i (-z_1+z_2)} -  e^{i (z_1-z_2)} -  e^{i (-z_1-z_2)} \right)\\
+        &= \frac{e^{i (z_1+z_2)} - e^{-i (z_1+z_2)}}{2i} \\
+        &= \sin(z_1+z_2).
+    \end{align*}
+    Analogamente, podemos chegar na segunda identidade.
+    Ainda,
+    \[\sin(z+2\pi) = \sin(z)\cos(2\pi) + \sin(2\pi)\cos(z) = \sin(z).\]
+    Analogamente, podemos fazer o mesmo para a função $\cos$.
+    Por fim,
+    \begin{align*}
+        \sin^2 z+\cos^2 z &= \left(\frac{e^{iz}-e^{-iz}}{2i}\right)^2 + \left(\frac{e^{iz} + e^{-iz}}{2}\right)^2 \\
+            &= \frac{1}{4} \left( -e^{2iz} + 2 - e^{-2iz} + e^{2iz} + 2 +e^{-2iz} \right)\\
+            &= 1.
+    \end{align*}
+\end{solution}
+
+% 7.9  % % % % % % % % % % % % % % % % % % % % %
+\question
+{\bf (Funções Trigonométricas e Funções Hiperbólicas I)} Mostre que, se $z = x + i y$, então
+ \[
+ \sin z = \sin x \cosh y + i \cos x \sinh y \quad \text{e} \quad \cos z = \cos x \cosh y - i \sin x \sinh y.
+ \]
+ Use ambas as expressões para mostrar que $|\sin z|^2 = \sin^2 x + \sinh^2 y$ e que $|\cos z|^2 = \cos^2 x + \sinh^2 y$.
+}
+\begin{solution}
+    \begin{align*}
+        \sin z &= \frac{e^{iz}-e^{-iz}}{2i}
+                = \frac{e^{ix}e^{-y}-e^{-ix}e^{y}}{2i} \\
+            &= \frac{1}{2i}\left( e^{-y} \cos x + i e^{-y} \sin x - e^{y} \cos x + i e^{y} \sin x \right) \\
+            &=  i \cos x\,\frac{e^{y} - e^{-y}}{2} + \sin x\,\frac{e^{y} + e^{-y}}{2} \\
+            &= \sin x \cosh y + i \cos x \sinh y.
+    \end{align*}
+    Analogamente, podemos mostrar a identidade envolvendo $\cos z$.
+    \begin{align*}
+        |\sin z|^2 &= \sin^2 x \cosh^2 y + \cos^2 x \sinh^2 y \\
+            &= \sin^2 x \cosh^2 y + (1 - \sin^2 x) \sinh^2 y \\
+            &= \sin^2 x (\cosh^2 y - \sinh^2 y) + \sinh^2 y \\
+            &= \sin^2 x + \sinh^2 y.
+    \end{align*}
+    Analogamente, podemos mostrar a identidade envolvendo $|\cos z|^2$.
+\end{solution}
+
+% 7.11  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{10}
+\question{
+Use os resultados do Problema 8 para mostrar que, se $z = x + iy$, valem as desigualdades $|\sin z| \geq |\sin x|$ e $|\cos z| \geq |\cos x|$. Ademais, mostre também que $|\sin z|^2 + |\cos z|^2 = 1$ se, e apenas se, $z \in \R$.
+}
+\begin{solution}
+Vamos usar os resultados do Problema 9, pois é mais direto.
+    \begin{align*}
+        |\sin z|^2 &= \sin^2 x + \sinh^2 y \ge \sin^2 x,\\
+        |\cos z|^2 &= \cos^2 x + \sinh^2 y \ge \cos^2 x.
+    \end{align*}
+    Logo, $|\sin z| \geq |\sin x|$ e $|\cos z| \geq |\cos x|$. Além disso,
+    \begin{align*}
+        |\sin z|^2 + |\cos z|^2
+            = \sin^2 x + \sinh^2 y + \cos^2 x + \sinh^2 y
+            = 1 + 2\sinh^2 y.
+    \end{align*}
+    Porém, $1 + 2\sinh^2 y = 1$ se, e somente se, $y = 0$, o que é equivalente à  $z\in\R$.
+\end{solution}
+
+% 7.12  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{2}
+\question{
+{\bf (Paradoxo I)} Observe a série de igualdades:
+ \[
+ i = e^{i\frac{\pi}{2}} = e^{2\pi i\frac{1}{4}} = \left(e^{2\pi i} \right)^{\frac{1}{4}} = 1^\frac{1}{4} = 1. 
+ \]
+ Aponte o erro.
+}
+\begin{solution}
+    O erro está no passo $e^{2\pi i\frac{1}{4}} = \left(e^{2\pi i} \right)^{\frac{1}{4}}$, pois em $\C$ a igualdade $(z^a)^b = z^{ab}$ nem sempre é satisfeita quando tomamos o valor principal. Um exemplo disso é para o caso $z=-1,a=1/3,b=3$.
+\end{solution}
+
+% 7.13  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{4}
+\question{
+{\bf (Paradoxo II)} Observe a seguinte sequência de implicações:
+ \[
+ (-z)^2 = z^2 \Rightarrow 2 \log(-z) = 2\log z \Rightarrow \log(-z) = \log(z).
+ \]
+ Aponte o erro.
+}%
+\begin{solution}%
+    O erro está na última implicação, pois seja $z = \rho e^{i\theta}$, então
+    \begin{align*}
+        2 \log(-z) = 2\log(z) &\Rightarrow 2\ln \rho + 2i(\theta+\pi) = 2\ln \rho + 2\theta i + 2k\pi i,~ k\in\Z, \\
+            &\Rightarrow 2\pi = 2k\pi,
+     \end{align*}
+     o que é verdade para $k = 1$. Porém,
+     \begin{align*}
+        \log(-z) = \log(z) &\Rightarrow \ln \rho + i(\theta+\pi) = \ln \rho + \theta i + 2k\pi i,~ k\in\Z, \\
+            &\Rightarrow \pi = 2k\pi,
+    \end{align*}
+    o que não é satisfeito para nenhum $k\in\Z$.
+\end{solution}
+
+\end{questions}

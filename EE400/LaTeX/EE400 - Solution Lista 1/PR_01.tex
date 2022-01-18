@@ -1,0 +1,55 @@
+
+\begin{questions}
+
+% 1.4  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{3}
+\question{
+Mostre que, em um triângulo de vértices $a = (x_a,y_a)$, $b = (x_b,y_b)$ e $c = (x_c,y_c)$, o seu baricentro tem coordenadas
+  \[
+  g = \left(\frac{x_a + x_b + x_c}{3} ~,~ \frac{y_a + y_b + y_c}{3}\right).
+  \]
+}
+
+\begin{solution}
+Basta substituir a solução proposta no seguinte sistema e verificar que é satisfeito.
+    \[\begin{cases}
+        g_y - a_y = m_a (g_x-a_x),\\
+        g_y - b_y = m_b (g_x-b_x),
+    \end{cases}\]
+    onde $m_a = [(b_y+c_y)/2-a_y]/[(b_x+c_x)/2-a_x]$ e $m_b = [(a_y+c_y)/2-b_y]/[(a_x+c_x)/2-b_x]$ são as inclinações das medianas que passam por $a$ e $b$, respectivamente.
+\end{solution}
+
+% 1.10  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{9}
+\question{
+({\bf Cônicas e Excentricidade}) A seguinte equação em coordenadas polares
+  \[
+  r = \frac{1}{1 + e\cos\theta}
+  \]
+  representa uma cônica com excentricidade $e$. Discrimine a curva em função de $e \geq 0$.
+}
+
+\begin{solution}
+    A ideia é tentar re-escrever a equação para coordenadas retangulares e deixar no formato padrão de cônicas $x^2/a^2 + y^2/b^2 = 1$, ou seja,
+    \begin{align*}
+                    & r+e r \cos \theta = 1 \\
+        \Rightarrow~ & r + ex = 1 \\   
+        \Rightarrow~ & r^2 = (1 - ex)^2 \\
+        \Rightarrow~ & x^2+y^2 = 1 - 2ex + e^2 x^2 \\
+        % \Rightarrow~ & (1-e^2)x^2 + 2ex + \tfrac{e^2}{1-e^2} + y^2 = 1 + \tfrac{e^2}{1-e^2} \\
+        \Rightarrow~ & 
+            \begin{cases}
+                (1-e^2)^2 \left( x + \frac{e}{1-e^2} \right)^2 + (1-e^2) y^2 = 1, & \text{se}\ e\neq1, \\
+                x = \frac{y^2-1}{2}, & \text{se}\ e = 1.
+            \end{cases}
+    \end{align*}
+    Dessa forma,
+    \begin{itemize}
+        \item Se $e=0$, trata-se de uma circunferência,
+        \item Se $e<1$, trata-se de uma elipse,
+        \item Se $e=1$, trata-se de uma parábola,
+        \item Se $e>1$, trata-se de uma hipérbole.
+    \end{itemize}
+\end{solution}
+
+\end{questions}

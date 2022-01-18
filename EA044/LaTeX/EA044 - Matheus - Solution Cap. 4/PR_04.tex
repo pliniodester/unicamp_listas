@@ -1,0 +1,427 @@
+
+\begin{questions}
+
+% 4.1  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{0}
+\question{
+Considere os problemas abaixo, que consistem em minimizar $f_0$ sujeita a $Ax = b$. Para cada um deles, formule as condições de otimalidade de primeira e de segunda ordens. Obtenha, também, um problema irrestrito equivalente e escreva as suas condições de otimalidade. Determine as soluções ótimas destes problemas usando as duas formulações.
+\begin{parts}
+\part $\min f_0(x) = x_1^2 + x_2^2 + x_3^2 - 2x_1 x_2$ s.a. $2x_1 + x_2 = 4$ e $5x_1 - x_3 = 8$;
+\part $\min f_0(x) = x_1^2 + 2x_2^2 - 2x_1 - 2x_1x_2$ s.a. $2x_1 + x_2 = 1$.
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+    \part Primeiramente, calculamos o gradiente e a Hessiana de $f_0$,
+    \[    
+    \nabla f_0(x) = 
+    \begin{bmatrix}
+        2x_1-2x_2\\
+        2x_2-2x_1\\
+        2x_3
+    \end{bmatrix},\qquad
+    \nabla^2 f_0(x) = 
+    \begin{bmatrix}
+        2 & -2 & 0\\
+        -2 & 2 & 0\\
+        0 & 0 & 2
+    \end{bmatrix}.
+    \]
+    Em seguida identificamos as matrizes $A$ e $b$ correspondentes ao sistema linear que deve ser satisfeito,
+    \[    
+    A = 
+    \begin{bmatrix}
+        2 & 1 & 0\\
+        5 & 0 & -1
+    \end{bmatrix},\qquad
+    b = 
+    \begin{bmatrix}
+        4\\ 8
+    \end{bmatrix}.
+    \]
+    As condições de primeira ordem são
+    \begin{align*}
+        \left\{ \begin{matrix}
+            \nabla f_0(x^*) + A^\T \lambda^*  = 0\\
+            A x^* = b
+        \end{matrix} \right.
+        \Rightarrow
+        \begin{bmatrix}
+            2 & -2 & 0 & 2 & 5\\
+            -2 & 2 &  0 & 1 & 0\\
+            0 & 0 & 2 & 0 & -1\\
+            2 & 1 & 0 & 0 & 0\\
+            5 & 0 & -1 & 0 & 0
+        \end{bmatrix}
+        \begin{bmatrix}
+            x^*\\ \lambda^*
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            0\\ 0\\ 0\\ 4\\ 8
+        \end{bmatrix}.
+    \end{align*}
+    Resolvendo esse sistema linear, obtemos
+    \[
+        x^* = \frac{1}{17}
+        \begin{bmatrix}
+            26\\ 16\\ -6
+        \end{bmatrix}, \qquad
+        \lambda^* = \frac{1}{17}
+        \begin{bmatrix}
+            20\\ -12
+        \end{bmatrix}.
+    \]
+    As condições de segunda ordem são verificadas, pois a Hessiana $\nabla^2 f_0$ é definida positiva.
+    
+    Para formular o problema irrestrito, devemos encontrar a matriz $F$ formada pelos vetores que formam uma base para o $\mathscr{N}(A)$. De forma que se $Ax=b$, então $x=\bar x + Fz$, onde $\bar x$ é uma solução particular. Seja $x_1 = z$, então da primeira equação $x_2 = 4-2z$ e da segunda equação $x_3 = -8 + 5z$. Portanto,
+    \[\bar x = [0, 4, -8]^\T, \qquad F = [1, -2, 5]^\T.\]
+    Agora, seja $\phi(z) = f_0(\bar x + Fz)$, o novo problema de otimização é $\displaystyle\min_{z\in\R} \phi(z)$.
+    As condições de otimalidade de primeira ordem são dadas por
+    \begin{align*}
+        \nabla \phi(z^*) = 0 &\Leftrightarrow F^\T \nabla f_0(\bar x + Fz^*) = 0\\
+            &\Leftrightarrow 2z^* - 4(4-2z^*) + 10(5z^*-8) -2(4-2z^*) + 4z^* = 0\\
+            &\Leftrightarrow \boxed{z^* = 16/17}.
+    \end{align*}
+    Enfim, $x^* = \bar x + Fz^* = [26/17,16/17,-6/17]^\T$.\\
+    As condições de otimalidade de segunda ordem são dadas por
+    \begin{align*}
+        \nabla^2 \phi(z^*) \succeq 0 &\Leftrightarrow F^\T \nabla^2 f_0(x^*) F \succeq 0\\
+            &\Leftrightarrow 68 \succeq 0.
+    \end{align*}
+    Logo, as condições de primeira e segunda ordem são satisfeitas para $x^*$.
+    
+    \part Repetindo o pocedimento do item anterior, calculamos o gradiente e a Hessiana de $f_0$,
+    \[    
+    \nabla f_0(x) = 
+    \begin{bmatrix}
+        2x_1-2x_2-2\\
+        4x_2-2x_1
+    \end{bmatrix},\qquad
+    \nabla^2 f_0(x) = 
+    \begin{bmatrix}
+        2 & -2 \\
+        -2 & 4
+    \end{bmatrix}.
+    \]
+    Em seguida identificamos as matrizes $A$ e $b$ correspondentes ao sistema linear que deve ser satisfeito,
+    \[    
+    A = 
+    \begin{bmatrix}
+        2 & 1
+    \end{bmatrix},\qquad
+    b = 
+    \begin{bmatrix}
+        1
+    \end{bmatrix}.
+    \]
+    As condições de primeira ordem são
+    \begin{align*}
+        \left\{ \begin{matrix}
+            \nabla f_0(x^*) + A^\T \lambda^*  = 0\\
+            A x^* = b
+        \end{matrix} \right.
+        \Rightarrow
+        \begin{bmatrix}
+            2 & -2 & 2 \\
+            -2 & 4 &  1 \\
+            2 & 1 & 0
+        \end{bmatrix}
+        \begin{bmatrix}
+            x^*\\ \lambda^*
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            2\\ 0\\ 1
+        \end{bmatrix}.
+    \end{align*}
+    Resolvendo esse sistema linear, obtemos
+    \[
+        x^* = \frac{1}{13}
+        \begin{bmatrix}
+            6\\ 1
+        \end{bmatrix}, \qquad
+        \lambda^* = \frac{8}{13}.
+    \]
+    As condições de segunda ordem são verificadas, pois a Hessiana $\nabla^2 f_0$ é definida positiva.
+    
+    Para formular o problema irrestrito, devemos encontrar a matriz $F$ formada pelos vetores que formam uma base para o $\mathscr{N}(A)$. De forma que se $Ax=b$, então $x=\bar x + Fz$, onde $\bar x$ é uma solução particular. Seja $x_1 = z$, então da equação $x_2 = 1-2z$. Portanto,
+    \[\bar x = [0, 1]^\T, \qquad F = [1, -2]^\T.\]
+    Agora, seja $\phi(z) = f_0(\bar x + Fz)$, o novo problema de otimização é $\displaystyle\min_{z\in\R} \phi(z)$.
+    As condições de otimalidade de primeira ordem são dadas por
+    \begin{align*}
+        \nabla \phi(z^*) = 0 &\Leftrightarrow F^\T \nabla f_0(\bar x + Fz^*) = 0\\
+            &\Leftrightarrow 2z^* - 8(1-2z^*) -2 -2(1-2z^*) + 4z^* = 0\\
+            &\Leftrightarrow \boxed{z^* = 6/13}.
+    \end{align*}
+    Enfim, $x^* = \bar x + Fz^* = [6/13,1/13]^\T$.\\
+    As condições de otimalidade de segunda ordem são dadas por
+    \begin{align*}
+        \nabla^2 \phi(z^*) \succeq 0 &\Leftrightarrow F^\T \nabla^2 f_0(x^*) F \succeq 0\\
+            &\Leftrightarrow 26 \succeq 0.
+    \end{align*}
+    Logo, as condições de primeira e segunda ordem são satisfeitas para $x^*$.
+    \end{parts}
+\end{solution}
+
+% 4.2 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{20}
+\question{
+Encontre o ponto sobre o plano $x_1 + 2x_2 + 2x_3 = 4$ cuja distância à origem seja mínima.
+}
+\begin{solution}
+    O problema de otimização equivalente é dado por
+    \[\min_{x\in\R^3} ||x||_2^2\quad
+    \text{s.a.}~x_1 + 2x_2 + 2x_3 = 4.\]
+    Vamos transformar em um problema irrestrito. Note que a restrição tem 2 graus de liberdade, assim seja $x_2 = z_1$ e $x_3 = z_2$, então $x_1 = 4-2z_1-2z_2$.
+    Portanto, temos o problema equivalente $\displaystyle\min_{z\in\R^2}\phi(z)$, onde $\phi(z) = (4-2z_1-2z_2)^2+z_1^2+z_2^2$. Aplicando a condição de primeira ordem, temos
+    \begin{align*}
+        \nabla \phi(z^*) = 0
+        &\Rightarrow
+        \begin{bmatrix}
+            2 (-8 + 5 z_1^* + 4 z_2^*)\\
+            2 (-8 + 4 z_1^* + 5 z_2^*)
+        \end{bmatrix} = 0\\
+        &\Rightarrow \boxed{z^* =
+        \begin{bmatrix}
+            8/9\\
+            8/9
+        \end{bmatrix}}.
+    \end{align*}
+    Voltando ao problema original, temos que
+    $\boxed{x^* = [4/9,8/9,8/9]^\T}.$
+\end{solution}
+
+% 4.3  % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{0}
+\question{
+Considere o problema de otimização
+\[
+\begin{array}{rl}
+\min & f_0(x) = x_1^2 + x_2^2\\
+\textrm{sujeito a} & 2x_1 + x_2 = 2.
+\end{array}
+\]
+\begin{parts}
+\part Qual é a solução ótima deste problema?
+\part Considere o problema penalizado
+\[
+\min_{x \in \R^n} x_1^2 + x_2^2 + \rho (2 - 2x_1 - x_2)^2,
+\]
+com $\rho > 0$. Para cada valor de $\rho$, obtenha a solução ótima do problema, $x^\star(\rho)$.
+\part O que acontece com $\rho \to 0^+$? O que acontece com $\rho \to \infty?$ Interprete os resultados.
+\end{parts}
+}
+
+\begin{solution}
+    \begin{parts}
+    \part Pelas condições de otimalidade de primeira ordem devemos ter que
+    \begin{align*}
+        \left\{ \begin{matrix}
+            \nabla f_0(x^*) + A^\T \lambda^*  = 0\\
+            A x^* = b
+        \end{matrix} \right.
+        \Leftrightarrow
+        \begin{bmatrix}
+            2 & 0 & 2 \\
+            0 & 2 &  1 \\
+            2 & 1 & 0
+        \end{bmatrix}
+        \begin{bmatrix}
+            x_1^*\\ x_2^*\\ \lambda^*
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            0\\ 0\\ 2
+        \end{bmatrix}.
+    \end{align*}
+    Resolvendo esse sistema de equações, encontramos
+    \[
+        x^* = 
+        \begin{bmatrix}
+            4/5\\ 2/5
+        \end{bmatrix}, \qquad
+        \lambda^* = -4/5.
+    \]
+    Esse problema é convexo, então $x^*$ é o ótimo global.
+    
+    \part Esse problema é irrestrito, então as condições de primeira ordem são
+    \begin{align*}
+        \nabla f_\rho(x^*) = 0
+        &\Leftrightarrow
+            \begin{bmatrix}
+                (2+8\rho)x_1^* + 4\rho x_2^* - 8\rho \\
+                4\rho x_1^* + (2+2\rho)x_2^* - 4\rho
+            \end{bmatrix} = 0 \\
+        &\Leftrightarrow
+            \boxed{
+            x^*(\rho) = \frac{2\rho}{1+5\rho}
+            \begin{bmatrix}
+                2\\ 1
+            \end{bmatrix}
+            }
+    \end{align*}
+    Essa solução é ótimo global, pois o problema é convexo ($\rho>0$).
+    
+    \part
+    \begin{align*}
+        \lim_{\rho\to 0^+} x^*(\rho) &= \begin{bmatrix} 0\\ 0 \end{bmatrix},\\
+        \lim_{\rho\to \infty} x^*(\rho) &= \begin{bmatrix} 4/5\\ 2/5 \end{bmatrix}.
+    \end{align*}
+    Quando $\rho\to 0^+$, o peso da restrição é nulo, ou seja, resolve-se o problema irrestrito de minimizar $||x||_2$, cuja solução é o vetor nulo. Por outro lado, quando o peso da restrição aumenta, ela deve ser satisfeita, então é de se esperar que a solução convirja para a do problema original quando $\rho\to\infty$.
+        
+    \end{parts}
+\end{solution}
+
+% 4.4 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{3}
+% \question{Seja $f_1 = [1~-1~2]^\T$. Escolha $f_2 \in \R^3$ de forma que $f_1$ e $f_2$ sejam linearmente independentes. Considere que a matriz $F = [f_1 ~ f_2]$ é uma matriz cujas colunas formam uma base para ${\cal N}(A)$, com $A \in \R^{m \times n}$.
+% \begin{parts}
+% \part Determine $m$ e $n$.
+% \part Encontre $A$. Esta escolha é única?
+% \part Encontre as equações da variedade afim paralela a ${\cal N}(A)$ que passa pelo ponto $[2~5~1]^\T$.
+% \part Se $\mathbb{X}$ é o conjunto afim do item (c) e $x^\star$ é a solução de $\min_{x \in \mathbb{X}} f_0(x)$, indique a relação entre $\nabla f_0(x^\star)$ e $F$.
+% \end{parts}
+% }
+
+% \begin{solution} Vamos supor que $A$ tem posto completo.
+% \begin{parts}
+%     \part A matriz $A$ pode ser vista como uma aplicação linear de $\R^n \longrightarrow \R^m$. Como a dimensão dos vetores do $\mathscr{N}(A)$ é 3, então $n=3$. Como o próprio núcleo tem dimensão 2, então a imagem de $A$ tem dimensão $m=1$, pois a soma deve resultar em $n=3$.
+    
+%     \part A escolha não é única, pois toda matriz que satisfaça $A f_1=0$ e $A f_2=0$ é uma escolha possível.
+    
+%     \part Encontre as equações da variedade afim paralela a ${\cal N}(A)$ que passa pelo ponto $[2~5~1]^\T$.
+    
+%     \part Se $\mathbb{X}$ é o conjunto afim do item (c) e $x^\star$ é a solução de $\min_{x \in \mathbb{X}} f_0(x)$, indique a relação entre $\nabla f_0(x^\star)$ e $F$.
+    
+% \end{parts}
+% \end{solution}
+
+% 4.5 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{4}
+\question{Considere o problema de programação linear
+\[
+\begin{array}{rl}
+\min & f_0(x) = 2x_1 + 3x_2\\
+\textrm{sujeito a} & x_1 + x_2 \leq 8, \\
+& -x_1 + 2x_2 \leq 4, \\
+& x_1,x_2 \geq 0.
+\end{array}
+\]
+Escreva as condições KKT para este problema e, para cada ponto extremo, verifique se as condições de otimalidade são satisfeitas. Encontre a solução ótima.
+}
+\begin{solution}
+    Colocando no formato padrão do Teorema~4.1.5, temos que
+    \[
+    \nabla f(x) = \begin{bmatrix} 2\\ 3\end{bmatrix},\quad 
+    C = \begin{bmatrix} 1 & 1\\ -1 & 2\\ -1 & 0\\ 0 & -1\end{bmatrix},\quad 
+    d = \begin{bmatrix} 8\\ 4\\ 0\\ 0\end{bmatrix},
+    \]
+    e as condições KKT são
+    \begin{align*}
+        \begin{bmatrix}
+            2\\ 3
+        \end{bmatrix}
+        + \begin{bmatrix} 1 & -1 & -1 & 0\\ 1 & 2 & 0 & -1\end{bmatrix}\mu^* &= 0,\\
+        \begin{bmatrix} 1 & 1\\ -1 & 2\\ -1 & 0\\ 0 & -1\end{bmatrix}x^* &\le \begin{bmatrix} 8\\ 4\\ 0\\ 0\end{bmatrix},\\
+        \mu^* &\ge 0,\\
+        \mu_i^*(\Tilde{c}_i^\T x_i^*-d_i) &= 0, \quad i\in\{1,2,3,4\}.
+    \end{align*}
+    Os pontos extremos são
+    \[
+    \begin{bmatrix} 4\\ 4\end{bmatrix},\quad
+    \begin{bmatrix} 0\\ 2\end{bmatrix},\quad
+    \begin{bmatrix} 8\\ 0\end{bmatrix},\quad
+    \begin{bmatrix} 0\\ 0\end{bmatrix}.
+    \]
+    Cada um dos pontos extremos tem duas restrições ativas.\\
+    Para o ponto $[4,4]^\T$ temos que
+        \begin{align*}
+        \begin{bmatrix} 1 & -1 \\ 1 & 2 \end{bmatrix}\begin{bmatrix} \mu_1^*\\ \mu_2^*\end{bmatrix} &= \begin{bmatrix} -2\\ -3 \end{bmatrix}
+        \Leftrightarrow \begin{bmatrix} \mu_1^*\\ \mu_2^*\end{bmatrix} = \begin{bmatrix} -7/3\\ -1/3\end{bmatrix}.
+    \end{align*}
+    Como $\mu^*$ não satisfaz a condição $\mu^* \ge 0$, então não é um ponto KKT.\\
+    Para o ponto $[0,2]^\T$ temos que
+        \begin{align*}
+        \begin{bmatrix} -1 & -1 \\ 2 & 0 \end{bmatrix}\begin{bmatrix} \mu_2^*\\ \mu_3^*\end{bmatrix} &= \begin{bmatrix} -2\\ -3 \end{bmatrix}
+        \Leftrightarrow \begin{bmatrix} \mu_2^*\\ \mu_3^*\end{bmatrix} = \begin{bmatrix} 7/2\\ -3/2\end{bmatrix}.
+    \end{align*}
+    Como $\mu^*$ não satisfaz a condição $\mu^* \ge 0$, então não é um ponto KKT.\\
+    Para o ponto $[8,0]^\T$ temos que
+        \begin{align*}
+        \begin{bmatrix} 1 & 0 \\ 1 & -1 \end{bmatrix}\begin{bmatrix} \mu_1^*\\ \mu_4^*\end{bmatrix} &= \begin{bmatrix} -2\\ -3 \end{bmatrix}
+        \Leftrightarrow \begin{bmatrix} \mu_1^*\\ \mu_4^*\end{bmatrix} = \begin{bmatrix} -2\\ 1\end{bmatrix}.
+    \end{align*}
+    Como $\mu^*$ não satisfaz a condição $\mu^* \ge 0$, então não é um ponto KKT.\\
+    Para o ponto $[0,0]^\T$ temos que
+        \begin{align*}
+        \begin{bmatrix} -1 & 0 \\ 0 & -1 \end{bmatrix}\begin{bmatrix} \mu_3^*\\ \mu_4^*\end{bmatrix} &= \begin{bmatrix} -2\\ -3 \end{bmatrix}
+        \Leftrightarrow \begin{bmatrix} \mu_3^*\\ \mu_4^*\end{bmatrix} = \begin{bmatrix} 2\\ 3\end{bmatrix}.
+    \end{align*}
+    Como $\mu^*$ satisfaz a condição $\mu^* \ge 0$, então é um ponto KKT e é a solução ótima.
+\end{solution}
+
+% 4.8 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{7}
+\question{Considere o problema a seguir, sendo $a_i$, $b$ e $c_i$, constantes positivas:
+\[
+\begin{array}{rl}
+\min & f_0(x) = \sum_{i = 1}^n \frac{c_i}{x_i}\\
+\textrm{sujeito a} & \sum_{i = 1}^n a_i x_i = b, \\
+& x_i \geq 0, \quad i = 1,\cdots,n.
+\end{array}
+\]
+Escreva as condições KKT para este problema e obtenha a sua solução ótima $x^\star$.
+}
+\begin{solution}
+    Primeiramente, vamos calcular o gradiente e a Hessiana de $f_0$,
+    \[    
+    \nabla f_0(x) = 
+    \begin{bmatrix}
+        -\frac{c_1}{x_1^2}\\
+        \vdots\\
+        -\frac{c_n}{x_n^2}
+    \end{bmatrix},\qquad
+    \nabla^2 f_0(x) = 
+    \begin{bmatrix}
+        \frac{2c_1}{x_1^3} & 0 & 0\\
+        0 & \ddots & \vdots\\
+        0 & \cdots & \frac{2c_n}{x_n^3}
+    \end{bmatrix}.
+    \]
+    Note que a Hessiana é definida positiva, pois $x\ge 0$. Dessa forma, o ponto KKT é solução global do problema.
+    No formato padrão para aplicarmos o Teorema 4.1.5, reconhecemos as seguintes matrizes
+    \[
+    A =
+    \begin{bmatrix}
+        a_1 & \cdots & a_n
+    \end{bmatrix}, \quad
+    C = 
+    \begin{bmatrix}
+        -1 & 0 & 0\\
+        0 & \ddots & \vdots\\
+        0 & \cdots & -1
+    \end{bmatrix}, \quad
+    d =
+    \begin{bmatrix}
+        0 \\ \vdots\\ 0
+    \end{bmatrix}.
+    \]
+    Vamos testar o ponto no qual todas as restrições de desigualdade estão \textbf{inativas}, pois a função objetivo não está definida quando alguma restrição está ativa. Dessa forma, sabemos que para todo $k\in\{1,\dots,n\}$,
+    \[
+        \frac{-c_k}{{x^*_k}^2} + \lambda^* a_k = 0
+        \Rightarrow \boxed{ x^*_k = \sqrt{\frac{c_k}{\lambda^* a_k}} }.
+    \]
+    Substituindo na restrição de igualdade, temos que
+    \[
+        \sum_{i=1}^n a_i\sqrt{\frac{c_i}{\lambda^* a_i}} = b
+        \Rightarrow \boxed{ \lambda^* = \frac{1}{b^2}\left(\sum_{i=1}^n\sqrt{c_i a_i}\right)^2 }.
+    \]
+    Por fim, juntando os dois resultados, temos que para $k\in\{1,\dots,n\}$,
+    \begin{align*}
+        x_k^* &= \frac{b\sqrt{c_k/a_k}}{\sum_{i=1}^n\sqrt{c_i a_i}} \\
+            &= \frac{b\,c_k}{\sum_{i=1}^n(\sqrt{c_i c_k}\sqrt{a_i a_k})}.
+    \end{align*}
+\end{solution}
+
+\end{questions}

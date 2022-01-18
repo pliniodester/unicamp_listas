@@ -1,0 +1,246 @@
+
+\begin{questions}
+
+% 8.1  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{1}
+\question{
+Calcule a integral 
+\[
+    \int_C \frac{z+2}{z} \d z,
+\]
+sendo $C$
+\begin{enumerate}[label=(\alph*)]
+  \item o semicírculo $z = 2e^{i\theta}$, com $\theta \in [0,\pi]$;
+  \item o semicírculo $z = 2e^{i\theta}$, com $\theta \in [\pi,2\pi]$;
+  \item o círculo $z = 2e^{i\theta}$, com $\theta \in [0,2\pi]$;
+  \item o quadrado com orientação positiva e com vértices $\pm 1 \pm i$.
+\end{enumerate}
+}
+\begin{solution}
+Usando o Teorema Fundamental do Cálculo para variáveis complexas, temos que \vspace{-4mm}
+\[
+    \int_C \frac{z+2}{z} \d z = \int_C \left(1 + \frac{2}{z}\right) \d z
+        = \left.\big(z + 2\Log z\big)\right|_{z_0}^{z_1},
+\]
+desde que $C$ não passe pelo corte de ramos. Os pontos $z_0$ e $z_1$ são o inicial e final, respectivamente.
+\begin{enumerate}[label=(\alph*)]
+  \item ~\vspace{-5mm}
+    \[
+        \int_C \frac{z+2}{z} \d z
+            = \left.\big(z + 2\Log z\big)\right|_{2}^{-2}
+            = -4 + 2\pi i.
+    \]
+    
+  \item Vamos fazer $\theta \in (-\pi,0]$ para $C$ não passar pelo corte de ramos. Assim,
+    \[
+        \int_C \frac{z+2}{z} \d z
+            = \left.\big(z + 2\Log z\big)\right|_{2 e^{-i\pi^+}}^{2}
+            = 4 + 2\pi i.
+    \]
+    
+  \item A soma dos dois itens anteriores resulta na integral do círculo proposto, ou seja,
+    \[
+        \int_C \frac{z+2}{z} \d z
+            = (-4 + 2\pi i) + (4 + 2\pi i)
+            = 4 \pi i.
+    \]
+  
+  \item Pelo princípio da deformação do caminho esse item é igual ao anterior, ou seja, $4 \pi i$.
+  
+\end{enumerate}
+\end{solution}
+
+% 8.2 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{2}
+\question{
+Calcule a integral
+\[
+    \oint_C \pi \exp(\pi \bar z) \d z,
+\]
+sendo $C$ o quadrado com vértices nos pontos $0$, $1$, $1 + i$ e $i$ e com orientação positiva.
+}
+\begin{solution}
+    Nesse caso não podemos usar o Teorema Fundamental, pois a função não é analítica. Assim,
+\begin{align*}
+    \oint_C \pi \exp(\pi \bar z) \d z
+        &= \int_0^1 \pi e^{\pi x} \d x + \int_0^1 \pi e^{\pi(1-iy)} i \d y + \int_0^1 \pi e^{\pi(x-i)} (-\d x) + \int_0^1 \pi e^{-i \pi y} (-i \d y) \\
+        &= (e^\pi - 1) + (-e^\pi e^{-i\pi} + e^\pi) + (-e^\pi e^{-i\pi} + e^{i\pi}) + (e^{-i\pi} - 1) \\
+        &= 4 (e^\pi - 1).
+\end{align*}
+    
+\end{solution}
+
+% 8.3 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{8}
+\question{
+Use o Teorema Fundamental para calcular as seguintes integrais:
+\begin{multicols}{3}
+    \begin{enumerate}[label=(\alph*)]
+      \item $\displaystyle \int_i^{i/2} e^{\pi z} \d z$;
+      \item $\displaystyle \int_0^{\pi + 2i} \cos\left( \frac{z}{2} \right) \d z$;
+      \item $\displaystyle \int_1^3 (z-2)^3 \d z$.
+   \end{enumerate}
+\end{multicols}
+}
+
+\begin{solution}
+\begin{enumerate}[label=(\alph*)]
+  \item
+  \[
+    \int_i^{i/2} e^{\pi z} \d z
+        = \left.\frac{e^{\pi z}}{\pi}\right|_i^{i/2}
+        = \frac{1 + i}{\pi};
+  \]
+  \item
+  \[
+    \int_0^{\pi + 2i} \cos\left( \frac{z}{2} \right) \d z
+        = \left. 2 \sin\left( \frac{z}{2} \right) \right|_0^{\pi + 2i}
+        = 2 \sin\left( \frac{\pi}{2} + i \right)
+        % = 2\frac{e^{-1+i\pi/2}-e^{1-i\pi/2}}{2i}
+        = 2 \cosh(1);
+  \]
+  \item
+  \[
+    \int_1^3 (z-2)^3 \d z
+        = \left. \frac{(z-2)^4}{4} \right|_1^3
+        = 0.
+  \]
+\end{enumerate}
+\end{solution}
+
+% 8.4 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{6}
+\question{
+Escolha adequadamente o corte de ramos da função $z^i$ e use o Teorema Fundamental para mostrar que
+\[
+    \int_{-1}^1 z^i \d z = \frac{1+e^{-\pi}}{2}(1 - i).
+\]
+}
+%
+\begin{solution}
+    Escolhendo o corte de ramos tradicional em $-\pi$ temos
+\begin{align*}
+    \int_{-1}^1 z^i \d z % = \int_{-1}^1 e^{i \Log z} \d z
+        = \left. \frac{z^{i+1}}{i+1} \right|_{-1}^1
+        = \left. \frac{e^{(i+1)\Log z}}{i+1} \right|_{-1}^1
+        = \frac{1 - e^{(i+1) i\pi}}{i+1}
+        = \frac{1-i}{2}(1 + e^{-\pi}).
+\end{align*}
+\end{solution}
+
+
+% 8.5  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{7}
+\question{
+Use o princípio da deformação do caminho para calcular a integral
+\[
+    \oint_C \frac{3z + 5}{z^2 + z} \d z,
+\]
+sendo $C$ qualquer curva fechada que contenha a origem e o ponto $z = -1$.
+}
+\begin{solution}
+Podemos deformar os caminhos de forma que fiquem tão próximos quanto se queira de dois círculos cada um envolvendo uma única singularidade. Dessa forma, ao expandirmos em frações parciais, cada termo é analítico dentro de apenas um dos círculos e assim
+\begin{align*}
+    \oint_C \frac{3z + 5}{z^2 + z} \d z
+        = \oint_C \left( \frac{5}{z} + \frac{-2}{z+1} \right) \d z
+        = \oint_{C_0} \frac{5}{z} \d z + \oint_{C_{-1}} \frac{-2}{z+1} \d z
+        = 10\pi i - 4\pi i = 6\pi i,
+\end{align*}
+onde $C_0$ e $C_{-1}$ são os círculos centrados em $0$ e $-1$, respectivamente.
+\end{solution}
+
+% 8.6  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{7}
+\question{
+Calcule $\int_C z^{-1/2} \d z$ de $1$ até $-1$ ao longo da semicircunferência (a) superior e (b) inferior de $|z| = 1$, considerando o valor principal da raiz quadrada.
+}
+\begin{solution}
+    \begin{enumerate}[label=(\alph*)]
+    \item Seja $z(\theta) = e^{i\theta}$, $\theta\in[0,\pi]$. Então,
+        \begin{align*}
+            \int_{C_a} z^{-1/2} \d z 
+                = \int_0^\pi e^{-i\theta/2}\, i e^{i\theta} \d \theta
+                = i \int_0^\pi e^{i\theta/2} d\theta
+                = 2(e^{i\pi/2}-1)
+                = -2(1-i).
+        \end{align*}
+
+    \item Seja $z(\theta) = e^{-i\theta}$, $\theta\in[0,\pi]$. Então,
+        \begin{align*}
+            \int_{C_b} z^{-1/2} \d z 
+                = \int_0^\pi e^{i\theta/2}\, (-i) e^{-i\theta} \d \theta
+                = -i \int_0^\pi e^{-i\theta/2} d\theta
+                = 2(e^{-i\pi/2}-1)
+                = -2(1+i).
+        \end{align*}
+   \end{enumerate}
+%   Portanto, se $C$ for uma curva de Jordan (fechada) ao redor da origem, então
+%     \[ \oint_{C} z^{-1/2} \d z = \int_{C_a} z^{-1/2} \d z - \int_{C_b} z^{-1/2} \d z = 4 i. \]
+\end{solution}
+
+% % 8.7  % % % % % % % % % % % % % % % % % % % % %
+% % \setcounter{question}{7}
+% \question{
+% Calcule $\oint_C \frac{e^z}{z} \d z$, sendo $C$ a circunferência (a) $|z| = 2$ percorrida no sentido anti-horário e (b) $|z| = 1$ percorrida no sentido horário.
+% }
+% \begin{solution}
+%     ~
+% \end{solution}
+
+% 8.8  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{7}
+\question{
+Calcule a integral $\oint_C \frac{1}{z^2 + 4} \d z$, sendo $C$ a elipse $x^2 + 4(y-2)^2 = 4$ orientada positivamente.
+}
+\begin{solution}
+    Note que a curva fechada $C$ engloba apenas o pólo em 2i. Vamos usar a mesma estratégia do Exercício 8.5. Assim,
+    \begin{align*}
+        \oint_C \frac{1}{z^2 + 4} \d z
+            = \oint_C \left( \frac{1/4i}{z - 2i} - \frac{1/4i}{z + 2i} \right) \d z
+            = \frac{2\pi i}{4 i} + 0 = \frac{\pi}{2}.
+    \end{align*}
+\end{solution}
+
+% 8.9  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{7}
+\question{
+Calcule a integral $\oint_C \frac{2z-1}{z^2 - z} \d z$, sendo $C$ a elipse $(x-1)^2 + 4y^2 = 4$.
+}
+\begin{solution}
+    Note que a curva fechada $C$ engloba ambos pólos. Vamos usar a mesma estratégia do Exercício 8.5. Assim,
+    \begin{align*}
+        \oint_C \frac{2z-1}{z^2 - z} \d z
+            = \oint_C \left( \frac{1}{z} + \frac{1}{z - 1} \right) \d z
+            = 4\pi i.
+    \end{align*}
+\end{solution}
+
+% 8.10 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{7}
+\question{
+Calcule a integral $\oint_C \frac{\cos z}{z} \d z$, sendo $C$ o círculo $|z| = 1$ percorrido no sentido horário.
+}
+\begin{solution}
+    Note que a curva fechada $C$ engloba o pólo na origem e está no sentido \textbf{horário}. Logo, \vspace{-5mm}
+    \begin{align*}
+        \oint_{C} \frac{\cos z}{z} \d z
+            = -\oint_{-C} \frac{\cos z}{z} \d z
+            = -2\pi i \cos 0
+            = -2\pi i.
+    \end{align*}
+\end{solution}
+
+% 8.16 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{15}
+\question{
+Calcule a integral $\oint \frac{e^z}{z^n} \d z$, para $n = 0,1,2,\cdots$, sendo $C$ o círculo unitário percorrido no sentido positivo.
+}
+\begin{solution}
+    Uma aplicação direta da fórmula de Cauchy nos fornece que para $n \in \{1,2,\dots\}$
+    \[ \oint \frac{e^z}{z^n} \d z
+        = \frac{2\pi i}{(n-1)!} \left. \frac{\d^{n-1}}{\d z^{n-1}} e^z \right|_{z=0}
+        = \frac{2\pi i}{(n-1)!}.\]
+    Quando $n = 0$ a função é analítica no interior do círculo e, portanto, a integral é zero.
+\end{solution}
+
+\end{questions}

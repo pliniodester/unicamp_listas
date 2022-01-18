@@ -1,0 +1,116 @@
+
+\begin{questions}
+
+% 7.2  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{1}
+\question{
+Encontre todos os valores de $z$ que verificam as seguintes igualdades.
+\begin{multicols}{3}
+    \begin{enumerate}[label=(\alph*)]
+      \item $\displaystyle e^z = -2$;
+      \item $\displaystyle e^z = 1 + \sqrt{3}i$;
+      \item $\displaystyle e^{2z - 1} = 1$.
+    \end{enumerate}
+\end{multicols}
+}
+\begin{solution}
+Seja $z = x+iy$.
+    \begin{enumerate}[label=(\alph*)]
+      \item Sabemos que
+      $
+          e^z = e^x e^{iy} = e^x \cos y + i e^x \sin y.
+      $
+      Assim, $e^x \cos y = -2$ e $e^x \sin y = 0$.
+      Portanto, $x = \ln 2$ e $y = \pi + 2k\pi$, $k\in\Z$. Logo, $z = \ln 2 + i(\pi + 2k\pi)$, $k\in\Z$.
+      
+      \item $\displaystyle e^z = 1 + \sqrt{3}i = 2\,e^{i(\pi/3 + 2k\pi)}$, ou seja, $z = \ln 2 + i(\pi/3 + 2k\pi)$, $k\in\Z$.
+      
+      \item $\displaystyle e^{2z - 1} = 1 = e^{i 2k\pi}$ para todo $k\in\Z$. Portanto, $z = 1/2 + ik\pi$, $k\in\Z$.
+    \end{enumerate}
+\end{solution}
+
+% 7.3 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{2}
+\question{
+A função $f$ dada por $f(z) = e^{z^2}$ é inteira? Calcule a sua derivada.
+}
+\begin{solution}
+    A função $f$ é inteira, pois trata-se de uma composição de duas funções inteiras: $e^z$ e $z^2$. Usando a regra da cadeia, temos que
+    \begin{align*}
+        \frac{\d}{\d z}e^{z^2} = 2z\,e^{z^2}.
+    \end{align*}
+\end{solution}
+
+% 7.4 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{8}
+\question{
+Quais as restrições sobre $z$ para que $e^z$ seja real? E quais as restrições sobre $z$ para que $e^z$ seja um número imaginário puro?
+}
+
+\begin{solution}
+    Seja $z = x+iy$. Usando a fórmula de Euler $e^z = e^x e^{iy} = e^x \cos y + i e^x \sin y$. Portanto, $e^z$ será real se $\sin y = 0$, isto é, se $y = k\pi$, $k\in\Z$. Por outro lado, $e^z$ será imaginário puro se $\cos y = 0$, isto é, se $y = \pi/2+k\pi$, $k\in\Z$.
+\end{solution}
+
+% 7.7 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{6}
+\question{
+Calcule os valores principais das seguintes potências.
+\begin{multicols}{3}
+    \begin{enumerate}[label=(\alph*)]
+      \item $\displaystyle i^i$;
+      \item $\displaystyle \left[ \frac{e}{2} (-1 - \sqrt{3} i) \right]^{3\pi i}$;
+      \item $\displaystyle (1 - i)^{4i}$.
+    \end{enumerate}
+\end{multicols}
+}
+
+\begin{solution}
+    \begin{enumerate}[label=(\alph*)]
+      \item $\displaystyle i^i = e^{i \Log i} = e^{i(\ln 1 + i\pi/2)} = e^{-\pi/2}$;
+      \item $\displaystyle \left[ \frac{e}{2} (-1 - \sqrt{3} i) \right]^{3\pi i}
+        = e^{3\pi i \Log\left(e/2 (-1-\sqrt{3}i)\right)}
+        = e^{3\pi i (\ln(e) - i 2 \pi/3 )}
+        = e^{3\pi i + 2 \pi^2} = -e^{2\pi^2}$;
+      \item $\displaystyle (1 - i)^{4i} = e^{4i\Log(1-i)}
+        = e^{4i(\ln \sqrt 2 - i \pi/4)}
+        = e^{\pi+ i 2\ln 2} = e^{\pi} (\cos (2\ln 2) + i \sin (2\ln2) )$.
+    \end{enumerate}
+\end{solution}
+
+
+% 7.8  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{7}
+\question{
+Encontre todas as raízes das seguintes equações em $\C$.
+\begin{multicols}{2}
+    \begin{enumerate}[label=(\alph*)]
+      \item $\displaystyle \log z = i \pi/2$;
+      \item $\displaystyle \sin z = \cosh 4$;
+      \item $\displaystyle \cos z = 2$;\\
+      \item $\displaystyle \sinh z = i$;
+      \item $\displaystyle \cosh z = -2$.
+    \end{enumerate}
+\end{multicols}
+}
+\begin{solution}
+Seja $z = x+iy$.
+\begin{enumerate}[label=(\alph*)]
+    \item $\displaystyle \log z = \ln|z| + i\arg(z) = i \pi/2$.
+    Logo, $|z| = 1$ e $\arg(z) = \pi/2$. Assim, $z = i$.
+    
+    \item $\displaystyle \sin z = \sin x \cosh y + i \cos x \sinh y = \cosh 4$.\\
+    Logo, $x = \pi/2+2k\pi$ e $y = 4$, ou seja, $z = \pi/2+2k\pi + 4i$, $k\in\Z$.
+    
+    \item $\displaystyle \cos z = \cos x \cosh y + i \sin x \sinh y = 2$.\\
+    Logo, $x = 2k\pi$ e $\cosh y = 2$, ou seja, $y = \ln(2\pm\sqrt{3})$.\\
+    Dessa forma, $z = 2k\pi + i \ln(2\pm\sqrt{3})$, $k\in\Z$.
+    
+    \item $\displaystyle \sinh z = (e^z-e^{-z})/2 = i$, ou seja, $e^z-e^{-z} = 2i$. Logo, $z = i(\pi/2 + 2k\pi)$, $k\in\Z$.
+    
+    \item $\displaystyle \cosh z = -2$, ou seja, $e^z+e^{-z} = 4$.
+    Logo, $z = \ln(2\pm\sqrt{3}) + i(\pi+2k\pi)$, $k\in\Z$.
+    
+\end{enumerate}
+\end{solution}
+
+\end{questions}

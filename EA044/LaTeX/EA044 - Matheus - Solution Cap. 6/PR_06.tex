@@ -1,0 +1,196 @@
+
+\begin{questions}
+
+% 6.2  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{1}
+\question{
+Resolva o seguinte PLI com {\em branch-and-bound}.
+\begin{multicols}{2}
+\begin{parts}
+    \part $\displaystyle \begin{array}{rl}
+        \max & x_1 + 4x_2 \\
+         \text{sujeito a} & x_1 + x_2 \leq 7,\\
+         & -x_1 + 3x_2 \leq 3,\\
+         & x_1,x_2 \in \N.
+    \end{array} $
+%    \item $\displaystyle \begin{array}{rl}
+%        \max & 6x_1 + 8x_2 \\
+%         \text{sujeito a} & 2x_1 + 4x_2 \leq 36,\\
+%         & 3x_1 - 4x_2 \leq 40,\\
+%         & x_1,x_2 \in \N.
+%    \end{array} $
+\end{parts}
+\end{multicols}
+}
+
+\begin{solution}
+\begin{parts}
+    \part
+    O problema relaxado $P_0$ é um PL, cuja solução é $x^{(0)}=[9/2,5/2]^\T$ e função objetivo $f^\T x^{(0)} = 29/2$. Escolhendo ramificar em $x_1$. Temos os novos problemas $P_1$ com a nova restrição $x_1\le 4$ e $P_2$ com a nova restrição $x_1\ge 5$. Resolvendo esses novos PL's temos:\\
+    $P_1$: $x^{(1)}=[4,7/3]^\T$, $f^\T x^{(1)} = 40/3$,\\
+    $P_2$: $x^{(2)}=[5,2]^\T$, $f^\T x^{(2)} = 13$.\\
+    Note que a folha $P_2$ resultou em solução inteira, logo não faz sentido ramificá-la. Por outro lado, a folha $P_1$ resultou em uma função objetivo, que quando aproximada pelo menor inteiro mais próximo resulta na da folha $P_2$, ou seja, ramificar essa folha só levará, na melhor das hipóteses, a um resultado inteiro tão bom quanto à da folha $P_1$ e, portanto, podemos  concluir que a solução ótima é $f^\T x^* = 13$. Uma solução inteira que atinge isso é $x^*=x^{(2)}=[5,2]^\T$.
+\end{parts}
+\end{solution}
+
+% 6.5 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{5}
+\question{
+Determine se as seguintes matrizes são totalmente unimodulares:
+\[
+A_1 = \begin{bmatrix}
+1 & 0 & 1 & 0 & 1\\
+0 & 1 & 1 & 1 & 0\\
+0 & 0 & 0 & 1 & 1\\
+1 & 1 & 0 & 0 & 0
+\end{bmatrix}, \quad A_2 = \begin{bmatrix*}[r]
+-1 & 0 & 1 & 0 & -1 & 0 & 0\\
+0 & 1 & 0 & 1 & 1 & 0 & 1\\
+-1 & 1 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 1 & 0 & 0 & 1 & 1\\
+0 & 0 & 0 & 1 & 0 & -1 & 0
+\end{bmatrix*}
+\]
+}
+
+\begin{solution}
+    \begin{parts}
+    \part Para a matriz $A_1$, não é possível satisfazer a condição (iii) da proposição que garante unimodularidade total. De fato, a matriz $A_1$ não é totalmente unimodular, pois o determinante de uma das submatrizes é igual a 2.
+    \[
+        \det \begin{bmatrix} 1 & 0 & 1\\ 1 & 1 & 0\\ 0 & 1 & 1 \end{bmatrix} = 2.
+    \]
+    
+    \part A matriz $A_2$ é totalmente unimodular, pois satisfaz as condições da proposição que garante isso. As condições (i) e (ii) são facilmente verificadas e para a (iii) podemos dividir as linhas em dois conjuntos:
+    \[
+    L_1: \{\ell_1, \ell_2\},\qquad
+    L_2: \{\ell_3, \ell_4, \ell_5\}.
+    \]
+    \end{parts}
+\end{solution}
+
+% 6.9  % % % % % % % % % % % % % % % % % % % % %
+\begin{table}[tb]
+\centering
+\begin{tabular}{c||c|c|c|c}
+& $D_1$ & $D_2$ & $D_3$ & $D_4$ \\
+\hline
+$O_1$ & 45 & 17 & 21 & 30\\
+\hline
+$O_2$ & 14 & 18 & 19 & 31\\
+\end{tabular}
+\caption{Custos de transporte por carro.}
+\label{tab_transporte}
+\end{table}
+
+\setcounter{question}{8}
+\question{
+Uma companhia de aluguel de carros enfrenta um problema resultante de contratos que permitem entrega de carros em localidades diferentes daquelas nas quais os carros foram retirados. Num dado dia, existem duas localidades ($O_1$ e $O_2$) com 15 e 13 carros a mais, respectivamente, e quatro localidades ($D_1$, $D_2$, $D_3$ e $D_4$) solicitando 9, 6, 7 e 9 carros, respectivamente. Os custos unitários (em R\$) de transporte entre as localidades estão indicados na Tabela \ref{tab_transporte}.
+}
+
+\begin{solution}
+    Note que o total da demanda supera em 3 a oferta, logo devemos criar um nó fantasma com custos nulos para fornecer essa demanda adicional. O PL fica:
+    \[
+    \begin{array}{rl}
+    \min & \displaystyle\sum_{i,j}\,f_{i,j} x_{i,j} \\
+    \textrm{sujeito a:}
+    & \sum_j x_{i,j} = a_i, \quad i\in\{1,2,3\}\\
+    & \sum_i x_{i,j} = b_j, \quad j\in\{1,2,3,4\}\\
+    & x_{i,j} \ge 0,\quad i\in\{1,2,3\},j\in\{1,2,3,4\}
+    \end{array},
+    \]
+    onde $f_{i,j}$ é o custo de transporte do nó $i$ para o nó $j$, $a_i$ é a oferta do nó $i$ e $b_j$ é a demanda do nó $j$. Colocando no MatLab, obtemos a seguinte solução
+    \[
+    x =
+    \begin{bmatrix}
+    0 & 6 & 3 & 6 \\
+    9 & 0 & 4 & 0\\
+    0 & 0 & 0 & 3
+    \end{bmatrix}.
+    \]
+\end{solution}
+
+% 6.11 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{10}
+\question{
+Uma fábrica de fertilizantes pode produzir um composto usando qualquer um de três processos. Se $x_i$ representar a quantidade de um fertilizante produzida usando o processo $i$, o seguinte PL fornece a maneira mais barata de se produzir 150 unidades deste composto com os materiais disponíveis:
+\[
+\begin{array}{rl}
+    \min & 15x_1 + 11x_2 + 18x_3 \\
+    \text{sujeito a} & x_1 + x_2 + x_3 = 150,\\
+    & 2x_1 + 4x_2 + 2x_3 \leq 310,\\
+    & 4x_1 + 3x_2 + x_3 \leq 450,\\
+    & x_1,x_2,x_3 \geq 0.
+\end{array}
+\]
+\begin{parts}
+    \part Explique por que este PL implicitamente assume que os coeficientes da função objetivo são custos variáveis.
+    \part Resolva o PL usando o MATLAB.
+    \part Reformule este problema como um PLI, impondo que apenas um dos três processos pode ser usado. Resolva este PLI com o MATLAB.
+    \part Reformule o problema original adicionando um custo de preparo de \$400 por processo a ser utilizado. Resolva este PLI usando o MATLAB.
+    \part Reformule o problema original com a imposição de que um processo será usado apenas se uma quantidade mínima de 50 unidades forem produzidas.
+\end{parts}
+}
+
+\begin{solution}
+ \begin{parts}
+    \part Os custos crescem linearmente com a quantidade produzida de cada fertilizante.
+    \part Colocando as seguintes matrizes no $\texttt{linprog}(f,A,b,A_{eq},b_{eq},lb,ub)$, onde
+    \begin{align*}
+    f &= \begin{bmatrix} 15 & 11 & 18 \end{bmatrix}^\T,\\
+    A &= \begin{bmatrix} 2 & 4 & 2 \\ 4 & 3 & 1 \end{bmatrix},
+    b = \begin{bmatrix} 310 & 450 \end{bmatrix},\\
+    A_{eq} &= \begin{bmatrix} 1 & 1 & 1 \end{bmatrix},
+    b_{eq} = 150,\\
+    lb &= \begin{bmatrix} 0 & 0 & 0 \end{bmatrix}^\T,
+    ub = \begin{bmatrix} 150 & 150 & 150 \end{bmatrix}^\T.
+    \end{align*}
+    Obtemos como resultado $x = [96.67, 5, 48.33]^\T$.
+    
+    \part
+    \[
+    \begin{array}{rl}
+    \min & 15x_1 + 11x_2 + 18x_3 \\
+    \text{sujeito a} % & x_1 + x_2 + x_3 = 150,\\
+    & x_i = 150 y_i, \quad i\in\{1,2,3\},\\
+    & y_1 + y_2 + y_3 = 1, \\
+    & 2x_1 + 4x_2 + 2x_3 \leq 310,\\
+    & 4x_1 + 3x_2 + x_3 \leq 450,\\
+    & x_1,x_2,x_3 \geq 0,\\
+    & y_1,y_2,y_3 \in \mathbb{B}.
+    \end{array}
+    \]
+    Obtemos como resultado $x = [0,0,150]^\T$ e $y = [0,0,1]^\T$.
+    
+    \part
+    \[
+    \begin{array}{rl}
+    \min & 400 y_1 + 400 y_2 + 400 y_3 + 15x_1 + 11x_2 + 18x_3 \\
+    \text{sujeito a} & x_1 + x_2 + x_3 = 150,\\
+    % & x_i = 150 y_i, i\in\{1,2,3\},\\
+    & y_1 + y_2 + y_3 = 1, \\
+    & 2x_1 + 4x_2 + 2x_3 \leq 310,\\
+    & 4x_1 + 3x_2 + x_3 \leq 450,\\
+    & 0 \le x_i \le 150 y_i, \quad i\in\{1,2,3\}\\
+    & y_1,y_2,y_3 \in \mathbb{B}.
+    \end{array}
+    \]
+    Obtemos como resultado $x = [0,0,150]^\T$ e $y = [0,0,1]^\T$.
+    
+    \part
+    \[
+    \begin{array}{rl}
+    \min & 400 y_1 + 400 y_2 + 400 y_3 + 15x_1 + 11x_2 + 18x_3 \\
+    \text{sujeito a} & x_1 + x_2 + x_3 = 150,\\
+    % & x_i = 150 y_i, i\in\{1,2,3\},\\
+    & y_1 + y_2 + y_3 = 1, \\
+    & 2x_1 + 4x_2 + 2x_3 \leq 310,\\
+    & 4x_1 + 3x_2 + x_3 \leq 450,\\
+    & 50 y_i \le x_i \le 150 y_i, \quad i\in\{1,2,3\}\\
+    & y_1,y_2,y_3 \in \mathbb{B}.
+    \end{array}
+    \]
+    Obtemos como resultado $x = [100,0,50]^\T$ e $y = [1,0,1]^\T$.
+\end{parts}
+\end{solution}
+
+\end{questions}

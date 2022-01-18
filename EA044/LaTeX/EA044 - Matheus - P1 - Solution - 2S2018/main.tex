@@ -1,0 +1,467 @@
+\documentclass{article}
+
+\usepackage{graphicx,epsfig,psfrag,rotate,pstool,xcolor}
+\usepackage{amsmath,amsfonts,amssymb,latexsym,multicol}
+\usepackage{setspace,enumerate,enumitem,ifthen,subfig}
+\usepackage[portuges]{babel}
+
+\usepackage[printwatermark]{xwatermark}
+\usepackage{hyperref,framed,tcolorbox}
+\usepackage{siunitx,multicol}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.10}
+
+\usepackage[utf8]{inputenc}
+\usepackage[algo2e,english,onelanguage,algoruled]{algorithm2e}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{calrsfs}
+\renewcommand{\rmdefault}{pplx}
+\usepackage{eulervm}
+\DeclareMathAlphabet{\mathcal}{OMS}{zplm}{m}{n}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\T}{\mathsf{T}}
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\BOX}[2]{\framebox[#1cm]{\rule{0mm}{#2cm}}}
+
+\newwatermark[pagex={2},fontfamily=bch,color=gray!25,angle=45,scale=3,xpos=-2,ypos=-2]{RASCUNHO}
+
+
+\begin{document}
+%\hrule
+\thispagestyle{empty}
+\begin{tcolorbox}[colframe=black,colback=gray!20,arc=0pt]
+\begin{center}
+{\sc\Large Universidade Estadual de Campinas} \vspace{0.5cm} \\
+{\sc \large Faculdade de Engenharia Elétrica e de Computação}
+\end{center}
+\end{tcolorbox}
+
+
+%\begin{minipage}[l]{0.85\textwidth}
+%{\sc \Large Universidade Estadual de Campinas} \vspace{0.5cm} \\
+%{\sc \large Faculdade de Engenharia Elétrica e de Computação}
+%\end{minipage}
+%\begin{minipage}[c]{0.15\textwidth}
+%\includegraphics[width=0.8\textwidth]{unicamp.eps}
+%\end{minipage}
+
+\noindent
+\hrulefill
+\fbox{\rule[-2mm]{0mm}{6mm}\sc {\bf EA044 -- Turma U -- Prova I}}
+\hspace{-2.4mm}
+\hrulefill
+\fbox{\rule[-2mm]{0mm}{6mm} {\bf 26/09/2018}}
+\hspace{-2.4mm}
+\hrulefill
+
+\vspace{1cm}
+
+\noindent
+    \framebox[14cm]{\rule{0mm}{1cm}{\bf Nome \hfill}}
+	\hfill
+	\framebox[3.5cm][l]{\rule{0mm}{1cm}{\bf RA}}
+
+\vspace{1cm}
+
+\begin{center}
+    \begin{tabular}{|c||c|c|c|c|c|c|c|c|}
+      \hline
+                 & $\phantom{m}${\bf Q1}$\phantom{m}$ & $\phantom{m}${\bf Q2}$\phantom{m}$ & $\phantom{m}${\bf Q3}$\phantom{m}$ & $\phantom{m}${\bf Q4}$\phantom{m}$ & $\phantom{m}${\bf Q5}$\phantom{m}$ & $\phantom{m}${\bf Extra}$\phantom{m}$ & $\phantom{m}${\bf Total}$\phantom{m}$ \\
+      \hline
+                 &          &          &          &          &                &&                 \\
+      {\bf Nota} &          &          &          &          &                  &&               \\
+                 &          &          &          &          &                    &&             \\
+      \hline
+    \end{tabular}
+\end{center}
+
+\vspace{2cm}
+
+%\noindent
+%\hrulefill
+%\fbox{\rule[-2mm]{0mm}{6mm}\sc {\bf Instruções}}
+%\hspace{-2.4mm}
+%\hrulefill
+
+\noindent \hrulefill
+\begin{center}
+\begin{tcolorbox}[colframe=black,width =7cm,colback=gray!20,arc=0pt]
+\centering {\sc {\bf Instruções}}
+\end{tcolorbox}
+\end{center}
+
+\begin{multicols}{2}
+\begin{itemize}
+\item Esta prova tem {\bf 05 questões} distribuídas em {\bf 08 páginas}. A {\bf nota máxima} da prova é de {\bf 10,0 pontos}.
+\item Cada questão deve ser resolvida, de forma {\bf organizada}, {\bf clara} e {\bf formal} no espaço indicado. Estes critérios fazem parte da avaliação.
+\item Utilize a folha de almaço fornecida para rascunhos.
+\item Não destaque as folhas deste caderno.
+\item Não é permitida a consulta a qualquer material.
+\item Não é permitido o uso de calculadoras.
+\item Qualquer tentativa de fraude, se detectada durante ou após a realização da prova, implicará em nota {\bf zero} para todos os envolvidos, além das penalidades disciplinares previstas no Regimento Geral da Unicamp (Arts. 226 -- 237).
+\item A duração total da prova é de \textbf{120 minutos}.
+\end{itemize}
+\end{multicols}
+
+\noindent \hrulefill
+
+\pagebreak
+\phantom{m} \thispagestyle{empty}
+
+\pagebreak
+
+\begin{enumerate}[label=$\blacktriangleright$ {\bf Questão \arabic*:},series=exerc,align=left]
+\item {\bf (2.0pt)} Uma pequena alfaiataria está planejando a sua produção de uniformes escolares para o próximo início de ano escolar. A empresa estima que exista uma demanda de $300$ uniformes para janeiro e de $600$ para fevereiro. A empresa consegue produzir até $400$ uniformes por mês com sua estrutura regular, a um custo de $R\$ 10,00$ por uniforme; uma carga adicional de uniformes pode ser acomodada com o uso de horas extras a um custo de $R\$ 15,00$ por uniforme. Uniformes produzidos e não vendidos em um mês podem ser armazenados para o mês seguinte, a um custo médio de $R\$2,00$ por uniforme. Uniformes extras para os outros meses são feitos sob encomenda e, portanto, não entram neste planejamento. Deseja-se determinar a quantidade de uniformes produzidas nos meses de janeiro e fevereiro que minimiza o custo total de produção e de estocagem. Modele esse problema de decisão como um problema de {\bf otimização linear}. Justifique as suas escolhas.
+
+\begin{framed}
+{\bf Resolução:}
+Seja $x_i$ a quantidade de uniformes produzidos no mês $i$ utilizando a estrutura regular e $y_i$ a quantidade de uniformes produzidos com horas extras no mês $i$, com $i\in\{1,2\}$. Note que o número de uniformes armazenados para o próximo mês é $x_1+y_1-300$. Dessa forma, o problema se torna
+\[
+\begin{array}{rl}
+\min & 10\,(x_1+x_2)+15\,(y_1+y_2)+2\,(x_1+y_1-300)\\
+\text{s.a} & x_1+y_1 \ge 300,\\
+    & x_2+y_2+(x_1+y_1-300) \ge 600,\\
+    & x_1,x_2 \le 400,\\
+    & x_1,x_2,y_1,y_2 \ge 0.
+\end{array}
+\]
+Podemos simplificar as expressões e chegar no seguinte problema equivalente
+\[
+\begin{array}{rl}
+\min & 12 x_1 + 10 x_2 + 17 y_1 + 15 y_2 \\
+\text{s.a} & x_1+y_1 \ge 300,\\
+    & x_1+x_2+y_1+y_2 \ge 900,\\
+    & x_1,x_2 \le 400,\\
+    & x_1,x_2,y_1,y_2 \ge 0.
+\end{array}
+\]
+\vspace{13cm}
+\end{framed}
+
+\pagebreak
+
+\item Considere o problema de quadrados mínimos lineares com ponderação dado por
+\[
+\min_{x \in \R^3}  f_0(x) = \alpha^2(x_1 + x_2 - 2)^2 + (2x_1 - x_2 - 1)^2 + \alpha^2(x_1 - x_2)^2.
+\]
+\begin{enumerate}[label=(\alph*),series=q2]
+\item {\bf (0.5pt)} Determine $A$ e $b$ que colocam este problema na forma padronizada:
+\[
+\min_{x \in \R^n} f_0(x) = \|Ax - b\|_2^2.
+\]
+\begin{framed}
+{\bf Resolução:}
+Re-escrevemos a função objetivo como $f_0(x) = (\alpha x_1 + \alpha x_2 - 2\alpha)^2 + (2x_1 - x_2 - 1)^2 + (\alpha x_1 - \alpha x_2)^2$. Dessa forma, podemos ver que
+\begin{equation*}
+    A = 
+    \begin{bmatrix}
+    \alpha & \alpha\\
+    2 & -1\\
+    \alpha & -\alpha
+    \end{bmatrix},\qquad
+    b = 
+    \begin{bmatrix}
+    2\alpha \\  1\\ 0
+    \end{bmatrix}.
+\end{equation*}
+\end{framed}
+
+\item {\bf (0.5pt)} Para que valores de $\alpha$ este problema admite solução única?
+
+\begin{framed}
+{\bf Resolução:}
+A solução $x^\star$ deve satisfazer o sistema normal $A^\T A x^\star = A^\T b$. Logo, se $\det(A^\T A) \neq 0$ o problema tem solução única. Assim,
+\[
+    A^\T A = 
+    \begin{bmatrix}
+        2\alpha^2+4 & -2 \\
+        -2 & 2\alpha^2 + 1
+    \end{bmatrix}
+    \Rightarrow 
+    \det(A^\T A) = \alpha^2(4\alpha^2 + 10).
+\]
+Logo, o problema tem solução única se $\alpha \neq 0$.
+\end{framed}
+\end{enumerate}
+
+\begin{enumerate}[resume*=q2]
+\item {\bf (1.0pt)} Encontre a solução ótima $x^\star(\alpha)$ do problema de quadrados mínimos acima, em função de $\alpha$, e interprete o resultado.
+\begin{framed}
+{\bf Resolução:}
+Se $\alpha\neq 0$ o sistema linear associado $Ax=b$ tem solução única e anula o resíduo. Resolvendo o sistema linear, encontramos $x^\star(\alpha)=[1,1]^\T$.
+
+Alternativamente, podemos resolver o sistema normal, ou seja,
+\begin{align*}
+    x^\star(\alpha) &= (A^\T A)^{-1} A^\T b
+        = \frac{1}{\det(A^\T A)}
+        \begin{bmatrix}
+            2\alpha^2+1 & 2 \\
+            2 & 2\alpha^2 + 4
+        \end{bmatrix}
+        \begin{bmatrix}
+            2\alpha^2+2 \\
+            2\alpha^2-1
+        \end{bmatrix}
+        = \frac{1}{4\alpha^4 + 10\alpha^2}
+        \begin{bmatrix}
+            4\alpha^4 + 10\alpha^2 \\
+            4\alpha^4 + 10\alpha^2
+        \end{bmatrix}
+        = \begin{bmatrix} 1\\ 1 \end{bmatrix}.
+\end{align*}
+Por outro lado, se $\alpha = 0$, então a solução existe, anula o resíduo, mas tem um grau de liberdade, ou seja, para $z\in\R$ a solução é da forma
+\[
+    x^\star(0) = \begin{bmatrix} 0\\ -1 \end{bmatrix} + \begin{bmatrix} 1\\ 2 \end{bmatrix} z.
+\]
+Finalmente, tirando o caso degenerado, podemos concluir que a solução não depende de $\alpha$, pois o mesmo atribui um peso para o resíduo associado à primeira e terceira equação no sistema $Ax=b$. Porém, como é possível resolver a equação, ou seja, anular os resíduos, o peso atribuído às equações não tem influência na solução.
+\vspace{5cm}
+\end{framed}
+\end{enumerate}
+\end{enumerate}
+
+\pagebreak
+
+\begin{enumerate}[resume*=exerc]
+\item Considere o problema de otimização não-linear
+\[
+\begin{array}{rl}
+\min_{x \in \R^n} & f_0(x) = \frac{1}{2} x^\T Q x - b^\T x,\\
+\text{s.a} & c^\T x = 0,
+\end{array}
+\]
+em que $Q \in \R^{n \times n}$ é simétrica e definida positiva e $c\neq 0$ e $b$ são vetores em $\R^n$.
+\begin{enumerate}[label=(\alph*),series=q3]
+\item {\bf (1.0pt)} Mostre que este problema de otimização é convexo, ou seja, mostre que tanto a função objetivo quanto o conjunto factível são convexos.
+\begin{framed}
+{\bf Resolução:}
+Primeiramente, calculamos o gradiente e a Hessiana de $f_0$,
+\begin{align*}
+    \nabla f_0(x) = Q x - b,\qquad \nabla^2 f_0(x) = Q.
+\end{align*}
+Como $Q$ é definida positiva, então $\nabla^2 f_0(x) \succ 0$ para todo $x\in\R^n$, o que implica que $f_0$ é uma função convexa. No caso do conjunto factível $\mathbb{X}$, sabemos que se $c^\T x = 0$, então $x\in\mathbb{X}$. Sejam $x,y\in\mathbb{X}$, a combinação linear convexa de $x$ e $y$ dada por
+$
+    \alpha x + (1-\alpha) y, \alpha\in[0,1],
+$
+satisfaz a condição de pertencer ao conjunto factível, pois
+\[c^\T(\alpha x + (1-\alpha) y) = \alpha c^\T x + (1-\alpha) c^T y = 0.\]
+Assim, provamos que a combinação linear convexa de quaisquer dois pontos em $\mathbb{X}$ também pertence a $\mathbb{X}$. Portanto, o conjunto factível é convexo.
+\end{framed}
+
+\item {\bf (1.0pt)} Use as condições de otimalidade para encontrar um ponto estacionário deste problema. Este ponto estacionário é minimizador?
+\begin{framed}
+{\bf Resolução:}
+Usando uma das condições KKT, temos que
+\begin{align*}
+        & \nabla f_0(x^\star) + A^\T\lambda^\star = 0, \quad \lambda^\star\in\R\\
+    \Rightarrow ~& Qx^\star - b + c\lambda^\star = 0\\
+    \Rightarrow ~& \boxed{x^\star = Q^{-1} (b - c\lambda^\star)}.
+\end{align*}
+Sabemos que $c^\T x^* = 0$, ou seja,
+\begin{align*}
+        &c^\T Q^{-1} (b - c\lambda^\star) = 0\\
+    \Rightarrow ~& c^\T Q^{-1} b = c^\T Q^{-1}c\lambda^\star\\
+    \Rightarrow ~& \boxed{\lambda^\star = \frac{c^\T Q^{-1} b}{c^\T Q^{-1}c}}.
+\end{align*}
+Enfim, usando os dois resultados destacados acima, temos que
+\[
+x^\star = Q^{-1} \left(b - \frac{c^\T Q^{-1} b}{c^\T Q^{-1}c} c \right).
+\]
+O ponto encontrado é minimizador global, pois o problema é convexo e as restrições são lineares.
+\vspace{5cm}
+\end{framed}
+\end{enumerate}
+\end{enumerate}
+
+\pagebreak
+
+\begin{enumerate}[resume*=exerc]
+\item
+
+\begin{enumerate}[label=(\alph*),series=q4]
+\item {\bf (1.0pt)} Você e um colega estão resolvendo um exercício de otimização, em que uma função $f_0$ deve ser minimizada respeitando-se a restrição $2x_1 + x_2 + 3x_3 = 5$. Seu colega diz para você que o ponto $\bar x = [1~~0~~1]^\T$ é um bom candidato a minimizador, uma vez que o vetor gradiente de $f_0$ em $\bar x$ vale $\nabla f_0(\bar x) = [1~~1~~1]^\T$ e, portanto, aponta para fora do plano. Seu colega está certo? Se ele estiver certo, justifique geometricamente. Caso contrário, construa uma direção de descida factível a partir de $\bar x$ para provar que ele está errado.
+\begin{framed}
+{\bf Resolução:}
+Se $\bar x$ é um bom candidato a minimizador, então ele deve satisfazer as condições KKT, ou seja,
+\[
+    \nabla f_0(\bar x) + A^\T\lambda = 0
+    \Leftrightarrow
+    \begin{bmatrix} 1\\ 1\\ 1 \end{bmatrix} + \begin{bmatrix} 2\\ 1\\ 3 \end{bmatrix}\lambda = 0.
+\]
+Porém, essa equação não pode ser satisfeita por nenhum $\lambda\in\R$, logo $\bar x$ não é um ponto KKT e tampouco um bom candidato a minimizador.
+
+Uma direção de descida factível $d\in\R^3$ deve satisfazer $d^\T (-\nabla f_0(\bar x)) > 0$ e $A d = 0$, ou seja,
+\[
+\left\{ \begin{array}{rl}
+d_1 + d_2 + d_3 < 0\\
+2 d_1 + d_2 + 3d_3 = 0\end{array} \right.
+\]
+Podemos tomar, por exemplo, $d = [-1, -1, ~1]^\T$.
+\vspace{1cm}
+\end{framed}
+
+\item {\bf (1.0pt)} Em outro problema, você e o seu colega se deparam com um conjunto factível definido pelas seguintes restrições:
+\[
+  x_1 + x_2 + x_3 \leq 6, \qquad  x_1 + 2x_2 + x_3 \leq 8, \qquad x_1 \geq 1, \qquad x_2 \geq 1, \qquad x_3 \geq 0.
+\]
+Para o ponto inicial $\bar x = [1~~1~~0]^\T$, o seu colega constrói uma direção de descida $d = [1~~1~~1]^\T$. Seu colega afirma que a direção construída é factível e que o tamanho máximo de passo $\alpha$ permitido para a factibilidade de $\hat x = \bar x + \alpha d$ é $\bar \alpha = 3/2$. Seu colega está certo? Justifique em ambos os casos.
+\begin{framed}
+{\bf Resolução:}
+A direção é factível, pois ela claramente satisfaz as restrições que estão ativas no ponto $\bar x$, ou seja, $[-1, 0, 0]^T d < 0$ e $[0, -1, 0]^T d < 0$. Porém, o passo máximo sugerido pelo colega não é factível, pois
+\[\hat x = \bar x + \bar\alpha d = \begin{bmatrix} 5/2\\ 5/2\\ 3/2\end{bmatrix}\]
+e $5/2+5/2+3/2 > 6$, ou seja, não satisfaz a primeira restrição.
+\vspace{8cm}
+\end{framed}
+\end{enumerate}
+\end{enumerate}
+
+\pagebreak
+
+\begin{enumerate}[resume*=exerc]
+\item {\bf (2.0pt)} Uma fábrica têxtil produz três itens, $x_1$, $x_2$ e $x_3$. Seu planejamento produtivo para o próximo mês deve verificar as restrições
+\[
+x_1 + 2x_2 + 2x_3 \leq 12 \qquad \text{e} \qquad 2x_2 + 4x_2 + x_3 \leq s,
+\]
+sendo $x_i \geq 0$, $i = 1,2,3$. A primeira restrição modela a capacidade produtiva da fábrica e a segunda modela a quantidade de algodão disponível, $s$. A receita líquida obtida com cada tipo de produto é proporcional a 2, 3 e 3, respectivamente. Determine e represente graficamente a receita ótima $f^\T x^\star(s)$ em função de $s$. Interprete.
+\begin{framed}
+{\bf Resolução:}
+   Primeiramente, vamos enunciar o problema no formato padrão,
+    $$\begin{array}{rl}
+    \min & -2x_1 - 3x_2 - 3x_3 \\
+    \textrm{sujeito a:}
+    & x_1 + 2x_2 + 2x_3 + x_4 = 12,\\
+    & 2x_1 + 4x_2 + x_3 + x_5 = s,\\
+    & x_i \geq 0,\quad i\in\{1,\dots,5\}.
+    \end{array}$$
+    Assim reconhecemos as matrizes
+    \[    
+    \tilde f = -f = \begin{bmatrix} -2\\ -3\\ -3\\ 0\\ 0 \end{bmatrix},\quad
+    A = \begin{bmatrix} 1 & 2 & 2 & 1 & 0\\ 2 & 4 & 1 & 0 & 1 \end{bmatrix},\quad
+    b = \begin{bmatrix} 12\\ s \end{bmatrix},
+    \]
+    e podemos escrever o problema dual:
+    $$\begin{array}{rl}
+    \max & 12\lambda_1 + s\lambda_2 \\
+    \textrm{sujeito a:}
+    & \lambda_1 + 2\lambda_2 \le -2,\\
+    & 2\lambda_1 + 4\lambda_2 \le -3,\\
+    & 2\lambda_1 + \lambda_2 \le -3,\\
+    & \lambda_1,\lambda_2 \le 0.
+    \end{array}$$
+    Podemos verificar que os pontos extremos do conjunto factível são $[-4/3,-1/3]^\T$, $[0,-3]^\T$, $[-2,0]^\T$, que resultam nos seguintes valores para a função objetivo $b^\T\lambda$: $-16-s/3$, $-3s$, $-24$, respectivamente. Agora é só comparar qual dos três pontos maximiza a função objetivo em função de $s$. É importante verificar, também, que a região factível é limitada na direção do gradiente (maximização).
+    
+    Podemos verificar que se $6\le s \le 24$, o maximizador é $\lambda^*=[-4/3,-1/3]^\T$ e, portanto, a função objetivo do problema original é $f^\T x^* = -b^\T\lambda^*=16+s/3$.
+    Por outro lado, se $s \le 6$, o maximizador é $\lambda^*=[0,-3]^\T$ e, portanto, a função objetivo do problema original é $-b^\T\lambda^*=3s$.
+    Por fim, se $s \ge 24$, o maximizador é $\lambda^*=[-2,0]^\T$ e, portanto, a função objetivo do problema original é $-b^\T\lambda^* = 24$.
+    \begin{center}
+    \begin{tikzpicture}
+	\begin{axis}[
+    	width = 8cm, height = 7cm,
+		xlabel=$\lambda_1$,
+		ylabel=$\lambda_2$,
+		xmin = -3, 	xmax = 0,
+        ymin = -4, 	ymax = 0,
+        grid = both
+        %ytick={0,6,12,18,24,30},
+        %xtick={0,6,12,18,24,30,36}
+		]
+    	\addplot[only marks,color=blue] coordinates {(-2,0) (-4/3,-1/3) (0,-3)};
+    	\addplot[thick] coordinates {(-2,0) (0,-1)};
+    	\addplot[] coordinates {(-3/2,0) (0,-3/4)};
+    	\addplot[thick] coordinates {(-3/2,0) (0,-3)};
+	\end{axis}%
+    \end{tikzpicture}%
+    ~
+    \begin{tikzpicture}
+	\begin{axis}[
+	    width = 8cm, height = 7cm,
+		xlabel=$s$,
+		ylabel=$f^\T x^\star$,
+		xmin = 0, 	xmax = 36,
+        ymin = 0, 	ymax = 30,
+        grid = both,
+        ytick={0,6,12,18,24,30},
+        xtick={0,6,12,18,24,30,36}
+		]
+    	\addplot[color=blue, thick] coordinates {
+    		(0,0) (6,18) (24,24) (40,24) };
+	\end{axis}%
+    \end{tikzpicture}%
+    \end{center}
+    \vspace{1cm}
+\end{framed}
+
+
+\end{enumerate}
+
+\pagebreak
+
+\begin{center}
+\begin{tcolorbox}[colframe=black,width =\textwidth,colback=gray!20,arc=0pt]
+\centering {\sc {\bf Questão Extra: Esta questão é totalmente opcional. Dependendo da sua resposta e da sua justificativa, a sua nota nesta questão pode variar entre -1.0pt e 2.0pt.}}
+\end{tcolorbox}
+\end{center}
+
+\begin{enumerate}[resume*=exerc]
+\item {\bf (Extra)} Você está resolvendo exercícios de programação linear e se depara com o seguinte problema:
+\[
+\begin{array}{rl}
+\min & f^\T x \\
+\text{s. a} & Ax = b, \\
+& x \geq 0.
+\end{array}
+\]
+Ao resolver este exercício, você encontra uma solução ótima finita. O exercício seguinte envolve exatamente o mesmo problema, mas com o vetor $b$ substituído por $\hat b$:
+\[
+\begin{array}{rl}
+\min & f^\T x \\
+\text{s. a} & Ax = \hat b, \\
+& x \geq 0.
+\end{array}
+\]
+Neste problema, você encontra uma solução ótima ilimitada. Isto é possível? {\bf Justifique}.
+
+\begin{framed}
+{\bf Resolução:}\\
+Sabemos que se um problema tem solução factível finita no primal, então o dual também possui solução finita e factível.
+Sabemos também que uma solução ilimitada no primal implica em infactibilidade no dual.
+Porém, os problemas duais de ambos exercícios possuem o mesmo espaço factível, que precisa ser factível e infactível simultaneamente para atender as condições propostas.
+Chegamos a uma contradição, logo isto não é possível.
+\vspace{14cm}
+\end{framed}
+
+
+\end{enumerate}
+
+\end{document}
+%\begin{enumerate}[label=$\blacktriangleright$ {\bf Questão \arabic*:},series=exerc,align=left]
+%\item la
+%
+%
+%\end{enumerate}
+%
+%\begin{center}
+%\begin{tcolorbox}[colframe=black,width =7cm,colback=gray!20,arc=0pt]
+%\centering {\sc {\bf Bloco II}}
+%\end{tcolorbox}
+%\end{center}
+%
+%{\bf Importante:} Resolva {\bf apenas duas} questões deste bloco.
+%
+%\noindent \hrulefill
+%
+%\begin{enumerate}[resume*=exerc]
+%\item la
+%
+%
+%\end{enumerate}
+
+\end{document}
+
+
+
+

@@ -1,0 +1,336 @@
+
+\begin{problem}[Predição de Notas]
+A Tabela \ref{tab_notas} a seguir mostra as notas de atividades em casa e de notas de provas finais de 20 alunos de ``Princípios de Otimização''. Ajuste estes dados por uma reta via quadrados mínimos e estime a menor nota de atividades necessária para garantir uma nota de $9.0$ ou mais na prova final.
+\end{problem}
+
+		\begin{table}[tb]
+		\begin{center}
+		\begin{tabular}{|c||c|c|}
+			\hline
+			Estudante & Atividades & Prova final\\
+			\hline
+			\hline
+			$1$ & $2.3$ & $1.5$\\
+			$2$ & $0.6$ & $0.0$\\
+			$3$ & $4.2$ & $2.7$\\
+			$4$ & $8.6$ & $7.7$\\
+			$5$ & $0.8$ & $0.2$\\
+			$6$ & $4.7$ & $3.6$\\
+			$7$ & $1.2$ & $0.5$\\
+			$8$ & $7.7$ & $6.0$\\
+			$9$ & $8.4$ & $9.0$\\
+			$10$ & $3.5$ & $2.3$\\
+			$11$ & $4.9$ & $3.3$\\
+			$12$ & $5.2$ & $4.6$\\
+			$13$ & $9.5$ & $8.5$\\
+			$14$ & $9.4$ & $8.3$\\
+			$15$ & $6.1$ & $5.0$\\
+			$16$ & $3.3$ & $2.0$\\
+			$17$ & $8.9$ & $8.0$\\
+			$18$ & $4.3$ & $3.1$\\
+            $19$ & $6.9$ & $7.0$\\
+            $20$ & $7.1$ & $5.9$ \\
+			\hline
+		\end{tabular}\\
+		\end{center}
+		\label{tab_notas}
+        \caption{Notas de estudantes em avaliações.}
+		\end{table}
+
+\begin{problem}[Atenuação de Ruídos]
+Para determinar a relação entre a atenuação de ruídos de um material e a sua espessura, um engenheiro realiza um experimento e obtém as medidas dadas na Tabela \ref{tab_atenuacao}. Ajuste esses dados por modelos polinomiais via quadrados mínimos. Compare a qualidade dos resultados com relação ao grau do polinômio.
+
+		\begin{table}[tb]
+		\begin{center}
+		\begin{tabular}{|c||c|}
+			\hline
+			Espessura (cm) & Atenuação (dB/cm)\\
+			\hline
+			\hline
+0.040 &26.5\\
+0.041 &28.1\\
+0.055 &25.2\\
+0.056 &26.0\\
+0.062 &24.0\\
+0.071 &25.0\\
+0.071 &26.4\\
+0.078 &27.2\\
+0.082 &25.6\\
+0.090 &25.0\\
+0.092 &26.8\\
+0.100 &24.8\\
+0.105 &27.0\\
+0.120 &25.0\\
+0.123 &27.3\\
+0.130 &26.9\\
+0.140 &26.2\\
+			\hline
+		\end{tabular}\\
+		\end{center}
+		\label{tab_atenuacao}
+        \caption{Experimento de atenuação de ruídos.}
+		\end{table}
+\end{problem}
+
+\begin{problem}[Matrizes Ortogonais, Decomposição QR e Quadrados Mínimos]
+A estratégia computacional mais utilizada para resolver problemas de quadrados mínimos é fortemente baseada na decomposição QR da matriz $A$. Embora essa decomposição possa ser feita para matrizes com posto deficiente, vamos supor que $A$ tem posto completo. Dada uma matriz $A \in \R^{m \times n}$, com $m > n$ e ${\rm rank}(A) = n$, existem $Q \in \R^{m \times m}$ ortogonal e $R \in \R^{m \times n}$ triangular superior tais que $A = QR$. Mais ainda, $R$ é da forma
+\[
+R = \begin{bmatrix}
+\hat R \\ 0
+\end{bmatrix},
+\]
+com $\hat R \in \R^{n \times n}$ triangular superior e não singular. Uma matriz $Q \in \R^{m \times m}$ é dita ortogonal se $QQ^\T = Q^\T Q = I$.
+\begin{enumerate}[label=(\alph*)]
+\item Mostre que, se $Q$ for ortogonal, $\|x\|_2^2 = \|Qx\|_2^2$ para qualquer vetor $x$. Isto justifica a estabilidade numérica de operações com matrizes ortogonais.
+\item Mostre que $|\det (Q)| = 1$ para qualquer matriz $Q$ ortogonal.
+\item Mostre que as matrizes
+\[
+Q_G = \begin{bmatrix}
+\cos \theta & -\sin \theta \\
+\sin \theta & \cos \theta
+\end{bmatrix} ~\text{e}~ Q_H = I - 2uu^\T
+\]
+para $\theta \in \R$ e $u \in \R^n$, com $\|u\|_2 = 1$, dados, são ortogonais. A primeira matriz é uma {\em Rotação de Givens} e a segunda é uma {\em Reflexão de Householder}. Interprete-as geometricamente e justifique os seus nomes.
+\item Dada a decomposição $A = QR$, justifique cada um dos passos do raciocínio a seguir. O resíduo do problema de quadrados mínimos é dado por:
+\[
+\|b - Ax\|_2^2 = \|Q^\T b - Q^\T A x\|_2^2 = \|c - Rx\|_2^2,
+\]
+com $c = Q^\T b$. Definindo $c = [\hat c^\T~d^\T]^\T$, com $\hat c \in \R^n$, e o novo vetor resíduo $s = c - Rx$, temos
+\[
+s = \begin{bmatrix}
+\hat c \\ d
+\end{bmatrix} - \begin{bmatrix}
+\hat R \\ 0 
+\end{bmatrix}x \Rightarrow \|b - Ax\|_2^2 = \|\hat c - \hat R x\|_2^2 + \|d\|_2^2.
+\]
+Portanto, a solução de quadrados mínimos é tal que $x^\star = \hat R^{-1} \hat c$ e o resíduo ótimo é dado por $\|b - Ax^\star\|_2 = \|d\|_2$.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}[Processo de Ortogonalização de Gram-Schmidt] Para um dado conjunto $\{v_1,\cdots,v_N\}$ de vetores LI, o processo de Gram-Schmidt busca construir um conjunto $\{q_1,\cdots,q_N\}$ de vetores ortogonais tal que
+    \[
+    {\rm span} \{v_1,\cdots,v_N\} = {\rm span} \{q_1,\cdots,q_N\}.
+    \]
+\begin{enumerate}[label=(\alph*),series=gram]
+  \item Dados dois vetores $v_1$ e $v_2$ em $\R^n$, defina os vetores $q_1$ e $q_2$ como
+  \[
+  q_1 = v_1 \quad \text{e} \quad q_2 = v_2 - \frac{v_2^\T q_1}{q_1^\T q_1}q_1.
+  \]
+  Mostre que $q_2$ é ortogonal a $q_1$. Mostre também que $\{v_1,v_2\}$ e $\{q_1, q_2\}$ geram o mesmo espaço.
+\end{enumerate}
+  Generalizando este raciocínio, o procedimento de Ortogonalização de Gram-Schmidt constrói um conjunto de vetores ortogonais de forma incremental. Para o conjunto de interesse dado acima, o conjunto obtido pelo processo de Gram-Schmidt são:
+      \[
+      \begin{array}{rcl}
+        \displaystyle q_1 & = & \displaystyle  v_1, \\ \vspace{0.2cm}
+        \displaystyle q_2 & = & \displaystyle v_2 - \frac{v_2^\T q_1}{q_1^\T q_1} q_1, \\ \vspace{0.2cm}
+        \displaystyle q_3 & = & \displaystyle v_3 - \frac{v_3^\T q_1}{q_1^\T q_1}q_1 - \frac{v_3^\T q_2}{q_2^\T q_2}q_2, \\ \vspace{0.2cm}
+        \vdots & & \vdots \\ \vspace{0.2cm}
+        \displaystyle q_N & = &\displaystyle  v_N - \sum_{k = 1}^{N-1}\frac{v_N^\T q_k}{q_k^\T q_k}q_k.
+      \end{array}
+      \]
+   Ao fim do procedimento, os vetores podem ser {\em normalizados} (Proc. de Ortonormalização), isto é, podemos dividir cada um dos vetores $q_k$ obtidos por sua norma $\|\bar q_k\|_2 = \sqrt{q_k^\T q_k}$. Os espaços gerados por $\{v_1, \cdots, v_N\}$ e por $\{ q_1, \cdots, q_N\}$ também são iguais.
+\begin{enumerate}[resume*=gram]
+  \item Considere a matriz $A \in \R^{3 \times 3}$ dada por
+  \[
+  A=\begin{bmatrix}1 & 2 & 1\\
+                 0 & 1 & 2\\
+                 1 & 0 & 1\\
+   \end{bmatrix}.
+  \]
+  Considerando os vetores definidos pelas suas colunas, eles formam uma base para $\R^3$? Em caso afirmativo, obtenha uma base ortonormal $\{q_1, q_2, q_3\}$ a partir deles.
+  \item Baseado no item anterior, obtenha uma fatoração $QR$ para a matriz $A$, isto é, obtenha $Q$ ortogonal (matriz com colunas ortonormais) e $R$ triangular tais que $A=QR$.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}[Solução de Quadrados Mínimos de Norma Mínima]
+Quando a matriz $A \in \R^{m \times n}$ do problema de quadrados mínimos
+\[
+\min_{x \in \R^n} \|Ax - b\|_2^2,
+\]
+com $b \in \R^m$, não tiver posto completo, este problema não tem solução única. Neste caso, pode ser interessante encontrar o vetor $x^\star$ que é solução ótima deste problema e que tem norma Euclidiana mínima. Usando-se o sistema normal, podemos escrever este problema como
+\[
+\begin{array}{rl}
+\min & \|x\|_2^2\\
+\textrm{sujeito a} & A^\T A x = A^\T b.
+\end{array}
+\]
+A restrição de igualdade deste problema pode ser removida parametrizando-se o núcleo de $A^\T A$; assim, obtemos um problema de otimização irrestrita. 
+
+Encontre a solução de norma Euclidiana mínima para os problemas de quadrados mínimos definidos pelas matrizes abaixo:
+
+\begin{enumerate}[label=(\alph*)]
+\begin{multicols}{2}
+\item $A = \begin{bmatrix} 1 & 1 & 0 \\ 1 & 1 & 0 \\
+2 & 0 & 2 \end{bmatrix}$, $b = \begin{bmatrix*}[r]
+1 \\ -1 \\ 1
+\end{bmatrix*}$;
+\item $A = \begin{bmatrix*}[r] 1 & 2 \\ 2 & 4 \\ -1 & -2 \end{bmatrix*}$, $b = \begin{bmatrix}
+1 \\ 0 \\ 0
+\end{bmatrix}$.
+\end{multicols}
+\end{enumerate}
+\end{problem}
+
+\begin{problem}[Sistemas Subdeterminados: Solução de Norma Mínima e Problemas de Quadrados Mínimos com Regularização de Tikhonov]
+O problema discutido acima está relacionado com o seguinte problema: dado um sistema linear $Ax = b$, com $A \in \R^{m \times n}$ e $b \in \R^m$ e $m > n$. Se este sistema for compatível, então ele admite infinitas soluções; vamos assumir que o posto de $A$ é completo, o que assegura essa propriedade. Dentre todas estas soluções, desejamos determinar a que possui a menor norma, ou seja, desejamos resolver o problema
+\[
+\begin{array}{rl}
+\min & \|x\|_2^2\\
+\textrm{sujeito a} & Ax = b.
+\end{array}
+\]
+\begin{enumerate}[label=(\alph*),series=tik]
+\item Interprete este problema geometricamente.
+\item Mostre que a solução ótima deste problema é dada por $x^\star = A^\T (AA^\T)^{-1}b$; para tanto, tome outra solução arbitrária deste sistema $x = x^\star + z$, com $z$ tal que $Az = 0$ e mostre que a norma é maior que ou igual à norma de $x^\star$.
+\end{enumerate}
+Este problema tem uma relação interessante com o problema de quadrados mínimos com {\em regularização de Tikhonov}:
+\[
+\min \|Ax - b\|_2^2 + \lambda \|x\|_2^2,
+\]
+em que $\lambda > 0$ é um parâmetro definido pelo projetista. A regularização de Tikhonov evita que os coeficientes de ajuste do problema de quadrados mínimos sejam arbitrariamente grandes, impondo um certo {\em trade-off} entre a norma do resíduo e a norma da solução.
+\begin{enumerate}[resume*=tik]
+\item Use as condições de otimalidade para determinar a solução ótima deste problema. O que acontece com esta solução se $\lambda \to 0$?
+\end{enumerate}
+\end{problem}
+
+\begin{problem}[Lei de Moore] Os dados da Figura \ref{fig_moore} mostram o ano de lançamento e o número de transistores $N$ para 13 microprocessadores.
+\begin{figure}[tb]
+\centering
+\includegraphics[width = 12cm]{fig_moore}
+\caption{Transitores em processadores por ano.}\label{fig_moore}
+\end{figure}
+A figura apresenta o número total de transistores em uma escala logarítmica. Desejamos ajustar esses dados pelo modelo
+\[
+\log_{10}N \approx x_1 + x_2(t-1970),
+\]
+em que $t$ é o ano e $N$ o número de transistores. Encontre $x_1$ e $x_2$ por quadrados mínimos e coloque em uma mesma figura em escala logarítmica os dados e seu modelo. Além disso, forneça a predição do número de transistores em 2017, e compare com o 32-core AMD Epyc, lançado neste mesmo ano, que possui por volta de $19.2$ bilhões de transistores. Por último, compare seu resultado com a Lei de Moore, que afirma que o número de transistores em um circuito integrado dobra a cada 18 a 24 meses.
+\end{problem}
+
+\begin{problem}[Filtragem e Quadrados Mínimos]
+Volte ao problema de suavização descrito na Seção \ref{sec_filtro} e obtenha um problema de quadrados mínimos equivalente a \eqref{qml_suav}. Isto é, defina $A$ e $b$ tais que
+\[
+\|\hat u - u_c \|_2^2 + \delta \|D\hat u\|_2^2 = \|A \hat u - b\|_2^2.
+\]
+\end{problem}
+
+\begin{problem}
+Considere o problema de quadrados mínimos $\|b - Ax\|_2^2$ com $A$ e $b$ dados por
+\[
+A = \begin{bmatrix}
+1 & 1 \\ 0 & 0 \\ 1 & 1 + \alpha
+\end{bmatrix}, \quad b = \begin{bmatrix}
+2 \\ 1 \\ 0
+\end{bmatrix}.
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Para que valores de $\alpha \in \R$ este problema possui solução única?
+\item Assumindo que $\alpha \neq 0$, resolva o problema de quadrados mínimos dado acima e calcule o resíduo ótimo. O resíduo depende de $\alpha$?
+\item Investigue o que acontece com a solução $x^\star$ encontrada acima quando $\alpha \to 0$. O que acontece com o resíduo ótimo?
+\end{enumerate}
+\end{problem}
+
+\begin{problem}[Posicionamento Ótimo] Os vetores bi-dimensionais $p_1,\cdots,p_N$ representam a posição no plano de $N$ objetos. A posição dos últimos $K$ objetos são fixas e dadas. Nosso objetivo então é determinar o posicionamento dos outros $N-K$ objetos. Também é fornecida uma lista $L$ de $\ell$ pares $(i,j)$, indicando o desejo de que os objetos $i$ e $j$ estejam próximos. Assim, no problema de posicionamento baseado em quadrados mínimos, desejamos encontrar as posições $p_1,\cdots,p_{N-K}$ de forma a minimizar a soma dos quadrados das distâncias dos pares de objetos contidos na lista $L$, ou seja
+         \[
+           \|p_{i_1} - p_{j_1}\|_2^2 + \ldots + \|p_{i_\ell} - p_{j_\ell}\|_2^2,
+         \]
+supondo que os $\ell$ elementos da lista $L$ são dados por $(i_1,j_1),\cdots,(i_\ell,j_\ell)$.
+        
+         Resolva este problema para o caso onde $N = 10$, $K = 4$, $\ell = 13$, as posições fixas são
+\[
+p_7 = (0,0), \quad p_8 = (0,1), \quad p_9 = (1,1), \quad p_{10} = (1,0)
+\]
+         e a lista $L$ é dada pelo conjunto
+         \begin{equation*}
+           L = \{(1,3), (1,4), (1,7), (2,3), (2,5), (2,8), (2,9), (3,4), (3,5), (4,6), (5,6), (6,9), (6,10)\}
+         \end{equation*}
+Determine as posições $p_1,\ldots,p_6$ e represente no plano todas as posições, indicando com linhas todos os pares pertencentes a $L$. 
+\end{problem}
+
+\begin{problem}[Distância Mensal Percorrida por Veículos nos EUA]
+A Tabela \ref{tab_carros} contém a distância mensal total percorrida por veículos nos EUA durante os últimos 5 anos. Representando graficamente estes dados, fica evidente o comportamento sazonal destes dados, em conjunto com uma tendência. Utilize as técnicas exploradas neste capítulo para estimar os valores correspondentes ao restante de 2018. Existe alguma tendência de crescimento nesta série temporal?
+
+		\begin{table}[tb]
+		\begin{center}
+		\begin{tabular}{|c|c||c|c|}
+			\hline
+			Mês & Distância & Mês & Distância\\
+			\hline
+            \hline
+05/2018 &	286172.0&	04/2016&		269653.0\\
+04/2018 &	272437.0&	03/2016&		265147.0\\
+03/2018 &	268673.0&	02/2016&		223011.0\\
+02/2018 &	226850.0&	01/2016&		239679.0\\
+01/2018 &	245790.0&	12/2015&		259424.0\\
+12/2017 &	266535.0&	11/2015&		248843.0\\
+11/2017 &	257712.0&	10/2015&		268469.0\\
+10/2017 &	278937.0&	09/2015&		255090.0\\
+09/2017 &	262673.0&	08/2015&		272209.0\\
+08/2017 &	283184.0&	07/2015&		278372.0\\
+07/2017 &	287343.0&	06/2015&		270574.0\\
+06/2017 &	280537.0&	05/2015&		270839.0\\
+05/2017  &	283956.0&	04/2015&		262817.0\\
+04/2017  &	272904.0&	03/2015&		258017.0\\
+03/2017  &	267355.0&	02/2015&		217220.0\\
+02/2017  &	226947.0&	01/2015&		233498.0\\
+01/2017  &	244587.0&	12/2014&		252271.0\\
+12/2016 &	264778.0&	11/2014&		241451.0\\
+11/2016 &	255154.0&	10/2014&		265144.0\\
+10/2016 &	275610.0&	09/2014&		247688.0\\
+09/2016 &	262039.0&	08/2014&		268831.0\\
+08/2016 &	279213.0&	07/2014&		270053.0\\
+07/2016 &	285160.0&	06/2014&		263459.0\\
+06/2016 &	276991.0&	05/2014&		266237.0\\
+05/2016 &	277972.0&	04/2014&		256736.0\\
+			\hline
+		\end{tabular}\\
+		\end{center}
+        \caption{Distância mensal percorrida por veículos nos EUA. Fonte: {\em Federal Highway Administration.} ({\tt http://www.fhwa.dot.gov/})}\label{tab_carros}
+		\end{table}
+\end{problem}
+
+\begin{problem}[Alocação de Polos em Sistemas de Controle]
+Um problema recorrente na área de sistemas de controle é o de {\em alocação de polos}. Neste problema, desejamos projetar a {\em função de transferência} do controlador, que é a razão de dois polinômios, $N_c(s)$ e $D_c(s)$ para que as raízes da equação polinomial
+\[
+N_c(s) N_g(s) + D_c (s) D_g(s) = 0
+\]
+estejam em uma posição adequada do plano complexo; nesta equação, os polinômios $N_g(s)$ e $D_g(s)$ são conhecidos e são o numerador e o denominador da função de transferência da planta. Assim que a posição das raízes da equação acima estiver definida pelo projetista, o projeto de $N_c$ e $D_c$ é feito para assegurar que
+\[
+N_c N_g + D_c D_g \equiv P,
+\]
+sendo $P(s)$ um polinômio cujas raízes sejam as projetadas.
+
+Para resolver alguns dos itens abaixo, suponha que os graus de $N_g$, $N_c$, $D_g$ e $D_c$ sejam $m_g$, $m_c$, $n_g$ e $n_c$ e que as funções de transferência sejam {\em próprias}, ou seja, $m_c \leq n_c$ e $m_g \leq n_g$.
+\begin{enumerate}[label=(\alph*)]
+\item Quantas variáveis de projeto (coeficientes dos polinômios $N_c$ e $D_c$) estão disponíveis para realizar a alocação? Quantas equações lineares temos ao realizar a equivalência polinomial dada acima? 
+\item Quais são os valores mínimos de $n_c$ e $m_c$ para assegurar a existência de soluções para este problema? Se os valores de $n_c$ e $m_c$ forem menores do que estes valores mínimos, teremos um sistema linear sobredeterminado. Proponha uma estratégia de alocação neste caso.
+\item Para $N_g(s) = s + 4$ e $D_g(s) = s^2 + 2s - 1$, projete polinômios de grau mínimo $N_c$ e $D_c$ para que as raízes da equação dada acima sejam $-2$, $-3$ e $-4$.
+\item Para os mesmos polinômios do item anterior, projete os ganhos $k_p$ e $k_i$ do controlador dado por $N_c(s) = k_p s + k_i$ e $D_c(s) = s$ de forma que todas as raízes da equação acima sejam $-1$. Isto é possível? Obtenha $k_p$ e $k_i$ via quadrados mínimos e valide o seu projeto calculando as raízes da equação resultante.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}[Controle Ótimo I: Mínima Energia]
+Um modelo simples de um veículo se movimentando em uma dimensão é dado por
+         \begin{equation*}
+           \begin{bmatrix} s(k+1) \\ v(k+1) \end{bmatrix} = \begin{bmatrix} 1 & 1 \\ 0 & 0.95 \end{bmatrix} \begin{bmatrix} s(k) \\ v(k) \end{bmatrix} + \begin{bmatrix} 0 \\ 0.1 \end{bmatrix} u(k)
+         \end{equation*}
+para $k = 0,~1,~\ldots$. Neste modelo, $s(k)$ determina a posição do objeto e $v(k)$ sua velocidade no tempo $k$. Assumimos que, em $k=0$, o objeto se encontra na origem e com velocidade nula. 
+
+Desejamos resolver o seguinte problema de controle ótimo: Para um horizonte de tempo dado $N$, devemos projetar as entradas $u(0),~u(1),~\ldots$ que minimiza o total de energia consumida
+         \begin{equation*}
+           E = \sum_{k=0}^{N-1} u(k)^2
+         \end{equation*}
+de forma que o objeto, em $k=N$, se encontre na posição $s(N) = 10$ com velocidade nula $v(N) = 0$. Esta restrição deve ser alcançada com o menor gasto de energia $E$ possível.
+\begin{enumerate}[label=(\alph*)]
+           \item Formule este problema como um problema de quadrados mínimos com restrição de igualdade
+           \begin{equation*}
+             \begin{array}{rl}
+             \mathrm{minimo} & \|Ax-b\|_2^2 \\
+             \mathrm{sujeito~a} & Cx = d. \\
+             \end{array}
+           \end{equation*}
+Defina claramente quem é sua variável de decisão $x$ e os dados de entrada $A$, $b$, $C$ e $d$.
+           \item Resolva o problema para $N = 30$. Plote o controle ótimo $u(k)$, a posição resultante $s(k)$ e a velocidade $v(k)$.
+           \item Resolva o problema para $N = 2,~3, \ldots,~30$. Para cada $N$ calcule a energia $E$ consumida pela sequência de controle ótima. Plote $\log_{10}E$ em função de $N$.
+           \item Suponha que é permitido que a posição final seja diferente de $10$ (a velocidade final ainda deve ser nula). No entanto, se $s(N) \neq 10$, temos um custo de penalidade igual a $(s(N)-10)^2$. Resolva o problema que encontre a sequência de controle que minimiza a energia $E$ consumida pela entrada somada com a penalidade de posição final.
+\end{enumerate}
+\end{problem}

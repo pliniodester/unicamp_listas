@@ -1,0 +1,78 @@
+\begin{questions}
+% 3.1   % % % % % % % % % % % % % % % % % % % % %
+\question{
+Mostre que se $P(A) > 0$, então
+	$P(A\,B\mid A) \ge P(A\,B\mid A\cup B)$
+}
+\begin{solution}
+\begin{proof}
+	Como $A\,B\,A = A\,B$, então
+	\[P(A\,B\mid A) = \dfrac{P(A\,B)}{P(A)}.\]
+    Como $A\,B\,(A\cup B) = A\,B$, então
+    \[P(A\,B\mid A\cup B) = \dfrac{P(A\,B)}{P(A\cup B)}.\]
+    Porém, $A \subset A\cup B$ e, portanto, $P(A) \le P(A\cup B)$.\\
+    Logo, podemos concluir que $P(A\,B\mid A) \ge P(A\,B\mid A\cup B)$.
+\end{proof}
+\end{solution}
+
+% 3.2   % % % % % % % % % % % % % % % % % % % % %
+\question{
+Seja $A \subset B$. Expresse as seguintes probabilidades da forma mais simples possível:
+	\[P(A\mid B),P(A\mid B^c), P(B\mid A), P(B\mid A^c).\]
+} \vspace{-10mm}
+\begin{solution}
+	~\\[1ex]
+	$P(A\mid B) = \frac{P(A)}{P(B)}$, pois $A\,B = A$;\\[1ex]
+    $P(A\mid B^c) = 0$, pois $A\,B^c = \emptyset$;\\[1ex]
+    $P(B\mid A) = 1$, pois $A\,B = A$;\\[1ex]
+    $P(B\mid A^c) = \frac{P(B)-P(A)}{1-P(A)}$,
+    	pois $P(B) = P(A\,B)+P(A^c\,B) = P(A)+P(A^c\,B)$.
+\end{solution}
+
+% 3.5   % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{4}
+\question{Diz-se que o evento $F$ carrega informações
+negativas a respeito do evento $E$, e escrevemos $F\searrow E$, se $P(E\mid F) \le P(E).$ Demonstre ou dê contraexemplos para as seguintes afirmativas:
+\begin{parts}
+	\part Se $F\searrow E$, então $E\searrow F$.
+    \part Se $F\searrow E$ e $E\searrow G$, então $F\searrow G$.
+    \part Se $F\searrow E$ e $G\searrow E$, então $F\,G \searrow E$.
+\end{parts}
+    Repita as letras (a), (b) e (c) se $\searrow$ for
+trocado por $\nearrow$. Dizemos que $F$ carrega
+informação positiva a respeito de $E$, e
+escrevemos $F \nearrow E$, quando $P(E\mid F) \ge
+P(E)$.
+}
+\begin{solution}
+Nesse problema, vamos supor que $P(E)>0$, $P(F)>0$, $P(G)>0$ e $P(F\,G)>0$. Note que $E\nearrow F$ e $E\searrow F$ se e somente se $E$ e $F$ são independentes.
+\begin{parts}
+	\part A afirmativa é verdadeira, pois
+    \begin{align*}
+    	F\searrow E &\Rightarrow P(E\mid F) \le P(E)\\
+        			&\Rightarrow P(E\,F)/P(F) \le P(E)\\
+                    &\Rightarrow P(E\,F)/P(E) \le P(F)\\
+                    &\Rightarrow P(F\mid E) \le P(F)\\
+                    &\Rightarrow E\searrow F.
+    \end{align*}
+    Analogamente podemos provar para $\nearrow$ também.
+    \part A afirmativa é falsa. Um contraexemplo é:\\
+    	seja $G = F$, $P(F) < 1$ e $F$ independente de $E$.\\
+        Então, $F\searrow E$ e $E\searrow G$,
+        mas ${P(G\mid F) = 1 > P(G)}$\\[1ex]
+        Para $\nearrow$ a afirmativa também é falsa. Segue um contraexemplo:\\
+        seja $G = F^c$, $P(F) < 1$ e $F$ independente de $E$.\\
+        Então, $F\nearrow E$ e $E\nearrow G$,
+        mas ${P(G\mid F) = 0 < P(G)}$.
+    \part A afirmativa é falsa. Um contraexemplo é:\\
+    	seja o espaço amostral $\Omega = \{1,2,3,4\}$, onde cada elemento é equiprovável, e os eventos $E = \{1,2\}$, $F = \{2,3\}$ e $G = \{2,4\}$.
+        Então, $F\searrow E$ e $G\searrow E$,
+        mas ${P(E\mid F\,G) = 1 > P(E)}.$\\[1ex]
+        Para $\nearrow$ a afirmativa também é falsa. Segue um contraexemplo:\\
+    	seja o espaço amostral $\Omega = \{1,2,3,4\}$, onde cada elemento é equiprovável, e os eventos $E = \{1,2\}$, $F = \{1,3\}$ e $G = \{2,3\}$.
+        Então, $F\nearrow E$ e $G\nearrow E$,
+        mas ${P(E\mid F\,G) = 0 < P(E)}.$
+\end{parts}
+\end{solution}
+
+\end{questions}

@@ -1,0 +1,148 @@
+
+\begin{questions}
+
+% 6.1  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{2}
+\question{
+{\bf (Funções Harmônicas Conjugadas)} Considere uma função analítica $f = u + i v$ definida em algum domínio do plano complexo e suponha que as derivadas parciais de segunda ordem de $u$ e $v$ existam e sejam contínuas. Mostre que as componentes real e imaginária de $f$ verificam a Equação de Laplace, isto é, mostre que
+     \[
+     \frac{\partial^2}{\partial x^2} u + \frac{\partial^2}{\partial y^2} u = 0 \quad \text{e} \quad \frac{\partial^2}{\partial x^2} v + \frac{\partial^2}{\partial y^2} v = 0.
+     \]
+     Já vimos que funções que são soluções da Equação de Laplace são chamadas de {\em funções harmônicas}. Ademais, pares de funções harmônicas que verificam as Condições de Cauchy-Riemann são chamadas de {\em funções harmônicas conjugadas}.
+}
+\begin{solution}
+    Pelo Teorema de Cauchy-Riemann, temos que se $f$ é analítica, então
+    \begin{align*}
+        \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y},
+            \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}
+    \end{align*}
+    Derivando a primeira equação em relação à $x$, derivando a segunda equação em relação à $y$ e somando os resultados obtemos que
+    \begin{align*}
+        \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = \frac{\partial^2 v}{\partial x\partial y} - \frac{\partial^2 v}{\partial y \partial x} = 0,
+    \end{align*}
+    pelo Teorema de Clairaut. Logo, $u$ satisfaz a Equação de Laplace.
+    
+    Analogamente, podemos provar que $v$ também satisfaz a Equação de Laplace.
+\end{solution}
+
+% 6.3  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{2}
+\question{
+{\bf (Forma Complexa das Condições de Cauchy-Riemann)} Lembre que, para qualquer $z = x + iy \in \C$, temos
+ \[
+ x = \frac{1}{2}(z + \bar z) \quad \text{e} \quad y = \frac{1}{2i}(z - \bar z).
+ \]
+ Use a regra da cadeia para mostrar que, para uma função $F$ de duas variáveis dada por $F(x,y)$, temos
+ \[
+ \frac{\partial}{\partial \bar z} F = \frac{1}{2} \left( F_x + i F_y \right).
+ \]
+ Seja $f = u + iv$ uma função complexa. Suponha que $u$ e $v$ tenham derivadas parciais de primeira ordem bem-definidas e que estas verifiquem as equações de Cauchy-Riemann em um ponto $z_0$. Mostre que, neste caso, vale também a equação de Cauchy-Riemann na forma complexa
+ \[
+ \frac{\partial f}{\partial \bar z} (z_0) = 0.
+ \]
+}
+\begin{solution}
+    Usando a regra da cadeia, temos que
+    \begin{align*}
+        \frac{\partial F}{\partial \bar z}
+            = \frac{\partial F}{\partial x} \frac{\partial x}{\partial \bar z}
+                + \frac{\partial F}{\partial y} \frac{\partial y}{\partial \bar z}
+            = \frac{1}{2} \left( F_x + i F_y \right).
+    \end{align*}
+    Usando o resultado acima, temos que
+    \begin{align*}
+        \frac{\partial f}{\partial \bar z} 
+            = \frac{1}{2} \left( u_x+i v_x + i (u_y + i v_y) \right)
+            = \frac{1}{2} \left( (u_x-v_y) + i (u_y + v_x) \right)
+            = 0.
+    \end{align*}
+    A última igualdade vem do fato que $f$ satisfaz as condições de Cauchy-Riemann.
+\end{solution}
+
+% 6.4  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{2}
+\question{
+Suponha que uma função $f$ e sua conjugada $\bar f$ sejam ambas analíticas em um domínio $\mathbb{D}$ do plano. Mostre que $f$ deve ser constante em $\mathbb{D}$.
+}
+\begin{solution}
+    Sabemos que $f = u + iv$ e $\bar f = u - iv$. Se ambas forem analíticas, ambas satisfazem as condições de Cauchy-Riemann, ou seja,
+    \begin{align*}
+        u_x = v_y,~ u_y = -v_x,~ u_x = -v_y,~ u_y = v_x.
+    \end{align*}
+    Logo, $u_x = v_y = u_y = v_x = 0$. Sendo assim, $u$ e $v$ são constantes e, portanto, $f$ é constante.
+\end{solution}
+
+% 6.5  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{4}
+\question{
+Use o exercício anterior para mostrar que, se $f$ for analítica em um domínio $\mathbb{D}$ e tiver módulo constante, então $f$ é constante.
+}%
+\begin{solution}%
+    Se $|f| = 0$, então $f = 0$ e, portanto, $f$ é constante.\\
+    Por outro lado, seja $c > 0$ uma constante e $|f|^2 = c$, ou seja, $f\,\bar f = c$, temos que $\bar f = c/f$. Portanto, $\bar f$ é analítica, pois $f$ é analítica e nunca se anula em $\mathbb{D}$, uma vez que $|f|>0$. Então, pelo problema anterior, $f$ é constante.
+\end{solution}
+
+% 6.6  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{4}
+\question{
+Seja $f$ uma função inteira. Mostre que a função $g$ dada por $g(z) = \overline{f(\bar z)}$ também é inteira. Mostre, também, que a função $h$ dada por $h(z) = \overline{f(z)}$ é diferenciável em $z = 0$ se, e apenas se, $f'(0) = 0$.
+}
+\begin{solution}
+    Seja $f(z) = u(x,y) + i v(x,y)$, então $g(z) = u(x,-y) - i v(x,-y)$. Dessa forma,
+    \begin{align*}
+        \frac{\partial}{\partial x} \Re[g(z)] = u_x(x,-y), &\quad
+        \frac{\partial}{\partial y} \Im[g(z)] = v_y(x,-y),\\
+        \frac{\partial}{\partial y} \Re[g(z)] = -u_y(x,-y), &\quad
+        \frac{\partial}{\partial x} \Im[g(z)] = -v_x(x,-y).
+    \end{align*}
+    Como $f$ satisfaz Cauchy-Riemman em $\C$, então $u_x = v_y$ e $u_y = -v_x$. Usando isso,
+    \begin{align*}
+        \frac{\partial}{\partial x} \Re[g(z)] = \frac{\partial}{\partial y} \Im[g(z)],
+            \quad \frac{\partial}{\partial y} \Re[g(z)] = -\frac{\partial}{\partial x} \Im[g(z)]
+    \end{align*}
+    em $\C$. Portanto, $g$ é inteira.
+    
+    Seja $h(z) = \overline{f(z)} = u(x,y) - iv(x,y)$, então
+    \begin{align}
+        \frac{\partial}{\partial x} \Re[h(z)] = u_x(x,y), &\quad
+        \frac{\partial}{\partial y} \Im[h(z)] = -v_y(x,y), \label{eq:Pr_6.1}\\
+        \frac{\partial}{\partial y} \Re[h(z)] = u_y(x,y), &\quad
+        \frac{\partial}{\partial x} \Im[h(z)] = -v_x(x,y). \label{eq:Pr_6.2}
+    \end{align}
+    Novamente, usando que $f$ satisfaz Cauchy-Riemann, podemos concluir que
+    \begin{align*}
+        \frac{\partial}{\partial x} \Re[h(z)] = -\frac{\partial}{\partial y} \Im[h(z)],
+            \quad \frac{\partial}{\partial y} \Re[h(z)] = \frac{\partial}{\partial x} \Im[h(z)]
+    \end{align*}
+    em $\C$. Portanto, $h$ satisfaz Cauchy-Riemann em algum ponto $z_0\in\C$ se
+    \begin{align*}
+        \frac{\partial}{\partial x} \Re[h(z)] = \frac{\partial}{\partial y} \Im[h(z)] = 0,
+            \quad \frac{\partial}{\partial y} \Re[h(z)] = \frac{\partial}{\partial x} \Im[h(z)] = 0,
+    \end{align*}
+    para $z=z_0$, ou seja, se $u_x=v_y=u_y=v_x=0$ em $z_0$. Se esse for o caso, então $f'(z_0) = 0$.
+    
+    Por outro lado, se sabemos que $f'(z_0) = 0$ para algum $z_0\in\C$, então $u_x = v_x = 0$ e usando isso em \eqref{eq:Pr_6.1} e \eqref{eq:Pr_6.2}, podemos mostrar que $h$ satisfaz Cauchy-Riemann em $z_0$ e, portanto, $h$ é diferenciável em $z_0$.
+\end{solution}
+
+% % % 6.7  % % % % % % % % % % % % % % % % % % % % %
+% % \setcounter{question}{5}
+% \question{
+% {\bf (Princípio da Reflexão)} Suponha que uma função $f$ seja analítica em um domínio $\mathbb{D}$ que contém um segmento do eixo real e que é simétrico em relação a este eixo. Mostre que a igualdade
+%      \[
+%      \overline{f(z)} = f(\bar z)
+%      \]
+%     vale para todo $z \in \mathbb{D}$ se, e apenas se, $f(x)$ for real em todo ponto $(x,0)$ no segmento.
+% }
+% \begin{solution} % ver Cap. 27 do Churchill.
+%     Seja $f(z) = u(x,y) + iv(x,y)$. Se $\overline{f(z)} = f(\bar z)$, então
+%     \begin{align*}
+%         u(x,y) - iv(x,y) = u(x,-y) + i v(x,-y).
+%     \end{align*}
+%     Em $z = (x,0)$, temos que
+%     \begin{align*}
+%         u(x,0) - iv(x,0) = u(x,0) + i v(x,0) ~\Rightarrow~ v(x,0) = 0.
+%     \end{align*}
+%     Portanto, em $z=(x,0)$, temos que $f(z) = u(x,0)$, ou seja, $f$ é real na reta real.
+% \end{solution}
+
+\end{questions}

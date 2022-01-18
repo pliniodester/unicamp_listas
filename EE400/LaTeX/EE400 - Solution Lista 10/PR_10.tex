@@ -1,0 +1,82 @@
+
+\begin{questions}
+
+% 9.3  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{2}
+\question{
+{\bf (Números de Euler)} Os {\em números de Euler} são os números $E_n$, $n = 0,1,2,\cdots$, na série de Maclaurin
+ \[
+ \frac{1}{\cosh z} = \sum_{n = 0}^\infty \frac{E_n}{n!} z^n, \quad \forall z \, : \, |z| < \pi/2.
+ \]
+ Verifique o raio de convergência desta série. Verifique também que $E_{2n+1} = 0$, para todo $n \in \N$. Finalmente, determine os quatro primeiros números de Euler não-nulos.
+}
+%
+\begin{solution}
+    O raio de convergência é dado pela distância entre a origem e o pólo mais próximo, que é em $\pm i\pi/2$, pois $\cosh i\pi/2 = 0$.
+    
+    Como a função é par, então todos os coeficientes ímpares são nulos, ou seja, $E_{2n+1} = 0$.
+    
+    Vamos expandir a série do $\cosh$ no denominador e em seguida expandir usando a série geométrica.
+    \begin{align*}
+        \frac{1}{\cosh z} &= \frac{1}{1 + (z^2/2! + z^4/4! + z^6/6! + \cdots)}\\
+            &= 1 - (z^2/2! + z^4/4! + z^6/6!) + (z^2/2! + z^4/4! + z^6/6!)^2 - (z^2/2! + z^4/4! + z^6/6!)^3 + \cdots\\
+            &= 1 - \frac{1}{2!}z^2 + \frac{5}{4!}z^4 - \frac{61}{6!}z^6 + \cdots, \quad |z| < \pi/2.
+    \end{align*}
+    Comparando os coeficientes temos que $E_0 = 1$, $E_2 = -1$, $E_4 = 5$ e $E_6 = -61$.
+\end{solution}
+
+% 9.4  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{1}
+\question{
+{\bf (Transformada ${\cal Z}$)} Suponha que a série
+ \[
+ \sum_{n = -\infty}^\infty x[n] z^{-n}
+ \]
+ converge para uma função analítica $X$ em um anel $r_1 < |z| < r_2$. Esta soma, $X(z)$, é chamada de transformada ${\cal Z}$ do sinal $x$. Use a expressão do termo geral da série de Laurent para mostrar que, se a região de convergência da série contiver o círculo unitário $|z| = 1$, então a {\em transformada ${\cal Z}$ inversa} pode ser escrita como
+ \[
+ x[n] = \frac{1}{2\pi} \int_{-\pi}^\pi X(e^{i\theta})e^{in\theta} \d \theta, \quad n \in \Z.
+ \]
+}
+\begin{solution}
+    Seja $C$ o círculo unitário ao redor da origem. Sabemos que
+    \begin{align*}
+        \oint_C z^{k-1} X(z) \d z = \sum_{n = -\infty}^\infty x[n] \oint_C z^{k-n-1} \d z = 2\pi i \, x[k],
+    \end{align*}
+    pois a função é analítica em $|z|=1$.
+    Logo, seja $z = e^{i\theta}$, $\theta\in(-\pi,\pi)$, temos que
+    \begin{align*}
+        x[n] = \frac{1}{2\pi i} \int_{-\pi}^{\pi} X(e^{i\theta}) e^{(n-1)i\theta} i e^{i\theta} \d\theta
+            = \frac{1}{2\pi} \int_{-\pi}^{\pi} X(e^{i\theta}) e^{ni\theta}\d\theta.
+    \end{align*}
+\end{solution}
+
+% 9.5  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{10}
+\question{
+{\bf (Um Sapo Preguiçoso e Assimétrico)} Um sapo pula um metro de $z = 0$ para $z = 1$ em seu primeiro pulo, $1/2$ metro no seu segundo pulo, $1/4$ de metro em seu terceiro pulo e assim sucessivamente; a cada salto, dada a sua condição, o sapo ainda gira de um ângulo $\alpha$ para a esquerda com relação ao salto precedente. Mostre que o sapo sempre irá parar, depois de muito tempo, sobre o círculo $|z - 4/3| = 2/3$, independentemente da escolha de $\alpha$.
+}
+%
+\begin{solution}
+    A posição do sapo é dada pelo somatório
+    \begin{align}
+        \sum_{n=0}^\infty \left(\frac{e^{i\alpha}}{2}\right)^n
+            = \frac{1}{1 - e^{i\alpha}/2},
+    \end{align}
+    pois $|e^{i\alpha}/2| = 1/2 < 1$.
+    
+    Agora vamos calcular o valor de
+    \begin{align*}
+        \left| \frac{1}{1 - e^{i\alpha}/2} - \frac{4}{3} \right|^2
+            &= 4 \left| \frac{1}{2 - e^{i\alpha}} \frac{2 - e^{-i\alpha}}{2 - e^{-i\alpha}} - \frac{2}{3} \right|^2 \\
+            &= 4 \left| \frac{2 - e^{-i\alpha}}{4 - 4 \cos\alpha + 1} - \frac{2}{3} \right|^2 \\
+            &= 4 \left| \frac{3(2 - \cos\alpha + i \sin\alpha) - 2 (5-4\cos\alpha) }{3(5 - 4 \cos\alpha)}\right|^2 \\
+            &= \frac{4}{9} \left| \frac{5 \cos\alpha - 4 + 3i\sin\alpha}{5 - 4 \cos\alpha} \right|^2 \\
+            &= \left( \frac{2}{3} \right)^2 \frac{(5 \cos\alpha - 4)^2 + 9\sin^2\alpha}{(5 - 4 \cos\alpha)^2} \\
+            &= \left( \frac{2}{3} \right)^2 \frac{(16+9)\cos^2\alpha -40\cos\alpha + 16 + 9\sin^2\alpha}{ 25 - 40\cos\alpha + 16\cos^2\alpha} \\
+            &= \left( \frac{2}{3} \right)^2.
+    \end{align*}
+    Portanto,
+    \[ \left| \sum_{n=0}^\infty \left(\frac{e^{i\alpha}}{2}\right)^n - \frac{4}{3} \right| = \frac{2}{3} \quad \forall \alpha\in\R.\]
+\end{solution}
+
+\end{questions}

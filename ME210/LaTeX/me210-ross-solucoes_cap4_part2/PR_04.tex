@@ -1,0 +1,308 @@
+
+\begin{questions}
+
+% 4.34 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{33}
+\question{No Exemplo 4b, suponha que a loja de
+departamentos embuta um custo adicional $c$ por cada unidade de demanda não atingida (esse tipo de custo é frequentemente chamado de custo \textit{goodwill} porque a loja perde a boa vontade dos
+consumidores cuja demanda ela não foi capaz de suprir). Calcule o lucro esperado quando a loja armazena $s$ unidades, e determine o valor de $s$ que maximiza o lucro esperado.
+}
+\begin{solution}
+	Usando a mesma notação do Exemplo 4b e considerando o custo \textit{goodwill}, temos que o lucro esperado é dado por
+    \begin{align*}
+    	P(s) = \begin{cases}
+    		b\,X-(s-X)\,\ell, &\text{se } X \le s,\\
+            b\,s-(X-s)\,c, &\text{se } X > s.\\
+    	\end{cases}
+    \end{align*}
+    Logo, o valor esperado do lucro é dado por
+    \begin{align*}
+    	E[P(s)] 
+        	&= \sum_{i=0}^s (b\,i-(s-i)\,\ell)\,p(i)
+            	+ \sum_{i=s+1}^\infty  (b\,s-(i-s)\,c)\,p(i)\\
+            &= b\,s - (b+\ell) \sum_{i=0}^s (s-i)\,p(i)
+            	- c\sum_{i=s+1}^\infty (i-s)\,p(i).
+    \end{align*}
+    Para encontrar o máximo, vamos calcular
+    \begin{align*}
+    	E[P(s+1)]-E[P(s)] = (b+c) - (b+c+\ell)\sum_{i=0}^s p(i).
+    \end{align*}
+    É melhor estocar $s+1$ unidades do que $s$ sempre que ${E[P(s+1)]-E[P(s)]>0}$. Logo, seja $s^*$ o maior valor inteiro positivo que satisfaça a seguinte relação:
+    \begin{align*}
+    	E[P(s^*+1)]-E[P(s^*)] > 0
+        	\Leftrightarrow \sum_{i=0}^{s^*} p(i) < \frac{b+c}{b+c+\ell},
+    \end{align*}
+    então o número ótimo de unidades a serem estocadas é $s^*+1$.    
+\end{solution}
+
+% 4.35 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{34}
+\question{Uma caixa contém 5 bolas de gude vermelhas e 5 azuis. Duas bolas de gude são retiradas aleatoriamente. Se elas tiverem a mesma cor, você ganha R\$1,10; se elas tiverem cores diferentes, você ganha -R\$1,00 (isto é, você perde R\$1,00). Calcule
+\begin{parts}
+	\part o valor esperado da quantia que você ganha;
+	\part a variância da quantia que você ganha.
+\end{parts}
+}
+\begin{solution}
+Seja $X$ a variável aleatória correspondente ao ganho obtido.
+\begin{parts}
+	\part $E[X] = \text{1,10}\cdot \frac{10}{10}\frac{4}{9}
+    	- \text{1,00}\cdot \frac{10}{10}\frac{5}{9} \approx \text{0,067}.$
+	\part $E[X^2] = \text{1,10}^2\cdot \frac{10}{10}\frac{4}{9}
+    	+ \text{1,00}^2\cdot \frac{10}{10}\frac{5}{9} \approx \text{1,093}.$\\[1ex]
+        $\Var(X) = E[X^2]-E[X]^2 \approx \text{1,089}.$
+\end{parts}
+\end{solution}
+
+% 4.38 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{37}
+\question{Se $E[X] = 1$ e $\Var(X) = 5$, determine
+\begin{parts}
+	\part $E[2+X^2]$;
+	\part $\Var(4+3X)$.
+\end{parts}
+}
+\begin{solution}
+Sabemos que $\Var(X) = E[X^2]-E[X]^2$, logo $E[X^2] = 6$.
+\begin{parts}
+	\part $E[2+X^2] = 2+E[X^2] = 8.$
+	\part ${\Var(4+3X) = E[(4+3X)^2] - E[4+3X]^2}\\
+        {\quad= 16+24E[X]+9E[X^2] - (4+3E[X])^2
+        = 45}$.
+\end{parts}
+\end{solution}
+
+% 4.51 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{50}
+\question{O número esperado de erros tipográficos
+em uma página de certa revista é igual a
+0,2. Qual é a probabilidade de que a próxima página que você leia contenha (a) O e (b) 2 ou mais erros tipográficos?
+Explique o seu raciocínio!
+}
+\begin{solution}
+Supondo que a probabilidade de ocorrer um erro tipográfico seja baixa e que o número de letras em uma página seja suficientemente grande, então podemos aproximar o número de erros em uma página por uma variável aleatória $X$ com distribuição de Poisson de parâmetro $\lambda = \text{0,2}$.
+\begin{parts}
+	\part $P(X=0) = \euler^{-\text{0,2}} \approx \text{0,8187}$.
+	\part $1-P(X=0)-P(X=1) = 1-\euler^{-\text{0,2}}-\text{0,2}\,\euler^{-\text{0,2}} \approx \text{0,0175}$.
+\end{parts}
+\end{solution}
+
+% 4.53 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{52}
+\question{Aproximadamente 80.000 casamentos foram celebrados no estado de Nova York no ano passado. Estime a probabilidade
+de que, em pelo menos um desses casais,
+\begin{parts}
+	\part ambos os parceiros tenham nascido no dia 30 de abril?
+    \part ambos os parceiros celebrem seu aniversário no mesmo dia do ano?
+\end{parts}
+}
+\begin{solution}
+A probabilidade de ocorrer a coincidência é baixa e o número de casais é alto, então podemos aproximar o número de coincidências por uma variável aleatória com distribuição de Poisson de parâmetro:
+\begin{parts}
+	\part $\lambda = \frac{1}{365^2}\cdot 80\,000 \approx \text{0,6} $. Logo, a probabilidade desejada é $1-\euler^{-\text{0,6}} \approx \text{0,45}$.
+	\part $\lambda = \frac{1}{365}\cdot 80\,000 \approx \text{219,2}$. Logo, a probabilidade desejada é $1-\euler^{-\text{219,2}} \approx 1$.
+\end{parts}
+\end{solution}
+
+% 4.57 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{56}
+\question{Suponha que o número de acidentes que
+ocorrem em uma autoestrada em cada
+dia seja uma variável aleatória de Poisson
+com parâmetro $\lambda = 3$.
+\begin{parts}
+	\part Determine a probabilidade de que 3 ou mais acidentes ocorram hoje;
+    \part Repita a letra (a) supondo que pelo menos 1 acidente ocorra hoje
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part $P(X\ge3) = 1 -P(X=0)-P(X=1)-P(X=2)\\
+    	{\quad= 1-\euler^{-3}-3\euler^{-3}-\frac{3^2}{2}\euler^{-3}
+        	\approx \text{0,5768}}$.
+	\part $P(X\ge3\mid X\ge 1) = P(X\ge3, X\ge 1)/P(X\ge 1) = P(X\ge3)/P(X\ge 1)\\
+    {\quad = \dfrac{1-\frac{17}{2}\euler^{-3}}{1-\euler^{-3}}
+    	\approx \text{0,607}}$.
+\end{parts}
+\end{solution}
+
+% 4.60 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{59}
+\question{O número de vezes em que uma pessoa
+contrai um resfriado em um dado ano é
+uma variável aleatória de Poisson com
+parâmetro $\lambda = 5$. Suponha que a propaganda de uma nova droga (baseada em
+grandes quantidades de vitamina C) diga
+que essa droga reduz os parâmetros da
+distribuição de Poisson para $\lambda = 3$ em
+75\% da população. Nos 25\% restantes, a
+droga não tem um efeito apreciável nos
+resfriados. Se um indivíduo experimentar
+a droga por um ano e tiver 2 resfriados
+naquele período, qual é a probabilidade
+de que a droga tenha trazido algum benefício para ele ou ela?
+}
+\begin{solution}
+	Seja $X_\lambda$ uma variável aleatória que segue uma distribuição de Poisson de parâmetro $\lambda$, $A$ o evento da droga fazer efeito em uma pessoa e $Y$ o número de resfriados contraídos por uma pessoa que tomou o remédio. Queremos saber
+    \begin{align*}
+    	P(A\mid Y=2)
+        	&= \frac{P(Y=2\mid A)P(A)}{P(Y=2\mid A)P(A)+P(Y=2\mid A^c)P(A^c)}\\
+            &= \frac{P(X_3=2)P(A)}{P(X_3=2)P(A)+P(X_5=2)P(A^c)}\\
+            &= \dfrac{(\frac{3^2}{2}\euler^{-3})\frac{3}{4}}
+            	{(\frac{3^2}{2}\euler^{-3})\frac{3}{4}
+                +(\frac{5^2}{2}\euler^{-5})\frac{1}{4}}\\
+			&\approx \text{0,8886}.
+    \end{align*}
+\end{solution}
+
+% 4.65 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{64}
+\question{Cada um dos 500 soldados de uma companhia do exército tem probabilidade de $1/10^3$ ter certa doença, independentemente uns dos outros. Essa doença é diagnosticada por meio de um exame de sangue, e para facilitar o procedimento, amostras
+de sangue de todos os 500 soldados são coletadas e testadas.
+\begin{parts}
+	\part Qual é a probabilidade (aproximada)
+de que o exame de sangue dê positivo
+(isto é, de que pelo menos uma pessoa
+tenha a doença).
+	\part Suponha agora que o exame de sangue dê
+um resultado positivo. Qual é a probabilidade, nessa circunstância, de que mais de uma pessoa tenha a doença?
+	\part Uma das 500 pessoas é João, que sabe
+que tem a doença. Qual é, na opinião de João, a probabilidade de que mais de uma pessoa tenha a doença?
+	\part Como o teste em grupo deu positivo, as
+autoridades decidiram testar cada indivíduo separadamente. Os primeiros $i - 1$ desses testes deram negativo, e o $i$-ésimo
+teste, que é o de João, deu positivo. Dado o cenário anterior, qual é a probabilidade, em função de $i$, de que
+qualquer uma das pessoas restantes tenham a doença?
+\end{parts}
+}
+\begin{solution}
+	\begin{parts}
+	\part Como a probabilidade de ter a doença é pequena e temos um número grande de soldados, então podemos aproximar o número de pessoas doentes pela variável aleatória $X$, que segue uma distribuição de Poisson de parâmtro ${\lambda = 500\cdot\frac{1}{10^3} = \frac{1}{2}}$. Logo,
+        \[P(X>0)=1-P(X=0)=1-\euler^{-1/2}\approx \text{0,393}.\]
+        
+	\part
+        \begin{align*}
+        P(X>1\mid X>0) 
+        	&= \frac{P(X>1)}{P(X>0)} = \frac{1-P(X=1)-P(X=0)}{1-P(X=0)}\\
+            &= \frac{1-\frac{3}{2}\euler^{-1/2}}{1-\euler^{-1/2}} 
+            	\approx \text{0,229}. 
+        \end{align*}
+	
+    \part O estado das outras pessoas é independente de João, logo a probabilidade continua sendo $P(X>0)$, mas com parâmetro $\lambda=499\cdot\frac{1}{10^3}$.\\ Assim, $P(X>0) = 1-\euler^{499/1000} \approx \text{0,393}$.
+    
+    \part Nesse novo caso, $\lambda = (500-i)\frac{1}{10^3}$. Logo, $P(X>0)=1-\euler^{\frac{500-i}{1000}}$. Entretanto, se $i$ é próximo de 500 a aproximação pela Poisson não é razoável. Então, para podermos escolher qualquer $i$ e obter a resposta correta, devemos fazer o cálculo da maneira convencional, isto é, a probabilidade de termos pelo menos uma das $500-i$ pessoas com a doença é o complemento de nenhuma delas estar doente, ou seja, $1-(1-\frac{1}{10^3})^{500-i}$.
+	\end{parts}
+\end{solution}
+
+% 4.68 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{67}
+\question{Em resposta ao ataque de 10 mísseis,
+500 mísseis antiaéreos são lançados. Os alvos
+dos mísseis antiaéreos são independentes,
+e cada míssil antiaéreo pode ter, com
+igual probabilidade, qualquer um dos 10
+mísseis como alvo. Se cada míssil antiaéreo
+atinge o seu alvo independentemente
+com probabilidade 0,1, use o paradigma
+de Poisson para obter um valor aproximado
+para a probabilidade de que todos
+os mísseis sejam atingidos.\vspace{-6mm}
+}
+\begin{solution}
+	Cada míssil de ataque tem probabilidade 1/10 de ser escolhido por um dado míssil antiaéreo e probabilidade 0,1 desse míssil antiaéreo funcionar. Como lançaremos 500 mísseis antiaéreos, podemos aproximar o evento do número de mísseis antiaéreos acertar um determinado míssil de ataque por uma Poisson de parâmetro ${\lambda=500\cdot\frac{1}{10}\cdot\text{0,1}=5}$. Logo, a chance de um dado míssil de ataque ser derrubado, isto é, pelo menos um míssil antiaéreo o acertar é dado por $1-\euler^{-5}$. Como isso deve acontecer 10 vezes, pois temos 10 mísseis de ataque, então a probabilidade desejada pode ser aproximada por $(1-\euler^{-5})^{10}\approx\text{0,935}$.
+\end{solution}
+
+% 4.69 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{67}
+\question{Uma moeda honesta é jogada 10 vezes.
+Determine a probabilidade de ocorrência
+de uma série de 4 caras consecutivas
+\begin{parts}
+	\part usando a fórmula deduzida no texto;
+    \part usando as equações recursivas deduzidas no texto.
+    \part Compare a sua resposta com aquela
+dada pela aproximação de Poisson.
+\end{parts}
+}
+\begin{solution}
+	\begin{parts}
+	\part Do exemplo 7d, temos que
+    \begin{align*}
+    	P(L_{10}\ge 4) 
+        	&= \sum_{r=1}^{7} (-1)^{r+1} \left[ \binom{10-4r}{r}
+        		+ 2\binom{10-4r}{r-1} \right]
+                \left(\frac{1}{2}\right)^5 \\
+			&\approx \text{0,2451}.
+    \end{align*}
+    
+    \part A equação recursiva é
+    \begin{align*}
+    	P_n &= \sum_{j=1}^4 P_{n-j}(1/2)^j + (1/2)^k\\
+        	&= P_{n-1}/2 + P_{n-2}/4 + P_{n-3}/8 + (1+P_{n-4})/16,
+    \end{align*}
+    com condições iniciais $P_j=0$ se $j<4$ e $P_4 = (1/2)^4$. Dessa forma, obtemos
+    \begin{align*}
+        P_5 	&= \text{0,09375},\\
+        P_6 	&= \text{0,125},\\
+        P_7 	&= \text{0,15625},\\
+        P_8 	&= \text{0,1875},\\
+        P_9 	&= \text{0,216796875},\\
+        P_{10} 	&= \text{0,245117187}.
+    \end{align*}
+    
+    \part Usando a aproximação pela Poisson temos $P(L_{10} < 4) \approx \exp(-10/2^5)$. Logo, $P(L_{10} \ge 4) \approx 1-\exp(-10/2^5) \approx \text{0,268}.$
+	\end{parts}
+\end{solution}
+
+% 4.72 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{71}
+\question{Duas equipes de atletismo jogam uma série de partidas;
+a primeira a ganhar 4 partidas é declarada vencedora. Suponha que
+uma das equipes seja mais forte do que a
+outra e que vença cada partida com probabilidade 0,6, independentemente dos
+resultados das demais partidas. Determine a probabilidade, para $i = 4,5,6,7$, de
+que a equipe mais forte vença a série em
+exatamente $i$ partidas. Compare a probabilidade de vitória da equipe mais forte
+com a probabilidade dela vencer 2 partidas em uma série de 3.
+}
+\begin{solution}
+	Seja $X_r$ a variável aleatória que representa o número de partidas até que a equipe mais forte ganhe $r$ partidas, então $X_4$ segue uma distribuição binomial negativa de parâmetros $p=\text{0,6}$ e $r=4$. Logo,
+    \begin{align*}
+    	P(X_4 = i) = \binom{i-1}{3}\,\text{0,6}^4\,\text{0,4}^{i-4},
+        	\quad i=4,5,6,7.
+    \end{align*}
+    Portanto,
+    \begin{align*}
+    	P(X_4 = 4) &= \text{0,1296},\\
+        P(X_4 = 5) &= \text{0,20736},\\
+        P(X_4 = 6) &= \text{0,20736},\\
+        P(X_4 = 7) &= \text{0,165888}.
+    \end{align*}
+    A probabilidade de vitória é dada por \[\sum_{i=4}^7 P(X_4 = i) = \text{0,710208}.\] Enquanto que para o caso da série de 3 a probabilidade de vitória é dada por \[\sum_{i=2}^3 P(X_2 = i) = \text{0,648}.\]
+\end{solution}
+
+% 4.79 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{78}
+\question{Suponha que um conjunto de 100 itens contenha 6 itens defeituosos e 94 que funcionem normalmente. Se $X$ é o número de itens defeituosos em uma amostra de 10 itens escolhidos aleatoriamente do conjunto, determine $P(X=0)$ e $P(X>2)$.
+}
+\begin{solution}
+	Note que $X$ é uma variável aleatória que segue a distribuição hipergeométrica com parâmetros $N=100$, $m=6$ e $n=10$. Logo,
+    \begin{equation*}
+    	P(X=i) = \frac{\binom{m}{i}\binom{N-m}{n-i}}{\binom{N}{n}}.
+    \end{equation*}
+    Assim, $P(X=0) \approx \text{0,5223}$ e $P(X>2)=1-P(X\le2)\approx \text{0,01255}$.
+\end{solution}
+
+% 4.83 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{82}
+\question{Há três autoestradas em um país. O número de acidentes que ocorrem diariamente nessas autoestradas é uma variável aleatória de Poisson com respectivos parâmetros 0,3, 0,5 e 0,7 Determine o número esperado de acidentes que vão acontecer hoje em qualquer uma dessas autoestradas.
+}
+\begin{solution}
+	Sejam $X_1$, $X_2$ e $X_3$ variáveis aleatórias que seguem a distribuição de Poisson com parâmetros $\lambda_1 = \text{0,3}$, $\lambda_2 = \text{0,5}$ e $\lambda_3 = \text{0,7}$, respectivamente. Então, o número esperado de acidentes é dado por
+    \begin{align*}
+    	E[X_1+X_2+X_3] = E[X_1]+E[X_2]+E[X_3]
+        	= \lambda_1+\lambda_2+\lambda_3 = \text{1,5}.
+    \end{align*}
+
+
+\end{solution}
+\end{questions}

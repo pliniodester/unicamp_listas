@@ -1,0 +1,84 @@
+\begin{questions}
+
+% 5.27 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{26}
+\question{
+Se $X$ é uniformemente distribuída em $(a, b)$, qual variável aleatória que varia linearmente com $X$ é uniformemente distribuída em $(0, 1)$?
+}
+\begin{solution}
+Seja $Y = (X-a)/(b-a)$, então
+\begin{align*}
+	F_Y(y) &= P(Y\le y) = P((X-a)/(b-a) \le y)\\
+    	&= P(X \le (b-a)\,y+a) = F_X((b-a)\,y+a).
+\end{align*}
+Derivando os dois lados da equação em relação à $y$ obtemos que
+\begin{align*}
+	f_Y(y) =  (b-a)f_X((b-a)\,y+a) =
+    \begin{cases}
+    	1, &\text{se }y\in(0,1);\\
+        0, &\text{caso contrário.}
+    \end{cases}
+\end{align*}
+Logo, $Y$ é uniformemente distribuída em $(0,1)$.\\[1mm]
+\textit{Observação:} outra opção é fazer $Y = (b-X)/(b-a)$.
+\end{solution}
+
+% 5.29 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{28}
+\question{
+Seja $X$ uma variável aleatória contínua
+com função distribuição cumulativa $F$.
+Defina a variável aleatória $Y$ como $Y = F(X)$.
+Mostre que $Y$ é uniformemente distribuída em $(0, 1)$.
+}
+\begin{solution}
+	Por simplicidade, vamos supor que $F: \mathbb{R} \to [0,1]$ seja estritamente crescente. Logo, $F$ é inversível e para $y \in (0,1)$,
+	\begin{align*}
+		F_Y(y) = P(Y\le y) = P(F(X)\le y) = P(X \le F^{-1}(y)) = F(F^{-1}(y)) = y.
+	\end{align*}
+    Dessa forma, quando $y \in \mathbb{R}$,
+    \begin{align*}
+    	F_Y(y) =
+        \begin{cases}
+    	0, &\text{se }y \le 0;\\
+        y, &\text{se }0 < y < 1;\\
+        1, &\text{se }y \ge 1;\\
+    	\end{cases}
+    \end{align*}
+    o que caracteriza uma distribuição uniforme em $(0,1)$.\\[1mm]
+    \textit{Observação:} Isso também acontece quando $F$ não é inversível.
+\end{solution}
+
+% 5.30 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{28}
+\question{
+Suponha que $X$ tenha função densidade
+de probabilidade $f_X$. Determine a função
+densidade de probabilidade da variável
+aleatória $Y$ definida como $Y = aX + b$.
+}
+\begin{solution}
+	Seja $a>0$,
+	\begin{align*}
+		F_Y(y) = P(Y\le y) = P(aX+b\le y) = P(X\le (y-b)/a) = F_X((y-b)/a).
+	\end{align*}
+    Derivando ambos lados da equação em relação à $y$ leva à
+    \begin{align*}
+    	f_Y(y) = \frac{f_X((y-b)/a)}{a}.
+    \end{align*}
+    Por outro lado, se $a<0$, então
+    \begin{align*}
+    	F_Y(y) &= P(X\ge (y-b)/a) = 1-P(X<(y-b)/a) = 1-F_X([(y-b)/a]^-)\\
+        	&= 1-F_X((y-b)/a) \quad\text{(a variável aleatória é contínua).}
+    \end{align*}
+    Novamente, derivando ambos lados da equação em relação à $y$ leva à
+    \begin{align*}
+    	f_Y(y) = \frac{f_X((y-b)/a)}{-a}.
+    \end{align*}
+    Portanto, quando $a\neq 0$,
+    \begin{align*}
+    	f_Y(y) = \frac{f_X((y-b)/a)}{|a|}.
+    \end{align*}
+\end{solution}
+
+\end{questions}

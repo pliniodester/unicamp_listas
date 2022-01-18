@@ -1,0 +1,161 @@
+
+\begin{questions}
+
+% 5.1  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{2}
+\question{
+Determine os valores de $n \in \N$ para os quais a igualdade $(1 + i)^n = (1 - i)^n$ se verifica.
+}
+\begin{solution}
+    Seja $z_1,z_2\in\C$. Sabemos que $z_1 = z_2$ sempre que $|z_1|=|z_2|$ e $\arg(z_1)=\arg(z_2)$.
+    
+    Nesse problema, é fácil ver que os módulos são iguais para todo $n\in\N$. Dessa forma, basta verificarmos para quais valores de $n$ os argumentos são iguais, ou seja,
+    \begin{align*}
+    \arg(1 + i)^n = \arg(1 - i)^n
+        \Leftrightarrow~ & n \frac{\pi}{4} = -n \frac{\pi}{4} + 2 k \pi,\quad k\in\Z \\
+        \Leftrightarrow~ & n = 4 k,\quad k\in\N.
+    \end{align*}
+    Dessa forma, para que a igualdade se verifique basta que $n\in\{0,4,8,12,\dots\}.$
+\end{solution}
+
+% 5.2  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{2}
+\question{
+Use as Fórmulas de De Moivre para deduzir as seguintes identidades trigonométricas:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+  \item $\cos 2\theta = \cos^2 \theta - \sin^2 \theta$;
+  \item $\sin 2\theta = 2\sin \theta \cos \theta$;
+  \item $\cos 3\theta = \cos^3\theta - 3\cos \theta \sin^2 \theta$;
+  \item $\sin 3\theta = 3\cos^2\theta\sin\theta - \sin^3\theta$.
+\end{enumerate}
+\end{multicols}
+}
+\begin{solution}
+    A partir da fórmula de De Moivre, temos que
+    \begin{align*}
+        \cos 2\theta + i \sin 2\theta &= (\cos\theta + i \sin\theta)^2 \\
+            &= (\cos^2\theta - \sin^2\theta) + i \sin\theta \cos\theta.
+    \end{align*}
+    Comparando a parte real e imaginária, encontramos as identidades (a) e (b).
+    
+    Novamente, a partir da fórmula de De Moivre, temos que
+    \begin{align*}
+        \cos 3\theta + i \sin 3\theta &= (\cos\theta + i \sin\theta)^3 \\
+            &= (\cos^3\theta - 3\cos\theta \sin^2\theta) + i (3\cos^2\theta \sin\theta - \sin^3\theta).
+    \end{align*}
+    Comparando a parte real e imaginária, encontramos as identidades (c) e (d).
+    
+    De forma geral, para $n\in\N$, temos que
+    \begin{align*}
+        \cos n\theta &= \sum_{k=0}^{\lfloor n/2 \rfloor} (-1)^k \binom{n}{2k} \cos^{n-2k}\theta \sin^{2k}\theta,\\
+        \sin n\theta &= \sum_{k=0}^{\lfloor (n-1)/2 \rfloor} (-1)^k \binom{n}{2k+1} \cos^{n-2k-1}\theta \sin^{2k+1}\theta.
+    \end{align*}
+\end{solution}
+
+% 5.3  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{2}
+\question{
+{\bf (Soma de uma Progressão Geométrica)} Mostre que
+\[
+1 + z + z^2 + \cdots + z^n = \frac{1 - z^{n+1}}{1 - z}
+\]
+é válida para todo $z \neq 1$.
+}
+\begin{solution}
+    Seja $S(z) = 1 + z + z^2 + \cdots + z^n$. Então,
+    \[(1-z)\,S(z) = S(z) - z\,S(z) = 1 - z^{n+1}.\]
+    Como $z\neq1$, então
+    \[S(z) = \frac{1-z^{n+1}}{1-z}.\]
+\end{solution}
+
+% 5.4  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{4}
+\question{
+{\bf (Soma das raízes da unidade)} Mostre que, se $\omega \neq 1$ satisfaz a equação $\omega^n = 1$, então
+\[ 1 + \omega + \omega^2 + \cdots + \omega^{n-1} = 0.\] \vspace{-10mm}
+}%
+\begin{solution}%
+Aplicando o resultado do Problema 3, temos que
+\[
+    1 + \omega + \omega^2 + \cdots + \omega^{n-1} = \frac{1-\cancelto{1}{\omega^n}}{1-\omega} = 0, \quad \text{pois $\omega\neq 1$.}
+\]
+\end{solution}
+
+% 5.5  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{4}
+\question{
+{\bf (Identidade de Lagrange)} Use a fórmula da soma de uma progressão geométrica para demonstrar a {\em identidade trigonométrica de Lagrange}
+\[
+1 + \cos \theta + \cos 2\theta + \cdots + \cos n\theta = \frac{1}{2} + \frac{\sin\left( \left(n + \frac{1}{2}\right)\theta \right)}{2\sin(\theta/2)},
+\]
+que é satisfeita para todo $\theta \in (0,2\pi)$.
+}
+\begin{solution}
+    Tome $z=\euler^{i\theta}$ na progressão geométrica do Problema 3 e use a fórmula de Euler para concluir que
+    \[
+        (1 + \cos \theta + \cos 2\theta + \cdots + \cos n\theta)
+        + i (\sin \theta + \sin 2\theta + \cdots + \sin n\theta)
+            = \frac{1 - \euler^{i(n+1)\theta}}{1 - \euler^{i\theta}}.
+    \]
+    Extraindo a parte real de ambos lados da equação, obteremos a identidade desejada. Mas, antes disso vamos trabalhar no lado direito da equação.
+    \begin{align*}
+        \frac{1 - \euler^{i(n+1)\theta}}{1 - \euler^{i\theta}}\, \frac{\euler^{-i\theta/2}}{\euler^{-i\theta/2}}
+            &= \frac{\euler^{-i\theta/2}-\euler^{i(n+1/2)\theta}}{-2i\sin(\theta/2)} \\
+            &= \left(\frac{1}{2} + \frac{\sin\!\left( \left(n + \frac{1}{2}\right)\theta\right)}{2\sin(\theta/2)} \right) + i\left(\frac{\cos(\theta/2) - \cos\!\left( \left(n + \frac{1}{2}\right)\theta\right)}{2\sin(\theta/2)} \right).
+    \end{align*}
+    De fato, a parte real é justamente a fórmula que procurávamos.
+    %
+    Ainda, podemos obter também a fórmula da soma dos senos ao tomarmos a parte imaginária.
+\end{solution}
+
+% % 5.6  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{5}
+\question{
+{\bf (O corpo $\mathbb{C}$ não admite ordem)} Uma ordem em um corpo $\mathbb{K}$ consiste em definir um subconjunto $\mathbb{K}^+$ de $\mathbb{K}$, formado pelos {\em números positivos} em $\mathbb{K}$, tal que:
+    \begin{itemize}
+      \item se $x,y \in \mathbb{K}^+$, então $x + y \in \mathbb{K}^+$ e $xy \in \mathbb{K}^+$ e
+      \item dado $x \in \mathbb{K}$, então apenas uma das três possibilidades se verifica: ou $x \in \mathbb{K}^+$, ou $x = 0$ ou $-x \in \mathbb{K}^+$.
+    \end{itemize}
+    Segue dessas duas propriedades que, em um corpo ordenado, o quadrado de qualquer elemento não-nulo deve ser positivo. Use as propriedades acima para provar este fato. Use essa observação para concluir que $\mathbb{C}$ não pode admitir uma ordem. Dica: analise os elementos $\{\pm 1, \pm i\}$ e seus quadrados.
+}
+\begin{solution}
+Seja $x\in\mathbb{K}$ não-nulo, $\mathbb{K}$ ordenável e $\mathbb{K}^+$ o subconjunto dos \textit{números positivos} de $\mathbb{K}$, então ou $x\in\mathbb{K}^+$, ou $-x\in\mathbb{K}^+$.
+%
+Se $x\in\mathbb{K}^+$, segue diretamente da primeira propriedade que $x^2\in\mathbb{K}^+$.
+%
+Por outro lado, se $-x\in\mathbb{K}^+$, então $(-x)(-x)\in\mathbb{K}^+$, isto é, $x^2\in\mathbb{K}^+$.
+%
+Dessa forma, provamos que se $\mathbb{K}$ for ordenado e $x\in\mathbb{K}$ não-nulo, então $x^2\in\mathbb{K}^+$.
+
+Se o corpo $\C$ admitir uma ordem, então sabemos que $1\in\C^+$, pois $0\neq 1 = 1^2\in\C^+$ e, assim, $-(-1) \in \C^+$.
+%
+Porém, $0\neq i\in\C$ e $i^2 = -1 \notin \C^+$. Chegamos à uma contradição, pois encontramos um elemento não-nulo de $\C$, cujo quadrado não pertence à $\C^+$. Portanto, $\C$ não admite uma ordem.
+\end{solution}
+
+% 5.9  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{8}
+\question{
+Seja $z$ um número complexo tal que $|z - 2i| \leq 1$. Sejam $\theta_M$ e $\theta_m$ o maior e o menor argumento principal dos números complexos que estão neste lugar geométrico, respectivamente. Calcule $\theta_M - \theta_m$.
+}
+\begin{solution}
+    O lugar geométrico é um círculo. O maior e o menor argumento estarão nas fronteiras desse círculo, ou seja, em $|z-2i|=1$. Seja $z = r(\cos\theta+i\sin\theta)$, $r\in\R_+, \theta\in(-\pi,\pi]$ queremos achar os pontos em que a derivada do argumento se anula, pois estes serão os pontos críticos (mínimo, máximo ou inflexão). Assim, vamos re-escrever a equação em termos de $(r,\theta)$.
+    \begin{align}
+        & 1 = |r\cos\theta+i(r\sin\theta-2i)| = r^2 - 4r\sin\theta +4 \nonumber\\
+        \Leftrightarrow~ & r^2 - 4r\sin\theta + 3 = 0. \label{eq_5.9}
+    \end{align}
+    Vamos calcular a derivada implícita de $\theta$ em relação à $r$, ou seja, deriva-se ambos lados da equação em relação à $r$, obtemos assim
+    \begin{align*}
+        & 2r - 4\sin\theta - 4r\cos\theta \frac{\partial \theta}{\partial r} = 0 \\
+        \Rightarrow~& \frac{\partial \theta}{\partial r} = \frac{r - 2\sin\theta}{2 r \cos\theta}.
+    \end{align*}
+    Dessa forma, a derivada se anula quando $\sin\theta = r/2$. Substituindo na Equação \eqref{eq_5.9}, temos que $r = \sqrt{3}$ e, portanto, $\sin\theta = \sqrt{3}/2$, que possui duas soluções, $\theta_m = \pi/3$ e $\theta_M = 2\pi/3$. Logo, $\theta_M - \theta_m = \pi/3$.
+    
+    
+    % \hrule
+    
+    % Alternativamente, podemos resolver esse problema geometricamente usando o fato que os segmentos de reta que ligam a origem com a circunferência e formam o maior e o menor ângulo com o eixo das abcissas tangencia a circunferência, ou seja, forma ângulos retos com o raio da circunferência. Portanto, o tamanho desses segmentos que denotaremos por $a$ são iguais por simetria e devem satisfazer, pelo Teorema de Pitágoras, que
+    % \[a^2+1^2 = 2^2 ~\Rightarrow~ a = \sqrt{3}.\]
+\end{solution}
+
+\end{questions}

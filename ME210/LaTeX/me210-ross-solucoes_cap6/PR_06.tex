@@ -1,0 +1,408 @@
+
+\begin{questions}
+
+% 6.1  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{6}
+\question{Dois dados honestos são rolados. Determine a função de probabilidade conjunta de $X$ e $Y$ quando
+\begin{parts}
+	\part $X$ é o maior valor obtido em um dado
+e $Y$ é a soma dos valores;
+    \part $X$ é o valor no primeiro dado e $Y$ é o
+maior dos dois valores;
+    \part $X$ é o menor e $Y$ é o maior valor obtido com os dados.
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part
+    \begin{align*}
+    \begin{array}{c|ccccccccccc|l}
+	_{\large X}\backslash^{\large Y} & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+	\hline
+	1 & 1/36 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1/36  \\
+	2 & 0 & 2/36 & 1/36 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 3/36  \\
+    3 & 0 & 0 & 2/36 & 2/36 & 1/36 & 0 & 0 & 0 & 0 & 0 & 0 & 5/36  \\
+    4 & 0 & 0 & 0 & 2/36 & 2/36 & 2/36 & 1/36 & 0 & 0 & 0 & 0 & 7/36  \\
+    5 & 0 & 0 & 0 & 0 & 2/36 & 2/36 & 2/36 & 2/36 & 1/36 & 0 & 0 & 9/36  \\
+    6 & 0 & 0 & 0 & 0 & 0 & 2/36 & 2/36 & 2/36 & 2/36 & 2/36 & 1/36 & 11/36  \\
+	\hline
+	& 1/36 & 2/36 & 3/36 & 4/36 & 5/36 & 6/36 & 5/36 & 4/36 & 3/36 & 2/36 & 1/36
+	\end{array}
+    \end{align*}
+    
+    \part 
+    \begin{align*}
+    \begin{array}{c|cccccc|l}
+	_{\large X}\backslash^{\large Y} & 1 & 2 & 3 & 4 & 5 & 6 \\
+	\hline
+	1 & 1/36 & 1/36 & 1/36 & 1/36 & 1/36 & 1/36 & 6/36  \\
+	2 & 0	 & 2/36 & 1/36 & 1/36 & 1/36 & 1/36 & 6/36  \\
+    3 & 0    & 0    & 3/36 & 1/36 & 1/36 & 1/36 & 6/36  \\
+    4 & 0    & 0    & 0    & 4/36 & 1/36 & 1/36 & 6/36  \\
+    5 & 0    & 0    & 0    & 0    & 5/36 & 1/36 & 6/36  \\
+    6 & 0    & 0    & 0    & 0    & 0    & 6/36 & 6/36  \\
+	\hline
+	& 1/36 & 3/36 & 5/36 & 7/46 & 9/36 & 11/36 & \\
+	\end{array}
+    \end{align*}
+    
+    \part 
+    \begin{align*}
+    \begin{array}{c|cccccc|l}
+	_{\large X}\backslash^{\large Y} & 1 & 2 & 3 & 4 & 5 & 6 \\
+	\hline
+	1 & 1/36 & 2/36 & 2/36 & 2/36 & 2/36 & 2/36 & 11/36  \\
+	2 & 0	 & 1/36 & 2/36 & 2/36 & 2/36 & 2/36 & 9/36  \\
+    3 & 0    & 0    & 1/36 & 2/36 & 2/36 & 2/36 & 7/36  \\
+    4 & 0    & 0    & 0    & 1/36 & 2/36 & 2/36 & 5/36  \\
+    5 & 0    & 0    & 0    & 0    & 1/36 & 2/36 & 3/36  \\
+    6 & 0    & 0    & 0    & 0    & 0    & 1/36 & 1/36  \\
+	\hline
+	& 1/36 & 3/36 & 5/36 & 7/46 & 9/36 & 11/36 & \\
+	\end{array}
+    \end{align*}
+\end{parts}
+\end{solution}
+
+% 6.2  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{6}
+\question{Suponha que 3 bolas sejam sorteadas
+sem reposição de uma urna consistindo
+em 5 bolas brancas e 8 bolas vermelhas.
+Considere $X_i = 1$ caso a $i$-ésima bola selecionada seja branca e $X_i=0$ caso contrário. Dê a função de probabilidade conjunta de
+\begin{parts}
+	\part $X_1,X_2$;
+    \part $X_1,X_2,X_3$.
+\end{parts}
+}
+\begin{solution}
+Seja, $p(i,j,k) \triangleq P(X_1=i,X_2=j,X_3=k)$, então
+\begin{parts}
+	\part 
+    \begin{align*}
+    	p(0,0) &= \frac{8}{13}\frac{7}{12},& p(1,0) &= \frac{5}{13}\frac{8}{12},\\
+        p(0,1) &= \frac{8}{13}\frac{5}{12},& p(1,1) &= \frac{5}{13}\frac{4}{12}.\\
+    \end{align*}
+
+	\part 
+    \begin{align*}
+    	p(0,0,0) &= \frac{8}{13}\frac{7}{12}\frac{6}{11},&
+        p(0,0,1) &= \frac{8}{13}\frac{7}{12}\frac{5}{11},\\
+        p(0,1,0) &= \frac{8}{13}\frac{5}{12}\frac{7}{11},&
+        p(0,1,1) &= \frac{8}{13}\frac{5}{12}\frac{4}{11},\\
+        p(1,0,0) &= \frac{5}{13}\frac{8}{12}\frac{7}{11},&
+        p(1,0,1) &= \frac{5}{13}\frac{8}{12}\frac{4}{11},\\
+        p(1,1,0) &= \frac{5}{13}\frac{4}{12}\frac{8}{11},&
+        p(1,1,1) &= \frac{5}{13}\frac{4}{12}\frac{3}{11}.
+    \end{align*}
+    
+\end{parts}
+\end{solution}
+
+% 6.3  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{6}
+\question{No Problema 6.2, suponha que as bolas brancas sejam numeradas e considere $Y_i = 1$ se a $i$-ésima bola branca for selecionada, e 0 caso contrário. Determine a função de probabilidade conjunta de
+\begin{parts}
+	\part $Y_1,Y_2$;
+    \part $Y_1,Y_2,Y_3$.
+\end{parts}
+}
+\begin{solution}
+Seja, $p(i,j,k) \triangleq P(Y_1=i,Y_2=j,Y_3=k)$, então
+\begin{parts}
+	\part 
+    \begin{align*}
+    	p(0,0) &= \frac{11}{13}\frac{10}{12}\frac{9}{11},
+        	& p(1,0) &= 3\frac{1}{13}\frac{11}{12}\frac{10}{11},\\
+        p(0,1) &= 3\frac{1}{13}\frac{11}{12}\frac{10}{11},
+        	& p(1,1) &= 3\frac{2}{13}\frac{1}{12}\frac{11}{11}.\\
+    \end{align*}
+
+	\part 
+    \begin{align*}
+    	p(0,0,0) &= \frac{10}{13}\frac{9}{12}\frac{8}{11},&
+        p(0,0,1) &= 3\frac{10}{13}\frac{9}{12}\frac{1}{11},\\
+        p(0,1,0) &= 3\frac{10}{13}\frac{9}{12}\frac{1}{11},&
+        p(0,1,1) &= 3\frac{10}{13}\frac{2}{12}\frac{1}{11},\\
+        p(1,0,0) &= 3\frac{10}{13}\frac{9}{12}\frac{1}{11},&
+        p(1,0,1) &= 3\frac{10}{13}\frac{2}{12}\frac{1}{11},\\
+        p(1,1,0) &= 3\frac{10}{13}\frac{2}{12}\frac{1}{11},&
+        p(1,1,1) &= \frac{3}{13}\frac{2}{12}\frac{1}{11}.
+    \end{align*}
+    
+\end{parts}
+\end{solution}
+
+% 6.4  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{6}
+\question{Repita o Problema 6.2 quando a bola selecionada é recolocada na urna antes da
+próxima seleção.
+}
+\begin{solution}
+Seja, $p(i,j,k) \triangleq P(X_1=i,X_2=j,X_3=k)$, então
+\begin{parts}
+	\part 
+    \begin{align*}
+    	p(0,0) &= \frac{8}{13}\frac{8}{13},& p(1,0) &= \frac{5}{13}\frac{8}{13},\\
+        p(0,1) &= \frac{8}{13}\frac{5}{13},& p(1,1) &= \frac{5}{13}\frac{5}{13}.\\
+    \end{align*}
+
+	\part 
+    \begin{align*}
+    	p(0,0,0) &= \frac{8}{13}\frac{8}{13}\frac{8}{13},&
+        p(0,0,1) &= \frac{8}{13}\frac{8}{13}\frac{5}{13},\\
+        p(0,1,0) &= \frac{8}{13}\frac{5}{13}\frac{8}{13},&
+        p(0,1,1) &= \frac{8}{13}\frac{5}{13}\frac{5}{13},\\
+        p(1,0,0) &= \frac{5}{13}\frac{8}{13}\frac{8}{13},&
+        p(1,0,1) &= \frac{5}{13}\frac{8}{13}\frac{5}{13},\\
+        p(1,1,0) &= \frac{5}{13}\frac{5}{13}\frac{8}{13},&
+        p(1,1,1) &= \frac{5}{13}\frac{5}{13}\frac{5}{13}.
+    \end{align*}
+    
+\end{parts}
+\end{solution}
+
+% 6.5  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{6}
+\question{Repita o Problema 6.3 (a) quando a bola selecionada é recolocada na urna antes da
+próxima seleção
+}
+\begin{solution}
+Seja, $p(i,j) \triangleq P(Y_1=i,Y_2=j)$, então
+    \begin{align*}
+    	p(0,0) &= \frac{11^3}{13^3},
+        	& p(1,0) &= \frac{12^3-11^3}{13^3},\\
+        p(0,1) &= \frac{12^3-11^3}{13^3},
+        	& p(1,1) &= 1-\frac{2\,(12^3-11^3)+11^3}{13^3}.\\
+    \end{align*}
+\end{solution}
+
+% 6.6  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{6}
+\question{Sabe-se que um cesto com 5 transistores
+contém 2 com defeito. Os transistores devem ser testados, um de cada vez, até que
+os defeituosos sejam identificados. Suponha que $N_1$ represente o número de testes
+feitos até que o primeiro transistor defeituoso seja identificado e $N_2$ o número de
+testes adicionais feitos até que o segundo transistor defeituoso seja identificado.
+Determine a função de probabilidade conjunta de $N_1$ e $N_2$
+}
+\begin{solution} O número de formas de retirar transistores queimados é dado por $\binom{5}{2}=10$ e cada combinação é equiprovável. Assim,
+    \begin{align*}
+    \begin{array}{c|cccc|l}
+	_{\large N_1}\backslash^{\large N_2} & 1 & 2 & 3 & 4 \\
+	\hline
+	1 & 1/10 & 1/10 & 1/10 & 1/10 & 4/10  \\
+	2 & 1/10 & 1/10 & 1/10 & 0    & 3/10  \\
+    3 & 1/10 & 1/10 & 0    & 0    & 2/10  \\
+    4 & 1/10 & 0    & 0    & 0    & 1/10  \\
+	\hline
+		& 4/10 & 3/10 & 2/10 & 1/10 & \\
+	\end{array}
+    \end{align*}
+\end{solution}
+
+% 6.7  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{6}
+\question{Considere uma sequência de tentativas de Bernoulli independentes, cada uma com probabilidade de sucesso $p$. Sejam $X_1$ o número de fracassos precedendo o primeiro sucesso e $X_2$ o número de fracassos entre os dois primeiros sucessos. Determine a função de probabilidade conjunta de $X_1$ e $X_2$.
+}
+\begin{solution}
+	Sabemos que $P(X_1=i) = (1-p)^i p$, $i\in\mathbb{Z}_+$ e $P(X_2=j) = (1-p)^j p$, $j\in\mathbb{Z}_+$. Como $X_1$ e $X_2$ são independentes, então
+    \begin{align*}
+    	P(X_1=i,X_2=j) = P(X_1=i)P(X_2=j) = (1-p)^{i+j} p^2, \quad i,j\in\mathbb{Z}_+.
+    \end{align*}
+\end{solution}
+
+% 6.11 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{10}
+\question{O proprietário de uma loja de televisores
+imagina que 45\% dos clientes que entram
+em sua loja comprarão um televisor comum, 15\% comprarão um televisor de
+plasma e 40\% estarão apenas dando uma
+olhada. Se 5 clientes entrarem nesta loja
+em um dia, qual é a probabilidade de que
+ele venda exatamente 2 televisores comuns e 1 de plasma naquele mesmo dia?
+}
+\begin{solution}
+	Esse problema é bem representado por uma distribuição multinomial. $X_1$ é o número de pessoas que não compraram nada, $X_2$ compraram televisor comum e $X_3$ compraram plasma. Queremos saber
+    \begin{align*}
+    	P(X_1=2,X_2=2,X_3=1) = \binom{5}{2,2,1}\,\text{0,4}^2\,\text{0,45}^2\,\text{0,15}
+        	\approx \text{0,146}.
+    \end{align*}
+\end{solution}
+
+% 6.35 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{34}
+\question{No Problema 4, calcule a função de probabilidade condicional de $X_1$ dado que
+\begin{parts}
+	\part $X_2=1$;
+    \part $X_2=0$;
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part 
+    \begin{align*}
+    	P(X_1=0\mid X_2=1) &= \frac{P(X_1=0,X_2=1)}{P(X_1=0,X_2=1)+P(X_1=1,X_2=1)} \\
+        	&= \frac{\frac{8}{13}\frac{5}{13}}{\frac{8}{13}\frac{5}{13}
+            	+\frac{5}{13}\frac{5}{13}} = \frac{8}{13}.\\
+		P(X_1=1\mid X_2=1) &= \frac{5}{13}.
+    \end{align*}
+    \part
+    \begin{align*}
+    	P(X_1=0\mid X_2=0) &= \frac{P(X_1=0,X_2=0)}{P(X_1=0,X_2=0)+P(X_1=1,X_2=0)} \\
+        	&= \frac{\frac{8}{13}\frac{8}{13}}{\frac{8}{13}\frac{8}{13}
+            	+\frac{5}{13}\frac{8}{13}} = \frac{8}{13}.\\
+		P(X_1=1\mid X_2=0) &= \frac{5}{13}.
+    \end{align*}
+\end{parts}
+\emph{Observação:} Esses resultados eram de se esperar, pois no Problema 4 as retiradas são independentes (com reposição).
+\end{solution}
+
+% 6.36 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{34}
+\question{No Problema 3, calcule a função de probabilidade condicional de $Y_1$ dado que
+\begin{parts}
+	\part $Y_2=1$;
+    \part $Y_2=0$;
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part 
+    \begin{align*}
+    	P(Y_1=0\mid Y_2=1) &= \frac{P(Y_1=0,Y_2=1)}{P(Y_1=0,Y_2=1)+P(Y_1=1,Y_2=1)} \\
+        	&= \frac{3\frac{11\cdot10}{13\cdot12\cdot11}}
+                	{3\frac{11\cdot10}{13\cdot12\cdot11}
+                    +3\frac{11\cdot2}{13\cdot12\cdot11}} = \frac{5}{6}.\\
+		P(Y_1=1\mid Y_2=1) &= \frac{1}{6}.
+    \end{align*}
+    \part
+    \begin{align*}
+    	P(Y_1=0\mid Y_2=0) &= \frac{P(Y_1=0,Y_2=0)}{P(Y_1=0,Y_2=0)+P(Y_1=1,Y_2=0)} \\
+        	&= \frac{\frac{11\cdot10\cdot9}{13\cdot12\cdot11}}
+                {\frac{11\cdot10\cdot9}{13\cdot12\cdot11}
+                +3\frac{11\cdot10}{13\cdot12\cdot11}} = \frac{3}{4}.\\
+		P(Y_1=1\mid Y_2=0) &= \frac{1}{4}.
+    \end{align*}
+\end{parts}
+\end{solution}
+
+% 6.37 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{34}
+\question{No Problema 5, calcule a função de probabilidade condicional de $Y_1$ dado que
+\begin{parts}
+	\part $Y_2=1$;
+    \part $Y_2=0$;
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part 
+    \begin{align*}
+    	P(Y_1=0\mid Y_2=1) &= \frac{P(Y_1=0,Y_2=1)}{P(Y_1=0,Y_2=1)+P(Y_1=1,Y_2=1)} \\
+        	&= \frac{\frac{12^3-11^3}{13^3}}
+                	{\frac{12^3-11^3}{13^3}
+                    +\frac{13^3-2(12^3-11^3)-11^3}{13^3}} = \frac{397}{469}.\\
+		P(Y_1=1\mid Y_2=1) &= \frac{72}{469}.
+    \end{align*}
+    \part
+    \begin{align*}
+    	P(Y_1=0\mid Y_2=0) &= \frac{P(Y_1=0,Y_2=0)}{P(Y_1=0,Y_2=0)+P(Y_1=1,Y_2=0)} \\
+        	&= \frac{\frac{11^3}{13^3}}
+            	{\frac{11^3}{13^3}+\frac{12^3-11^3}{13^3}} = \frac{1331}{1728}.\\
+		P(Y_1=1\mid Y_2=0) &= \frac{397}{1728}.
+    \end{align*}
+\end{parts}
+\end{solution}
+
+% 6.38 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{34}
+\question{Escolha aleatoriamente um número $X$ a
+partir do conjunto de números $\{1,2,3,4,5\}$. Escolha agora,
+do subconjunto formado por números que não são maiores
+que $X$, isto é, de $\{1,\dots,X\}$ ,um novo número
+de forma aleatória. Chame de $Y$ este segundo número
+\begin{parts}
+	\part Determine a função de probabilidade conjunta de $X$ e $Y$;
+    \part Determine a função de probabilidade condicional de $X$ dado $Y = i$. Faça-o
+para $i = 1,2,3,4,5$;
+	\part $X$ e $Y$ são independentes? Por quê?
+\end{parts}
+}
+\begin{solution} 
+\begin{parts}
+	\part Sabemos que $P(Y=i\mid X=j) = 1/j$, se $i\in\{1,\dots,j\}$. Dessa forma, se $i\in\{1,\dots,j\},~j\in\{1,\dots,5\}$,
+    \[{P(X=j,Y=i) = P(Y=i\mid X=j)P(X=j) = \frac{1}{5\,j}}.\]
+    
+    \part Se $i\in\{1,\dots,j\},~j\in\{1,\dots,5\}$, então
+    \begin{align*}
+    	P(X=j\mid Y=i)
+        	= \frac{P(X=j, Y=i)}{\sum_{k=1}^5P(X=k,Y=i)}
+        	= \frac{1/5j}{\sum_{k=i}^5 1/5k}
+            = \frac{1}{\sum_{k=i}^5 j/k}.
+    \end{align*}
+   
+	\part $X$ e $Y$ não são independentes. Um contra-exemplo é $P(X=5,Y=5)=1/25$, $P(X\!=\!5)=1/5$, $P(Y\!=\!5)=1/25$. Logo, ${P(X\!=\!5,Y\!=\!5)\neq P(X\!=\!5)P(Y\!=\!5)}$.
+    
+\end{parts}
+\end{solution}
+
+% 6.39 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{34}
+\question{Dois dados são rolados. Suponha que $X$ e
+$Y$ representem, respectivamente, o maior
+e o menor valor obtido. Calcule a função
+de probabilidade condicional de $Y$ dado
+que $X = i$, para $i = 1,2,..., 6$. São $X$ e $Y$
+independentes? Por quê?
+}
+\begin{solution} 
+	Do Problema 6.1 (c), podemos verificar que a seguinte fórmula é válida (note que é necessário inverter $X$ com $Y$ para comparar com o problema). Sejam $i,j\in\{1,2,\dots,6\}$,
+    \begin{align*}
+    	P(Y=j\mid X=i) = \frac{P(X=i,Y=j)}{P(X=i)} =
+        \begin{cases}
+        	0, & i<j\\
+            \frac{1}{2i-1}, & i=j\\
+            \frac{2}{2i-1}, & i>j
+        \end{cases}
+    \end{align*}
+\end{solution}
+
+% 6.40 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{34}
+\question{A função de probabilidade conjunta de $X$
+e $Y$ é dada por
+\begin{align*}
+	p(1,1)&=\frac{1}{8} & p(1,2)&=\frac{1}{4}\\
+    p(2,1)&=\frac{1}{8} & p(2,2)&=\frac{1}{2}\\
+\end{align*}
+\begin{parts}
+	\part Calcule a função de probabilidade condicional de $X$ dado que $Y=i$, $i=1,2$.
+    \part $X$ e $Y$ são independentes?
+    \part Calcule $P(XY \le 3), P(X + Y > 2),P(X/Y>1)$.
+\end{parts}
+}
+\begin{solution} 
+\begin{parts}
+	\part Sabemos que se $i,j\in\{1,2\}$
+    	\begin{align*}
+    		P(X=j\mid Y=i) = \frac{P(X=j, Y=i)}{P(Y=i)} = \frac{p(j,i)}{p(1,i)+p(2,i)}.
+    	\end{align*}
+    Dessa forma,
+    \begin{align*}
+    	P(X=1\mid Y=1) &= \frac{1}{2}, & P(X=1\mid Y=2) &= \frac{1}{3},\\
+        P(X=2\mid Y=1) &= \frac{1}{2}, & P(X=2\mid Y=2) &= \frac{2}{3}.\\
+    \end{align*}
+    \part $X$ e $Y$ não são independentes.\\
+    Tome por exemplo, $P(X=1,Y=1)\neq P(X=1)P(Y=1)$.
+    
+    \part Note que
+    \begin{align*}
+    	& P(XY \le 3) = 1-P(XY>3) = 1-p(2,2) = \frac{1}{2};\\
+        & P(X+Y>2) = 1-P(X+Y\le 2) = 1-p(1,1) = \frac{7}{8};\\
+        & P(X/Y>1) = P(X>Y) = p(2,1) = \frac{1}{8}.
+    \end{align*}
+\end{parts}
+\end{solution}
+
+\end{questions}

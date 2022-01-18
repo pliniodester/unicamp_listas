@@ -1,0 +1,428 @@
+
+\begin{questions}
+
+% 1.1  % % % % % % % % % % % % % % % % % % % % %
+\question{
+\begin{parts}
+	\part Quantas placas de carro diferentes
+com 7 caracteres podem ser formadas
+se os dois primeiros campos da placa
+forem reservados para as letras e os
+outros cinco para os números?
+	\part Repita a letra (a) supondo que nenhuma letra ou número possa ser repetido em uma mesma placa.
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+	\part Pelo princípio básico da contagem, temos $26^2\cdot10^5 = 67\,600\,000$ placas diferentes.
+	\part Quando não podemos repetir letras ou números, a cada nova letra/número escolhido, temos uma possibilidade a menos. Nesse caso, o número total de placas é $(26\cdot25)\cdot(10\cdot9\cdot8\cdot7\cdot6) = 19\,656\,000.$
+\end{parts}
+\end{solution}
+
+% 1.2  % % % % % % % % % % % % % % % % % % % % %
+\question{
+Quantas sequências de resultados são
+possíveis quando um dado é rolado quatro vezes, supondo, por exemplo, que 3, 4, 3, 1 é o resultado obtido se o primeiro
+dado lançado cair no 3, o segundo no 4, o
+terceiro no 3 e o quarto no 1?
+}
+\begin{solution}
+Pelo princípio básico da contagem temos $6^4 = 1296$ sequências possíveis.
+\end{solution}
+
+% 1.3  % % % % % % % % % % % % % % % % % % % % %
+\question{
+Vinte trabalhadores serão alocados em
+vinte tarefas diferentes, um em cada tarefa. Quantas alocações diferentes são
+possíveis?
+}
+\begin{solution}
+Para a primeira tarefa temos 20 possibilidades de trabalhadores, em seguida para a segunda temos 19, e assim sucessivamente até a vigésima tarefa, ou seja, temos $20!$ alocações possíveis.
+\end{solution}
+
+% 1.4  % % % % % % % % % % % % % % % % % % % % %
+\question{
+João, Júlio, Jonas e Jacques formaram
+uma banda com quatro instrumentos. Se
+cada um dos garotos é capaz de tocar todos os instrumentos, quantas diferentes combinações são possíveis? E se João e
+Júlio souberem tocar todos os quatro instrumentos, mas Jonas e Jacques souberem tocar cada um deles apenas o piano e a
+bateria?
+}
+\begin{solution}
+	Se todos podem tocar todos os instrumentos, então analogamente ao Problema 1.3, temos $4! = 24$ possibilidades. Por outro lado, se Jonas e Jacques estão restritos a dois instrumentos, então João e Júlio também estão e, dessa forma, temos $2\cdot2 = 4$ possibilidades.
+\end{solution}
+
+% 1.5  % % % % % % % % % % % % % % % % % % % % %
+\question{
+Por muitos anos, os códigos telefônicos de
+área nos EUA e no Canadá eram formados por uma sequência de três algarismos. O primeiro algarismo era um inteiro entre
+2 e 9, o segundo algarismo era 0 ou 1, e o terceiro digito era um inteiro entre 1 e 9. Quantos códigos de área eram possíveis?
+Quantos códigos de área começando com um 4 eram possíveis?
+}
+\begin{solution}
+	Para o primeiro dígito temos 8 possibilidades, para o segundo temos 2 e para o terceiro temos 9. Logo, eram possíveis $8\cdot2\cdot9 = 144$ códigos de área. Ao restringirmos o primeiro algarismo, sobram apenas $2\cdot9 = 18$ possibilidades.
+\end{solution}
+
+% 1.6  % % % % % % % % % % % % % % % % % % % % %
+\question{
+Uma famosa canção de ninar começa
+com os versos
+``Quando ia para São Ives,
+Encontrei um homem com 7 mulheres.
+Cada mulher tinha 7 sacos.
+Cada saco tinha 7 gatos.
+Cada gato tinha 7 gatinhos...''
+Quantos gatinhos o viajante encontrou?
+}
+\begin{solution}
+	Pelo princípio básico de contagem, temos $7^4 = 2401$ gatinhos.
+\end{solution}
+
+% 1.7  % % % % % % % % % % % % % % % % % % % % %
+\question{
+\begin{parts}
+\part De quantas maneiras diferentes 3 garotos e 3 garotas podem sentar-se em fila?
+\part  De quantas maneiras diferentes 3 garotos e 3 garotas podem sentar-se em fila se os garotos e as garotas sentarem-se juntos?
+\part E se apenas os garotos sentarem-se juntos?
+\part E se duas pessoas do mesmo sexo não puderem se sentar juntas?
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+\part Se conseguirmos discernir cada pessoa, então teremos $6! = 720$ maneiras diferentes.
+\part Dentro de cada grupo temos $3!$ combinações diferentes e entre os grupos temos $2!$ combinações. Logo, no total temos $2!\cdot3!\cdot3! = 72$ maneiras diferentes.
+\part Dentro do grupo de meninos temos $3!$ combinações. O número de combinações entre o grupo de meninos e as meninas é $4!$. Logo, no total temos $3!\cdot4! = 144$.
+\part Nesse caso, a fila deve ser alternada entre meninos e meninas, podendo começar com qualquer um dos dois. Dessa forma, temos $2\cdot3!\cdot3! = 72$ maneiras diferentes de arranjar a fila.
+\end{parts}
+\end{solution}
+
+% 1.8  % % % % % % % % % % % % % % % % % % % % %
+\question{
+Quantos arranjos de letras diferentes podem ser feitos a partir de
+\begin{parts}
+\part Sorte?
+\part Propose?
+\part Mississippi?
+\part Arranjo?
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+\part $5! = 120$.
+\part $\dfrac{7!}{2!\,2!} = 1\,260$.
+\part $\dfrac{11!}{4!\,4!\,2!} = 34\,650$.
+\part $\dfrac{7!}{2!\,2!} = 1\,260$.
+\end{parts}
+\end{solution}
+
+% 1.9  % % % % % % % % % % % % % % % % % % % % %
+\question{
+Uma criança tem 12 blocos, dos quais 6
+são pretos, 4 são vermelhos, 1 é branco e
+1 é azul. Se a criança colocar os blocos em
+linha, quantos arranjos são possíveis?
+}
+\begin{solution}
+$\dfrac{12!}{6!\,4!} = 27\,720$
+\end{solution}
+
+% 1.10 % % % % % % % % % % % % % % % % % % % % %
+\question{
+De quantas maneiras 8 pessoas podem se
+sentar em fila se
+\begin{parts}
+\part não houver restrições com relação à
+ordem dos assentos?
+\part as pessoas $A$ e $B$ tiverem que se sentar uma ao lado da outra?
+\part houver 4 homens e 4 mulheres e não
+for permitido que dois homens ou
+duas mulheres se sentem em posições
+adjacentes?
+\part houver 5 homens e for necessário que
+eles se sentem lado a lado?
+\part houver 4 casais e cada casal precisar
+sentar-se junto?
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+\part $8! = 40\,320$.
+\part $2!\,7! = 10\,080$ (semelhante ao Problema 1.7(c)).
+\part $2\,4!\,4! = 34\,650$ (semelhante ao Problema 1.7(d)).
+\part $5!\,4! = 2\,880$ (semelhante ao Problema 1.7(c)).
+\part $(2!)^4\,4! = 384$.
+\end{parts}
+\end{solution}
+
+% 1.11 % % % % % % % % % % % % % % % % % % % % %
+\question{
+De quantas maneiras três romances, dois
+livros de matemática e um livro de química
+podem ser arranjados em uma prateleira se
+\begin{parts}
+\part eles puderem ser colocados em qualquer ordem?
+\part for necessário que os livros de matemática fiquem juntos e os romances
+também?
+\part for necessário que os romances fiquem
+juntos, podendo os demais livros ser
+organizados de qualquer maneira?
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+\part $6! = 720$.
+\part Entre os grupos de livro temos $3!$ combinações e contando com as combinações dentro de cada grupo ficamos com $3!\,2!\,3! = 72$.
+\part $4!\,3! = 144$ (semelhante ao Problema 1.7(c)).
+\end{parts}
+\end{solution}
+
+% 1.12 % % % % % % % % % % % % % % % % % % % % %
+\question{
+Cinco prêmios diferentes (melhor desempenho escolar, melhores qualidades de
+liderança, e assim por diante) serão dados
+a estudantes selecionados de uma classe
+de trinta alunos. Quantos resultados diferentes são possíveis se
+\begin{parts}
+\part um estudante puder receber qualquer
+número de prêmios?
+\part cada estudante puder receber no máximo um prêmio?
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+\part $30^5 = 24\,300\,000$.
+\part $30\cdot29\cdot28\cdot27\cdot26 = 17\,100\,720$.
+\end{parts}
+\end{solution}
+
+% 1.13 % % % % % % % % % % % % % % % % % % % % %
+\question{
+Considere um grupo de vinte pessoas. Se
+todos cumprimentarem uns aos outros
+com um aperto de mãos, quantos apertos
+de mão serão dados?
+}
+\begin{solution}
+$\binom{20}{2} = 190$.
+\end{solution}
+
+% 1.14 % % % % % % % % % % % % % % % % % % % % %
+\question{
+Quantas mãos de pôquer de cinco cartas
+existem?
+}
+\begin{solution}
+$\binom{52}{5} = 2\,598\,960$.
+\end{solution}
+
+% 1.15 % % % % % % % % % % % % % % % % % % % % %
+\question{
+Uma turma de dança é formada por 22
+estudantes, dos quais 10 são mulheres e
+12 são homens. Se 5 homens e 5 mulheres forem escolhidos para formar pares,
+quantas combinações diferentes serão possíveis?
+}
+\begin{solution}
+Podemos selecionar o grupo de mulheres e homens de $\binom{10}{5}$ e $\binom{12}{5}$ maneiras diferentes, respectivamente. Uma vez escolhidos os dançarinos, podemos formar os pares de $5!$ formas diferentes. Logo, no total teremos $\binom{10}{5}\binom{12}{5}\, 5! = 23\,950\,080$ combinações diferentes.
+\end{solution}
+
+% 1.16 % % % % % % % % % % % % % % % % % % % % %
+\question{
+Um estudante tem que vender 2 livros de uma coleção formada por 6 livros de matemática, 7 de ciências e 4 de economia. Quantas escolhas serão possíveis se
+\begin{parts}
+\part ambos os livros devem tratar do mesmo assunto?
+\part os livros devem tratar de assuntos
+diferentes?
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+\part $\binom{6}{2} + \binom{7}{2} + \binom{4}{2} = 42$.
+\part Isso é o complemento do item anterior em relação à possibilidade de vender dois livros. Assim, temos $\binom{17}{2} - 42 = 94$ escolhas possíveis.
+\end{parts}
+\end{solution}
+
+% 1.17 % % % % % % % % % % % % % % % % % % % % %
+\question{
+Sete presentes diferentes devem ser distribuídos entre 10 crianças. Quantos resultados diferentes são possíveis se nenhuma criança puder receber mais de um
+presente?
+}
+\begin{solution}
+``O presente escolhe a criança'': $10\cdot9\cdots4 = 604\,800$.
+\end{solution}
+
+% 1.18 % % % % % % % % % % % % % % % % % % % % %
+\question{
+Um comitê de 7 pessoas, formado por 2
+petistas, 2 democratas e 3 peemedebistas deve ser escolhido de um grupo de 5
+petistas, 6 democratas e 4 peemedebistas.
+Quantos comitês são possíveis?
+}
+\begin{solution}
+$\binom{5}{2}\binom{6}{2}\binom{4}{3} = 600$.
+\end{solution}
+
+% 1.19 % % % % % % % % % % % % % % % % % % % % %
+\question{
+De um grupo de 8 mulheres e 6 homens,
+pretende-se formar um comitê formado
+por 3 homens e 3 mulheres. Quantos comitês diferentes são possíveis se
+\begin{parts}
+\part 2 dos homens se recusarem a trabalhar juntos?
+\part 2 das mulheres se recusarem a trabalhar juntas?
+\part 1 homem e 1 mulher se recusarem a trabalhar juntos?
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+\part Consideramos os casos nos quais não selecionamos os 2 homens e selecionamos apenas um deles, temos $\binom{8}{3}\cdot\left( \binom{4}{3} + 2\binom{4}{2} \right) = 896$.
+\part Análogo ao item anterior, $\binom{6}{3}\cdot\left( \binom{6}{3} + 2\binom{6}{2} \right) = 1\,000$
+\part Consideramos os casos nos quais não selecionamos nem o homem, nem a mulher; os casos nos quais selecionamos a mulher e enfim os casos nos quais selecionamos o homem, temos $\binom{7}{3}\binom{5}{3} + \binom{7}{2}\binom{5}{3} + \binom{7}{3}\binom{5}{2} = 910$.
+\end{parts}
+\end{solution}
+
+% 1.20 % % % % % % % % % % % % % % % % % % % % %
+\question{
+Uma pessoa tem 8 amigos, dos quais 5 serão convidados para uma festa.
+\begin{parts}
+\part Quantas escolhas existem se dois dos
+amigos estiverem brigados e por esse
+motivo não puderem comparecer?
+\part Quantas escolhas existem se dois dos
+amigos puderem ir apenas se forem
+juntos?
+\end{parts}
+}
+\begin{solution}
+\begin{parts}
+\part Considerando os casos sem os amigos e com apenas um dos amigos, temos $\binom{6}{5} + 2\binom{6}{4} = 36$
+\part Considerando os casos sem os amigos e com os dois amigos, temos $\binom{6}{5} + \binom{6}{3} = 26$.
+\end{parts}
+\end{solution}
+
+% 1.21 % % % % % % % % % % % % % % % % % % % % %
+\question{
+Considere a malha de pontos mostrada no livro. Suponha que, começando do ponto $A$, você possa ir um passo para cima
+ou para direita em cada movimento. Esse
+procedimento continua até que o ponto $B$
+seja atingido. Quantos caminhos possíveis
+existem entre $A$ e $B$?\\
+\textit{Dica}:Note que, para atingir $B$ a partir de
+$A$, você deve dar quatro passos à direita e
+três passos para cima.
+}
+\begin{solution}
+Podemos pensar nesse problema como o número de arranjos entre as letras DDDDCCC, ou seja, $\frac{7!}{4!\,3!} = \binom{7}{3} = 35$ caminhos possíveis.
+\end{solution}
+
+% 1.22 % % % % % % % % % % % % % % % % % % % % %
+\question{
+No Problema 21, quantos caminhos diferentes existem entre $A$ e $B$ que passam
+pelo ponto circulado mostrado na figura do livro?
+}
+\begin{solution}
+Basta calcular o número de caminhos até o ponto circulado e multiplicar pelo número de caminhos até o ponto $B$, ou seja, $\binom{4}{2}\binom{3}{1} = 18$ caminhos possíveis.
+\end{solution}
+
+% 1.23 % % % % % % % % % % % % % % % % % % % % %
+\question{
+Um laboratório de psicologia dedicado a
+pesquisar os sonhos possui 3 quartos com
+2 camas cada. Se 3 conjuntos de gêmeos
+idênticos forem colocados nessas 6 camas
+de forma que cada par de gêmeos durma
+em camas diferentes em um mesmo quarto,
+quantas diferentes combinações são possíveis?
+}
+\begin{solution}
+$(2!)^3\cdot3! = 48$.
+\end{solution}
+
+% 1.24 % % % % % % % % % % % % % % % % % % % % %
+\question{
+Expanda $(3x^2+y)^5$.
+}
+\begin{solution}
+Utilizando o teorema binomial, temos que
+\begin{equation*}
+	(3x^2+y)^5 = \sum_{k=0}^{5} \binom{5}{k} (3x^2)^{5-k} y^k = 
+    243 x^{10} + 405 x^8 y + 270 x^6 y^2 + 90 x^4 y^3 + 15 x^2 y^4 + y^5
+\end{equation*}
+\end{solution}
+
+% 1.25 % % % % % % % % % % % % % % % % % % % % %
+\question{
+O jogo de bridge é jogado por 4 jogadores, cada um deles com 13 cartas. Quantas
+jogadas de bridge são possíveis?
+}
+\begin{solution}
+Como a ordem das cartas nas mãos dos jogadores não importa, então temos $\binom{52}{13,13,13,13} \approx \text{5,36} \cdot 10^{28} $ condições iniciais possíveis para o jogo.
+\end{solution}
+
+% 1.26 % % % % % % % % % % % % % % % % % % % % %
+\question{
+Expanda $(x_1 + 2 x_2 + 3 x_3)^4$.
+}
+\begin{solution}
+Utilizando o teorema multinomial, temos que
+\begin{align*}
+	(x_1 + 2 x_2 + 3 x_3)^4 
+    &= \sum_{n_1+n_2+n_3=4} \binom{4}{n_1,n_2,n_3} x_1^{n_1} (2x_2)^{n_2} (3x_3)^{n_3}\\
+    &= x_1^4 + 16 x_2^4 + 81 x_3^4 + 8 x_1^3 x_2 + 12 x_1^3 x_3 + 		32 x_1 x_2^3 + 108 x_1 x_3^3 +\\
+    &\quad 216 x_2 x_3^3 + 96 x_2^3 x_3 + 24 x_1^2 x_2^2 + 54 x_1^2 		x_3^2 + 216 x_2^2 x_3^2 + 72 x_1^2 x_2 x_3 +\\
+    &\quad 216 x_1 x_2 x_3^2 + 144 x_1 x_2^2 x_3.
+\end{align*}
+\end{solution}
+
+% 1.27 % % % % % % % % % % % % % % % % % % % % %
+\question{
+Se 12 pessoas vão ser divididas em 3 comitês de 3, 4 e 5 pessoas. Quantas divisões
+são possíveis?
+}
+\begin{solution}
+$\binom{12}{3,4,5} = 27\,720$.
+\end{solution}
+
+% 1.29 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{28}
+\question{
+Dez halterofilistas disputam uma competição de levantamento de peso por
+equipes. Destes, 3 são dos EUA, 4 da
+Rússia, 2 da China e 1 do Canadá. Se
+a soma de pontos considerar os países
+que os atletas representam, mas não as
+identidades desses atletas, quantos diferentes 
+resultados são possíveis? Quantos resultados diferentes correspondem
+à situação em que os EUA possuem um
+atleta entre os três primeiros e 2 entre
+os três últimos?
+}
+\begin{solution}
+Como apenas a nacionalidade importa na ordenação, então temos $\binom{10}{3,4,2,1} = 12\,600$ resultados possíveis. Entretanto, com as restrições sobre os EUA, temos apenas $\binom{7}{4,2,1}\binom{3}{1}\binom{3}{2} = 945$ resultados, onde o primeiro coeficiente refere-se à ordem das nacionalidades (exceto os EUA) e os demais coeficientes referem-se às combinações que podem ser feitas com os EUA nas três primeiras e nas três últimas posições.
+\end{solution}
+
+% 1.30 % % % % % % % % % % % % % % % % % % % % %
+\question{
+Delegados de 10 países, incluindo Rússia, França, Inglaterra e os EUA, devem
+sentar-se lado a lado. Quantos arranjos de
+assentos diferentes são possíveis se os delegados franceses e ingleses tiverem que
+sentar-se lado a lado e os delegados da
+Rússia e dos EUA não puderem sentar-se
+lado a lado.
+}
+\begin{solution}
+Primeiramente, consideremos a situação que delegados franceses e ingleses sentem-se lado a lado, o que nos dá $2!\,9!$ combinações.\\
+Agora, vamos considerar a situação que delegados franceses e ingleses; e delegados dos EUA e Rússia sentam-se lado a lado, o que nos dá $2!\,2!\,8!$ combinações.\\
+Finalmente, basta notar que o que queremos é exatamente a primeira situação tirando as combinações da segunda situação, ou seja, $2!\,9! - 2!\,2!\,8! = 564\,480$.
+\end{solution}
+
+% 1.31 % % % % % % % % % % % % % % % % % % % % %
+\question{
+Se 8 quadros-negros idênticos forem divididos entre quatro escolas, quantas divisões
+são possíveis? E se cada escola tiver que receber pelo menos um quadro-negro?
+}
+\begin{solution}
+Trata-se de uma aplicação direta da Proposição 6.2, isto é, temos $\binom{11}{3} = 165$ divisões possíveis. Por outro lado, quando exigimos que cada escola receba pelo menos um quadro-negro, então usamos a Proposição 6.1, isto é, temos $\binom{7}{3} = 35$ divisões possíveis.
+\end{solution}
+
+\end{questions}

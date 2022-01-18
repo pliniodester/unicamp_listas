@@ -1,0 +1,270 @@
+
+\begin{questions}
+
+% 6.1  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{1}
+\question{
+Determine as partes real $u = \Re\,f$ e imaginária $v = \Im\,f$ das seguintes funções complexas.
+    \begin{multicols}{3}
+    \begin{enumerate}[label=(\alph*)]
+      \item $\displaystyle f(z) = \frac{1}{z + i}$;
+      \item $\displaystyle f(z) = 5z^2 - 12z + 3 + 2i$;
+      \item $\displaystyle f(z) = \frac{z+1}{(z-1)^2}$;
+      \item $\displaystyle f(z) = z^3$;
+      \item $\displaystyle f(z) = \frac{z}{z + \bar z}$;
+      \item $\displaystyle f(z) = \frac{1}{1 - |z|^2}$.
+    \end{enumerate}
+    \end{multicols}
+    Determine, também, o seu domínio de definição.
+}
+\begin{solution}
+Seja $z = x+iy$, $x,y\in\R$.
+    \begin{enumerate}[label=(\alph*)]
+      \item $\displaystyle u(x,y) = \frac{x}{x^2+(1+y)^2},
+        \quad \displaystyle v(x,y) = \frac{-(1+y)}{x^2+(1+y)^2},
+        \quad z\in\C\backslash\{-i\}$;
+        
+      \item $\displaystyle u(x,y) = 5 x^2-12 x-5 y^2+3,
+        \quad \displaystyle v(x,y) = 10 x y-12 y+2,
+        \quad z\in\C$;
+        
+      \item $\displaystyle u(x,y) = \frac{(x-3) y^2+(x+1) (x-1)^2}{\left((x-1)^2+y^2\right)^2},
+        \, \displaystyle v(x,y) = -\frac{y \left(x (x+2)+y^2-3\right)}{\left((x-1)^2+y^2\right)^2},
+        \, z\in\C\backslash\{1\}$;
+
+      \item $\displaystyle u(x,y) = x^3-3 x y^2,
+        \quad \displaystyle v(x,y) = 3 x^2 y-y^3,
+        \quad z\in\C$;
+
+      \item $\displaystyle u(x,y) = 1/2,
+        \quad \displaystyle v(x,y) = y/2x,
+        \quad z\in\C,\, \Re[z]\neq 0$;
+        
+      \item $\displaystyle u(x,y) = \frac{1}{1-(x^2+y^2)},
+        \quad \displaystyle v(x,y) = 0,
+        \quad z\in\C,\, |z|\neq 1$.
+    \end{enumerate}
+\end{solution}
+
+% 6.2 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{2}
+\question{
+Suponha que $f(z) = x^2 - y^2 - 2y + i(2x - 2xy)$, sendo $z = x + iy$. Use identidades como
+\[
+    x = \frac{z + \bar z}{2}\quad \text{e} \quad y = \frac{z - \bar z}{2i}
+\]
+para escrever $f(z)$ explicitamente em termos de $z$, simplificando o resultado.
+}
+\begin{solution}
+\[f(z) = \bar{z}^2 + 2 i z, \quad z\in\C.\]
+\end{solution}
+
+% 6.3 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{6}
+\question{
+Escreva a função $f \, : \, \C\setminus\{0\} \to \C$ dada por
+\[
+    f(z) = z + z^{-1}
+\]
+na forma $f(z) = u(r,\theta) + i v(r,\theta)$.
+}
+
+\begin{solution}
+    \begin{align*}
+        f(z) &= r\,\euler^{i\theta} + (1/r)\,\euler^{-i\theta} \\
+            &= \underbrace{\left(r+\frac{1}{r}\right)\cos\theta}_{u(r,\theta)} +
+                i \underbrace{\left(r-\frac{1}{r}\right)\sin\theta}_{v(r,\theta)},
+                \quad r\neq 0.
+    \end{align*}
+\end{solution}
+
+% 6.4 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{8}
+\question{
+Mostre que o limite
+\[
+    \lim_{z \to 0} \left( \frac{z}{\bar z} \right)^2
+\]
+não existe. Para tanto, avalie como pontos da forma $(x,0)$ e $(x,x)$ se aproximam da origem. Observe que, neste caso, não basta avaliar as direções usuais dadas por pontos $(x,0)$ e $(0,y)$.
+}
+
+\begin{solution}
+    Seja $z = x+iy$, $x,y\in\R$, temos que
+    \begin{align*}
+        \lim_{z \to 0} \left( \frac{z}{\bar z} \right)^2
+            &= \lim_{(x,y) \to (0,0)} \left( \frac{x+iy}{x-iy} \right)^2 \\
+            &= \lim_{x\to 0} \left( \frac{x+imx}{x-imx} \right)^2\quad\text{quando } y = mx \\
+            &= \left( \frac{1+im}{1-im} \right)^2.
+    \end{align*}
+    A última expressão deveria ser igual para qualquer inclinação angular $m$ que nos aproximássemos da origem. Porém, se $m=0$ o limite é igual à $1$ e, se $m=1$ o limite é igual à $-1$. Portanto, o limite não existe.
+\end{solution}
+
+% 6.6 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{5}
+\question{
+Mostre que as seguintes funções não admitem derivada em qualquer ponto do plano complexo, sendo $z = x + iy$.
+    \begin{multicols}{3}
+    \begin{enumerate}[label=(\alph*)]
+      \item $f_1(z) = \bar z$;
+      \item $f_2(z) = z - \bar z$;
+      \item $f_3(z) = 2x + ixy^2$;
+      \item $f_4(z) = e^x e^{-iy}$;
+      \item $f_5(z) = e^y e^{ix}$.
+    \end{enumerate}
+    \end{multicols}
+}
+
+\begin{solution}
+Vamos mostrar que as equações não satisfazem as condições de Cauchy-Riemann
+    \begin{enumerate}[label=(\alph*)]
+      \item $u(x,y) = x, \quad v(x,y) = -y$.\\ Logo,
+      \[\frac{\partial u}{\partial x} = 1 \neq -1  = \frac{\partial v}{\partial y}, \quad x,y\in\C.\]
+      
+      \item $u(x,y) = 0, \quad v(x,y) = 2y$.\\ Logo,
+      \[\frac{\partial u}{\partial x} = 0 \neq 2  = \frac{\partial v}{\partial y}, \quad x,y\in\C.\]
+      
+      \item $u(x,y) = 2x, \quad v(x,y) = xy^2$.\\ Logo,
+      \begin{align*}
+          \frac{\partial u}{\partial x} &= 2 \neq 2xy  = \frac{\partial v}{\partial y}, \quad\text{se } xy \neq 1,\\
+          \frac{\partial u}{\partial y} &= 0 \neq y^2  = -\frac{\partial v}{\partial x},  \quad\text{se } y \neq 0.
+      \end{align*}
+      Note que não é possível não satisfazer as duas condições simultaneamente.
+      
+      \item $u(x,y) = e^x\cos y, \quad v(x,y) = -e^x\sin y$.\\ Logo, \vspace{-5mm}
+      \begin{align*}
+          \frac{\partial u}{\partial x} &= e^x\cos y \neq -e^x\cos y  = \frac{\partial v}{\partial y}, \quad\text{se } y \neq \pi/2+k\pi,~ k\in\Z,\\
+          \frac{\partial u}{\partial y} &= -e^x\sin y \neq e^x\sin y  = -\frac{\partial v}{\partial x},  \quad\text{se } y \neq k\pi,~ k\in\Z.
+      \end{align*}
+      Note que não é possível não satisfazer as duas condições simultaneamente.
+      
+      \item $u(x,y) = e^y\cos x, \quad v(x,y) = e^y\sin x$.\\ Logo, \vspace{-5mm}
+      \begin{align*}
+          \frac{\partial u}{\partial x} &= -e^y\sin x \neq e^y\sin x  = \frac{\partial v}{\partial y}, \quad\text{se } x \neq k\pi,~ k\in\Z,\\
+          \frac{\partial u}{\partial y} &= e^y\cos x \neq -e^y\cos x  = -\frac{\partial v}{\partial x},  \quad\text{se }x \neq \pi/2+k\pi,~ k\in\Z.
+      \end{align*}
+      Note que não é possível não satisfazer as duas condições simultaneamente.
+      
+    \end{enumerate}
+\end{solution}
+
+
+% 6.7  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{7}
+\question{
+Mostre que $f'$ e $f''$ existem em todos os pontos do plano e calcule-as para os seguintes casos.
+    \begin{multicols}{2}
+      \begin{enumerate}[label=(\alph*)]
+        \item $f(z) = iz + 2$;
+        \item $f(z) = e^{-x}e^{-iy}$;
+        \item $f(z) = z^3$;
+        \item $f(z) = \cos x \cosh y - i \sin x \sinh y$.
+      \end{enumerate}
+    \end{multicols}
+}
+
+\begin{solution}
+Vamos usar que se $f'$ existe e é contínua em uma vizinhança de cada ponto do domínio da função, então $f^{(n)}$ também existe para todo $n\in\N$.
+    \begin{enumerate}[label=(\alph*)]
+        \item $u(x,y) = 2-y, \quad v(x,y) = x$.\\ Logo, \vspace{-5mm}
+        \begin{align*}
+          \frac{\partial u}{\partial x} &= 0 = \frac{\partial v}{\partial y}, \quad x,y\in\R\\
+          \frac{\partial u}{\partial y} &= -1  = -\frac{\partial v}{\partial x}, \quad x,y\in\R.
+        \end{align*}
+        Como $f$ satisfaz as condições de Cauchy-Riemann, então $f'$ existe e
+        \[ f'(z) = \frac{\partial u}{\partial x} + i\frac{\partial v}{\partial x} = i, \quad z\in\C. \]
+        Como $f'$ é uma constante, $f'' = 0$.
+        
+        \item $u(x,y) = e^{-x}\cos y, \quad v(x,y) = -e^{-x}\sin y$.\\ Logo, \vspace{-5mm}
+        \begin{align*}
+          \frac{\partial u}{\partial x} &= -e^{-x}\cos y = \frac{\partial v}{\partial y}, \quad x,y\in\R\\
+          \frac{\partial u}{\partial y} &= -e^{-x}\sin y  = -\frac{\partial v}{\partial x}, \quad x,y\in\R.
+        \end{align*}
+        Como $f$ satisfaz as condições de Cauchy-Riemann, então $f'$ existe e
+        \[ f'(z) = \frac{\partial u}{\partial x} + i\frac{\partial v}{\partial x} = -e^{-x}\cos y + i e^{-x}\sin y
+            = -e^{-x-iy} = -e^z, \quad z\in\C. \]
+        Analogamente, $f''(z) = e^z,\quad z\in\C$.
+        
+        \item Sabemos que um produto de funções analíticas, também é analítica, logo $f(z) = z^3 = (z\,z\,z)$ possui derivadas de todas as ordens. Usando as propriedades temos que $f'(z) = 3z^2$ e $f''(z) = 6z$, $z\in\C$.
+        
+        \item $u(x,y) = \cos x \cosh y, \quad v(x,y) = -\sin x \sinh y$.\\ Logo, \vspace{-5mm}
+        \begin{align*}
+          \frac{\partial u}{\partial x} &= -\sin x \cosh y = \frac{\partial v}{\partial y}, \quad x,y\in\R\\
+          \frac{\partial u}{\partial y} &= \cos x \sinh y  = -\frac{\partial v}{\partial x}, \quad x,y\in\R.
+        \end{align*}
+        Como $f$ satisfaz as condições de Cauchy-Riemann, então $f'$ existe e
+        \[ f'(z) = \frac{\partial u}{\partial x} + i\frac{\partial v}{\partial x} = -\sin x \cosh y - i \cos x \sinh y, \quad z\in\C. \]
+        Analogamente, $f''(z) = -\cos x \cosh y + i \sin x \sinh y$, $z\in\C$.
+        
+    \end{enumerate}
+\end{solution}
+
+% 6.8 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{5}
+\question{
+Calcule $f'(z)$ para os seguintes casos, indicando onde esta derivada existe. Considere ${z = x + iy = r e^{i \theta}}$, sendo $\theta \in (-\pi,\pi]$. Quais destas funções são inteiras?
+    \begin{multicols}{2}
+    \begin{enumerate}[label=(\alph*)]
+      \item $f(z) = z^{-1}$;
+      \item $f(z) = x^2 + iy^2$;
+      \item $f(z) = z \Im(z)$;
+      \item $f(z) = z^{-4}$;
+      \item $f(z) = \sqrt{r} e^{i\theta/2}$;
+      \item $f(z) = \frac{z-1}{2z +1}$;
+      \item $f(z) = (1 - 4z^2)^3$;
+      \item $f(z) = e^{-\theta}\cos(\ln r) + i e^{-\theta}\sin(\ln r)$.
+    \end{enumerate}
+    \end{multicols}
+}
+
+\begin{solution}
+   \begin{multicols}{2}
+    \begin{enumerate}[label=(\alph*)]
+      \item Usando as propriedades $f'(z) = -z^{-2}$, $z\in\C\backslash\{0\}$. Essa função não é inteira, pois não é analítica em $z=0$.
+      
+      \item Essa função apenas satisfaz as condições de Cauchy-Riemann quando $x=y$. Quando isso acontece $f'(z) = 2x + i2y$. Essa função não é analítica em nenhum ponto, pois a derivada não existe em nenhuma vizinhança. Logo, $f$ não é inteira.
+      
+      \item $f(z) = z\,\Im(z) = xy + i y^2$ apenas satisfaz as condições de Cauchy-Riemman em $z=0$ e $f'(0) = 0$. Logo, $f$ não é inteira.
+      
+      \item Usando as propriedades $f'(z) = -4z^{-5}$, $z\in\C\backslash\{0\}$. Essa função não é inteira, pois não é analítica em 0.
+      
+      \item $f$ satisfaz as condições de Cauchy-Riemann em polares para $u(r,\theta) = \sqrt{r} \cos \theta/2$ e $v(r,\theta) = \sqrt{r} \sin\theta/2$ se $r\neq 0$. Nesse caso,
+      \[f'(z) = e^{-i\theta} (u_r +i v_r) = \frac{e^{-i\theta/2}}{2\sqrt{r}}.\]
+      A função não é inteira, pois não é analítica em $z=0$.
+      
+      \item Usando as propriedades, temos que
+      \[f'(z) = \frac{3}{(2z +1)^2},\quad z\neq -1/2.\]
+      Essa função não é inteira, pois não é analítica em $z=-1/2$.
+      
+      \item Usando as propriedades, temos que
+      \[f'(z) = -24z(1-4z^2)^2,\quad z\in\C.\]
+      Essa função é inteira, pois é analítica em $\C$.
+      
+      \item $f$ satisfaz as condições de Cauchy-Riemann em polares para $u(r,\theta) = e^{-\theta}\cos(\ln r)$ e $v(r,\theta) = e^{-\theta}\sin(\ln r)$ se $r\neq 0$. Nesse caso,
+      \begin{align*}
+          f'(z) &= e^{-i\theta} (u_r +i v_r) \\
+            &= \frac{e^{-2i\theta}}{r}(-\sin(\ln r) + i \cos(\ln r)).
+      \end{align*}
+      A função não é inteira, pois não é analítica em $z=0$.
+      
+    \end{enumerate}
+    \end{multicols}
+\end{solution}
+
+% 6.9 % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{8}
+% \question{
+% Seja $g$ a função dada por
+% \[
+%     g(z) = \sqrt{r}e^{i \theta},
+% \]
+% com $r > 0$ e $\theta \in (-\pi,\pi)$. Esta função é analítica neste intervalo e tem derivada $g'(z) = \frac{1}{2g(z)}$. Mostre que a função composta $G(z) = g(2z - 2 + i)$ é analítica no semiplano $x > 1$, com derivada
+% \[
+%     G'(z) = \frac{1}{G(z)}.
+% \]
+% Sugestão: note que $\Re(2z - 2 + i) > 0$ sempre que $x > 1$.
+% }
+% \begin{solution}
+%     ~
+% \end{solution}
+
+\end{questions}

@@ -1,0 +1,460 @@
+
+\begin{questions}
+
+% 5.2  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{1}
+\question{
+    \textbf{Normas $\ell_1$ e $\ell_\infty$ e Problemas de Programação Linear.}
+    As normas vetoriais $\ell_1$ e $\ell_\infty$ surgem em uma grande variedade de aplicações. Para um vetor $x \in \R^n$, essas normas são definidas como
+    \[
+    \|x\|_1 := \sum_{i = 1}^n |x_i|, \qquad \|x\|_\infty := \max \Big\{ |x_i| ~:~ i = 1,\cdots,n\Big\}.
+    \]
+    Neste exercício, veremos como modelar estas normas em termos de problemas de programação linear.
+    \begin{parts}
+    \part Seja $y \in \R$ um escalar dado. Qual é a solução ótima do problema abaixo?
+    \[
+    \begin{array}{rl}
+    \min & t \\
+    \textrm{sujeito a:} & t \geq y,\\
+    & t \geq -y.
+    \end{array}
+    \]
+    \item Com base na sua observação acima, mostre que, para um vetor $y \in \R^m$ dado, a sua norma $\ell_\infty$ é dada pela solução $t^\star$ do problema
+    \[
+    \begin{array}{rl}
+    \min & t \\
+    \textrm{sujeito a:} & -{\bf 1}t \leq y \leq {\bf 1}t.
+    \end{array}
+    \]
+    \part Ainda usando a observação do item (a), mostre que, para um vetor $y \in \R^m$ dado, a sua norma $\ell_1$ é dada por ${\bf 1}^\T t^\star$, sendo $t^\star \in \R^m$ a solução ótima do problema
+    \[
+    \begin{array}{rl}
+    \min & {\bf 1}^\T t \\
+    \textrm{sujeito a:} & -t \leq y \leq t.
+    \end{array}
+    \]
+    \end{parts}
+}
+
+\begin{solution}
+\begin{parts}
+    \part Note que se $t \ge y$ e $t \ge -y$, então $t \ge |y|$. Logo, o menor valor que $t$ pode assumir é $|y|$. Portanto, a solução do problema é $t^* = |y|$.
+    
+    \part Se $-{\bf 1}t \leq y \leq {\bf 1}t$, então $t \ge y_i$ e $t \ge -y_i$ para todo $i\in\{1,\dots,m\}$. Como vimos anteriormente, isso é equivalente à $t \ge |y_i|$ para todo $i$.Dessa forma, $t$ ser maior ou igual ao maior dos $|y_i|$ é condição necessária e suficiente para satisfazer a restrição. Portanto, a restrição equivalente à todas essas é $t\ge \max_i|y_i|$. Dessa forma o menor valor que $t$ pode assumir é o ótimo
+    \[t^* = \max_{i\in\{1,\dots,m\}}|y_i| = ||y||_\infty.\]
+    
+    \part Note que agora $t\in\R^m$ é um vetor. A restrição, analogamente aos itens anteriores, é equivalente à $t_i\ge|y_i|$ para todo $i\in\{1,\dots,m\}$. Dessa forma, o menor valor que ${\bf 1}^\T t$ pode assumir é quando $t_i^* = |y_i|$. Assim,
+    \[
+        {\bf 1}^\T t^* = \sum_{i=1}^n |y_i| = ||x||_1.
+    \]
+    \end{parts}
+\end{solution}
+
+% 5.3 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{20}
+\question{
+    Converta os seguintes problemas para a forma padrão:
+    \begin{multicols}{2}
+    \begin{parts}
+    \part $\begin{array}{rl}
+    \min & x_1 + 2x_2 + 3x_3 \\
+    \textrm{sujeito a:} & 2 \leq x_1 + x_2 \leq 3,\\
+    & 4 \leq x_1 + x_3 \leq 5,\\
+    & x_1,x_2,x_3 \geq 0.
+    \end{array}$
+    
+    \part $\begin{array}{rl}
+    \min & x_1 + 2x_2 + 3x_3 \\
+    \textrm{sujeito a:} & x_1 + 2x_2 + 3x_3 = 10,\\
+    & x_1 \geq 1,~~ x_2 \geq 2,~~ x_3 \geq 3.
+    \end{array}$
+    
+    \part $ \begin{array}{rl}
+    \min & x_1 - 2x_2 \\
+    \textrm{sujeito a:} & x_1 + x_2 \leq 6,\\
+    & x_1 + 2x_2 \geq 12,\\
+    & x_1 - x_2 \geq 2,\\
+    & x_2 \leq 0.
+    \end{array}$
+    \end{parts}
+    \end{multicols}
+}
+
+\begin{solution}
+    \begin{parts}
+    \begin{multicols}{2}
+    \part $\begin{array}{rl}
+    \min & x_1 + 2x_2 + 3x_3 \\
+    \textrm{sujeito a:} 
+        & - x_1 - x_2 + x_4 = -2,\\
+        & ~~x_1 + x_2 + x_5 = 3,\\
+        & -x_1 - x_3 + x_6 = -4,\\
+        & ~~x_1 + x_3 + x_7 = 5,\\
+        & ~~x_i \geq 0,~i\in\{1,\dots,7\}.
+    \end{array}$
+    
+    \part $\begin{array}{rl}
+    \min & x_1 + 2x_2 + 3x_3 \\
+    \textrm{sujeito a:} & x_1 + 2x_2 + 3x_3 = 10,\\
+    & -x_1 + x_4 = -1,\\ &-x_2 + x_5 = -2,\\ &-x_3 + x_6 = -3,\\
+    & ~~x_i \geq 0,~i\in\{1,\dots,6\}.
+    \end{array}$
+    \end{multicols}
+    \newpage
+    \part Seja $\Tilde{x}_2 = -x_2$ e $x_1 = x_1^+ - x_1^-$, então \\[1ex]
+    $ \begin{array}{rl}
+    \min & x_1^+ - x_1^- + 2\Tilde{x}_2 \\
+    \textrm{sujeito a:}
+    & x_1^+ - x_1^- - \Tilde{x}_2 + x_3 = 6,\\
+    & -x_1^+ + x_1^- + 2\Tilde{x}_2 + x_4 = -12,\\
+    & -x_1^+ + x_1^- - \Tilde{x}_2 + x_5 = -2,\\
+    & x_1^+,x_1^-,\Tilde{x}_2,x_3,x_4,x_5 \ge 0.
+    \end{array}$
+    \end{parts}
+\end{solution}
+
+% 5.7  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{6}
+\question{
+    Converta o seguinte problema de otimização a um PL na forma padrão:
+    \[
+    \begin{array}{rl}
+    \min & |x_1| + |x_2| + |x_3|\\
+    \textrm{sujeito a:} & x_1 + x_2 \leq 1,\\
+    & 2x_1 + x_3 = 3.
+    \end{array}
+    \]
+}
+
+\begin{solution}
+    Para remover os módulos, vamos definir as variáveis $z_i\ge x_i$ e $z_i\ge -x_i$, para todo $i\in\{1,2,3\}$, assim como foi feito no problema 5.2. Como $x_i\in\R$, temos que definir também $x_i = x_i^+-x_i^-$. Então o problema fica
+    \[
+    \begin{array}{rl}
+        \min & z_1 + z_2 + z_3\\
+        \textrm{sujeito a:}
+            & x_1^+ -x_1^- + x_2^+-x_2^- + x_4 = 1,\\
+            & 2x_i^+ -2x_i^- + x_3^+-x_3^- = 3,\\
+            & -z_i + x_i^+ -x_i^- + x_{i+4} = 0,\quad i\in\{1,2,3\},\\
+            & -z_i - x_i^+ +x_i^- + x_{i+7} = 0,\quad i\in\{1,2,3\},\\
+            & z_i,x_i^+,x_i^-,x_4,x_{i+4},x_{i+7}\ge 0,\quad i\in\{1,2,3\}.
+    \end{array}
+    \]
+\end{solution}
+
+% 5.12 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{11}
+\question{
+Encontre todas as soluções básicas do seguinte sistema linear:
+\[
+\left\{ \begin{array}{rl}
+-x_1 + x_2 + x_3 + x_4 - 2x_5 & = 4\\
+x_1 -2x_2 + x_4 - x_5 & = 3\end{array} \right.
+\]
+}
+
+\begin{solution}
+    Basta selecionar as colunas de forma a montar matrizes quadradas de posto completo e resolver o sistema linear correspondente, de forma que ${B x_B = [4,3]^\T}$.
+    \begin{itemize}
+        \item Variáveis básicas: $(x_1,x_2)$: 
+        \[
+        B = 
+        \begin{bmatrix}
+            -1 & 1\\
+            1 & -2
+        \end{bmatrix}
+        \Rightarrow
+        x_B = \begin{bmatrix} -11\\ -7 \end{bmatrix};
+        \]
+        
+        \item Variáveis básicas: $(x_1,x_3)$: 
+        \[
+        B = 
+        \begin{bmatrix}
+            -1 & 1\\
+            1 & 0
+        \end{bmatrix}
+        \Rightarrow
+        x_B = \begin{bmatrix} 3\\ 7 \end{bmatrix};
+        \]
+        
+        \item Variáveis básicas: $(x_1,x_4)$: 
+        \[
+        B = 
+        \begin{bmatrix}
+            -1 & 1\\
+            1 & 1
+        \end{bmatrix}
+        \Rightarrow
+        x_B = \begin{bmatrix} -1/2\\ 7/2 \end{bmatrix};
+        \]
+        
+        \item Variáveis básicas: $(x_1,x_5)$: 
+        \[
+        B = 
+        \begin{bmatrix}
+            -1 & 2\\
+            1 & -1
+        \end{bmatrix}
+        \Rightarrow
+        x_B = \begin{bmatrix} 10\\ 7 \end{bmatrix};
+        \]
+        
+        \item Variáveis básicas: $(x_2,x_3)$: 
+        \[
+        B = 
+        \begin{bmatrix}
+            1 & 1\\
+            -2 & 0
+        \end{bmatrix}
+        \Rightarrow
+        x_B = \begin{bmatrix} -3/2\\ 11/2 \end{bmatrix};
+        \]
+        
+        \item e assim sucessivamente até $(x_4,x_5)$.
+    \end{itemize}
+\end{solution}
+
+% 5.13 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{4}
+\question{
+    Encontre todos os pontos extremos do seguinte conjunto poliédrico:
+    \[
+    \mathbb{X} = \left\{ x = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}~~:~~ x_1 + x_2 + x_3 \leq 1,~~ -x_1 + 2x_2 \leq 4,~~ x_1,x_2,x_3 \geq 0 \right\}
+    \]
+}
+
+\begin{solution}
+    Como nosso espaço é de dimensão 3, vamos ativar de 3 em 3 desigualdades e verificar se o ponto correspondente satisfaz as demais; se for o caso então trata-se de um ponto extremo. Temos 5 inequações, vamos numerá-las de I até V na ordem mostrada no enunciado.
+    \begin{itemize}
+        \item ativando a I, II e III, temos
+        $x = [0, 2, -1]^\T$,
+        que não satisfaz a inequação V;
+
+        \item ativando a I, II e IV, temos
+        $x = [-4, 0, 5]^\T$,
+        que não satisfaz a inequação III;
+        
+        \item ativando a I, II e V, temos
+        $x = [-2/3 , 5/3, 0]^\T$,
+        que não satisfaz a inequação III;
+        
+        \item ativando a I, III e IV, temos
+        $x = [0 , 0, 1]^\T$,
+        que satisfaz as demais e, portanto, é um ponto extremo;
+        
+        \item ativando a I, III e V, temos
+        $x = [0 , 1, 0]^\T$,
+        que satisfaz as demais e, portanto, é um ponto extremo;
+        
+        \item ativando a I, IV e V, temos
+        $x = [1 , 0, 0]^\T$,
+        que satisfaz as demais e, portanto, é um ponto extremo;
+        
+        \item ativando a II, III e IV, temos um sistema sem solução;
+        
+        \item ativando a II, III e V, temos
+        $x = [0, 2, 0]^\T$,
+        que não satisfaz a inequação I;
+        
+        \item e assim sucessivamente...
+    \end{itemize}
+\end{solution}
+
+% 5.14 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{7}
+\question{
+    Determine se o seguinte politopo possui alguma direção factível ilimitada, ou seja, se o conjunto contém alguma semirreta.
+    \[
+    \mathbb{X} = \left\{ x = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}~~:~~ -x_1 + x_2 = 4,~~ x_1 + x_2 + x_3 \leq 6,~~ x_3 \geq 1,~~ x_1,x_2,x_3 \geq 0 \right\}
+\]
+}
+\begin{solution}
+    O politopo não contém semirretas, pois ele é limitado. Para verificar isso, basta tomar as inequações
+    \[x_1+x_2+x_3 \le 6, \quad x_1,x_2,x_3\ge 0,\]
+    Daí temos que $0 \le x_1 \le 6-x_2-x_3 \le 6$. Por simetria, o mesmo vale para $x_2$ e $x_3$. Logo, $ \mathbb{X} \subset \{x\in\R^3 \mid 0\le x_i\le 6, \forall i\in\{1,2,3\}\}$, que é um conjunto limitado.
+\end{solution}
+
+% 5.26 % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{25}
+\question{
+Uma fábrica têxtil produz três itens, $x_1$, $x_2$ e $x_3$. Seu planejamento produtivo para o próximo mês deve verificar as restrições
+\[
+x_1 + 2x_2 + 2x_3 \leq 12 \qquad \text{e} \qquad 2x_2 + 4x_2 + x_3 \leq s,
+\]
+sendo $x_i \geq 0$, $i = 1,2,3$. A primeira restrição modela a capacidade produtiva da fábrica e a segunda modela a quantidade de algodão disponível, $s$. A receita líquida obtida com cada tipo de produto é proporcional a 2, 3 e 3, respectivamente. Determine a variável dual ótima $\lambda_2^\star(s)$ e a receita ótima $f^\T x^\star(s)$ em função de $s$. Interprete.
+}
+\begin{solution}
+    Vamos enunciar o problema no formato padrão,
+    $$\begin{array}{rl}
+    \min & -2x_1 - 3x_2 - 3x_3 \\
+    \textrm{sujeito a:}
+    & x_1 + 2x_2 + 2x_3 + x_4 = 12,\\
+    & 2x_1 + 4x_2 + x_3 + x_5 = s,\\
+    & x_i \geq 0,\quad i\in\{1,\dots,5\}.
+    \end{array}$$
+    Assim reconhecemos as matrizes
+    \[    
+    f = \begin{bmatrix} -2\\ -3\\ -3\\ 0\\ 0 \end{bmatrix},\quad
+    A = \begin{bmatrix} 1 & 2 & 2 & 1 & 0\\ 2 & 4 & 1 & 0 & 1 \end{bmatrix},\quad
+    b = \begin{bmatrix} 12\\ s \end{bmatrix},
+    \]
+    e podemos escrever o problema dual:
+    $$\begin{array}{rl}
+    \max & 12\lambda_1 + s\lambda_2 \\
+    \textrm{sujeito a:}
+    & \lambda_1 + 2\lambda_2 \le -2,\\
+    & 2\lambda_1 + 4\lambda_2 \le -3,\\
+    & 2\lambda_1 + \lambda_2 \le -3,\\
+    & \lambda_1,\lambda_2 \le 0.
+    \end{array}$$
+    Podemos verificar que os pontos extremos do conjunto factível são $[-4/3,-1/3]^\T$, $[0,-3]^\T$, $[-2,0]^\T$, que resultam nos seguintes valores para a função objetivo $b^\T\lambda$: $-16-s/3$, $-3s$, $-24$, respectivamente. Agora é só comparar qual dos três pontos maximiza a função objetivo em função de $s$. É importante verificar, também, que a região factível é limitada na direção do gradiente (maximização).
+    
+    Podemos verificar que se $6\le s \le 24$, o maximizador é $\lambda^*=[-4/3,-1/3]^\T$ e, portanto, a função objetivo do problema original é $-f^\T x^* = -b^\T\lambda^*=16+s/3$.\\
+    Por outro lado, se $s \le 6$, o maximizador é $\lambda^*=[0,-3]^\T$ e, portanto, a função objetivo do problema original é $-b^\T\lambda^*=3s$.\\
+    Por fim, se $s \ge 24$, o maximizador é $\lambda^*=[-2,0]^\T$ e, portanto, a função objetivo do problema original é $-b^\T\lambda^* = 24$.
+    
+\end{solution}
+
+% 5.27 % % % % % % % % % % % % % % % % % % % % %
+\question{ \label{ex_pl_assign}
+Uma pequena empresa de consultoria tem três consultores sêniores disponíveis para trabalhar em quatro projetos nas próximas duas semanas. Cada consultor tem 80 horas para distribuir entre os projetos e a Tabela \ref{tab_ex_pl_assign} mostra a avaliação (de 0 a 100) da capacidade que cada um dos consultores tem de contribuir ao projeto, além das horas que cada projeto requer. O diretor da empresa deseja atribuir os consultores de forma a maximizar a capacidade total de contribuição associada a esta atribuição. Formule este problema como um PL e resolva-o.
+\begin{table}[htb]
+\centering
+\begin{tabular}{ccccc}
+\hline
+          & \multicolumn{4}{c}{Projeto} \\ \cline{2-5} 
+Consultor & 1     & 2     & 3    & 4    \\ \hline
+A         & 90    & 80    & 10   & 50   \\
+B         & 60    & 70    & 50   & 65   \\
+C         & 70    & 40    & 80   & 85   \\ \hline
+Horas     & 70    & 50    & 85   & 35   \\ \hline
+\end{tabular}
+\caption{Dados do Problema \ref{ex_pl_assign}.}
+\label{tab_ex_pl_assign}
+\end{table}
+}
+\begin{solution}
+Para todo $i\in\cal{I}=\{A,B,C\}$ e $j\in\cal{J}=\{1,2,3,4\}$, seja a variável de decisão $x_{i,j}$ o tempo alocado do consultor $i$ no projeto $j$. Sabe-se a demanda $d_j$ do projeto $j$, as avaliações $a_{i,j}$ que o consultor $i$ recebe relativo ao projeto $j$ e sabemos que o consultor $i$ trabalha no máximo $m_i$ horas. Logo, o problema pode ser escrito como
+    \[
+    \begin{array}{rl}
+    \max & \displaystyle\sum_{(i,j) \in \cal{I}\times\cal{J}} a_{i,j}\,x_{i,j} \\
+    \textrm{sujeito a:}
+    & \sum_{j\in\cal{J}} x_{i,j} \le m_i, \quad i\in\cal{I},\\
+    & \sum_{i\in\cal{I}} x_{i,j}  =  d_j, \quad j\in\cal{J},\\
+    & x_{i,j} \geq 0,\quad (i,j)\in\cal{I}\times\cal{J}.
+    \end{array}
+    \]
+Resolvendo o problema, encontramos a seguinte solução,
+\[
+x = \begin{bmatrix} 40 & 0 & 40 & 0\\  30 & 50 & 0 & 0\\ 0 & 0 & 45 & 35 \end{bmatrix}.
+\]
+\end{solution}
+
+% 5.28 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{7}
+\question{
+Diversas composições de gasolina são produzidas durante o processo de refino de petróleo. Um importante passo final na produção de combustíveis combina estas composições de forma a gerar um produto de mercado que satisfaça métricas de qualidade especificadas. Suponha que uma empresa tenha 4 variedades de gasolina disponíveis e que serão considerados dois índices de qualidade, A e B. Suponha ainda que estas variedades disponíveis tenham os seguintes valores para os dois índices: 99 e 210, 70 e 335, 78 e 280, 91 e 265, respectivamente. Sabendo-se que os respectivos custos por barril de cada variedade são \$48, \$43, \$58 e \$46, o nosso objetivo é determinar a mistura de menor custo com índice A entre 85 e 90 e índice B entre 270 e 280. Formule este problema como um PL e resolva-o.
+}
+\begin{solution}
+    Seja a variável de decisão $x_i$ a porcentagem da $i$-ésima variedade utilizada na mistura, com $i\in\{1,2,3,4\}$. O problema pode ser formulado como
+    \[
+    \begin{array}{rl}
+    \min & 48\,x_1+43\,x_2+58\,x_3+46\,x_4\\
+    \textrm{sujeito a:}
+    & x_1+x_2+x_3+x_4 = 1,\\
+    & 85 \le 99\,x_1+70\,x_2+78\,x_3+91\,x_4 \le 90, \\
+    & 270 \le 210\,x_1+335\,x_2+280\,x_3+265\,x_4 \le 280, \\
+    & x_{i} \geq 0,\quad i\in\{1,2,3,4\}.
+    \end{array}
+    \]
+    
+Resolvendo o problema obtemos que $x=[0.1765, 0.3529, 0, 0.4706]^\T$.
+\end{solution}
+
+% 5.29 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{7}
+\question{
+Uma metalúrgica deve fornecer ao menos 37 discos grandes e 211 discos pequenos. Para produzí-los, a empresa corta placas de metal de tamanho padrão, em três padrões de corte: um fornece 2 discos grandes, com 34\% de desperdício; o segundo fornece 5 discos pequenos, com 22\% de sobras e o terceiro fornece 1 disco grande e 3 discos pequenos, com 27\% de desperdício. A empresa busca satisfazer a demanda com o menor desperdício possível. Formule este problema como um PL e resolva-o. As variáveis ótimas são inteiras?
+}
+\begin{solution}
+    Seja $x_i$ o número de cortes do tipo $i\in\{1,2,3\}$. Dessa forma, podemos formular o problema como
+    \[
+    \begin{array}{rl}
+    \min & 34\,x_1 + 22\,x_2 + 27\,x_3 \\
+    \textrm{sujeito a:}
+    & 2\,x_1 + x_3 \ge 37,\\
+    & 5\,x_2 + 3 x_3 \ge 211, \\
+    & x_{i} \geq 0,\quad i\in\{1,2,3\}.
+    \end{array}
+    \]
+Resolvendo o problema obtemos que $x=[0, 20, 37]^\T$.\\
+Felizmente, a solução ótima é inteira.
+\end{solution}
+
+% 5.30 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{7}
+\question{
+Uma pequena oficina de artesanato produz enfeites e outros adereços natalinos. Os adereços de papai-noel requerem $0.1$ dia de moldagem, $0.35$ dia de decoração e $0.08$ dia de embalagem e produzem um lucro de \$16 por unidade. Os valores correspondentes para pequenas árvores de natal são $0.1$, $0.15$, $0.03$ e \$9, enquanto que os valores para bonecos de gengibre são $0.25$, $0.4$, $0.05$ e \$27. A oficina deseja maximizar o lucro gerado pela produção dos próximos 20 dias úteis com uma equipe composta de 1 modelador, 3 decoradores e 1 embalador. Assuma que tudo o que for produzido será vendido. Formule este problema como um PL e resolva-o.
+}
+\begin{solution}
+    Seja $x_i$ o número de produtos produzidos do tipo $i\in\{1,2,3\}$. Dessa forma, podemos formular o problema como
+    \[
+    \begin{array}{rl}
+    \max & 16\,x_1 + 9\,x_2 + 27\,x_3 \\
+    \textrm{sujeito a:}
+    & 0.10\,x_1 + 0.10\,x_2 + 0.25\,x_3 \le 20,\\
+    & 0.35\,x_1 + 0.15\,x_2 + 0.40\,x_3 \le 60,\\
+    & 0.08\,x_1 + 0.03\,x_2 + 0.05\,x_3 \le 20,\\
+    & x_{i} \geq 0,\quad i\in\{1,2,3\}.
+    \end{array}
+    \]
+Resolvendo o problema obtemos que $x=[147, 0, 21]^\T$.
+\end{solution}
+
+% 5.31 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{7}
+\question{
+Uma delegacia de polícia distribui os seus policiais em turnos: em cada semana, cada policial trabalha 5 dias seguidos e tira 2 dias consecutivos de folga. Para garantir um serviço de qualidade, a chefia da delegacia determinou que são necessários ao menos 6 policiais nas segundas, terças, quartas e quintas-feiras, ao menos 10 policiais nas sextas-feiras e nos sábados e ao menos 8 policiais nos domingos. A delegacia deseja determinar o menor número de policiais necessários para atingir estas exigências. Formule e resolva este problema de otimização. As variáveis ótimas são inteiras?
+}
+\begin{solution}
+    Seja $x_i$ o número de policiais que começam a trabalhar no $i$-ésimo dia da semana começando com segunda-feira, $i\in\{1,2,\dots,7\}$. Assim, podemos formular o problema como
+    \[
+    \begin{array}{rl}
+    \min & \displaystyle\sum_{i=1}^7 x_i \\
+    \textrm{sujeito a:}
+    & x_1+x_4+x_5+x_6+x_7 \ge 6,\\
+    & x_1+x_2+x_5+x_6+x_7 \ge 6,\\
+    & x_1+x_2+x_3+x_6+x_7 \ge 6,\\
+    & x_1+x_2+x_3+x_4+x_7 \ge 6,\\
+    & x_1+x_2+x_3+x_4+x_5 \ge 10,\\
+    & x_2+x_3+x_4+x_5+x_6 \ge 10,\\
+    & x_3+x_4+x_5+x_6+x_7 \ge 8,\\
+    & x_{i} \geq 0,\quad i\in\{1,2,\dots,7\}.
+    \end{array}
+    \]
+Resolvendo o problema obtemos que $x=[2/3, 2, 8/3, 2/3, 4, 2/3, 0]^\T$.\\
+Infelizmente, a solução ótima não é inteira. Dessa forma, é necessário adicionar a restrição de que $x\in\N^7$ e, assim, obtemos a solução inteira $x=[0, 3, 2, 0, 5, 0, 1]^\T$.
+\end{solution}
+
+% 5.32 % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{7}
+\question{
+Uma fábrica produz uniformes escolares. A demanda de produtos para esta empresa é altamente sazonal, sendo de 2800, 500, 100 e 850 kits de uniformes para os próximos trimestres. A empresa consegue produzir 1200 kits de uniformes por trimestre e deve se planejar para usar estoques eficientemente a fim de satisfazer a demanda. O custo de estocagem é de \$15 por kit de uniformes por trimestre. O objetivo da empresa é satisfazer a demanda, minimizando o custo total de estoque. Neste problema, resolveremos o {\bf problema de horizonte infinito}, em que assumimos que essa demanda se repete indefinidamente. Neste caso, a modelagem considera que o primeiro trimestre é o período imediatamente após o quarto trimestre. Formule este problema como um PL e resolva-o, determinando a estratégia ótima de produção.
+}
+\begin{solution}
+    Sejam as variáveis de decisão $x_i$ o número de kits de uniformes produzidos no $i$-ésimo trimestre e $e_i$ o estoque de kits guardados no $i$-ésimo trimestre, com $i\in\{1,2,3,4\}$. Então, podemos formular o problema como
+    \[
+    \begin{array}{rl}
+    \min & \displaystyle\sum_{i=1}^4 15\,e_i \\
+    \textrm{sujeito a:}
+    & e_1 = e_4 + x_4 - 850 \ge 0,\\
+    & e_2 = e_1 + x_1 -2800 \ge 0,\\
+    & e_3 = e_2 + x_2 - 500 \ge 0,\\
+    & e_4 = e_3 + x_3 - 100 \ge 0,\\
+    & 0 \le x_{i} \le 1200,\quad i\in\{1,2,3,4\}.
+    \end{array}
+    \]
+Obtemos como solução $x=[1200, 650, 1200, 1200]^\T$, $e=[1600, 0, 150, 1250]^\T$.
+\end{solution}
+
+\end{questions}

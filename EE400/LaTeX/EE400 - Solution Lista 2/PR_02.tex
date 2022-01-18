@@ -1,0 +1,46 @@
+
+\begin{questions}
+
+% 2.3  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{2}
+\question{
+{\bf (Lançamento Oblíquo)} Um projétil é disparado com um ângulo de elevação $\alpha$ medido a partir da horizontal e velocidade inicial $v_0$. Assumindo que a resistência do ar seja desprezível e que a única força externa sobre o móvel seja a força peso, determine o vetor de posição do móvel $\vec r(t)$ para $t \in [0,t_f]$, sendo $t_f$ o tempo que o móvel leva até atingir o solo novamente. Para que valor de $\alpha$ obtemos o maior alcance horizontal? Em que ponto da trajetória a curvatura é máxima? Interprete geometricamente.
+}
+
+\begin{solution}
+    Sabemos que a posição do móvel
+    \begin{align*}
+        \vec r(t) = \left( v_0 \cos(\alpha)\,t, v_0 \sin(\alpha)\,t - g\,t^2/2 \right), \quad t \in [0,t_f].
+    \end{align*}
+    Ademais, $t_f>0$ deve satisfazer
+    \begin{align*}
+        v_0 \sin(\alpha)\,t_f - g\,t_f^2/2 = 0
+            ~\Rightarrow t_f (v_0 \sin(\alpha) - g\,t_f/2) = 0
+            ~\Rightarrow t_f = \frac{2 v_0}{g} \sin(\alpha).
+    \end{align*}
+    Dessa forma, o alcance horizontal máximo
+    \begin{align*}
+        D_H = v_0 \cos(\alpha)\,t_f =  \frac{v_0^2}{g}\,2 \sin(\alpha)\cos(\alpha)
+            = \frac{v_0^2}{g} \sin(2\alpha) \le \frac{v_0^2}{g},
+    \end{align*}
+    e satisfaz a igualdade para $\alpha = \pi/4$.
+    
+    A curvatura é dada por
+    \begin{align*}
+        \kappa(t) 
+            = \frac{|\dot{\vec r}(t) \times \ddot{\vec r}(t)|}{|\dot{\vec r}(t)|^3} 
+            = \frac{|(v_0 \cos(\alpha),v_0 \sin(\alpha) - g\,t) \times (0,-g)|}{|(v_0 \cos(\alpha),v_0 \sin(\alpha) - g\,t)|^3}
+            = \frac{g v_0 \cos(\alpha)}{(v_0^2 - 2 g v_0 \sin(\alpha)\,t+ g^2 t^2 )^{3/2}},
+    \end{align*}
+    que atinge um máximo em $t^* = \frac{v_0}{g} \sin(\alpha)$. Nesse instante, $\kappa(t^*) = \frac{g}{v_0^2}\sec^2(\alpha)$.
+    
+    O ponto de máxima curvatura
+        $
+        \vec r(t^*) = \frac{v_0^2}{2g} \left(\sin(2\alpha), \sin^2(\alpha) \right)
+        $
+    corresponde ao máximo da trajetória, ou seja, é o ponto no qual toda força peso atua como normal, portanto faz sentido ser o ponto de máxima curvatura.
+    %
+    Ademais, a trajetória é parabólica e esse ponto trata-se do vértice da parábola, que é o ponto de maior curvatura.
+\end{solution}
+
+\end{questions}

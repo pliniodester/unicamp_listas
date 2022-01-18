@@ -1,0 +1,115 @@
+\begin{questions}
+
+% 2   % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{1}
+\question{
+Se $X$ tem função distribuição $F_X$, qual é a
+função distribuição de $\euler^X$?
+}
+\begin{solution}
+	\begin{align*}
+		F_{\euler^X}(x)
+        	= P(\euler^X \le x)
+            = P(X \le \ln(x))
+            = F_X(\ln(x)).
+	\end{align*}
+\end{solution}
+
+% 3   % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{1}
+\question{
+Se $X$ tem função distribuição $F_X$, qual é a
+função distribuição da variável aleatória
+$\alpha X + \beta$, onde $\alpha$ e $\beta$ são constantes, $\alpha\neq 0$.
+}
+\begin{solution}
+	\begin{align*}
+		F_{\alpha X + \beta}(x)
+        	= P(\alpha X + \beta \le x)
+            = P\left(X \le \frac{x-\beta}{\alpha}\right)
+            = F_X\left(\frac{x-\beta}{\alpha}\right).
+	\end{align*}
+\end{solution}
+
+% 4   % % % % % % % % % % % % % % % % % % % % %
+%\setcounter{question}{1}
+\question{
+Para uma variável aleatória inteira não
+negativa $N$, mostre que \[E[N] = \sum_{i=1}^\infty P(N\ge i).\]
+\textit{Dica:} $\sum_{i=1}^\infty P(N\ge i) = \sum_{i=1}^\infty \sum_{k=i}^\infty P(N = k)$. Agora troque a ordem da soma.
+}
+\begin{solution}
+\begin{proof}
+	\begin{align*}
+		\sum_{i=1}^\infty P(N\ge i)
+        	&= \sum_{i=1}^\infty \sum_{k=i}^\infty P(N = k)\\
+            &= \sum_{k=1}^\infty \sum_{i=1}^k P(N = k)\\
+            &= \sum_{k=1}^\infty k P(N = k)\\
+            &= E[N].
+	\end{align*}
+\end{proof}
+\end{solution}
+
+% 6   % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{5}
+\question{
+Seja $X$ tal que \[P(X=1) = p = 1-P(X=-1),\] determine $c\neq 1$ tal que $E[c^X]=1$.
+}
+\begin{solution} Sabemos que $c\neq 0$, pois $E[0^X] = 0$. Então, $E[c^X] = c^1\cdot p + c^{-1}\cdot(1-p)$. Queremos que $E[c^X] = 1$, multiplicando ambos lados dessa equação por $c$ e rearranjando-a obtemos uma equação do segundo grau em $c$, \[p\,c^2-c+(1-p) = 0,\] cuja solução é \[c = \frac{1\pm \sqrt{1-4p(1-p)}}{2p} = \frac{1\pm|1-2p|}{2p}.\]
+Dessa forma, as soluções são $c=1$, que não queremos e $c = \frac{1-p}{p}$.
+\end{solution}
+
+% 8   % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{7}
+\question{
+Determine $\Var(X)$ se \[P(X=a) = p = 1-P(X=b).\]
+\vspace{-10mm}
+}
+\begin{solution}
+	\begin{align*}
+		E[X] &= a\cdot p+b\cdot(1-p),\\[1ex]
+        E[X^2] &= a^2\cdot p+b^2\cdot(1-p),\\[1ex]
+        \Var(X) &= E[X^2]-E[X]^2\\
+        	&= a^2p(1-p)+b^2(1-p)(1-(1-p))-2\,a\,b\,p(1-p)\\
+            &= (a^2-2\,a\,b+b^2)\,p(1-p)\\
+            &= (a-b)^2\,p(1-p).
+	\end{align*}
+\end{solution}
+
+% 16  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{15}
+\question{Seja $X$ uma variável aleatória de Poisson
+com parâmetro $\lambda$. Mostre que ${P(X = i)}$
+cresce monotonicamente e então decresce
+monotonicamente à medida que $i$ cresce,
+atingindo o seu máximo quando $i$ é o
+maior inteiro não excedendo $\lambda$.\\
+\textit{Dica:} Considere $P(X = i)/P(X = i-1)$.
+}
+\begin{solution}
+	\begin{align*}
+		\frac{P(X=i)}{P(X=i-1)}
+        	= \frac{\frac{\lambda^i}{i!}\euler^{-\lambda}}
+            	{\frac{\lambda^{i-1}}{(i-1)!}\euler^{-\lambda}}
+            = \frac{\lambda}{i}
+	\end{align*}
+    A sequência $\{\frac{\lambda}{i}\}$ é monótona decrescente em relação à $i$. Logo, enquanto $\frac{\lambda}{i} \ge 1$, $P(X=i) \ge P(X=i-1)$ e a probabilidade cresce com $i$. Mas, quando $\frac{\lambda}{i} < 1$, $P(X=i) < P(X=i-1)$ e a probabilidade descresce com $i$. Dessa forma, temos um máximo quando $i = \lfloor\lambda\rfloor$, onde $\lfloor\lambda\rfloor$ é o maior inteiro menor ou igual à $\lambda$.
+\end{solution}
+
+% 18  % % % % % % % % % % % % % % % % % % % % %
+\setcounter{question}{17}
+\question{Seja $X$ uma variável aleatória de Poisson
+com parâmetro $\lambda$. Que valor de $\lambda$ maximiza $P(X = k)$, $k \ge 0$?
+}
+\begin{solution}
+	Seja $\lambda>0$. Sabemos que $P(X=k)=\frac{\lambda^k}{k!}\euler^{-\lambda}$. Para maximizar essa quantidade, que é função de $\lambda$, vamos achar o ponto crítico, isto é, quando a derivada dessa função em relação à $\lambda$ se anula. A derivada é dada por
+    \begin{align*}
+    	\dfrac{\mathrm{d}}{\mathrm{d}\lambda}
+        		\left(\frac{\lambda^k}{k!}\euler^{-\lambda}\right)
+        	= \left( 1 - \frac{\lambda}{k} \right)
+            	\frac{\lambda^{k-1}}{(k-1)!}\euler^{-\lambda}.
+    \end{align*}
+    É fácil ver que essa função se anula quando $\lambda = k$. Para verificarmos que é um ponto de máximo, basta notar que essa função é maior que 0 quando $\lambda < k$ e é menor que 0 quando $\lambda > k$.
+\end{solution}
+
+\end{questions}

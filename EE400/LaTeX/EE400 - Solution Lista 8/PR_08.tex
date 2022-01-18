@@ -1,0 +1,138 @@
+
+\begin{questions}
+
+% 8.1  % % % % % % % % % % % % % % % % % % % % %
+\question{
+{\bf (Limitantes Superiores para o Módulo de Integrais)} Seja $C$ um caminho de comprimento $L$ e assuma que a função $f$ seja contínua por partes em $C$. Se $M$ for uma constante não-negativa tal que $f(z) \leq M$ para todo $z \in C$ em que $f$ esteja definida, então
+     \[
+     \left| \int_C f(z)\d z \right| \leq ML.
+     \]
+     Use este resultado para resolver os problemas a seguir.
+    \begin{enumerate}[label=(\alph*)]
+      \item Se $C$ for o quarto do círculo $|z|=2$ de $z = 2$ até $z = 2i$, mostre que
+      \[
+      \left| \int_C \frac{z+4}{z^3 -1} \d z\right| \leq \frac{6\pi}{7}.
+      \]
+      \item Se $C$ for o segmento de $z = i$ até $z = 1$, mostre que
+      \[
+      \left| \int_C \frac{1}{z^4} \d z\right| \leq 4\sqrt{2}.
+      \]
+      \item Se $C$ for o triângulo com vértices $0$, $3i$ e $-4$, percorridos nesta ordem, mostre que
+      \[
+      \left| \int_C (e^z - \bar z) \d z\right| \leq 60.
+      \]
+    \end{enumerate}
+}
+\begin{solution}
+\begin{enumerate}[label=(\alph*)]
+      \item
+      \[
+      \left| \int_C \frac{z+4}{z^3 -1} \d z\right|
+        \leq  \sup_{z\in C} \left|\frac{z+4}{z^3 -1}\right| \pi = \frac{6}{7}\pi,
+      \]
+      onde o valor absoluto da função alcança o máximo em $z = 2$.
+      \item
+      \[
+      \left| \int_C \frac{1}{z^4} \d z\right|
+        \leq  \sup_{z\in C} \left|\frac{1}{z^4}\right| \sqrt 2 = 4\sqrt{2},
+      \]
+      onde o valor absoluto da função alcança o máximo em $z = (1+i)/\sqrt{2}$.
+      \item Se $C$ for o triângulo com vértices $0$, $3i$ e $-4$, percorridos nesta ordem, mostre que
+      \[
+      \left| \int_C (e^z - \bar z) \d z\right| 
+        \leq  \sup_{z\in C} |e^z - \bar z| 12
+        \leq 12 \left(\sup_{z\in C} |e^z| + \sup_{z\in C} |\bar z|\right)
+        = 60.
+      \]
+\end{enumerate}
+\end{solution}
+
+% 8.2  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{1}
+\question{
+{\bf (Uma Consequência da Fórmula de Cauchy)} Suponha que uma função $f$ seja analítica sobre e no interior de um círculo positivamente orientado, $C_R$, centrado em $z_0$ e de raio $R$. Se $M_R$ denota o valor máximo de $|f(z)|$ em $C_R$, mostre que
+     \[
+     |f^{(n)}(z_0)| \leq \frac{n! M_R}{R^n}, \quad n = 1,2,\dots.
+     \] \vspace{-7mm}
+}
+\begin{solution}
+    Usando a fórmula de Cauchy e o problema anterior temos que
+    \begin{align*}
+     |f^{(n)}(z_0)|
+        = \frac{n!}{2\pi} \left| \oint_{C_R} \frac{f(z)}{(z-z_0)^{n+1}} \d z \right| 
+        \leq \frac{n!}{2\pi} \sup_{z\in C_R}\left| \frac{f(z)}{(z-z_0)^{n+1}} \right| 2\pi R 
+        \leq n! \sup_{z\in C_R} \frac{|f(z)|}{R^{n+1}} R 
+        \leq n! \frac{M_R}{R^n}.
+    \end{align*}
+\end{solution}
+
+% 8.3  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{10}
+\question{
+{\bf (Teorema de Liouville)} Mostre que, se uma função $f$ for inteira e limitada no plano complexo, então $f$ é constante. Dica: Use o problema anterior.
+}
+\begin{solution}
+A partir do problema anterior, temos que a seguinte expressão vale para todo $z_0\in\C$ e $R>0$, pois $f$ é inteira. Ainda, como $f$ é limitada, então $M_R$ é limitado. Logo,
+    \[
+        |f'(z_0)| \le \frac{M_R}{R} \xrightarrow{R \to \infty} 0.
+    \]
+Portanto, $f'(z_0) = 0$ para todo $z\in\C$, ou seja, $f$ é constante.
+\end{solution}
+
+% 8.4  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{10}
+\question{
+{\bf (Teorema Fundamental da Álgebra I)} Use o Teorema de Liouville para mostrar que qualquer polinômio de grau $n$, $p(z) = a_0 + a_1z + \cdots + a_nz^n$ ($a_n \neq 0$) tem ao menos um zero (ou raiz). Dica: mostre que, se $p$ não tiver um zero, então a função $f$ dada por $f(z) = 1/p(z)$ é inteira e limitada e, portanto, constante, o que é uma contradição.
+}
+\begin{solution}
+    Vamos supor que o polinômio $p$ não possui zeros.
+    Sabemos que
+    \begin{align*}
+        |f(z)| = \frac{1}{|p(z)|}
+            = \frac{1}{|a_0 + a_1z + \cdots + a_nz^n|}
+            = \frac{1}{|z^n|\,\left|\frac{a_0}{z^n} + \frac{a_1}{z^{n-1}} + \cdots + \frac{a_{n-1}}{z} + a_n\right|} \xrightarrow{z \to \infty} 0.
+    \end{align*}
+    Disso, temos que existe um $R>0$ tal que $|f(z)|<1$ sempre que $|z|>R$.
+    %
+    Por outro lado, a região $|z|\le R$ é fechada e limitada e assim $|f(z)|$ é limitada, pois não possui singularidades, pela hipótese de que $p$ não se anula. Logo $f$ é limitada e analítica em todo plano complexo.
+    %
+    Pelo Teorema de Liouville, $f$ é constante. Isso é uma contradição, portanto, o polinômio $p$ possui ao menos um zero em $\C$.
+\end{solution}
+
+% 8.5  % % % % % % % % % % % % % % % % % % % % %
+% \setcounter{question}{2}
+\question{
+{\bf (Teorema Fundamental da Álgebra II)} Vamos agora concluir que um polinômio de grau $n$ tem exatamente $n$ raízes, contando as multiplicidades. Para tanto, basta mostrar que, se $z_0$ for um zero de $p$, então $p$ pode ser escrito como $p(z) = (z - z_0) q(z)$, sendo $q$ um polinômio de grau $n-1$; repetindo-se o raciocínio, tem-se o resultado. A fim de demonstrar este fato, mostre que a identidade
+      \[
+      z^k - z_0^k = (z - z_0) (z^{k-1} + z^{k-2}z_0 + \cdots + z z_0^{k-2} + z_0^{k-1})
+      \]
+      é válida para $k = 2,3,\cdots$. Use esse resultado para finalmente mostrar que
+      \[
+      p(z) - p(z_0) = (z - z_0) q(z)
+      \]
+      sendo $q$ um polinômio de grau $n-1$.
+}
+\begin{solution}
+    Seja $z_0\neq z\neq 0$, então
+    \begin{align*}
+        (z-z_0) \sum_{\ell=0}^{k-1} z^{k-1-\ell} z_0^\ell 
+            &= z^k (1-z_0/z) \sum_{\ell=0}^{k-1} \left(\frac{z_0}{z}\right)^\ell\\
+            &= z^k(1-z_0/z) \frac{1-(z_0/z)^k}{1-z_0/z} \\
+            &= z^k-z_0^k.
+    \end{align*}
+    Por outro lado, é imediato que a identidade se verifica quando $z=0$ ou $z=z_0$.
+    
+    Seja $p(z) = \sum_{k=0}^n a_k z^k$, $a_n\neq 0$, então
+    \begin{align*}
+        p(z) - p(z_0) &= \sum_{k=0}^n a_k (z^k - z_0^k)\\
+            &= \sum_{k=0}^n a_k (z - z_0)\sum_{\ell=0}^{k-1} z^{k-1-\ell} z_0^\ell \\
+            &= (z - z_0) \sum_{k=0}^n \sum_{\ell=0}^{k-1} a_k z^{k-1-\ell} z_0^\ell \\
+            &= (z - z_0) \sum_{m=0}^{n-1} \underbrace{\left(\sum_{\ell=0}^{n-m-1} a_{m+\ell+1} z_0^\ell\right)}_{b_m} z^{m} \\
+            &= (z-z_0)\,q(z).
+    \end{align*}
+    De fato, $b_{n-1} = a_n \neq 0$, logo $q(z) = \sum_{m=0}^{n-1} b_m z^m$ é um polinômio de grau $n-1$.
+    
+    Sabemos do problema anterior que existe $z_0\in\C$ tal que $p(z_0) = 0$, o que permite escrever que ${p(z) = (z-z_0)\,q(z)}$. Repetindo o raciocínio $n-1$ vezes obtemos o resultado.
+\end{solution}
+
+\end{questions}
