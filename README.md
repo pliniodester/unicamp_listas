@@ -1,6 +1,6 @@
 # unicamp_listas
 
-Listas resolvidas de disciplinas da Universidade Estadual de Campinas (Unicamp)
+Minhas resoluções de listas e provas (em LaTeX) de disciplinas da Universidade Estadual de Campinas (Unicamp)
 
 ME210 - Probabilidade I
 
