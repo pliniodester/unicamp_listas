@@ -1,6 +1,7 @@
 # unicamp_listas
 
-Minhas resoluções de listas e provas (em LaTeX) de disciplinas da Universidade Estadual de Campinas (Unicamp)
+Minhas resoluções de listas e provas de disciplinas da Universidade Estadual de Campinas (Unicamp)
+Matérias que fui PED (Programa de Estágio Docente).
 
 ME210 - Probabilidade I
 
